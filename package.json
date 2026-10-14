@@ -1,0 +1,8 @@
+{
+  "name": "doctor-approach-dd2-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Independent DD2 Growth Gap Deep Dive API",
+  "scripts": { "start": "node dd2-api/server.js" },
+  "engines": { "node": ">=18" }
+}
