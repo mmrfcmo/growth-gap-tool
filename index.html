@@ -28,7 +28,7 @@
 <section class="section" id="optionsSection"><div class="eyebrow">05 / Review & next steps</div><h2>Choose the appropriate next step</h2><div class="two"><div class="asset"><h3>Take the complimentary assets</h3><p>Complete a business information form, review the concepts and receive the agreed assets. You arrange publishing, integrations, tracking and ongoing technical maintenance yourself.</p></div><div class="asset"><h3>Explore managed support</h3><p>If you would rather have agreed assets implemented and maintained for you, discuss the appropriate managed package. Scope, delivery and responsibilities should be confirmed before purchase.</p></div></div><div class="bar no-print"><button onclick="window.print()">Print / save report</button><button onclick="resetScan()">Start a new scan</button></div></section>
 </div><div class="footer">The Doctor Approach · Diagnose before prescribing · Public website scan only; unavailable information is not assumed.</div></main>
 <script>
-const API='https://doctor-approach-api.onrender.com/api/diagnose';
+const API='https://doctor-approach-dd2-api.onrender.com/api/dd2/diagnose';
 const $=id=>document.getElementById(id);
 let lastData=null;
 function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
