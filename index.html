@@ -54,6 +54,47 @@ html,body{overflow-x:hidden}
  #treatment-assets .asset-preview-card .asset-guide-stage{min-height:315px;}
 }
 
+/* Stronger product previews: lead-magnet page + actual guide cover, and a fuller two-article blog */
+#treatment-assets .leadmagnet-scene{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(125px,.72fr);gap:12px;align-items:center;padding:18px;background:radial-gradient(circle at 50% 40%,#d7edf4,#edf3f6 70%);}
+#treatment-assets .leadmagnet-browser{min-width:0;overflow:hidden;border-radius:9px;background:#e8edf4;box-shadow:0 12px 25px #0f172a24;transform:rotate(-1deg);}
+#treatment-assets .leadmagnet-browser .asset-browser-bar{font-size:8px;}
+#treatment-assets .leadmagnet-page{background:#fff;color:#16364c;}
+#treatment-assets .leadmagnet-top{display:flex;align-items:center;gap:6px;padding:8px;border-bottom:1px solid #e2edf2;font-size:7px;font-weight:900;color:#0b6e89;}
+#treatment-assets .leadmagnet-top .asset-tooth{width:21px;height:21px;font-size:14px;}
+#treatment-assets .leadmagnet-nav{margin-left:auto;font-size:6px;color:#6b8292;}
+#treatment-assets .leadmagnet-hero{padding:15px 12px 13px;background:linear-gradient(145deg,#f1fbff,#d9f0f5);}
+#treatment-assets .leadmagnet-hero h4{font-size:clamp(15px,1.45vw,21px);line-height:1.06;font-weight:900;letter-spacing:-.04em;color:#12334d;margin-top:7px;}
+#treatment-assets .leadmagnet-hero>p:not(.asset-eyebrow){font-size:8px;line-height:1.45;color:#526b80;margin-top:7px;}
+#treatment-assets .leadmagnet-signup{display:grid;gap:6px;margin-top:12px;padding:10px;border:1px solid #d4e8ef;border-radius:7px;background:#fff;box-shadow:0 5px 15px #0f172a0c;}
+#treatment-assets .leadmagnet-signup strong{font-size:9px;line-height:1.3;color:#12334d;}
+#treatment-assets .leadmagnet-signup>span{font-size:7px;color:#5a7183;line-height:1.4;}
+#treatment-assets .leadmagnet-fields{display:grid;gap:5px;}
+#treatment-assets .leadmagnet-fields i{font-style:normal;border:1px solid #d9e5ea;border-radius:4px;padding:6px;font-size:7px;color:#8ba0ad;background:#fbfdfe;}
+#treatment-assets .leadmagnet-signup>b{display:block;padding:8px 5px;text-align:center;border-radius:4px;background:#087fa4;color:#fff;font-size:7px;font-weight:900;}
+#treatment-assets .leadmagnet-signup small{font-size:6px;color:#748897;text-align:center;}
+#treatment-assets .leadmagnet-guide-wrap{position:relative;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-shadow{width:80%;height:175px;transform:rotate(7deg) translate(5px,7px);}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-cover{width:100%;min-height:0;padding:11px 9px;transform:rotate(2deg);}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-brand{font-size:6px;gap:4px;}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-brand .asset-tooth{width:18px;height:18px;font-size:12px;}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-label{font-size:6px;margin-top:11px;}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-cover h4{font-size:clamp(13px,1.2vw,17px);}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-cover>p:not(.asset-guide-label){font-size:7px;}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-image{height:42px;margin-top:8px;}
+#treatment-assets .leadmagnet-guide-wrap .asset-guide-meta{font-size:6px;justify-content:center;}
+#treatment-assets .asset-preview-card .asset-blog-window{padding-bottom:14px;}
+#treatment-assets .asset-preview-card .asset-blog-heading{padding:24px 20px 18px;}
+#treatment-assets .asset-preview-card .asset-blog-heading h4{font-size:clamp(22px,2.2vw,30px);}
+#treatment-assets .asset-preview-card .asset-blog-heading>p:last-child{font-size:10px;}
+#treatment-assets .asset-preview-card .asset-article-grid{gap:12px;padding:14px;}
+#treatment-assets .asset-preview-card .asset-article-photo{height:clamp(100px,12vw,155px);}
+#treatment-assets .asset-preview-card .asset-article h5{font-size:clamp(12px,1.25vw,16px);padding:7px 10px 0;}
+#treatment-assets .asset-preview-card .asset-article-kicker,
+#treatment-assets .asset-preview-card .asset-article>p:not(.asset-article-kicker),
+#treatment-assets .asset-preview-card .asset-article>span{font-size:9px;padding-left:10px;padding-right:10px;}
+@media(max-width:700px){#treatment-assets .leadmagnet-scene{grid-template-columns:minmax(0,1fr) minmax(112px,.7fr);padding:12px;gap:8px;}#treatment-assets .leadmagnet-hero{padding:11px 8px;}#treatment-assets .leadmagnet-signup{padding:7px;}}
+@media(max-width:420px){#treatment-assets .leadmagnet-scene{grid-template-columns:minmax(0,1fr);}#treatment-assets .leadmagnet-guide-wrap{max-width:210px;margin:4px auto 0;}#treatment-assets .leadmagnet-guide-wrap .asset-guide-cover{max-width:180px;}}
+
 /* Step 2 visual mockups: polished, legible asset previews */
 .asset-preview-card{min-width:0;box-shadow:0 12px 30px rgba(0,0,0,.16)}
 .asset-browser{padding:10px;background:#e8edf4}
@@ -338,9 +379,15 @@ html,body{overflow-x:hidden}
 <div class="p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 01</p><h4 class="mt-1 text-lg font-extrabold text-white">Focused landing page</h4><p id="asset-landing-desc" class="mt-2 text-sm leading-6 text-zinc-300">A focused page concept with a clear value proposition, reassurance and a prominent appointment route.</p><div class="asset-benefit-list"><p><span>✓</span> Clear message and call to action</p><p><span>✓</span> Patient trust and proof areas</p><p><span>✓</span> Service benefits and enquiry path</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed design concept · not published</p></div>
 </article>
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
-<div class="asset-guide-stage">
-<div class="asset-guide-shadow"></div><div class="asset-guide-cover"><div class="asset-guide-brand"><span class="asset-tooth">✧</span><span id="asset-business-2">DENTAL SMILES LONDON</span></div><p class="asset-guide-label">COMPLIMENTARY PATIENT GUIDE</p><h4 id="asset-guide-title">The essential guide to a healthier, brighter smile</h4><p id="asset-guide-copy">Practical advice to help you understand your options and feel confident about your dental care.</p><div class="asset-guide-rule"></div><div class="asset-guide-image" role="img" aria-label="Illustrative close-up of a confident smile"></div><span class="asset-guide-tag">PATIENT RESOURCE</span></div>
-<div class="asset-guide-meta"><span>PDF GUIDE</span><span>Helpful · Clear · Patient-focused</span></div>
+<div class="asset-guide-stage leadmagnet-scene">
+<div class="leadmagnet-browser">
+<div class="asset-browser-bar"><span class="asset-window-dots"><i></i><i></i><i></i></span><span>Lead magnet landing page · concept</span><span>↗</span></div>
+<div class="leadmagnet-page">
+<div class="leadmagnet-top"><span class="asset-tooth">✧</span><span id="asset-business-2">DENTAL SMILES LONDON</span><span class="leadmagnet-nav">PATIENT RESOURCES</span></div>
+<div class="leadmagnet-hero"><p class="asset-eyebrow">YOUR SMILE, YOUR CHOICE</p><h4>A clearer guide to your treatment options.</h4><p>Get practical answers to common questions before you book.</p><div class="leadmagnet-signup"><strong>Get your free patient guide</strong><span>Understand your options. Know what to ask.</span><div class="leadmagnet-fields"><i>Your name</i><i>Email address</i></div><b>Send me the free guide →</b><small>No pressure. Just useful information.</small></div></div>
+</div>
+</div>
+<div class="leadmagnet-guide-wrap"><div class="asset-guide-shadow"></div><div class="asset-guide-cover"><div class="asset-guide-brand"><span class="asset-tooth">✧</span><span>DENTAL SMILES LONDON</span></div><p class="asset-guide-label">COMPLIMENTARY PATIENT GUIDE</p><h4 id="asset-guide-title">The essential guide to a healthier, brighter smile</h4><p id="asset-guide-copy">Practical advice to help you understand your options and feel confident about your dental care.</p><div class="asset-guide-rule"></div><div class="asset-guide-image" role="img" aria-label="Illustrative close-up of a confident smile"></div><span class="asset-guide-tag">PATIENT RESOURCE</span></div><div class="asset-guide-meta"><span>PDF GUIDE</span><span>DOWNLOADABLE RESOURCE</span></div></div>
 </div>
 <div class="p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 02</p><h4 class="mt-1 text-lg font-extrabold text-white">Patient guide lead magnet</h4><p id="asset-guide-desc" class="mt-2 text-sm leading-6 text-zinc-300">A useful, branded guide concept that can answer common patient questions and offer a natural next step.</p><div class="asset-benefit-list"><p><span>✓</span> Useful information before an appointment</p><p><span>✓</span> Positions the practice as helpful and credible</p><p><span>✓</span> Can support an enquiry or download route</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed cover concept · not a finished guide</p></div>
 </article>
