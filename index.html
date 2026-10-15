@@ -3,177 +3,1090 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>The Doctor Approach™ — Growth Gap Deep Dive</title>
-<meta name="description" content="A deeper, evidence-led Growth Gap diagnosis from The Doctor Approach.">
+<meta name="description" content="Run the original Growth Gap Snapshot, then develop a diagnosis-led solution and proposal.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><script src="https://cdn.tailwindcss.com"></script>
 <style>
-html,body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}.glow{box-shadow:0 20px 60px rgba(0,0,0,.18)}
-.score-dial{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 0deg,#27272a 0%,#27272a calc((100 - var(--score))*1%),var(--score-color,#f59e0b) calc((100 - var(--score))*1%) 100%);position:relative;flex:0 0 auto;box-shadow:0 0 34px color-mix(in srgb,var(--score-color,#f59e0b) 22%,transparent)}
-.score-dial:before{content:"";position:absolute;inset:12px;border-radius:50%;background:#09090b;border:1px solid #27272a}
-.score-dial>div{position:relative;text-align:center}.score-number{font-size:3.25rem;line-height:1;font-weight:800;color:#fff;letter-spacing:-.06em}.score-out-of{font-size:.95rem;font-weight:700;color:#d4d4d8;margin-left:3px}
-.score-grade{display:inline-flex;align-items:center;border:1px solid color-mix(in srgb,var(--score-color,#f59e0b) 45%,transparent);background:color-mix(in srgb,var(--score-color,#f59e0b) 12%,transparent);color:var(--score-color,#fbbf24);border-radius:999px;padding:6px 11px;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-.progress{height:7px;background:#27272a;border-radius:999px;overflow:hidden}.progress span{display:block;height:100%;width:0;border-radius:999px;transition:width .8s ease}
-.gap-step{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}.gap-step-number{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.35);color:#fca5a5;font-size:.75rem;font-weight:800}.gap-step-label{font-size:.66rem;line-height:1.2;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fca5a5}.gap-step-copy{margin-top:5px;font-size:.9rem;line-height:1.65;color:#f4f4f5}.loading-spinner{display:inline-block;width:18px;height:18px;border:3px solid #fcd34d44;border-top-color:#18181b;border-radius:50%;animation:spin .7s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
-.finding{border-top:1px solid #3f3f46;padding-top:16px;margin-top:16px}.tag{display:inline-flex;border-radius:999px;padding:4px 9px;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
-@media print{.no-print{display:none!important}body{background:#fff!important}#report{display:block!important}}
-@media(max-width:640px){.score-dial{width:160px;height:160px}.score-number{font-size:2.8rem}header .header-inner{padding-left:12px;padding-right:12px;gap:8px}header .brand{font-size:.9rem;white-space:nowrap}}
+html,body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.reveal{opacity:1;transform:none;transition:opacity .55s ease,transform .55s ease}
+.reveal.in-view{opacity:1;transform:none}
+.finding{border-top:1px solid #e4e4e7;padding-top:16px;margin-top:16px}
+.tag{display:inline-flex;border-radius:999px;padding:4px 9px;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.glow{box-shadow:0 20px 60px rgba(0,0,0,.18)}.score-dial{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 0deg,#27272a 0%,#27272a calc((100 - var(--score))*1%),var(--score-color,#f59e0b) calc((100 - var(--score))*1%) 100%);position:relative;flex:0 0 auto;box-shadow:0 0 34px color-mix(in srgb,var(--score-color,#f59e0b) 22%,transparent)}.score-dial::before{content:"";position:absolute;inset:12px;border-radius:50%;background:#09090b;border:1px solid #27272a}.score-dial>div{position:relative;text-align:center}.score-dial .score-number{font-size:3.25rem;line-height:1;font-weight:800;color:#fff;letter-spacing:-.06em}.score-dial .score-out-of{font-size:.95rem;font-weight:700;color:#d4d4d8;margin-left:3px}.score-grade{display:inline-flex;align-items:center;border:1px solid color-mix(in srgb,var(--score-color,#f59e0b) 45%,transparent);background:color-mix(in srgb,var(--score-color,#f59e0b) 12%,transparent);color:var(--score-color,#fbbf24);border-radius:999px;padding:6px 11px;font-size:.72rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.snapshot-progress{height:7px;background:#27272a;border-radius:999px;overflow:hidden}.snapshot-progress>span{display:block;height:100%;width:0;border-radius:999px;transition:width .8s ease,background .3s ease}.gap-step{display:grid;grid-template-columns:28px minmax(0,1fr);gap:10px;align-items:start}.gap-step-number{display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(248,113,113,.12);border:1px solid rgba(248,113,113,.35);color:#fca5a5;font-size:.75rem;font-weight:800}.gap-step-label{font-size:.66rem;line-height:1.2;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#fca5a5}.gap-step-copy{margin-top:5px;font-size:.9rem;line-height:1.65;color:#f4f4f5}.gap-step-copy strong{color:#fff}.loading-spinner{display:inline-block;width:20px;height:20px;border:3px solid rgba(255,255,255,.2);border-top-color:#18181b;border-radius:50%;animation:da-spin .7s linear infinite}@keyframes da-spin{to{transform:rotate(360deg)}}.scan-progress{border:1px solid #3f3f46;background:#09090b;border-radius:16px;padding:18px;margin-top:16px}.scan-progress-track{height:6px;background:#27272a;border-radius:999px;overflow:hidden}.scan-progress-fill{height:100%;width:8%;background:linear-gradient(90deg,#b45309,#fbbf24);border-radius:999px;transition:width .65s ease}.scan-stage{display:flex;align-items:flex-start;gap:10px;color:#a1a1aa;font-size:.85rem;line-height:1.45}.scan-stage-dot{flex:0 0 18px;width:18px;height:18px;border:1px solid #52525b;border-radius:50%;display:grid;place-items:center;font-size:10px;margin-top:1px}.scan-stage.active{color:#fff}.scan-stage.active .scan-stage-dot{border-color:#fbbf24;color:#fbbf24;box-shadow:0 0 0 3px rgba(251,191,36,.1)}.scan-stage.done{color:#d4d4d8}.scan-stage.done .scan-stage-dot{background:#fbbf24;border-color:#fbbf24;color:#18181b}
+@media print{.no-print{display:none}}
+/* launch-mobile-polish-v1 */
+a.contact-link:hover{color:#fbbf24!important}
+html,body{overflow-x:hidden}
+@media(max-width:640px){
+  header .max-w-6xl{padding-left:12px!important;padding-right:12px!important;gap:10px}
+  header .max-w-6xl>div{gap:10px}
+  header .max-w-6xl>div>a:first-child{font-size:.9rem;white-space:nowrap}
+  header .max-w-6xl>div>a:last-child{font-size:.7rem;padding:.55rem .7rem;white-space:nowrap}
+  #apply .glow{padding:1.25rem!important}
+  #apply input,#apply button{min-height:46px}
+  #apply .flex{max-width:100%}
+  footer .max-w-6xl{align-items:flex-start!important}
+  footer .text-sm{text-align:left!important}
+}
+
+/* Combined Snapshot + evidence report preview: keep one score, make the inventory mobile-native. */
+#expanded-page-report .report-status-guide{display:flex;flex-direction:column;gap:7px;margin-top:14px}
+#expanded-page-report .report-status-guide .guide-item{display:block;border:1px solid #3f3f46;background:#18181b;border-radius:9px;padding:8px 10px;font-size:12px;font-weight:700}
+#expanded-page-report .report-status-guide .guide-title{font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#d4d4d8}
+#expanded-page-report .report-mobile-cards{display:none}
+#captured-screenshots .captured-shot{min-width:0;border:1px solid #3f3f46;border-radius:12px;overflow:hidden;background:#18181b}
+#captured-screenshots .captured-shot img{display:block;width:100%;height:260px;object-fit:contain;object-position:top;background:#09090b}
+#captured-screenshots .captured-shot figcaption{padding:11px 12px;font-size:12px;line-height:1.45;color:#d4d4d8;overflow-wrap:anywhere}
+@media(max-width:580px){#captured-screenshots .captured-shot img{height:220px}}
+#expanded-page-report .report-evidence-principle{margin-top:14px;border:1px solid #3f3f46;background:#18181b;border-radius:12px;padding:14px}
+#expanded-page-report .report-evidence-principle h4{font-weight:800;color:#fff}
+#expanded-page-report .report-evidence-principle p{font-size:12px;line-height:1.55;color:#a1a1aa;margin-top:5px}
+@media(max-width:580px){
+ #expanded-page-report .report-table-wrap{display:none}
+ #expanded-page-report .report-mobile-cards{display:grid;gap:9px;margin-top:14px}
+ #expanded-page-report .report-page-card{border:1px solid #3f3f46;border-radius:12px;background:#18181b;padding:12px;min-width:0}
+ #expanded-page-report .report-page-title{font-size:13px;font-weight:800;color:#f4f4f5;overflow-wrap:anywhere}
+ #expanded-page-report .report-page-url{font-size:12px;color:#fbbf24;overflow-wrap:anywhere;margin-top:4px}
+ #expanded-page-report .report-page-status{font-size:12px;font-weight:800;margin-top:9px}
+ #expanded-page-report .report-page-evidence{font-size:12px;color:#a1a1aa;margin-top:6px;line-height:1.5;overflow-wrap:anywhere}
+ #expanded-page-report .report-status-guide .guide-item{line-height:1.4}
+ #expanded-page-report .report-status-guide{margin-bottom:4px}
+}
+
 </style>
 </head>
-<body class="min-h-screen bg-zinc-950 text-zinc-100">
-<header class="border-b border-zinc-800 bg-zinc-950">
-<div class="header-inner mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4">
-<a href="https://doctorapproach.com" class="brand text-base font-extrabold tracking-tight text-white no-underline">THE DOCTOR APPROACH<span class="mt-1 block text-[10px] font-bold uppercase tracking-[.16em] text-zinc-500">Diagnosis before prescription</span></a>
-<span class="rounded-full border border-zinc-700 bg-zinc-900 px-3 py-2 text-[10px] font-extrabold uppercase tracking-[.12em] text-amber-300 sm:text-xs">Growth Gap Deep Dive</span>
-</div></header>
-<main class="mx-auto max-w-6xl px-4 pb-16 pt-6 sm:px-6 sm:pt-10">
-<section class="glow relative overflow-hidden rounded-3xl border border-zinc-800 bg-gradient-to-br from-zinc-900 via-zinc-950 to-stone-950 p-5 sm:p-9">
-<div class="absolute -right-24 -top-28 h-80 w-80 rounded-full border border-amber-400/10 shadow-[0_0_0_32px_rgba(251,191,36,.025),0_0_0_64px_rgba(251,191,36,.02)]"></div>
-<div class="relative grid gap-7 lg:grid-cols-[1.25fr_.75fr] lg:items-center">
-<div><p class="text-xs font-extrabold uppercase tracking-[.18em] text-amber-400">Go beyond the snapshot</p>
-<h1 class="mt-4 max-w-3xl text-4xl font-extrabold leading-[1.02] tracking-[-.06em] text-white sm:text-6xl">Find the growth gap.<br><span class="text-amber-300">See what to fix first.</span></h1>
-<p class="mt-5 max-w-2xl text-sm leading-7 text-zinc-300 sm:text-base">A deeper look at the signals shaping how customers find you, trust you, enquire and return. Start with the Growth Gap Snapshot, then explore the evidence and practical next steps.</p>
-<form id="scanForm" class="mt-6">
-<div class="mb-3 flex flex-wrap items-center gap-x-4 gap-y-2">
-<label class="inline-flex items-center gap-2 text-xs font-bold text-zinc-400" for="country"><span>Market</span><select id="country" class="rounded-lg border border-zinc-700 bg-zinc-900 px-2 py-1.5 text-xs text-zinc-200 focus:border-amber-400 focus:outline-none"><option value="UK">UK · GBP</option><option value="USA">USA · USD</option></select></label>
-<label class="flex min-w-[190px] flex-1 items-center gap-2 text-xs font-bold text-zinc-400" for="industry"><span>Industry</span><select id="industry" class="min-w-0 flex-1 rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-xs text-zinc-200 focus:border-amber-400 focus:outline-none"><option value="auto">Auto-detect</option><option value="roofing">Roofing contractor</option><option value="dental">Dentist / dental practice</option><option value="hvac">HVAC contractor</option><option value="chiropractic">Chiropractor</option><option value="landscaping">Landscaping contractor</option><option value="general">Other / general business</option></select></label>
-<button id="newScanTop" type="button" class="ml-auto inline-flex items-center gap-1 rounded-lg border border-zinc-700 px-3 py-2 text-xs font-bold text-zinc-300 hover:border-amber-400 hover:text-white">↻ New scan</button>
-</div>
-<label for="website" class="mb-2 block text-xs font-extrabold uppercase tracking-wider text-zinc-300">Website to assess</label>
-<div class="flex flex-col gap-2 sm:flex-row"><input id="website" type="text" placeholder="Enter your website, e.g. example.co.uk" autocomplete="url" required class="min-w-0 flex-1 rounded-xl border border-zinc-600 bg-white px-4 py-4 text-sm font-medium text-zinc-950 outline-none ring-amber-300 transition placeholder:text-zinc-500 focus:ring-2">
-<button id="scanBtn" type="submit" class="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-xl border border-amber-300/70 bg-amber-400 px-5 py-4 text-sm font-extrabold text-zinc-950 shadow-lg transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-zinc-950 disabled:cursor-wait disabled:opacity-60"><span id="scanBtnIcon">↗</span><span id="scanBtnText">Run Deep Dive</span></button></div>
-<div id="industryNote" class="mt-2 text-xs text-zinc-500">Industry will be detected from the website where possible. You can override it above.</div>
-<div id="status" role="status" class="mt-3 min-h-5 text-sm text-amber-200"></div><div id="error" class="mt-2 hidden rounded-xl border border-red-400/30 bg-red-950/30 p-3 text-sm text-red-200"></div>
-</form><p class="mt-2 text-xs text-zinc-500">Evidence-led · Public website scan · No manufactured problems</p></div>
-<div class="relative rounded-2xl border border-zinc-700 bg-zinc-900/80 p-5 sm:p-6">
-<p class="text-xs font-extrabold uppercase tracking-[.16em] text-zinc-300">The guided review</p>
-<div class="mt-4 space-y-3">
-<div class="flex items-center gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-amber-400/30 bg-amber-400/10 text-xs font-extrabold text-amber-300">1</span><p class="text-sm font-bold text-white">Snapshot & primary gap</p></div>
-<div class="flex items-center gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-zinc-700 bg-zinc-950 text-xs font-extrabold text-zinc-400">2</span><p class="text-sm font-bold text-white">Evidence & diagnosis</p></div>
-<div class="flex items-center gap-3"><span class="grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-zinc-700 bg-zinc-950 text-xs font-extrabold text-zinc-400">3</span><p class="text-sm font-bold text-white">Solution previews & options</p></div>
-</div>
-<p class="mt-4 border-t border-zinc-700 pt-3 text-xs leading-relaxed text-zinc-500">Public website signals show where to investigate. Business data is needed to confirm actual revenue or retention impact.</p>
-</div></div></section>
 
-<div id="report" class="hidden scroll-mt-6">
-<div id="stageNav" class="mb-4 rounded-2xl border border-zinc-800 bg-zinc-950 p-3 sm:p-4"><div class="mb-3 flex items-center justify-between gap-3"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Guided review</p><p id="stageCaption" class="mt-1 text-sm text-zinc-300">Stage 1 of 5 · Scan results</p></div><span class="text-xs text-zinc-500">Sales presentation mode</span></div><div class="grid grid-cols-5 gap-2" role="navigation" aria-label="Deep Dive stages"><button type="button" data-stage="0" class="stage-tab rounded-xl border border-zinc-700 bg-zinc-900 px-2 py-3 text-center text-xs font-bold text-zinc-300 transition hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-300"><span class="mx-auto mb-1 grid h-6 w-6 place-items-center rounded-full bg-zinc-700 text-[10px]">01</span>Results</button><button type="button" data-stage="1" class="stage-tab rounded-xl border border-zinc-700 bg-zinc-900 px-2 py-3 text-center text-xs font-bold text-zinc-300 transition hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-300"><span class="mx-auto mb-1 grid h-6 w-6 place-items-center rounded-full bg-zinc-700 text-[10px]">02</span>Evidence</button><button type="button" data-stage="2" class="stage-tab rounded-xl border border-zinc-700 bg-zinc-900 px-2 py-3 text-center text-xs font-bold text-zinc-300 transition hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-300"><span class="mx-auto mb-1 grid h-6 w-6 place-items-center rounded-full bg-zinc-700 text-[10px]">03</span>Assets</button><button type="button" data-stage="3" class="stage-tab rounded-xl border border-zinc-700 bg-zinc-900 px-2 py-3 text-center text-xs font-bold text-zinc-300 transition hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-300"><span class="mx-auto mb-1 grid h-6 w-6 place-items-center rounded-full bg-zinc-700 text-[10px]">04</span>Options</button><button type="button" data-stage="4" class="stage-tab rounded-xl border border-zinc-700 bg-zinc-900 px-2 py-3 text-center text-xs font-bold text-zinc-300 transition hover:border-amber-400 focus:outline-none focus:ring-2 focus:ring-amber-300"><span class="mx-auto mb-1 grid h-6 w-6 place-items-center rounded-full bg-zinc-700 text-[10px]">05</span>Insights</button></div></div>
-<section id="diagnosisSection" class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-900 p-4 shadow-2xl sm:p-7">
+<body class="bg-stone-50 text-zinc-900">
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur border-b border-zinc-800">
+<div class="max-w-6xl mx-auto px-5 py-4 flex items-center justify-between">
+<a href="#top" class="font-bold text-amber-400 text-lg">The Doctor Approach™</a>
+<a href="#apply" class="rounded-lg bg-amber-500 hover:bg-amber-400 px-4 py-2.5 text-sm font-bold text-zinc-950">Get Your Free Snapshot →</a>
+</div>
+</header>
+
+<main id="top" class="pt-16">
+
+<section class="bg-zinc-950 text-white relative overflow-hidden">
+<div class="relative z-10 max-w-6xl mx-auto px-5 py-20 sm:py-28">
+<div class="grid lg:grid-cols-[1.05fr_.95fr] gap-10 lg:gap-12 items-center">
+<div class="max-w-4xl reveal">
+<p class="text-sm font-bold uppercase tracking-[.16em] text-amber-400 mb-5">Diagnosis Before Prescription</p>
+<h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.03]">Before you spend more on marketing, find out what is actually holding your growth back.</h1>
+<p class="mt-7 text-lg sm:text-xl text-zinc-300 leading-relaxed max-w-3xl">More leads. More traffic. More advertising. But if the underlying problem is trust, conversion, positioning or retention, more marketing may simply put more people into the same broken journey.</p>
+<div class="mt-8 flex flex-wrap gap-4">
+<a href="#apply" class="rounded-lg bg-amber-500 hover:bg-amber-400 px-6 py-3.5 font-bold text-zinc-950">Get My Free Growth Gap Snapshot →</a>
+<a href="#how" class="rounded-lg border border-zinc-700 hover:bg-zinc-900 px-6 py-3.5 font-semibold">See How It Works</a>
+</div>
+<div class="mt-7 flex flex-wrap gap-x-6 gap-y-2 text-sm text-zinc-400">
+<span>✓ About 60 seconds</span><span>✓ Evidence-led</span><span>✓ No obligation</span>
+</div>
+</div>
+<div class="reveal">
+  <div class="overflow-hidden rounded-3xl border border-zinc-700 bg-zinc-900 shadow-2xl">
+    <div class="relative flex aspect-[5/4] items-center justify-center overflow-hidden bg-zinc-950 p-6 sm:p-8">
+      <svg viewBox="0 0 520 390" role="img" aria-label="Magnifying glass inspecting a website displayed on a computer screen" xmlns="http://www.w3.org/2000/svg" class="block w-full h-auto max-h-full">
+  <defs>
+    <linearGradient id="glassBg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#27272a"/><stop offset="1" stop-color="#09090b"/></linearGradient>
+    <linearGradient id="glassLens" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity=".22"/><stop offset="1" stop-color="#f59e0b" stop-opacity=".04"/></linearGradient>
+    <linearGradient id="glassHandle" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fcd34d"/><stop offset="1" stop-color="#b45309"/></linearGradient>
+    <filter id="glassShadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#000" flood-opacity=".45"/></filter>
+  </defs>
+  <rect x="1" y="1" width="518" height="388" rx="24" fill="url(#glassBg)" stroke="#3f3f46"/>
+  <circle cx="430" cy="78" r="120" fill="#f59e0b" opacity=".07"/>
+  <rect x="40" y="45" width="360" height="246" rx="13" fill="#09090b" stroke="#52525b" stroke-width="2"/>
+  <rect x="40" y="45" width="360" height="34" rx="13" fill="#27272a"/>
+  <rect x="40" y="66" width="360" height="13" fill="#27272a"/>
+  <circle cx="58" cy="62" r="4" fill="#fbbf24"/><circle cx="72" cy="62" r="4" fill="#71717a"/><circle cx="86" cy="62" r="4" fill="#71717a"/>
+  <rect x="111" y="56" width="184" height="12" rx="6" fill="#3f3f46"/>
+  <rect x="58" y="96" width="324" height="68" rx="7" fill="#18181b"/>
+  <rect x="73" y="111" width="126" height="8" rx="4" fill="#fbbf24"/>
+  <rect x="73" y="128" width="174" height="5" rx="2.5" fill="#71717a"/>
+  <rect x="73" y="140" width="144" height="5" rx="2.5" fill="#52525b"/>
+  <rect x="58" y="177" width="100" height="94" rx="7" fill="#27272a" stroke="#3f3f46"/>
+  <rect x="70" y="190" width="52" height="5" rx="2.5" fill="#a1a1aa"/><rect x="70" y="202" width="72" height="4" rx="2" fill="#52525b"/>
+  <rect x="70" y="218" width="76" height="36" rx="5" fill="#09090b"/><path d="M78 246 L90 235 L101 240 L116 224 L138 229" fill="none" stroke="#fbbf24" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="170" y="177" width="212" height="94" rx="7" fill="#18181b" stroke="#3f3f46"/>
+  <rect x="184" y="190" width="106" height="5" rx="2.5" fill="#a1a1aa"/><rect x="184" y="202" width="172" height="4" rx="2" fill="#52525b"/>
+  <rect x="184" y="218" width="172" height="39" rx="5" fill="#09090b"/>
+  <rect x="196" y="229" width="50" height="5" rx="2.5" fill="#fbbf24"/><rect x="196" y="240" width="122" height="4" rx="2" fill="#52525b"/>
+  <path d="M160 292 L160 310 L282 310 L282 292" fill="none" stroke="#52525b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M120 321 H322" stroke="#52525b" stroke-width="10" stroke-linecap="round"/>
+  <g filter="url(#glassShadow)" transform="rotate(-13 283 192)">
+    <circle cx="283" cy="192" r="86" fill="#09090b" stroke="#fbbf24" stroke-width="13"/>
+    <circle cx="283" cy="192" r="72" fill="url(#glassLens)" stroke="#fde68a" stroke-opacity=".65" stroke-width="2"/>
+    <path d="M239 143 Q264 119 294 132" fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="7" stroke-linecap="round"/>
+    <path d="M340 252 L403 315" stroke="#713f12" stroke-width="32" stroke-linecap="round"/>
+    <path d="M340 252 L403 315" stroke="url(#glassHandle)" stroke-width="23" stroke-linecap="round"/>
+    <path d="M345 260 L395 309" stroke="#fde68a" stroke-opacity=".7" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <rect x="330" y="26" width="154" height="30" rx="15" fill="#422006" stroke="#92400e"/>
+  <circle cx="347" cy="41" r="4" fill="#fbbf24"/><text x="359" y="45" fill="#fde68a" font-size="10" font-weight="700" letter-spacing="1">EVIDENCE REVIEW</text>
+</svg>
+    </div>
+    <div class="border-t border-zinc-700 bg-zinc-900/95 p-4 sm:p-5">
+      <p class="text-xs font-bold uppercase tracking-wider text-amber-400">Evidence before action</p>
+      <p class="mt-2 text-lg font-bold text-white">Find the constraint before investing in another solution.</p>
+      <p class="mt-2 text-sm leading-relaxed text-zinc-400">A closer look at the public signals that may be affecting your growth.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="mt-12 grid md:grid-cols-3 gap-4 reveal">
+<div class="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
+<p class="text-xs font-bold uppercase text-zinc-500">Typical approach</p>
+<p class="mt-2 font-semibold">"You need more leads."</p>
+<p class="mt-1 text-sm text-zinc-400">Then sell SEO, ads or a new website.</p>
+</div>
+
+<div class="rounded-2xl border border-amber-500/40 bg-amber-500/10 p-5">
+<p class="text-xs font-bold uppercase text-amber-400">The Doctor Approach™</p>
+<p class="mt-2 font-semibold">"Let's find the constraint first."</p>
+<p class="mt-1 text-sm text-zinc-300">Examine the evidence before recommending treatment.</p>
+</div>
+
+<div class="rounded-2xl border border-zinc-800 bg-zinc-900 p-5">
+<p class="text-xs font-bold uppercase text-zinc-500">The outcome</p>
+<p class="mt-2 font-semibold">Know what deserves attention.</p>
+<p class="mt-1 text-sm text-zinc-400">Then decide whether anything needs to change.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="bg-white border-b border-zinc-200">
+<div class="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+<div class="max-w-3xl reveal">
+<p class="text-sm font-bold uppercase tracking-wider text-amber-600">The core idea</p>
+<h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">A symptom tells you something is wrong. A diagnosis tells you where to look.</h2>
+<p class="mt-5 text-lg text-zinc-600 leading-relaxed">"We need more leads" is not a diagnosis. Neither is "our website isn't converting". The same symptom can have very different causes. We examine the available evidence and identify the most credible growth gap we can substantiate.</p>
+</div>
+
+<div class="mt-10 grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+<div class="rounded-2xl border p-6">
+<p class="text-xs uppercase font-bold text-zinc-400">Symptom</p>
+<p class="mt-2 font-bold">Not enough enquiries</p>
+<p class="mt-3 text-sm font-semibold text-amber-700">Possible gap: Visibility</p>
+<p class="mt-1 text-sm text-zinc-500">People may not be finding you.</p>
+</div>
+
+<div class="rounded-2xl border p-6">
+<p class="text-xs uppercase font-bold text-zinc-400">Symptom</p>
+<p class="mt-2 font-bold">Traffic but few enquiries</p>
+<p class="mt-3 text-sm font-semibold text-amber-700">Possible gap: Conversion</p>
+<p class="mt-1 text-sm text-zinc-500">People may not be taking the next step.</p>
+</div>
+
+<div class="rounded-2xl border p-6">
+<p class="text-xs uppercase font-bold text-zinc-400">Symptom</p>
+<p class="mt-2 font-bold">Good service, weak response</p>
+<p class="mt-3 text-sm font-semibold text-amber-700">Possible gap: Trust</p>
+<p class="mt-1 text-sm text-zinc-500">The evidence may not communicate enough confidence.</p>
+</div>
+
+<div class="rounded-2xl border p-6">
+<p class="text-xs uppercase font-bold text-zinc-400">Symptom</p>
+<p class="mt-2 font-bold">Customers don't return</p>
+<p class="mt-3 text-sm font-semibold text-amber-700">Possible gap: Retention</p>
+<p class="mt-1 text-sm text-zinc-500">Value may be leaking after the first transaction.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<section id="how" class="bg-stone-50 border-b border-zinc-200">
+<div class="max-w-6xl mx-auto px-5 py-16 sm:py-24">
+
+<div class="text-center max-w-3xl mx-auto reveal">
+<p class="text-sm font-bold uppercase tracking-wider text-amber-600">How it works</p>
+<h2 class="mt-3 text-3xl sm:text-4xl font-bold">From website to diagnosis in three simple steps.</h2>
+<p class="mt-4 text-lg text-zinc-600">The Snapshot is designed to give you a useful first answer — not bury you in an audit.</p>
+</div>
+
+<div class="mt-10 mb-2 grid md:grid-cols-[.95fr_1.05fr] gap-6 items-center reveal">
+  <div class="overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-950 shadow-xl">
+    <div class="relative min-h-[320px] overflow-hidden">
+      <img src="https://framerusercontent.com/images/45OnCRj6F50yE7sVczSBlRGNkU.jpg?height=768&width=1376"
+           alt="Business advisers and a client reviewing performance data together on a laptop"
+           loading="lazy" decoding="async"
+           class="absolute inset-0 h-full w-full object-cover object-center" />
+      <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/25 to-transparent"></div>
+      <div class="absolute inset-x-0 bottom-0 p-6 sm:p-8">
+        <p class="text-xs font-bold uppercase tracking-[.16em] text-amber-300">Evidence → Context → Action</p>
+        <h3 class="mt-3 max-w-lg text-2xl sm:text-3xl font-extrabold leading-tight text-white">Turn the findings into a clearer business decision.</h3>
+        <p class="mt-3 max-w-lg text-sm sm:text-base leading-relaxed text-zinc-200">A focused review of what the evidence means, what needs checking, and what deserves attention next.</p>
+      </div>
+    </div>
+  </div>
+  <div class="rounded-2xl border border-zinc-200 bg-white p-6 sm:p-8">
+    <p class="text-xs font-bold uppercase tracking-wider text-amber-600">Human support, not guesswork</p>
+    <h3 class="mt-3 text-2xl font-bold tracking-tight">A scan starts the conversation. It doesn't replace it.</h3>
+    <p class="mt-3 leading-relaxed text-zinc-600">Use the Diagnostic Review to put the finding in context, test whether it matters commercially, and decide what is worth investigating before spending more.</p>
+  </div>
+</div>
+
+<div class="mt-12 grid md:grid-cols-3 gap-6 reveal">
+<div class="rounded-2xl bg-white border p-7">
+<div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold">1</div>
+<h3 class="mt-5 text-xl font-bold">Give us your website</h3>
+<p class="mt-2 text-zinc-600">Tell us who you are, where to find you and where to send the result.</p>
+</div>
+
+<div class="rounded-2xl bg-white border p-7">
+<div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold">2</div>
+<h3 class="mt-5 text-xl font-bold">We examine the evidence</h3>
+<p class="mt-2 text-zinc-600">We examine your public website for signals that can affect visibility, trust and conversion.</p>
+</div>
+
+<div class="rounded-2xl bg-white border p-7">
+<div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 flex items-center justify-center font-bold">3</div>
+<h3 class="mt-5 text-xl font-bold">You get a clear finding</h3>
+<p class="mt-2 text-zinc-600">You see the strongest finding supported by the available evidence, followed by an optional 20-minute review.</p>
+</div>
+</div>
+
+<div class="mt-10 rounded-2xl bg-zinc-950 text-white p-7 reveal">
+<div class="grid md:grid-cols-3 gap-7">
+<div><p class="text-xs font-bold uppercase text-amber-400">You won't get</p><p class="mt-2 font-bold">A generic audit.</p></div>
+<div><p class="text-xs font-bold uppercase text-amber-400">You will get</p><p class="mt-2 font-bold">A finding you can actually discuss.</p></div>
+<div><p class="text-xs font-bold uppercase text-amber-400">You decide</p><p class="mt-2 font-bold">Whether it is worth exploring.</p></div>
+</div>
+</div>
+
+</div>
+</section>
+
+<section class="bg-white border-b border-zinc-200">
+<div class="max-w-6xl mx-auto px-5 py-16 sm:py-24">
+
+<div class="grid lg:grid-cols-2 gap-12">
+
+<div class="reveal">
+<p class="text-sm font-bold uppercase tracking-wider text-amber-600">The framework</p>
+<h2 class="mt-3 text-3xl sm:text-4xl font-bold">Four questions sit underneath the diagnosis.</h2>
+<p class="mt-5 text-lg text-zinc-600">The Doctor Approach™ looks at four connected growth drivers. A weakness in one can make another look worse.</p>
+</div>
+
+<div class="grid sm:grid-cols-2 gap-4 reveal">
+
+<!-- VISIBILITY -->
+<div class="rounded-2xl border border-amber-500 bg-amber-500 p-5 text-zinc-950">
+<p class="text-2xl">👁️</p>
+<p class="mt-3 font-bold text-black">Visibility</p>
+<p class="text-sm text-white mt-1">Can the right customers find you?</p>
+</div>
+
+<!-- TRUST -->
+<div class="rounded-2xl border border-amber-500 bg-amber-500 p-5 text-zinc-950">
+<p class="text-2xl">🛡️</p>
+<p class="mt-3 font-bold text-black">Trust</p>
+<p class="text-sm text-white mt-1">Do the available signals create confidence?</p>
+</div>
+
+<!-- CONVERSION -->
+<div class="rounded-2xl border border-amber-500 bg-amber-500 p-5 text-zinc-950">
+<p class="text-2xl">↗️</p>
+<p class="mt-3 font-bold text-black">Conversion</p>
+<p class="text-sm text-white mt-1">Can interested people take the next step?</p>
+</div>
+
+<!-- RETENTION -->
+<div class="rounded-2xl border border-amber-500 bg-amber-500 p-5 text-zinc-950">
+<p class="text-2xl">↻</p>
+<p class="mt-3 font-bold text-black">Retention</p>
+<p class="text-sm text-white mt-1">Is value being created after the first transaction?</p>
+</div>
+
+</div>
+</div>
+</div>
+</section>
+
+<section class="bg-zinc-950 text-white">
+<div class="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+<div class="max-w-3xl reveal">
+<p class="text-sm font-bold uppercase tracking-wider text-amber-400">A different promise</p>
+<h2 class="mt-3 text-3xl sm:text-4xl font-bold">If the evidence doesn't support a meaningful finding, we'll tell you.</h2>
+<p class="mt-5 text-lg text-zinc-300 leading-relaxed">The point is not to manufacture a problem so we can sell you a solution. The point is to understand what the available evidence can — and cannot — tell us.</p>
+</div>
+</div>
+</section>
+
+<section class="bg-stone-100 border-y border-zinc-200">
+  <div class="max-w-6xl mx-auto px-5 py-16 sm:py-20">
+    <div class="grid lg:grid-cols-[1.05fr_.95fr] gap-8 lg:gap-12 items-center">
+      <div class="reveal">
+        <div class="overflow-hidden rounded-3xl border border-zinc-700 bg-zinc-900 shadow-2xl">
+          <div class="border-b border-zinc-700 bg-zinc-900/95 px-5 py-4">
+            <p class="text-xs font-bold uppercase tracking-wider text-amber-400">Growth Gap Intelligence</p>
+            <p class="mt-1 text-lg font-bold text-white">Snapshot report example</p>
+          </div>
+          <div class="bg-zinc-950 p-4 sm:p-5">
+            <svg viewBox="0 0 520 360" role="img" aria-label="Illustrative Snapshot report with growth health score and four growth drivers: Visibility, Trust, Conversion and Retention" xmlns="http://www.w3.org/2000/svg" class="block w-full h-auto">
+              <defs><linearGradient id="heroGlow" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fbbf24" stop-opacity=".24"/><stop offset="1" stop-color="#f59e0b" stop-opacity="0"/></linearGradient></defs>
+              <rect x="1" y="1" width="518" height="358" rx="18" fill="#111113" stroke="#3f3f46"/>
+              <rect x="18" y="18" width="484" height="38" rx="9" fill="#18181b"/>
+              <circle cx="34" cy="37" r="4" fill="#fbbf24"/><circle cx="48" cy="37" r="4" fill="#71717a"/><circle cx="62" cy="37" r="4" fill="#71717a"/>
+              <text x="80" y="41" fill="#d4d4d8" font-size="11" font-weight="700">BUSINESS DIAGNOSTIC</text>
+              <rect x="18" y="72" width="218" height="148" rx="12" fill="url(#heroGlow)" stroke="#52525b"/>
+              <text x="34" y="95" fill="#d4d4d8" font-size="11" font-weight="700">GROWTH HEALTH</text>
+              <circle cx="88" cy="151" r="39" fill="none" stroke="#3f3f46" stroke-width="9"/>
+              <circle cx="88" cy="151" r="39" fill="none" stroke="#fbbf24" stroke-width="9" stroke-linecap="round" stroke-dasharray="176 245" transform="rotate(-90 88 151)"/>
+              <text x="88" y="157" text-anchor="middle" fill="#fff" font-size="25" font-weight="800">—</text>
+              <text x="142" y="142" fill="#fbbf24" font-size="11" font-weight="700">INITIAL</text><text x="142" y="159" fill="#fbbf24" font-size="11" font-weight="700">ASSESSMENT</text><text x="142" y="180" fill="#a1a1aa" font-size="10">Evidence-led</text>
+              <rect x="250" y="72" width="252" height="148" rx="12" fill="#18181b" stroke="#3f3f46"/>
+              <text x="267" y="95" fill="#d4d4d8" font-size="11" font-weight="700">FOUR GROWTH DRIVERS</text>
+              <text x="267" y="122" fill="#e4e4e7" font-size="11">Visibility</text><rect x="348" y="112" width="132" height="8" rx="4" fill="#3f3f46"/><rect x="348" y="112" width="76" height="8" rx="4" fill="#fbbf24"/>
+              <text x="267" y="151" fill="#e4e4e7" font-size="11">Trust</text><rect x="348" y="141" width="132" height="8" rx="4" fill="#3f3f46"/><rect x="348" y="141" width="94" height="8" rx="4" fill="#fbbf24"/>
+              <text x="267" y="180" fill="#e4e4e7" font-size="11">Conversion</text><rect x="348" y="170" width="132" height="8" rx="4" fill="#3f3f46"/><rect x="348" y="170" width="58" height="8" rx="4" fill="#fbbf24"/>
+              <text x="267" y="209" fill="#e4e4e7" font-size="11">Retention</text><rect x="348" y="199" width="132" height="8" rx="4" fill="#3f3f46"/><rect x="348" y="199" width="82" height="8" rx="4" fill="#fbbf24"/>
+              <rect x="18" y="236" width="484" height="105" rx="12" fill="#18181b" stroke="#3f3f46"/>
+              <text x="34" y="260" fill="#fbbf24" font-size="11" font-weight="700">PRIMARY OPPORTUNITY</text>
+              <text x="34" y="283" fill="#fff" font-size="15" font-weight="800">Find the constraint before spending more.</text>
+              <text x="34" y="305" fill="#a1a1aa" font-size="11">Review public evidence. Validate the signal. Then decide.</text>
+              <rect x="34" y="317" width="115" height="5" rx="2.5" fill="#fbbf24" opacity=".8"/>
+            </svg>
+          </div>
+          <div class="border-t border-zinc-700 bg-zinc-900/95 p-4 sm:p-5">
+            <p class="text-xs font-bold uppercase tracking-wider text-amber-400">Evidence before action</p>
+            <p class="mt-2 text-lg font-bold text-white">Find the constraint before investing in another solution.</p>
+            <p class="mt-2 text-sm leading-relaxed text-zinc-400">Illustrative report only. Your actual score and findings appear after the scan.</p>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="text-sm font-bold uppercase tracking-wider text-amber-600">An example of the diagnostic</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-bold tracking-tight">See the Snapshot report before you run your scan.</h2>
+        <p class="mt-4 text-lg leading-relaxed text-zinc-600">The report brings the initial growth-health assessment and all four growth drivers together in one clear view: Visibility, Trust, Conversion and Retention.</p>
+        <p class="mt-4 leading-relaxed text-zinc-600">This is an illustrative interface, not a live result. Your scan will use the evidence available for your website rather than assume a score or manufacture a problem.</p>
+      </div>
+    </div>
+  </div>
+</section>>
+
+<section id="apply" class="bg-zinc-950 text-white relative overflow-hidden">
+<div class="absolute inset-0 opacity-[0.04] pointer-events-none" aria-hidden="true">
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><pattern id="da-grid" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 28H56M28 0V56" stroke="white" stroke-width="1"/></pattern><rect width="100%" height="100%" fill="url(#da-grid)"/></svg>
+</div>
+<div class="relative max-w-5xl mx-auto px-5 py-20 sm:py-24">
+<div class="text-center max-w-3xl mx-auto reveal">
+<p class="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full">Growth Gap Deep Dive · Original Snapshot</p>
+<h2 class="mt-6 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05]">Start with the Growth Gap Snapshot. Build the solution from the evidence.</h2>
+<p class="mt-5 text-lg text-zinc-300 leading-relaxed">Enter your website and we'll examine the available public evidence to identify the strongest growth gap we can substantiate.</p>
+</div>
+<div class="mt-10 max-w-3xl mx-auto">
+<div class="rounded-2xl border-2 border-amber-400/65 bg-zinc-900 p-6 sm:p-8 shadow-[0_0_0_1px_rgba(251,191,36,0.10),0_18px_55px_rgba(0,0,0,0.42)] reveal">
+<form id="diagnosis-form" class="flex flex-col sm:flex-row gap-2 rounded-2xl border border-amber-400/35 bg-zinc-950/55 p-3 sm:p-3.5">
+<label for="scan-country" class="sr-only">Select country</label>
+<select id="scan-country" aria-label="Select country" class="w-full sm:w-auto sm:shrink-0 rounded-xl border border-zinc-700 bg-zinc-950 px-3 py-4 text-sm font-bold text-white focus:border-amber-400"><option value="UK">UK</option><option value="US">USA</option></select>
+<label for="website" class="sr-only">Business website</label>
+<div class="flex flex-1 min-w-0"><input id="website" required aria-describedby="website-validation" aria-invalid="false" class="min-w-0 flex-1 rounded-xl border border-zinc-700 bg-zinc-900/80 px-4 sm:px-5 py-4 text-base text-white outline-none focus:border-amber-400" placeholder="yourbusiness.co.uk" autocomplete="url"><span id="website-valid-icon" class="hidden items-center justify-center rounded-r-xl border border-l-0 border-zinc-700 bg-zinc-950 px-3 text-red-400 text-xl font-black" aria-hidden="true">✕</span></div>
+<button id="submit-btn" type="submit" class="rounded-xl bg-amber-500 hover:bg-amber-400 px-6 py-4 text-base font-bold text-zinc-900 shadow-lg whitespace-nowrap"><span id="submit-label">Run Growth Gap Snapshot →</span><span id="submit-spinner" class="hidden items-center justify-center gap-2"><span class="loading-spinner"></span> Examining…</span></button>
+</form>
+<p id="website-validation" class="hidden mt-3 rounded-lg border border-red-800 bg-red-950/40 px-4 py-3 text-sm text-red-300" role="alert">✕ Please check the website address and enter it again.</p>
+<div id="scan-progress" class="scan-progress hidden" role="status" aria-live="polite">
+  <div class="flex items-start justify-between gap-3">
+    <div><p class="text-xs font-extrabold uppercase tracking-[.14em] text-amber-300">Growth Gap Snapshot</p><p id="scan-progress-title" class="mt-1 font-bold text-white">Starting your assessment…</p></div>
+    <span id="scan-progress-percent" class="text-sm font-extrabold text-amber-300 tabular-nums">0%</span>
+  </div>
+  <div class="scan-progress-track mt-4"><div id="scan-progress-fill" class="scan-progress-fill"></div></div>
+  <div class="mt-4 grid sm:grid-cols-2 gap-x-5 gap-y-3">
+    <div class="scan-stage active" data-scan-stage="0"><span class="scan-stage-dot">1</span><span>Checking that your public website can be reached</span></div>
+    <div class="scan-stage" data-scan-stage="1"><span class="scan-stage-dot">2</span><span>Reviewing page structure and key messages</span></div>
+    <div class="scan-stage" data-scan-stage="2"><span class="scan-stage-dot">3</span><span>Checking contact routes and ways to enquire</span></div>
+    <div class="scan-stage" data-scan-stage="3"><span class="scan-stage-dot">4</span><span>Reviewing visible trust signals and proof</span></div>
+    <div class="scan-stage" data-scan-stage="4"><span class="scan-stage-dot">5</span><span>Weighing potential growth gaps against the evidence</span></div>
+    <div class="scan-stage" data-scan-stage="5"><span class="scan-stage-dot">6</span><span>Preparing your plain-English report</span></div>
+  </div>
+  <p class="mt-4 text-xs leading-relaxed text-zinc-400">We’re checking the available public evidence. Any potential gap is a prompt to investigate—not proof of lost sales.</p>
+</div>
+<p class="mt-3 text-center text-xs text-zinc-500">About 60 seconds · Evidence-led · No obligation</p>
+<div id="form-message" class="hidden mt-4 rounded-xl p-4 text-sm"></div>
+</div>
+</div>
+<div id="snapshot-result" class="hidden mt-10 max-w-5xl mx-auto scroll-mt-28">
+<div class="rounded-3xl border border-zinc-800 bg-zinc-900 p-4 sm:p-7 shadow-2xl">
 <div class="mb-4 flex items-center justify-between gap-3 border-b border-zinc-800 pb-4">
 <p class="text-xs font-extrabold uppercase tracking-[.16em] text-zinc-400">Your scan results</p>
-<button id="newScan" type="button" class="inline-flex shrink-0 items-center gap-2 rounded-xl border border-amber-400/60 bg-amber-400 px-4 py-2.5 text-sm font-extrabold text-zinc-950 shadow-md transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-zinc-950"><span aria-hidden="true">↻</span> New scan</button>
+<button id="new-scan-button" type="button" class="inline-flex shrink-0 items-center gap-2 rounded-xl border border-amber-400/60 bg-amber-400 px-4 py-2.5 text-sm font-extrabold text-zinc-950 shadow-md transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-zinc-950"><span aria-hidden="true">↻</span> New scan</button>
 </div>
-<section id="snapshotHero" class="mt-2 flex flex-wrap lg:flex-nowrap items-center gap-x-6 gap-y-4 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5" aria-label="Growth Health snapshot">
+<section class="mt-2 flex flex-wrap lg:flex-nowrap items-center gap-x-6 gap-y-4 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5" aria-label="Growth Health snapshot">
 <div class="shrink-0 flex items-center gap-4">
 <p class="text-xs font-extrabold uppercase tracking-[.16em] text-zinc-300 [writing-mode:vertical-rl] rotate-180 lg:hidden">Growth Health</p>
-<div id="scoreDial" class="score-dial" style="--score:0;--score-color:#f59e0b" role="img" aria-label="Overall Growth Health score"><div class="flex items-baseline justify-center"><span id="overallScore" class="score-number">—</span><span class="score-out-of">/100</span></div></div>
+<div id="score-dial" class="score-dial" style="--score:0;--score-color:#f59e0b" role="img" aria-label="Overall Growth Health score"><div class="flex items-baseline justify-center"><span id="overall-score" class="score-number">—</span><span class="score-out-of">/100</span></div></div>
 </div>
 <div class="min-w-[180px] flex-1">
 <p class="hidden lg:block text-xs font-extrabold uppercase tracking-[.16em] text-zinc-300">Growth Health</p>
-<div class="mt-2 flex flex-wrap items-center gap-2"><span id="scoreGrade" class="score-grade" style="--score-color:#f59e0b">Awaiting score</span><span id="scoreLabel" class="text-xs font-extrabold text-white">—/100</span></div>
-<div class="progress mt-3"><span id="scoreBar" style="width:0;background:#f59e0b"></span></div>
+<div class="mt-2 flex flex-wrap items-center gap-2"><span id="score-grade" class="score-grade" style="--score-color:#f59e0b">Awaiting score</span><span id="snapshot-score-label" class="text-xs font-extrabold text-white">—/100</span></div>
+<div class="snapshot-progress mt-3"><span id="snapshot-bar" style="width:0;background:#f59e0b"></span></div>
 <p class="mt-2 text-xs leading-relaxed text-zinc-300">An initial indication from public evidence, not a full diagnosis.</p>
 </div>
 <div class="min-w-[210px] flex-[1.25]">
 <p class="text-xs font-extrabold uppercase tracking-[.18em] text-amber-400">Your Growth Gap Snapshot™</p>
-<h3 id="businessTitle" class="mt-1 text-xl sm:text-2xl font-extrabold tracking-tight text-white">Snapshot complete</h3>
-<p id="scanMeta" class="mt-1 text-sm text-zinc-400 break-all"></p>
+<h3 id="snapshot-title" class="mt-1 text-xl sm:text-2xl font-extrabold tracking-tight">Snapshot complete</h3>
+<p id="snapshot-website" class="mt-1 text-sm text-zinc-400 break-all"></p>
 <span class="mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-300"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Initial evidence review</span>
 </div>
 </section>
-<section id="primaryBlock" class="mt-5 rounded-2xl border border-zinc-700 bg-zinc-950/70 p-4 sm:p-5">
-<div class="flex flex-wrap items-start justify-between gap-3"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Your primary growth gap</p><h3 id="primaryTitle" class="mt-2 text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl">What deserves a closer look?</h3><p id="primaryCopy" class="mt-2 max-w-2xl text-sm leading-relaxed text-zinc-300" style="max-height:3.2em;overflow:hidden"></p></div><span id="primaryPill" class="rounded-full border border-red-400/40 bg-red-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-red-200">Worth investigating</span></div>
-<div class="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4" id="drivers"></div>
-<section id="weakDriverEvidence" class="mt-5 overflow-hidden rounded-2xl border-2 border-red-500/80 bg-zinc-950 shadow-[0_0_0_1px_rgba(239,68,68,.12)]">
-<div class="border-b border-red-500/30 bg-red-950/30 px-4 py-3 sm:px-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-red-300">Evidence to review</p><h4 id="weakEvidenceTitle" class="mt-1 text-lg font-extrabold text-white sm:text-xl">Potential Growth Gap: Awaiting scan evidence</h4><p id="weakEvidenceIntro" class="mt-1 text-sm leading-relaxed text-zinc-300">The weakest scored driver will be highlighted here alongside the evidence returned by the scan.</p></div>
-<div class="grid gap-0 lg:grid-cols-[1.05fr_.95fr]">
-<div class="min-h-[210px] border-b border-zinc-800 bg-black p-4 sm:p-5 lg:border-b-0 lg:border-r"><div class="flex items-center justify-between gap-3"><span class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Website evidence</span><span id="weakEvidenceBadge" class="rounded-full border border-red-400/30 bg-red-500/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-red-200">Needs verification</span></div>
-<div id="weakScreenshotWrap" class="mt-4 hidden overflow-hidden rounded-xl border border-zinc-700 bg-zinc-900"><img id="weakScreenshot" class="block max-h-[360px] w-full object-contain object-top" alt="Website screenshot associated with the selected growth gap"><p id="weakScreenshotCaption" class="border-t border-zinc-700 px-3 py-2 text-xs leading-relaxed text-zinc-400"></p></div>
-<div id="weakScreenshotPlaceholder" class="mt-4 rounded-xl border border-dashed border-zinc-700 bg-zinc-900/70 p-5"><div class="flex items-center gap-3"><span class="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-zinc-700 bg-black text-xl text-zinc-400">⌕</span><div><p class="font-bold text-white">No page capture returned</p><p class="mt-1 text-xs leading-relaxed text-zinc-400">This area will show a real scan screenshot when the diagnostic service supplies one. It will not substitute an unrelated image.</p></div></div></div>
+
+<section id="expanded-page-report" class="mt-5 rounded-2xl border border-zinc-700 bg-zinc-950/70 p-4 sm:p-5">
+  <div class="flex flex-wrap items-start justify-between gap-3">
+    <div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Page-level evidence</p><h3 class="mt-1 text-xl font-extrabold text-white">Website Pages Examined</h3><p class="mt-1 text-sm text-zinc-400">A quick view of the pages found and any findings directly linked to them.</p></div>
+    <div class="rounded-xl border border-zinc-700 bg-zinc-900 px-4 py-2"><span id="report-pages-count" class="text-2xl font-extrabold text-white">—</span><span class="ml-2 text-xs text-zinc-400">pages examined</span></div>
+  </div>
+  <div class="report-status-guide"><span class="guide-title">Status guide</span><span class="guide-item text-emerald-300">✓ Examined — checked; no supported issue linked by this scan.</span><span class="guide-item text-amber-300">⚠ Review — evidence is incomplete or needs human checking.</span><span class="guide-item text-red-300">! Potential issue — a returned finding is linked to this page.</span></div>
+  <div class="report-table-wrap mt-4 overflow-x-auto rounded-xl border border-zinc-800">
+    <table class="w-full min-w-[570px] text-left text-sm">
+      <thead class="bg-zinc-900 text-[10px] uppercase tracking-wider text-zinc-400"><tr><th class="px-3 py-3">Page</th><th class="px-3 py-3">URL</th><th class="px-3 py-3">Status</th><th class="px-3 py-3">Evidence</th></tr></thead>
+      <tbody id="report-pages-body" class="divide-y divide-zinc-800"></tbody>
+    </table>
+  </div>
+  <div id="report-mobile-cards" class="report-mobile-cards" aria-label="Website pages examined"></div>
+  <p id="report-pages-note" class="mt-3 text-xs leading-relaxed text-zinc-500">Up to 20 pages are examined; the 10 most relevant are shown. A page without a linked finding is not proof that its conversion performance is good.</p>
+  <div class="report-evidence-principle"><h4>Evidence first. No manufactured problems.</h4><p>We only flag issues supported by the scan. If a page or finding cannot be verified, the report says so.</p></div>
+</section>
+
+<section id="captured-screenshots" class="mt-5 rounded-2xl border border-zinc-700 bg-zinc-950/70 p-4 sm:p-5" aria-label="Captured website screenshots">
+  <div class="flex flex-wrap items-start justify-between gap-3">
+    <div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Visual evidence</p><h3 class="mt-1 text-xl font-extrabold text-white">Website screenshots</h3><p id="captured-screenshots-note" class="mt-1 text-sm text-zinc-400">Real page captures returned by this scan will appear here.</p></div>
+    <span id="captured-screenshots-count" class="rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-xs font-bold text-zinc-300">0 captures</span>
+  </div>
+  <div id="captured-screenshots-grid" class="mt-4 grid sm:grid-cols-2 gap-3"></div>
+</section>
+
+<section id="primary-gap-card" class="rounded-2xl border-2 border-red-500/90 bg-gradient-to-br from-red-950/35 via-zinc-950 to-zinc-950 p-5 sm:p-6 shadow-[0_0_0_1px_rgba(239,68,68,0.12),0_16px_45px_rgba(0,0,0,0.22)]">
+<div class="flex flex-wrap items-center justify-between gap-3">
+<span id="primary-gap-category" class="inline-flex items-center rounded-lg border border-red-400/40 bg-red-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-red-200">Primary growth gap</span>
+<span id="primary-gap-priority" class="text-xs font-extrabold uppercase tracking-[.14em] text-red-300">Worth investigating</span>
 </div>
-<div class="p-4 sm:p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-red-300">What the scan verified</p><h5 id="weakFindingTitle" class="mt-2 text-base font-extrabold text-white">Evidence is being assessed</h5><p id="weakFindingFact" class="mt-2 text-sm leading-6 text-zinc-300">The scan’s evidence-backed observation will appear here.</p><div class="mt-4 rounded-xl border border-zinc-800 bg-zinc-900 p-3"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">What this does — and does not — establish</p><p id="weakFindingCaveat" class="mt-2 text-sm leading-6 text-zinc-400">A public website signal can justify a closer look, but cannot by itself prove that customers were lost or that retention is poor.</p></div><p id="weakFindingSource" class="mt-3 text-xs leading-relaxed text-zinc-500"></p></div>
+<h4 id="primary-gap-title" class="mt-4 text-2xl sm:text-3xl font-extrabold leading-tight text-white">What deserves a closer look?</h4>
+<p id="primary-gap-intro" class="mt-2 text-sm leading-relaxed text-zinc-200">Your strongest evidence-supported finding will appear here.</p>
+<div id="primary-gap-content" class="mt-5 space-y-4">
+<div class="gap-step"><span class="gap-step-number">1</span><div><p class="gap-step-label">What we saw</p><p class="gap-step-copy">The scan is preparing your finding.</p></div></div>
+</div>
+<p id="primary-gap-caveat" class="mt-5 border-t border-red-400/20 pt-4 text-xs leading-relaxed text-zinc-300">A signal is a reason to investigate, not proof that customers have been lost.</p>
+</section>
+
+<div class="mt-4 grid grid-cols-3 gap-3">
+<div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3 sm:p-4"><p class="text-[10px] sm:text-xs font-bold text-zinc-300 uppercase tracking-wider">Pages examined</p><p id="pages-scanned" class="mt-1 text-2xl font-extrabold text-white">—</p></div>
+<div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3 sm:p-4"><p class="text-[10px] sm:text-xs font-bold text-zinc-300 uppercase tracking-wider">Supported findings</p><p id="finding-count" class="mt-1 text-2xl font-extrabold text-white">—</p></div>
+<div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3 sm:p-4"><p class="text-[10px] sm:text-xs font-bold text-zinc-300 uppercase tracking-wider">Assessment type</p><p class="mt-1 text-sm sm:text-base font-extrabold text-amber-300">Initial scan</p></div>
+</div>
+
+<div id="additional-findings-wrap" class="hidden mt-6">
+<div class="flex items-end justify-between gap-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Also observed</p><h4 class="mt-1 text-xl font-extrabold text-white">Other signals to review</h4></div><p class="hidden sm:block text-xs text-zinc-300">Evidence first. Priorities second.</p></div>
+<div id="snapshot-findings" class="mt-4 grid md:grid-cols-2 gap-4"></div>
+</div>
+
+<div id="no-gap-result" class="hidden mt-6 rounded-2xl border border-emerald-500/50 bg-emerald-950/20 p-5 sm:p-6">
+<p class="text-xs font-extrabold uppercase tracking-[.16em] text-emerald-300">No substantiated gap found</p>
+<h4 class="mt-2 text-xl font-extrabold text-white">The available evidence doesn't justify a warning.</h4>
+<p class="mt-2 text-sm leading-relaxed text-zinc-200">That is a valid result. We won't manufacture a problem to make a report look dramatic. A review can still help you decide whether the public evidence reflects what's happening in the business.</p>
+</div>
+
+<!-- Evidence screenshot: rendered from the scanned page when a usable source URL is returned. -->
+<section id="evidence-annotation-card" class="mt-6 overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-950 shadow-2xl">
+  <div class="border-b border-zinc-800 px-5 py-4 sm:px-7">
+    <div class="flex flex-wrap items-center gap-3">
+      <span id="evidence-annotation-badge" class="inline-flex items-center gap-2 rounded-full border border-red-400/40 bg-red-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-red-200"><span aria-hidden="true" class="h-2 w-2 rounded-full bg-red-400"></span> Evidence flagged for review</span>
+      <span class="text-xs font-semibold text-zinc-400">Live page capture</span>
+    </div>
+    <h4 class="mt-3 text-xl sm:text-2xl font-extrabold text-white">Here’s the page signal we’re referring to.</h4>
+    <p id="evidence-annotation-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">We show a capture of the page connected to the finding wherever the scan provides a verifiable address. A screenshot lets you inspect the page for yourself; it does not, by itself, prove a business outcome.</p>
+  </div>
+  <div id="evidence-annotation-visual" class="relative flex min-h-[320px] items-center justify-center overflow-hidden bg-zinc-900 p-3 sm:p-5">
+    <div id="evidence-placeholder" class="max-w-lg text-center">
+      <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-red-400/30 bg-red-500/10 text-2xl text-red-300" aria-hidden="true">⚑</div>
+      <p class="mt-4 font-bold text-white">Page evidence will appear here</p>
+      <p class="mt-2 text-sm leading-relaxed text-zinc-400">Once a page address can be tied to the finding, this panel will show the page for a closer look. We won’t fabricate a screenshot or mark an unverified issue.</p>
+    </div>
+    <div id="evidence-screenshot-frame" class="relative hidden w-full max-w-4xl overflow-hidden rounded-xl border border-zinc-700 bg-zinc-950">
+      <div id="evidence-image-stage" class="relative w-full bg-zinc-950">
+        <img id="evidence-screenshot" alt="" loading="eager" decoding="async" class="block h-auto w-full" />
+        <div id="evidence-flag" class="hidden absolute left-1/2 -translate-x-1/2 -translate-y-1/2" style="top:38%">
+          <span class="flex items-center gap-2 rounded-lg border-2 border-red-400 bg-red-950/95 px-3 py-2 text-xs font-extrabold text-white shadow-xl"><span aria-hidden="true" class="text-red-300">⚑</span> REVIEW THIS SIGNAL</span>
+          <span aria-hidden="true" class="mx-auto flex h-12 flex-col items-center justify-start text-red-400"><span class="block h-8 w-0.5 bg-red-400"></span><span class="-mt-2 text-2xl font-black leading-none">▼</span></span>
+        </div>
+      </div>
+      <p id="evidence-screenshot-caption" class="border-t border-zinc-800 px-4 py-3 text-xs leading-relaxed text-zinc-300">Page captured for visual context; confirm the specific issue during the Diagnostic Review.</p>
+    </div>
+  </div>
+  <div class="border-t border-zinc-800 px-5 py-4 sm:px-7">
+    <p class="text-xs leading-relaxed text-zinc-400">The red marker identifies the page for review, not a proven fault. We only identify a specific page element when the scan provides enough evidence to do so.</p>
+  </div>
+</section>
+
+<div class="mt-6 rounded-2xl border border-amber-400/50 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-5 sm:p-7">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+<div class="max-w-2xl"><p id="snapshot-cta-kicker" class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Turn the finding into a decision</p><h4 id="snapshot-cta-heading" class="mt-2 text-2xl sm:text-3xl font-extrabold leading-tight text-white">What could this mean for your business?</h4><p id="snapshot-cta-copy" class="mt-3 text-sm sm:text-base leading-relaxed text-zinc-200">In a 20–30-minute Diagnostic Review, we'll put the finding in context, explore what it may mean commercially, and identify what is worth checking before you spend more.</p></div>
+<a id="snapshot-cta" href="#treatment-assets" class="inline-flex shrink-0 w-full md:w-auto justify-center rounded-xl bg-amber-400 hover:bg-amber-300 px-6 py-4 text-sm font-extrabold text-zinc-950 shadow-[0_8px_30px_rgba(245,158,11,.18)] transition">Explore tailored assets ↓</a>
+</div>
+<p id="snapshot-cta-reassurance" class="mt-4 text-xs leading-relaxed text-zinc-300">Review the diagnosis first, then explore the three assets and implementation options.</p>
+</div>
+<section id="treatment-assets" class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-950 p-4 sm:p-7">
+<div class="mb-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three assets built around the growth gap</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">These are tailored concepts for discussion. The recommended focus follows the actual scan finding.</p></div>
+<div class="grid gap-4 lg:grid-cols-3">
+<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="bg-white p-3 text-zinc-900"><div class="flex items-center justify-between border-b pb-2 text-[9px] font-extrabold"><span id="asset-business-1">YOUR BUSINESS</span><span>Services · About · Contact</span></div><div class="grid grid-cols-2 gap-2 py-4"><div><p id="asset-landing-headline" class="text-sm font-extrabold leading-tight">A clearer route to your next customer</p><p id="asset-landing-copy" class="mt-2 text-[9px] leading-relaxed text-zinc-600">Focused message, trust evidence and one clear next step.</p><span id="asset-landing-cta" class="mt-3 inline-block rounded bg-amber-400 px-2 py-1 text-[8px] font-extrabold">Get started</span></div><div class="rounded bg-slate-100 p-2"><div class="h-12 rounded bg-slate-300"></div><div class="mt-2 h-2 rounded bg-slate-200"></div><div class="mt-1 h-2 w-2/3 rounded bg-slate-200"></div><div class="mt-2 rounded border p-1 text-[8px]">Enquiry route</div></div></div><div class="grid grid-cols-3 gap-1 border-t pt-2 text-center text-[8px]"><span>Proof</span><span>Benefits</span><span>Next step</span></div></div><div class="p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 01</p><h4 class="mt-1 font-extrabold text-white">Focused landing page</h4><p id="asset-landing-desc" class="mt-2 text-sm leading-6 text-zinc-400">A focused page built around the primary growth gap.</p><p class="mt-3 text-xs font-bold text-emerald-300">Complimentary concept</p></div></article>
+<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="flex min-h-[200px] items-center justify-center bg-stone-100 p-5"><div class="w-4/5 -rotate-2 border border-stone-300 bg-white p-4 text-zinc-900 shadow-xl"><p class="text-[8px] font-extrabold uppercase tracking-widest text-amber-700">Free practical guide</p><p id="asset-guide-title" class="mt-3 text-lg font-extrabold leading-tight">The Customer's Guide to Making the Right Choice</p><div class="mt-3 h-1 w-12 bg-amber-400"></div><p id="asset-guide-copy" class="mt-3 text-[9px] leading-relaxed text-zinc-600">Useful advice, key questions and a clear next step.</p><p id="asset-business-2" class="mt-4 text-[8px] font-bold">YOUR BUSINESS</p></div></div><div class="p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 02</p><h4 class="mt-1 font-extrabold text-white">Lead magnet and guide</h4><p id="asset-guide-desc" class="mt-2 text-sm leading-6 text-zinc-400">A useful resource designed to start a relationship with a potential customer.</p><p class="mt-3 text-xs font-bold text-emerald-300">Complimentary concept</p></div></article>
+<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="bg-white p-3 text-zinc-900"><div class="flex items-center justify-between border-b pb-2"><span id="asset-business-3" class="text-[9px] font-extrabold">YOUR BUSINESS · INSIGHTS</span><span class="text-[8px]">Home · Blog</span></div><p class="mt-3 text-base font-extrabold">Advice & Insights</p><p class="mt-1 text-[9px] text-zinc-500">Answers to the questions your customers ask.</p><div class="mt-3 grid grid-cols-3 gap-2"><div><div class="h-10 rounded bg-slate-200"></div><p id="asset-article-1" class="mt-2 text-[8px] font-bold leading-tight">What to check before choosing a provider</p><p class="mt-1 text-[7px] text-zinc-500">Article 01</p></div><div><div class="h-10 rounded bg-slate-300"></div><p id="asset-article-2" class="mt-2 text-[8px] font-bold leading-tight">Questions to ask before requesting a quote</p><p class="mt-1 text-[7px] text-zinc-500">Article 02</p></div><div><div class="h-10 rounded bg-amber-100"></div><p id="asset-article-3" class="mt-2 text-[8px] font-bold leading-tight">How to compare options with confidence</p><p class="mt-1 text-[7px] text-zinc-500">Article 03</p></div></div></div><div class="p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 03</p><h4 class="mt-1 font-extrabold text-white">Blog setup + three articles</h4><p id="asset-blog-desc" class="mt-2 text-sm leading-6 text-zinc-400">A small content base shaped around customer questions.</p><p class="mt-3 text-xs font-bold text-emerald-300">Complimentary concept</p></div></article>
+</div></section>
+<section id="treatment-proposal" class="mt-5 rounded-3xl border border-amber-400/40 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-4 sm:p-7">
+<div class="mb-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 3 · Treatment proposal</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">A practical plan to address the identified gap</h3><p id="proposal-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The proposal will be shaped around the primary finding from this scan.</p></div>
+<div class="grid gap-4 lg:grid-cols-[1fr_1.2fr]"><article class="rounded-2xl border border-zinc-700 bg-zinc-950 p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Recommended treatment</p><h4 id="proposal-gap-title" class="mt-2 text-xl font-extrabold text-white">Primary growth gap</h4><p id="proposal-treatment" class="mt-3 text-sm leading-6 text-zinc-300">Confirm the diagnosis with the business owner before choosing the treatment.</p><div class="mt-4 border-t border-zinc-800 pt-4"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Why this route</p><p id="proposal-rationale" class="mt-2 text-sm leading-6 text-zinc-400">The recommended scope should follow verified evidence, not a generic package.</p></div></article>
+<div class="space-y-3"><article class="rounded-2xl border border-emerald-500/40 bg-emerald-950/20 p-4"><div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option A · Take the assets</h4><span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">FREE</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Receive the three agreed assets and implement them yourself. You manage publishing, forms, consent, hosting, tracking and updates.</p><button type="button" data-treatment="free" class="mt-3 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10">Select free assets</button></article>
+<article class="rounded-2xl border border-zinc-700 bg-zinc-950 p-4"><div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option B · We host and manage the assets</h4><span class="text-lg font-extrabold text-amber-300">£199/month</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">We agree the scope, publish the assets, provide hosting and manage the agreed ongoing updates. Exact inclusions are confirmed before acceptance.</p><button type="button" data-treatment="managed" class="mt-3 rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Select managed option</button></article>
+<article class="rounded-2xl border border-zinc-700 bg-zinc-950 p-4"><h4 class="font-extrabold text-white">Option C · Growth Implementation Programme</h4><p class="mt-2 text-sm leading-6 text-zinc-300">A tailored implementation proposal based on the diagnosed gap, agreed priorities and the work required. Scope and price are prepared after review.</p><button type="button" data-treatment="programme" class="mt-3 rounded-xl border border-zinc-600 px-4 py-3 text-sm font-extrabold text-white hover:border-amber-400">Build custom proposal</button></article></div></div>
+<div id="proposal-selection" class="mt-5 hidden rounded-xl border border-amber-400/30 bg-zinc-950 p-4 text-sm text-amber-100" aria-live="polite"></div><p class="mt-4 text-xs leading-relaxed text-zinc-500">Illustrative proposal only. Revenue improvement is not guaranteed. Final scope, implementation responsibilities, pricing and terms must be agreed before work begins.</p>
+</section>
+<div class="mt-5 flex flex-wrap gap-3 no-print"><button id="deep-dive-new-scan" type="button" class="rounded-xl border border-zinc-700 px-4 py-3 text-sm font-bold text-zinc-300 hover:border-amber-400">Start another scan</button><button id="print-treatment-proposal" type="button" class="rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Print / save proposal</button></div>
+</div>
+</div></div>
+</section>
+
+<section class="bg-white">
+<div class="max-w-4xl mx-auto px-5 py-16">
+
+<p class="text-sm font-bold uppercase tracking-wider text-amber-600">Questions</p>
+<h2 class="mt-3 text-3xl font-bold">What you should know before you start.</h2>
+
+<div class="mt-8 space-y-4">
+
+<details class="rounded-xl border p-5">
+<summary class="font-bold cursor-pointer">Is this an audit?</summary>
+<p class="mt-3 text-sm text-zinc-600">No. The Snapshot is a diagnostic first look. It focuses on identifying a credible growth constraint rather than giving you a long list of generic recommendations.</p>
+</details>
+
+<details class="rounded-xl border p-5">
+<summary class="font-bold cursor-pointer">What does the scan look at?</summary>
+<p class="mt-3 text-sm text-zinc-600">The public website is examined for evidence relevant to visibility, trust and conversion. The available evidence determines how specific the finding can be.</p>
+</details>
+
+<details class="rounded-xl border p-5">
+<summary class="font-bold cursor-pointer">Will you try to sell me something?</summary>
+<p class="mt-3 text-sm text-zinc-600">The immediate next step is simply a 20-minute review of the finding. Any treatment discussion comes after the diagnosis and only if there is a meaningful problem worth addressing.</p>
+</details>
+
+<details class="rounded-xl border p-5">
+<summary class="font-bold cursor-pointer">What if nothing significant is found?</summary>
+<p class="mt-3 text-sm text-zinc-600">That is a valid result. We would rather tell you the evidence is inconclusive than invent a problem to solve.</p>
+</details>
+
+</div>
 </div>
 </section>
-<section id="gapDiagnosis" class="mt-4 hidden rounded-2xl border border-amber-400/30 bg-zinc-950 p-4 sm:p-5">
-<div class="flex flex-wrap items-center justify-between gap-2"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">The diagnosis</p><h4 id="gapDiagnosisTitle" class="mt-1 text-lg font-extrabold text-white">What this gap could mean</h4></div><span id="gapDiagnosisDriver" class="rounded-full border border-zinc-700 bg-zinc-900 px-3 py-1 text-xs font-bold text-zinc-300">Growth driver</span></div>
-<div class="mt-4 grid gap-3 sm:grid-cols-3">
-<article class="rounded-xl border border-zinc-800 bg-zinc-900 p-3"><p class="text-[10px] font-extrabold uppercase tracking-[.12em] text-zinc-400">What we found</p><p id="gapDiagnosisFinding" class="mt-2 text-sm leading-5 text-zinc-200">Evidence-backed finding will appear here.</p></article>
-<article class="rounded-xl border border-zinc-800 bg-zinc-900 p-3"><p class="text-[10px] font-extrabold uppercase tracking-[.12em] text-zinc-400">Why it may matter</p><p id="gapDiagnosisImpact" class="mt-2 text-sm leading-5 text-zinc-200">Potential business implication will appear here.</p></article>
-<article class="rounded-xl border border-amber-400/20 bg-amber-400/5 p-3"><p class="text-[10px] font-extrabold uppercase tracking-[.12em] text-amber-300">Suggested next step</p><p id="gapDiagnosisTreatment" class="mt-2 text-sm leading-5 text-zinc-100">Recommended next step will appear here.</p></article>
+
+<footer class="bg-zinc-950 text-zinc-400">
+<div class="max-w-6xl mx-auto px-5 py-10 flex flex-col sm:flex-row gap-5 items-center justify-between">
+
+<div>
+<p class="font-bold text-white">The Doctor Approach™</p>
+<p class="text-sm mt-1">Diagnosis Before Prescription.</p>
 </div>
-<p class="mt-3 text-xs leading-relaxed text-zinc-500">The scan identifies a place to investigate. Confirm the business process and impact with the owner before prescribing a solution.</p>
-</section>
-<div id="evidencePrinciple" class="mt-4 rounded-xl border border-zinc-800 bg-zinc-900/70 p-3"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-zinc-400">Evidence principle</p><p class="mt-1 text-xs leading-relaxed text-zinc-400">A missing signal is a reason to check, not proof of poor performance or lost revenue.</p></div>
-</section>
-<section id="findingsSection" class="mt-5 rounded-2xl border border-zinc-700 bg-zinc-950/70 p-4 sm:p-5">
-<div class="flex flex-wrap items-end justify-between gap-3"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">The deeper diagnosis</p><h3 class="mt-1 text-xl font-extrabold text-white sm:text-2xl">Growth gaps worth exploring</h3><p class="mt-1 text-sm text-zinc-400">Each finding separates what the scan observed from what still needs to be checked.</p></div><span id="findingCount" class="rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-2 text-xs font-bold text-zinc-300">0 findings</span></div>
-<div id="findings" class="mt-4 grid gap-3 md:grid-cols-2"></div>
-</section>
-<section id="revenueSection" class="mt-5 rounded-2xl border border-zinc-700 bg-zinc-950/70 p-4 sm:p-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">The commercial opportunity</p><h3 class="mt-1 text-xl font-extrabold text-white sm:text-2xl">What could an improvement be worth?</h3><p class="mt-2 text-sm leading-relaxed text-zinc-400">Use the business's own numbers to explore a scenario. This is not a calculation of actual lost revenue.</p>
-<div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3"><div class="rounded-xl border border-zinc-700 bg-zinc-900 p-3"><label for="currency" class="mb-2 block text-xs font-bold text-zinc-300">Country / currency</label><select id="currency" class="w-full rounded-lg border border-zinc-600 bg-zinc-950 p-3 text-sm text-white"><option value="GBP">UK (£)</option><option value="USD">USA ($)</option></select></div><div class="rounded-xl border border-zinc-700 bg-zinc-900 p-3"><label for="customerValue" class="mb-2 block text-xs font-bold text-zinc-300">12-month revenue per new customer</label><input id="customerValue" type="number" min="0" value="800" class="w-full rounded-lg border border-zinc-600 bg-zinc-950 p-3 text-sm text-white"></div><div class="rounded-xl border border-zinc-700 bg-zinc-900 p-3"><label for="enquiries" class="mb-2 block text-xs font-bold text-zinc-300">Monthly enquiries</label><input id="enquiries" type="number" min="0" value="40" class="w-full rounded-lg border border-zinc-600 bg-zinc-950 p-3 text-sm text-white"></div><div class="rounded-xl border border-zinc-700 bg-zinc-900 p-3"><label for="conversion" class="mb-2 block text-xs font-bold text-zinc-300">Enquiry-to-customer rate (%)</label><input id="conversion" type="number" min="0" max="100" value="10" class="w-full rounded-lg border border-zinc-600 bg-zinc-950 p-3 text-sm text-white"></div><div class="rounded-xl border border-zinc-700 bg-zinc-900 p-3"><label for="uplift" class="mb-2 block text-xs font-bold text-zinc-300">Relative conversion improvement</label><select id="uplift" class="w-full rounded-lg border border-zinc-600 bg-zinc-950 p-3 text-sm text-white"><option value=".10">10%</option><option value=".15" selected>15%</option><option value=".20">20%</option><option value=".25">25%</option></select></div></div>
-<div class="mt-4 grid gap-3 md:grid-cols-3"><div class="rounded-xl border border-zinc-800 bg-zinc-900 p-4"><p class="text-xs font-bold text-zinc-400">Extra customers / month (modelled)</p><p id="extraCustomers" class="mt-2 text-2xl font-extrabold text-white">—</p></div><div class="rounded-xl border border-amber-400/30 bg-amber-400/10 p-4"><p class="text-xs font-bold text-amber-100">Potential monthly revenue run-rate</p><p id="monthlyGap" class="mt-2 text-2xl font-extrabold text-amber-300">—</p></div><div class="rounded-xl border border-zinc-800 bg-zinc-900 p-4"><p class="text-xs font-bold text-zinc-400">Annualised revenue run-rate</p><p id="annualGap" class="mt-2 text-2xl font-extrabold text-white">—</p></div></div>
-<p class="mt-4 rounded-xl border border-zinc-800 bg-zinc-900 p-3 text-xs leading-relaxed text-zinc-500">Illustrative only, not actual lost revenue, a forecast, guarantee or profit. Assumes enquiry volume and customer value remain unchanged, excludes margin, capacity, timing and seasonality, and uses a relative conversion improvement rather than percentage-point uplift.</p></section>
-<section id="assetsSection" class="mt-5 rounded-2xl border border-zinc-700 bg-zinc-950/70 p-4 sm:p-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Practical ways to close the gap</p><h3 class="mt-1 text-xl font-extrabold text-white sm:text-2xl">Three complimentary asset concepts</h3><p class="mt-2 text-sm text-zinc-400">Concepts for discussion, not completed deliverables. Scope and values should be agreed before any public claim.</p>
-<div class="mt-4 grid gap-4 lg:grid-cols-3">
-<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="border-b border-zinc-700 bg-zinc-800 p-3"><span class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 01 · Landing page</span><div class="mt-3 overflow-hidden rounded-lg bg-white text-zinc-900"><div class="flex items-center justify-between border-b px-3 py-2 text-[9px] font-bold"><span>YOUR LOGO</span><span>Services　About　Contact</span></div><div class="grid grid-cols-2 gap-2 bg-slate-100 p-3"><div class="py-2"><p class="text-sm font-extrabold leading-tight">A better way to choose your service</p><p class="mt-2 text-[9px] text-zinc-600">Clear benefits, proof and a focused next step.</p><span class="mt-2 inline-block rounded bg-amber-400 px-2 py-1 text-[9px] font-extrabold">Get started</span></div><div class="rounded bg-slate-300 p-2"><div class="h-10 rounded bg-slate-400"></div><div class="mt-2 h-2 rounded bg-slate-300"></div><div class="mt-1 h-2 w-2/3 rounded bg-slate-300"></div><div class="mt-2 rounded border p-1 text-[8px]">Enquiry form</div></div></div><div class="grid grid-cols-3 gap-1 px-2 py-2 text-center text-[8px]"><span>Trust signals</span><span>Key benefits</span><span>Clear CTA</span></div></div></div><div class="p-4"><h4 class="font-extrabold text-white">Focused landing page</h4><p class="mt-2 text-sm leading-6 text-zinc-400">A dedicated page to explain one priority service and make the next step obvious.</p></div></article>
-<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="border-b border-zinc-700 bg-zinc-800 p-3"><span class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 02 · Lead magnet</span><div class="mt-3 flex min-h-[190px] items-center justify-center rounded-lg bg-stone-100 p-4"><div class="w-4/5 -rotate-2 border border-stone-300 bg-white p-4 text-zinc-900 shadow-xl"><p class="text-[8px] font-bold uppercase tracking-widest text-amber-700">Free practical guide</p><p class="mt-3 text-lg font-extrabold leading-tight">The Customer's Guide to Making the Right Choice</p><div class="mt-3 h-1 w-12 bg-amber-400"></div><p class="mt-3 text-[9px] leading-relaxed text-zinc-600">Useful advice, key questions to ask and a clear next step.</p><p class="mt-4 text-[8px] font-bold">YOUR BUSINESS NAME</p></div></div></div><div class="p-4"><h4 class="font-extrabold text-white">Lead magnet and guide</h4><p class="mt-2 text-sm leading-6 text-zinc-400">A useful downloadable resource with an opt-in form and delivery process.</p></div></article>
-<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="border-b border-zinc-700 bg-zinc-800 p-3"><span class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 03 · Blog</span><div class="mt-3 rounded-lg bg-white p-3 text-zinc-900"><div class="flex items-center justify-between border-b pb-2"><span class="text-[9px] font-extrabold">YOUR BUSINESS · INSIGHTS</span><span class="text-[8px]">Home　Blog</span></div><p class="mt-3 text-base font-extrabold">Advice & Insights</p><p class="mt-1 text-[9px] text-zinc-500">Answers to the questions your customers ask.</p><div class="mt-3 grid grid-cols-3 gap-2"><div><div class="h-10 rounded bg-slate-200"></div><p class="mt-2 text-[8px] font-bold leading-tight">What to look for before choosing</p><p class="mt-1 text-[7px] text-zinc-500">Article 01</p></div><div><div class="h-10 rounded bg-slate-300"></div><p class="mt-2 text-[8px] font-bold leading-tight">How to avoid common mistakes</p><p class="mt-1 text-[7px] text-zinc-500">Article 02</p></div><div><div class="h-10 rounded bg-amber-100"></div><p class="mt-2 text-[8px] font-bold leading-tight">Questions to ask before you decide</p><p class="mt-1 text-[7px] text-zinc-500">Article 03</p></div></div></div></div><div class="p-4"><h4 class="font-extrabold text-white">Blog setup + three articles</h4><p class="mt-2 text-sm leading-6 text-zinc-400">An initial content base shaped around real customer questions.</p></div></article></div></section>
-<section id="optionsSection" class="mt-5 rounded-2xl border border-zinc-700 bg-zinc-950/70 p-4 sm:p-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Your next move</p><h3 class="mt-1 text-xl font-extrabold text-white sm:text-2xl">Choose the appropriate next step</h3><div class="mt-4 grid gap-4 lg:grid-cols-[.9fr_1.5fr]"><article class="rounded-2xl border border-emerald-500/50 bg-emerald-950/20 p-4"><div class="flex items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option A · Take them away</h4><span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">FREE</span></div><p class="mt-3 text-sm leading-6 text-zinc-300">Receive the three agreed assets and implement them yourself.</p><p class="mt-3 text-xs leading-5 text-zinc-400">You handle publishing, forms, consent, tracking, hosting, updates and maintenance.</p><button type="button" data-package="free" class="mt-4 w-full rounded-xl border border-emerald-400/60 px-3 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10">Select free assets</button></article><article class="rounded-2xl border border-amber-400/40 bg-zinc-900 p-4"><div class="flex items-center justify-between"><h4 class="font-extrabold text-white">Option B · We manage everything</h4><span class="text-xs text-amber-300">Managed packages</span></div><p class="mt-2 text-sm text-zinc-400">Core assets plus implementation, hosting, maintenance and more content support.</p><div class="mt-4 grid gap-2 sm:grid-cols-3"><div class="rounded-xl border border-zinc-700 bg-zinc-950 p-3"><p class="text-xs font-bold text-zinc-400">ESSENTIAL</p><p class="mt-1 text-2xl font-extrabold">£149<span class="text-xs font-medium text-zinc-400">/mo</span></p><p class="mt-2 text-xs leading-5 text-zinc-400">Core assets, hosting, maintenance and 24 articles/year.</p><button type="button" data-package="essential" class="mt-3 w-full rounded-lg border border-zinc-600 px-2 py-2 text-xs font-bold hover:border-amber-400">Choose Essential</button></div><div class="rounded-xl border-2 border-amber-400 bg-amber-400/5 p-3"><p class="text-xs font-bold text-amber-300">GROWTH · POPULAR</p><p class="mt-1 text-2xl font-extrabold">£199<span class="text-xs font-medium text-zinc-400">/mo</span></p><p class="mt-2 text-xs leading-5 text-zinc-400">Extra landing pages, guides, content and publishing support.</p><button type="button" data-package="growth" class="mt-3 w-full rounded-lg bg-amber-400 px-2 py-2 text-xs font-extrabold text-zinc-950 hover:bg-amber-300">Choose Growth</button></div><div class="rounded-xl border border-zinc-700 bg-zinc-950 p-3"><p class="text-xs font-bold text-zinc-400">COMPLETE</p><p class="mt-1 text-2xl font-extrabold">£299<span class="text-xs font-medium text-zinc-400">/mo</span></p><p class="mt-2 text-xs leading-5 text-zinc-400">Expanded asset, content and publishing support.</p><button type="button" data-package="complete" class="mt-3 w-full rounded-lg border border-zinc-600 px-2 py-2 text-xs font-bold hover:border-amber-400">Choose Complete</button></div></div><p id="packageSelection" class="mt-3 hidden rounded-lg border border-amber-400/30 bg-amber-400/10 p-3 text-sm text-amber-100" aria-live="polite"></p></article></div><div id="stageControls" class="no-print mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-zinc-800 pt-4"></div><div class="no-print mt-5 flex flex-wrap gap-3"><button id="printReport" class="rounded-xl border border-zinc-600 bg-zinc-900 px-4 py-3 text-sm font-extrabold text-white transition hover:border-amber-400">Print / save report</button><button id="newScanBottom" class="rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 transition hover:bg-amber-300">Start a new scan</button></div></section>
+
+<div class="text-sm text-center sm:text-right">
+<p><a class="contact-link" href="mailto:info@thedoctorapproach.com">info@thedoctorapproach.com</a></p>
+<p class="mt-1"><a class="contact-link" href="tel:+442085911163">Tel: +44 208 591 1163</a></p>
+<p class="mt-1"><a class="contact-link" href="tel:+447956393270">Mobile: +44 7956 393270</a></p>
+<p class="mt-2">© 2026 The Doctor Approach™</p>
 </div>
-<footer class="mt-8 border-t border-zinc-800 pt-5 text-center text-xs leading-6 text-zinc-600">The Doctor Approach™ · Diagnose before prescribing · Public website evidence only; unknowns are not assumed.</footer>
+
+</div>
+</footer>
+
 </main>
+
 <script>
-const SNAPSHOT_API='https://doctor-approach-api.onrender.com/api/snapshot';
-const DD2_API='https://doctor-approach-dd2-api.onrender.com/api/dd2/diagnose';
-const $=id=>document.getElementById(id);
-let lastData=null;
-function esc(s){return String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
-function num(v){const n=Number(v);return Number.isFinite(n)?n:0}
-function fmtMoney(n){const c=$('currency').value;return new Intl.NumberFormat(c==='GBP'?'en-GB':'en-US',{style:'currency',currency:c,maximumFractionDigits:0}).format(n||0)}
-function getScore(data){const v=[data?.overall?.score,data?.overall?.value,data?.scan?.overall?.score,data?.scan?.diagnosticScores?.overall?.score];for(const x of v)if(x!==undefined&&x!==null&&Number.isFinite(Number(x)))return Math.max(0,Math.min(100,Math.round(Number(x))));return null}
-function tone(n){return n<40?{name:'Weak',color:'#f87171'}:n<60?{name:'Developing',color:'#fbbf24'}:n<80?{name:'Strong',color:'#34d399'}:{name:'Leading',color:'#059669'}}
-function industryLabel(v){return ({roofing:'Roofing contractor',dental:'Dentist / dental practice',hvac:'HVAC contractor',chiropractic:'Chiropractor',landscaping:'Landscaping contractor',general:'Other / general business'})[v]||v}
-function detectIndustry(url,...sources){const hay=(url+' '+sources.map(x=>JSON.stringify(x||{})).join(' ')).toLowerCase();const rules=[['roofing',/roofer|roofing|roof[- ]?repair|roof replacement/],['dental',/dentist|dental|dentistry|orthodont/],['hvac',/\bhvac\b|heating and cooling|air conditioning|boiler installation|heat pump/],['chiropractic',/chiropract|chiro clinic/],['landscaping',/landscap|garden design|lawn care|grounds maintenance/]];for(const [key,re] of rules)if(re.test(hay))return key;return ''}
-function render(data,site,snapshotPayload){
- lastData=data;const scan=data.scan||{};const s=snapshotPayload||{};const score=Number.isFinite(Number(s.score))&&s.score!==null?Math.max(0,Math.min(100,Math.round(Number(s.score)))):getScore(data);const t=score===null?{name:'Not scorable',color:'#a1a1aa'}:tone(score);
- $('report').classList.remove('hidden');$('overallScore').textContent=score===null?'—':score;$('scoreDial').style.setProperty('--score',score===null?0:score);$('scoreDial').style.setProperty('--score-color',t.color);$('scoreDial').setAttribute('aria-label','Overall Growth Health score '+(score??'not scored')+' out of 100');$('scoreGrade').textContent=t.name;$('scoreGrade').style.setProperty('--score-color',t.color);$('scoreLabel').textContent=score===null?'Not scored':score+'/100';$('scoreBar').style.width=(score??0)+'%';$('scoreBar').style.background=t.color;
- $('businessTitle').textContent=scan.businessName||s.businessName||new URL(site).hostname;$('scanMeta').textContent='Website: '+(scan.website||site)+' · '+(scan.pageCount??'—')+' pages examined · '+(scan.scannedAt?new Date(scan.scannedAt).toLocaleString():'Scan completed');
- const p=s.primaryGrowthGap||data.primary||{};$('primaryTitle').textContent=p.title||p.growthGap||p.name||'Review the evidence below';$('primaryCopy').textContent=p.observation||p.growthGap||p.description||p.interpretation||'The scan did not return a single primary finding. Review the available evidence and validate it in conversation.';
- const deep=Array.isArray(data.findings)?data.findings:[];const snap=Array.isArray(s.keyFindings)?s.keyFindings:[];const all=[...snap.map(f=>({...f,_source:'Snapshot'})),...deep.map(f=>({...f,_source:'Deep Dive'}))];$('findingCount').textContent=all.length+' finding'+(all.length===1?'':'s');
- const drivers=Array.isArray(data.drivers)?data.drivers:[];const dmap={};drivers.forEach(d=>dmap[String(d.driver||d.name||'').toLowerCase()]=d);const names=['Visibility','Trust','Conversion','Retention'];const scored=names.map(name=>{const d=dmap[name.toLowerCase()]||{};const raw=d.score??d.value;const n=raw===undefined||raw===null||raw===''?null:Number(raw);return {name,d,score:Number.isFinite(n)?n:null}});const weak=scored.filter(x=>x.score!==null).sort((a,b)=>a.score-b.score)[0]||null;$('drivers').innerHTML=scored.map(({name,d,score})=>{const col=score!==null?tone(score).color:'#a1a1aa';const selected=!!weak&&weak.name===name;return '<article class="rounded-xl border '+(selected?'border-red-400/80 bg-black ring-1 ring-red-400/20':'border-zinc-700 bg-zinc-900')+' p-4 sm:p-5 '+(selected?'shadow-[0_0_24px_rgba(239,68,68,.08)]':'')+'"><div class="flex items-start justify-between gap-2"><p class="text-xs font-extrabold uppercase tracking-[.12em] '+(selected?'text-white':'text-zinc-400')+'">'+name+'</p>'+(selected?'<span class="rounded-md bg-red-500/15 px-2 py-1 text-[9px] font-extrabold uppercase tracking-wider text-red-200">Focus</span>':'')+'</div><p class="mt-3 text-3xl font-extrabold tracking-tight text-white">'+(score===null?'—':esc(score))+'</p><span class="mt-2 inline-flex rounded-full border px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider" style="color:'+col+';border-color:'+col+'55;background:'+col+'15">'+esc(d.status||(score!==null?tone(score).name:'Needs review'))+'</span></article>'}).join('');
- const matchFinding=(f)=>{const label=String(f.driver||f.category||f.area||'').toLowerCase();const txt=[f.title,f.name,f.growthGap,f.observation,f.fact,f.description].filter(Boolean).join(' ').toLowerCase();return weak&&((label.includes(weak.name.toLowerCase()))||(txt.includes(weak.name.toLowerCase())));};const weakFindings=all.filter(matchFinding);const evidenceFinding=weakFindings[0]||null;const evidenceTitle=evidenceFinding&&(evidenceFinding.title||evidenceFinding.name||evidenceFinding.growthGap);const evidenceFact=evidenceFinding&&(evidenceFinding.observation||evidenceFinding.fact||evidenceFinding.description||evidenceFinding.growthGap);const evidenceDetail=evidenceFinding&&(evidenceFinding.evidence||evidenceFinding.interpretation||evidenceFinding.commercialImplication);const screenshotUrl=evidenceFinding&&(evidenceFinding.screenshotUrl||evidenceFinding.screenshot_url||evidenceFinding.screenshot||evidenceFinding.imageUrl||evidenceFinding.image_url||evidenceFinding.captureUrl||evidenceFinding.pageScreenshot);$('weakEvidenceTitle').textContent=weak?'Potential Growth Gap: '+weak.name:'Potential Growth Gap: No score available';$('weakEvidenceIntro').textContent=weak?'This is the lowest-scoring of the four drivers in this scan. The evidence below shows what was detected and what still needs checking.':'The scan did not return comparable scores for the four growth drivers, so no weakest driver has been assumed.';$('weakEvidenceBadge').textContent=evidenceFinding?(evidenceFinding.evidenceStrength||evidenceFinding.status||'Finding returned'):'Needs verification';$('weakFindingTitle').textContent=evidenceTitle||('No specific '+(weak?weak.name.toLowerCase()+' ':'')+'finding substantiated');$('weakFindingFact').textContent=evidenceFact||'The scan did not return a specific evidence-backed observation for this driver. We should not invent a weakness to fill the space.';$('weakFindingCaveat').textContent=evidenceDetail?(String(evidenceDetail)+' This is a public-site signal, not proof of actual customer loss or revenue impact.'):'A low diagnostic score identifies an area to investigate; it does not prove poor performance or actual lost customers. For Retention in particular, public pages cannot establish repeat-purchase or rebooking behaviour without business data.';$('weakFindingSource').textContent=evidenceFinding?'Source: '+(evidenceFinding._source||'scan result')+(evidenceFinding.url||evidenceFinding.pageUrl?' · Page: '+(evidenceFinding.url||evidenceFinding.pageUrl):''):'No supporting finding was returned for the weakest driver.';if(screenshotUrl&&/^https?:\/\//i.test(String(screenshotUrl))){$('weakScreenshot').src=screenshotUrl;$('weakScreenshotCaption').textContent='Page capture supplied by the scan'+(evidenceFinding.url||evidenceFinding.pageUrl?' · '+(evidenceFinding.url||evidenceFinding.pageUrl):'')+'. Review the visible page content before drawing conclusions.';$('weakScreenshotWrap').classList.remove('hidden');$('weakScreenshotPlaceholder').classList.add('hidden');$('weakScreenshot').onerror=()=>{$('weakScreenshotWrap').classList.add('hidden');$('weakScreenshotPlaceholder').classList.remove('hidden')};}else{$('weakScreenshot').removeAttribute('src');$('weakScreenshotWrap').classList.add('hidden');$('weakScreenshotPlaceholder').classList.remove('hidden')}
- const driverName=weak?weak.name:'Growth';
- const driverImpact={
- Visibility:'If relevant customers are not finding the business, demand may be limited before they reach the website. Search visibility and actual traffic need separate verification.',
- Trust:'If visitors cannot quickly verify credibility, some may hesitate before enquiring. The scan can assess visible trust signals, not what every customer believes.',
- Conversion:'If the next step is unclear or difficult, some interested visitors may not enquire. Actual conversion performance requires analytics or enquiry data.',
- Retention:'If customers are not given a clear reason or route to return, repeat business may be harder to encourage. The scan cannot establish current repeat rates or existing follow-up activity.'
- };
- const driverTreatment={
- Visibility:'Check priority service and location pages, search presence and whether the right customers can find them.',
- Trust:'Strengthen the most relevant proof points, such as reviews, credentials, project evidence and clear business information, where gaps are verified.',
- Conversion:'Review the main service page, calls to action, enquiry route and mobile experience; test the route a customer must take.',
- Retention:'Ask how past customers are followed up. If there is a genuine gap, consider a useful follow-up sequence, reminders, repeat-service prompts or referral requests.'
- };
- $('gapDiagnosisTitle').textContent=weak?'What the '+weak.name+' gap could mean':'What needs further investigation';
- $('gapDiagnosisDriver').textContent=weak?weak.name:'No scored driver';
- $('gapDiagnosisFinding').textContent=evidenceFact||'No specific finding for this driver was substantiated by the returned scan. Use this as a question to investigate, not as a confirmed problem.';
- $('gapDiagnosisImpact').textContent=(evidenceDetail&&typeof evidenceDetail==='string'?evidenceDetail:driverImpact[driverName]||'The scan has not established a specific business impact. Confirm the situation with the owner.');
- const suppliedTreatment=evidenceFinding&&(evidenceFinding.treatment||evidenceFinding.recommendation||evidenceFinding.nextStep||evidenceFinding.action);
- $('gapDiagnosisTreatment').textContent=suppliedTreatment?(typeof suppliedTreatment==='string'?suppliedTreatment:JSON.stringify(suppliedTreatment)):(driverTreatment[driverName]||'Confirm the business context, then choose a proportionate next step based on verified evidence.');
- function setStage(n,scroll=true){currentStage=Math.max(0,Math.min(4,n));const caption=['Scan results','Evidence for the potential gap','Your three complimentary assets','Free or managed delivery','Further growth insights'][currentStage];$('stageCaption').textContent='Stage '+(currentStage+1)+' of 5 · '+caption;document.querySelectorAll('.stage-tab').forEach((b,i)=>{b.classList.toggle('border-amber-400',i===currentStage);b.classList.toggle('bg-amber-400',i===currentStage);b.classList.toggle('text-zinc-950',i===currentStage);b.classList.toggle('text-zinc-300',i!==currentStage);b.querySelector('span').classList.toggle('bg-zinc-950',i===currentStage);b.querySelector('span').classList.toggle('text-amber-300',i===currentStage);b.querySelector('span').classList.toggle('bg-zinc-700',i!==currentStage)});const show=(id,on)=>$(id).classList.toggle('hidden',!on);show('diagnosisSection',currentStage<=1);show('findingsSection',currentStage===4);show('snapshotHero',currentStage===0);show('primaryBlock',currentStage===0||currentStage===1);show('drivers',currentStage===0);show('weakDriverEvidence',currentStage===1);show('gapDiagnosis',currentStage===1);show('evidencePrinciple',currentStage===1);show('findings',currentStage===4);show('findingCount',currentStage===4);show('revenueSection',currentStage===4);show('assetsSection',currentStage===2);show('optionsSection',currentStage===3);const primary=$('primaryBlock');primary.classList.toggle('hidden',currentStage!==0&&currentStage!==1);if(currentStage===1){$('primaryTitle').classList.add('text-red-300');$('primaryPill').classList.remove('hidden')}else $('primaryTitle').classList.remove('text-red-300');if(scroll){const target=$('stageNav');target.scrollIntoView({behavior:'smooth',block:'start'})}const bottom=$('stageControls');if(bottom)bottom.innerHTML='<button type="button" id="stageBack" class="rounded-xl border border-zinc-700 px-4 py-3 text-sm font-bold text-zinc-300" '+(currentStage===0?'disabled':'')+'>← Back</button><span class="text-xs text-zinc-500">Stage '+(currentStage+1)+' of 5</span><button type="button" id="stageNext" class="rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950">'+(currentStage===4?'End of report':'Next: '+['Evidence','Your assets','Your options','Further insights'][currentStage])+' →</button>';const back=$('stageBack'),next=$('stageNext');if(back)back.onclick=()=>setStage(currentStage-1);if(next)next.onclick=()=>{if(currentStage<4)setStage(currentStage+1);else window.scrollTo({top:0,behavior:'smooth'})};}
-let currentStage=0;document.querySelectorAll('.stage-tab').forEach(b=>b.addEventListener('click',()=>setStage(Number(b.dataset.stage))));document.addEventListener('click',e=>{const b=e.target.closest('[data-package]');if(!b)return;const names={free:'Free self-implementation',essential:'Essential — £149/month',growth:'Growth — £199/month',complete:'Complete — £299/month'};$('packageSelection').textContent='Selected for discussion: '+names[b.dataset.package]+'. This is a prototype selection only; no order or payment has been submitted.';$('packageSelection').classList.remove('hidden');document.querySelectorAll('[data-package]').forEach(x=>x.classList.toggle('ring-2',x===b));});
-$('findings').innerHTML=all.length?all.slice(0,16).map((f,i)=>{const title=f.title||f.name||'Finding '+(i+1);const fact=f.observation||f.fact||f.growthGap||f.description||'The scan did not return a detailed observation.';const detail=f.evidence||f.commercialImplication||f.interpretation||f.treatment||'';const priority=f.priority||'Review';return '<article class="relative overflow-hidden rounded-xl border border-zinc-700 bg-zinc-900 p-4 sm:p-5"><div class="absolute inset-y-0 left-0 w-1 '+(/high/i.test(priority)?'bg-red-400':'bg-amber-400')+'"></div><div class="flex flex-wrap items-center gap-2"><span class="tag border border-amber-400/30 bg-amber-400/10 text-amber-200">'+esc(f._source||f.driver||f.category||'Growth area')+'</span><span class="tag border border-zinc-700 bg-zinc-950 text-zinc-400">'+esc(priority)+'</span></div><h4 class="mt-3 text-lg font-extrabold leading-snug text-white">'+esc(title)+'</h4><p class="mt-2 text-sm leading-6 text-zinc-300">'+esc(fact)+'</p>'+(detail?'<details class="mt-4 border-t border-zinc-700 pt-3"><summary class="cursor-pointer text-xs font-extrabold text-amber-300">Evidence & why it may matter</summary><p class="mt-3 text-sm leading-6 text-zinc-400">'+esc(Array.isArray(detail)?detail.join(' · '):typeof detail==='object'?JSON.stringify(detail):detail)+'</p></details>':'')+'<p class="mt-3 text-[11px] text-zinc-500">Evidence strength: '+esc(f.evidenceStrength||'Needs validation')+' · '+esc(f.status||'Confirm with the business')+'</p></article>'}).join(''):'<div class="rounded-xl border border-emerald-500/30 bg-emerald-500/5 p-5 md:col-span-2"><p class="font-extrabold text-emerald-300">No substantiated gaps returned</p><p class="mt-2 text-sm leading-6 text-zinc-300">The available scan did not provide enough evidence to support a specific finding. That is preferable to inventing a problem.</p></div>';
- calc();setStage(0,false);$('report').scrollIntoView({behavior:'smooth',block:'start'});
-}
-function calc(){const value=Math.max(0,num($('customerValue').value)),enq=Math.max(0,num($('enquiries').value)),rate=Math.min(100,Math.max(0,num($('conversion').value)))/100,uplift=num($('uplift').value);const extra=enq*rate*uplift,monthly=extra*value;$('extraCustomers').textContent=extra.toLocaleString(undefined,{maximumFractionDigits:1});$('monthlyGap').textContent=fmtMoney(monthly);$('annualGap').textContent=fmtMoney(monthly*12)}
-$('scanForm').addEventListener('submit',async e=>{e.preventDefault();const raw=$('website').value.trim();if(!raw)return;let url=raw;if(!/^https?:\/\//i.test(url))url='https://'+url;try{new URL(url)}catch{$('error').textContent='Please enter a valid website address.';$('error').classList.remove('hidden');return}
- $('error').classList.add('hidden');$('status').innerHTML='<span class="inline-flex items-center gap-2"><span class="loading-spinner"></span> Checking the website and running both diagnostic stages…</span>';$('scanBtn').disabled=true;$('scanBtnText').textContent='Scanning…';$('scanBtnIcon').innerHTML='<span class="loading-spinner"></span>';
- try{const market=$('country').value;const responses=await Promise.all([fetch(SNAPSHOT_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({website:url,country:market})}),fetch(DD2_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({website:url,country:market,industry:$('industry').value})})]);const payloads=await Promise.all(responses.map(async r=>{let d;try{d=await r.json()}catch{throw new Error('A diagnostic service returned an unreadable response.')}if(!r.ok||d.success===false)throw new Error(d.error||d.message||'A diagnostic stage could not be completed.');return d}));if(!payloads[0].snapshot)throw new Error('The validated Snapshot returned no snapshot data.');const snapshot=payloads[0].snapshot;const detected=detectIndustry(url,snapshot,payloads[1]);if($('industry').value==='auto'&&detected){$('industry').value=detected;$('industryNote').textContent='Detected industry: '+industryLabel(detected)+'. Change it above if needed.'}else if($('industry').value==='auto'){$('industryNote').textContent='Industry could not be confidently detected. Choose the closest match from the menu.'}render(payloads[1],url,snapshot);$('status').textContent='Both scans completed. Review the evidence and validate business impact before recommending action.'}
- catch(err){$('error').textContent='The scan could not be completed: '+err.message+' Please try again.';$('error').classList.remove('hidden');$('status').textContent=''}
- finally{$('scanBtn').disabled=false;$('scanBtnText').textContent='Run Deep Dive';$('scanBtnIcon').textContent='↗'}
+(function(){
+const form=document.getElementById('diagnosis-form'),btn=document.getElementById('submit-btn'),msg=document.getElementById('form-message'),result=document.getElementById('snapshot-result'),findings=document.getElementById('snapshot-findings');
+document.getElementById('new-scan-button')?.addEventListener('click',()=>{
+ result.classList.add('hidden');
+ msg.className='hidden mt-4 rounded-xl p-4 text-sm';
+ msg.textContent='';
+ websiteInput.value='';
+ websiteInput.placeholder='yourbusiness.co.uk';
+ websiteInput.removeAttribute('aria-invalid');
+ websiteInput.removeAttribute('aria-label');
+ websiteInput.classList.remove('border-red-500','focus:border-red-500');
+ websiteIcon.classList.add('hidden');
+ websiteValidation.classList.add('hidden');
+ document.getElementById('apply').scrollIntoView({behavior:'smooth',block:'start'});
+ window.setTimeout(()=>websiteInput.focus({preventScroll:true}),350);
 });
-['customerValue','enquiries','conversion','uplift'].forEach(id=>$(id).addEventListener('input',calc));$('currency').addEventListener('change',calc);
-function resetScan(){currentStage=0;$('report').classList.add('hidden');$('website').value='';$('industry').value='auto';$('industryNote').textContent='Industry will be detected from the website where possible. You can override it above.';$('country').value='UK';$('status').textContent='';$('error').classList.add('hidden');$('error').textContent='';window.scrollTo({top:0,behavior:'smooth'})}
-$('newScan').addEventListener('click',resetScan);$('newScanTop').addEventListener('click',resetScan);$('newScanBottom').addEventListener('click',resetScan);$('printReport').addEventListener('click',()=>window.print());calc();
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+function show(t,k){msg.textContent=t;msg.className='mt-4 rounded-xl p-4 text-sm '+(k==='error'?'bg-red-950/50 text-red-300 border border-red-800':'bg-emerald-950/50 text-emerald-300 border border-emerald-800');msg.classList.remove('hidden')}
+function showAccessDenied(){msg.innerHTML='<div class="flex items-start gap-3"><span aria-hidden="true" class="text-amber-300 text-xl">ⓘ</span><div><p class="font-bold text-white">We couldn’t complete your scan</p><p class="mt-2">We attempted to access your website, but its server refused our request. This can happen when a website restricts automated access or applies security rules.</p><p class="mt-2 font-semibold text-zinc-100">This doesn’t mean there’s anything wrong with your website.</p><p class="mt-1">We simply couldn’t access enough information to complete the assessment.</p><p class="mt-3 font-bold text-white">What happens next?</p><p class="mt-1">You can try again later or contact us for a manual review, so we can explore the available evidence another way.</p><p class="mt-3 text-xs text-zinc-400">Technical reference: HTTP 403 — access refused</p></div></div>';msg.className='mt-4 rounded-xl p-4 text-sm bg-red-950/50 text-red-200 border border-red-800';msg.classList.remove('hidden')}
+const websiteInput=document.getElementById('website'),websiteIcon=document.getElementById('website-valid-icon'),websiteValidation=document.getElementById('website-validation');
+function normalizeWebsite(value){
+ const raw=String(value||'').trim();
+ if(!raw||raw.length>2048||/[\s\\]/.test(raw))return null;
+ let candidate=/^[a-z][a-z0-9+.-]*:\/\//i.test(raw)?raw:'https://'+raw;
+ let parsed;
+ try{parsed=new URL(candidate)}catch(e){return null}
+ if(!['http:','https:'].includes(parsed.protocol)||parsed.username||parsed.password)return null;
+ const host=parsed.hostname.toLowerCase().replace(/^www\./,'');
+ if(!host||host.length>253||!host.includes('.')||host.split('.').some(label=>!label||label.length>63||! /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/i.test(label))||! /^[a-z]{2,}$/i.test(host.split('.').pop()))return null;
+ parsed.hostname=host;
+ parsed.hash='';
+ parsed.search='';
+ parsed.pathname='/';
+ return parsed.origin;
+}
+function valid(v){return !!normalizeWebsite(v)}
+function setWebsiteValidity(showError){const normalized=normalizeWebsite(websiteInput.value);const okay=!!normalized;websiteInput.setAttribute('aria-invalid',String(showError&&!okay));websiteInput.classList.toggle('border-red-500',showError&&!okay);websiteInput.classList.toggle('focus:border-red-500',showError&&!okay);websiteIcon.classList.toggle('hidden',!showError||okay);websiteIcon.classList.toggle('flex',showError&&!okay);if(showError&&!okay){websiteValidation.textContent='✕ Please enter a valid website address and try again.';websiteValidation.classList.remove('hidden');websiteInput.placeholder='Enter a valid website, e.g. yourbusiness.co.uk';websiteInput.setAttribute('aria-label','Invalid website address. Please check and enter again.');}else{websiteValidation.classList.add('hidden');}return okay}
+websiteInput.addEventListener('input',()=>{if(websiteInput.getAttribute('aria-invalid')==='true'){if(valid(websiteInput.value)){websiteInput.placeholder='yourbusiness.co.uk';websiteInput.removeAttribute('aria-label');setWebsiteValidity(false)}else{setWebsiteValidity(true)}}else{websiteInput.placeholder='yourbusiness.co.uk';websiteInput.removeAttribute('aria-label')}});
+form.addEventListener('submit',async e=>{
+e.preventDefault();msg.classList.add('hidden');result.classList.add('hidden');
+const website=normalizeWebsite(websiteInput.value);
+if(!website){setWebsiteValidity(true);websiteInput.focus();return}
+websiteValidation.classList.add('hidden');websiteIcon.classList.add('hidden');
+btn.disabled=true;document.getElementById('submit-label').classList.add('hidden');document.getElementById('submit-spinner').classList.remove('hidden');document.getElementById('submit-spinner').classList.add('inline-flex');
+const progress=document.getElementById('scan-progress'),progressTitle=document.getElementById('scan-progress-title'),progressFill=document.getElementById('scan-progress-fill'),progressPercent=document.getElementById('scan-progress-percent');
+const stages=Array.from(document.querySelectorAll('[data-scan-stage]'));
+progress.classList.remove('hidden');
+const minimumDisplayMs=9000;
+const scanMessages=[
+ 'Checking that your public website can be reached…',
+ 'Reviewing page structure and key messages…',
+ 'Checking contact routes and ways to enquire…',
+ 'Reviewing visible trust signals and proof…',
+ 'Weighing potential growth gaps against the evidence…',
+ 'Preparing your plain-English report…'
+];
+let scanStage=0;
+function updateScanProgress(index,complete=false){
+ scanStage=Math.min(index,scanMessages.length-1);
+ stages.forEach((el,i)=>{el.classList.toggle('active',!complete&&i===scanStage);el.classList.toggle('done',complete||i<scanStage);});
+ progressTitle.textContent=complete?'Assessment ready':scanMessages[scanStage];
+ const pct=complete?100:Math.min(92,Math.round(((scanStage+1)/scanMessages.length)*92));
+ progressFill.style.width=pct+'%';progressPercent.textContent=pct+'%';
+}
+updateScanProgress(0);
+const progressTimer=setInterval(()=>{if(scanStage<scanMessages.length-1)updateScanProgress(scanStage+1);},1450);
+const minimumWait=new Promise(resolve=>setTimeout(resolve,minimumDisplayMs));
+try{
+const responsePromise=fetch('https://doctor-approach-api.onrender.com/api/snapshot',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({website,country:document.getElementById('scan-country')?.value||'AUTO'})}).then(async r=>{const d=await r.json();if(!r.ok||!d.success){const error=new Error(d.error||'The Snapshot could not be completed.');error.code=d.code||'';throw error;}return d;});
+const [d]=await Promise.all([responsePromise,minimumWait]);
+clearInterval(progressTimer);updateScanProgress(5,true);
+const s=d.snapshot||{};window.__snapshotSector=s.sector||'unknown';window.__snapshotCountry=s.country||document.getElementById('scan-country')?.value||'UK';let gaps=Array.isArray(s.keyFindings)?s.keyFindings:[];
+// Preserve the primary diagnostic card when the API supplies a primary gap but its short keyFindings list is empty.
+if(!gaps.length&&s.primaryGrowthGap){const p=s.primaryGrowthGap;gaps=[{category:p.driver||p.category||'Growth',name:p.title||p.growthGap||'A potential growth gap to investigate',title:p.title||p.growthGap||'A potential growth gap to investigate',growthGap:p.growthGap,description:p.observation||p.growthGap,observation:p.observation,fact:p.evidenceSummary,diagnosis:p.interpretation,commercialImplication:p.commercialImplication,treatment:p.treatment,priority:p.priority,evidenceStrength:p.evidenceStrength,evidencePageUrl:p.evidencePageUrl||p.pageUrl||s.website,screenshotUrl:p.screenshotUrl||p.imageUrl}];}
+
+// Additive report layer: display only pages and findings returned by the scan API.
+(function renderPageInventory(){
+ const inventory=Array.isArray(s.pageInventory)?s.pageInventory:[];
+ const count=Number(s.pagesExamined||inventory.length||0);
+ const body=document.getElementById('report-pages-body');
+ document.getElementById('report-pages-count').textContent=String(count);
+ if(!inventory.length){
+  body.innerHTML='<tr><td colspan="4" class="px-3 py-4 text-zinc-400">Page inventory was not returned by this scan.</td></tr>';
+  return;
+ }
+ const normalise=value=>{try{const u=new URL(value);return (u.hostname+u.pathname).replace(/\/$/,'').toLowerCase()}catch(e){return String(value||'').replace(/\/$/,'').toLowerCase()}};
+ const linked=gaps.map(f=>({url:getText(f,['evidencePageUrl','pageUrl','sourceUrl','url']),name:getText(f,['name','title','growthGap'])||'Potential issue',category:categoryOf(f)})).filter(f=>f.url);
+ const rows=inventory.slice(0,10).map((page,index)=>{
+  const url=String(page.url||'');
+  const hit=linked.find(f=>normalise(f.url)===normalise(url));
+  let label='Examined', tone='text-emerald-300', evidence='No finding linked';
+  if(hit){label='Potential issue';tone='text-red-300';evidence=hit.name;}
+  let pageName=String(page.title||'').trim();
+  if(!pageName){try{pageName=new URL(url).pathname.split('/').filter(Boolean).pop()||'Homepage'}catch(e){pageName=index===0?'Homepage':'Website page'}}
+  pageName=pageName.replace(/[-_]+/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase());
+  let safeUrl=url;
+  try{const parsed=new URL(url);safeUrl=parsed.pathname||'/'}catch(e){}
+  return '<tr><td class="px-3 py-3 font-semibold text-zinc-200">'+escapeHtml(pageName)+'</td><td class="px-3 py-3 text-amber-300 break-all">'+escapeHtml(safeUrl)+'</td><td class="px-3 py-3 font-bold '+tone+'">'+(hit?'⚠ ':'✓ ')+label+'</td><td class="px-3 py-3 text-zinc-400">'+escapeHtml(evidence)+'</td></tr>';
+ });
+ body.innerHTML=rows.join('');
+ const cards=document.getElementById('report-mobile-cards');
+ cards.innerHTML=inventory.slice(0,10).map((page,index)=>{
+  const url=String(page.url||'');
+  const hit=linked.find(f=>normalise(f.url)===normalise(url));
+  let label='Examined',tone='text-emerald-300',evidence='No finding linked by this scan';
+  if(hit){label='Potential issue',tone='text-red-300',evidence=hit.name;}
+  let pageName=String(page.title||'').trim();
+  if(!pageName){try{pageName=new URL(url).pathname.split('/').filter(Boolean).pop()||'Homepage'}catch(e){pageName=index===0?'Homepage':'Website page'}}
+  pageName=pageName.replace(/[-_]+/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase());
+  let safeUrl=url;try{const parsed=new URL(url);safeUrl=parsed.pathname||'/'}catch(e){}
+  return '<article class="report-page-card"><div class="report-page-title">'+escapeHtml(pageName)+'</div><div class="report-page-url">'+escapeHtml(safeUrl)+'</div><div class="report-page-status '+tone+'">'+(hit?'⚠ ':'✓ ')+label+'</div><div class="report-page-evidence"><strong class="text-zinc-300">Evidence:</strong> '+escapeHtml(evidence)+'</div></article>';
+ }).join('');
+ const note=document.getElementById('report-pages-note');
+ note.textContent='Showing '+inventory.slice(0,10).length+' of '+count+' pages examined. “Examined” means checked, not guaranteed problem-free. Findings are flagged only where supported by returned evidence.';
+})();
+// Render genuine screenshot URLs returned by the scan; never substitute fabricated imagery.
+(function renderCapturedScreenshots(){
+ const items=Array.isArray(s.screenshots)?s.screenshots:[];
+ const grid=document.getElementById('captured-screenshots-grid');
+ const note=document.getElementById('captured-screenshots-note');
+ const count=document.getElementById('captured-screenshots-count');
+ const usable=items.map((item,index)=>({item,index,imageUrl:getText(item,['imageUrl','screenshotUrl','url']),sourceUrl:getText(item,['sourceUrl'])})).filter(entry=>entry.imageUrl);
+ count.textContent=usable.length+' capture'+(usable.length===1?'':'s');
+ if(!usable.length){
+  note.textContent='No usable screenshot image URL was returned by this scan. The report will not invent or substitute an image.';
+  grid.innerHTML='<p class="rounded-xl border border-zinc-800 bg-zinc-900 p-4 text-sm leading-relaxed text-zinc-400 sm:col-span-2">Screenshots are not available for this scan. This may mean capture failed or the capture service did not return a displayable image URL.</p>';
+  return;
+ }
+ note.textContent='Actual page captures returned by the scanner. Each image is labelled with the page it came from.';
+ grid.innerHTML=usable.map(({item,index,imageUrl,sourceUrl})=>{
+  const title=escapeHtml(getText(item,['title'])||('Captured page '+(index+1)));
+  const source=escapeHtml(sourceUrl||'Source page not supplied');
+  return '<figure class="captured-shot"><img loading="lazy" decoding="async" src="'+escapeHtml(imageUrl)+'" alt="Actual website screenshot: '+title+'"><figcaption><strong class="block text-white">'+title+'</strong><span class="block mt-1">'+source+'</span></figcaption></figure>';
+ }).join('');
+ grid.querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{
+  const figure=img.closest('figure');
+  if(figure)figure.innerHTML='<div class="p-4 text-sm text-zinc-400">This captured image URL could not be loaded. No replacement image has been substituted.</div>';
+ }));
+})();
+document.getElementById('snapshot-title').textContent=(s.businessName||website)+' — Snapshot complete';
+document.getElementById('snapshot-website').textContent=s.website||('https://'+website);
+const overallScore=Number.isFinite(Number(s.score))?Math.max(0,Math.min(100,Math.round(Number(s.score)))):null;
+const scoreDial=document.getElementById('score-dial');
+const scoreEl=document.getElementById('overall-score');
+const gradeEl=document.getElementById('score-grade');
+const bar=document.getElementById('snapshot-bar');
+const scoreLabel=document.getElementById('snapshot-score-label');
+const gapCard=document.getElementById('primary-gap-card');
+const primaryContent=document.getElementById('primary-gap-content');
+const additionalWrap=document.getElementById('additional-findings-wrap');
+const noGap=document.getElementById('no-gap-result');
+function scoreTone(n){return n<40?{name:'Weak',color:'#f87171'}:n<60?{name:'Developing',color:'#fbbf24'}:n<80?{name:'Strong',color:'#34d399'}:{name:'Leading',color:'#059669'}}
+if(overallScore!==null){
+ const tone=scoreTone(overallScore);
+ scoreEl.textContent=String(overallScore);
+ scoreDial.style.setProperty('--score',String(overallScore));
+ scoreDial.style.setProperty('--score-color',tone.color);
+ scoreDial.setAttribute('aria-label','Overall Growth Health score '+overallScore+' out of 100, '+tone.name);
+ gradeEl.textContent=tone.name;
+ gradeEl.style.setProperty('--score-color',tone.color);
+ scoreLabel.textContent=overallScore+'/100';
+ bar.style.width=overallScore+'%';
+ bar.style.background=tone.color;
+}else{
+ scoreEl.textContent='—';gradeEl.textContent='Not scorable';scoreLabel.textContent='Not scored';scoreDial.style.setProperty('--score','0');scoreDial.style.setProperty('--score-color','#71717a');bar.style.width='0%';bar.style.background='#71717a';
+}
+document.getElementById('finding-count').textContent=String(gaps.length);
+document.getElementById('pages-scanned').textContent=String((s.evidenceSummary&&s.evidenceSummary.pagesScanned)||'—');
+
+function getText(f,keys){for(let i=0;i<keys.length;i++){const v=f&&f[keys[i]];if(typeof v==='string'&&v.trim())return v.trim()}return ''}
+function categoryOf(f){return String(f.category||f.driver||f.lens||'Growth gap')}
+function escapeHtml(v){return esc(v)}
+function plainWhy(category){
+ const c=category.toLowerCase();
+ if(c.includes('visibility'))return 'A good service cannot win work from people who never find it. If the business is hard to find for the services or areas it serves, some suitable customers may contact competitors instead. This scan alone cannot tell us how many people are missing you.';
+ if(c.includes('trust'))return 'People often compare businesses before they get in touch. If they cannot quickly find clear proof that you are experienced and reliable, they may feel less confident choosing you—even if your work is excellent.';
+ if(c.includes('conversion'))return 'Getting someone onto the website is only half the job. They still need to understand what you offer, feel confident, and know exactly how to contact you. Confusion or unnecessary effort can give an interested person a reason to leave.';
+ if(c.includes('retention'))return 'The relationship does not have to end when the first job or sale is complete. Without useful follow-up, customers may forget to return or recommend you, and you may miss repeat business you have already earned the chance to win.';
+ return 'This could matter if it makes it harder for a suitable customer to find you, trust you, contact you or come back. We need to compare the page with what customers actually do before deciding whether it is costing the business anything.';
+}
+function businessMeaning(category){
+ const c=category.toLowerCase();
+ if(c.includes('visibility'))return 'In practical terms, fewer of the right people may reach your website or service pages. The business impact would depend on whether those people are searching for what you sell and whether they currently find you.';
+ if(c.includes('trust'))return 'A potential customer may leave without enquiring, ask for more reassurance, or choose a competitor whose experience and credibility are easier to check. That is a possibility to test—not a claim that customers have already been lost.';
+ if(c.includes('conversion'))return 'Some visitors who could have become enquiries may not take the next step. That could mean fewer calls, forms or quote requests from the traffic you already have, but website evidence alone cannot tell us how often this happens.';
+ if(c.includes('retention'))return 'The business may be relying more heavily on finding new customers instead of earning repeat work and referrals. Whether this is a real issue depends on your follow-up process and repeat-customer figures.';
+ return 'The possible business effect is missed enquiries, reduced confidence or fewer repeat opportunities—but only if this signal changes what customers actually do. Check it against enquiry numbers, sales and customer feedback before treating it as a problem.';
+}
+function plainOptions(category){
+ const c=category.toLowerCase();
+ if(c.includes('visibility'))return 'Check whether the main services and locations you want work from are clearly covered on the website. Compare that with the searches that bring visitors in before paying for more advertising or content.';
+ if(c.includes('trust'))return 'Make the most relevant proof easy to find: genuine customer reviews, examples of completed work, qualifications or memberships where relevant, and clear business contact details. Only add claims you can verify.';
+ if(c.includes('conversion'))return 'Make the next step obvious, such as calling, requesting a quote or booking. Remove avoidable friction from the form and test the journey on a mobile phone. Change one thing at a time so you can see whether it helps.';
+ if(c.includes('retention'))return 'Review the follow-up after a job or sale. Consider a helpful check-in, a clear route to book again, or asking satisfied customers for a review or referral—where appropriate for your business.';
+ return 'Start with the smallest change that directly addresses the observed signal. Check it against the current experience and measure the result before committing to a wider redesign or spend.';
+}
+function nextQuestion(category){
+ const c=category.toLowerCase();
+ if(c.includes('visibility'))return 'Ask: do we appear for the services and areas we want to win work from? Check search data and ask new customers how they found the business.';
+ if(c.includes('trust'))return 'Ask someone unfamiliar with the business to find proof that you are a safe choice. Then compare that impression with customer questions, lost quotes and feedback.';
+ if(c.includes('conversion'))return 'Try to contact the business yourself on a phone and a computer. Can you tell what to do, complete it without trouble, and understand what happens next? Compare this with form, call and quote data.';
+ if(c.includes('retention'))return 'Check how many customers return, how often follow-up happens, and where repeat work or referrals come from. This will show whether there is a real gap to address.';
+ return 'Before acting, check the live page, speak to customers or staff where useful, and compare the finding with actual enquiries or sales. If the evidence does not support the concern, do not treat it as a priority.';
+}
+function getEvidencePageUrl(f,s){
+ const candidates=[
+  getText(f,['evidencePageUrl','pageUrl','sourceUrl','url']),
+  getText(s,['evidencePageUrl','pageUrl','sourceUrl']),
+  // The scanned site homepage is acceptable as page context only; it is not proof of a specific element.
+  getText(s,['website'])
+ ];
+ for(let raw of candidates){
+  if(!raw) continue;
+  // A bare hostname is accepted only for the known scanned-site field, never for arbitrary finding text.
+  if(!/^https?:\/\//i.test(raw) && raw===getText(s,['website']) && /^[a-z0-9.-]+\.[a-z]{2,}(?:\/[^\s]*)?$/i.test(raw)) raw='https://'+raw;
+  if(!/^https?:\/\//i.test(raw)) continue;
+  try{
+   const u=new URL(raw);
+   if((u.protocol==='https:'||u.protocol==='http:') && u.hostname) return u.href;
+  }catch(e){}
+ }
+ return '';
+}
+function showEvidenceAnnotation(f,s){
+ const contextOnly=!getText(f,['evidencePageUrl','pageUrl','sourceUrl','url','screenshotUrl','imageUrl']);
+ const pageUrl=getEvidencePageUrl(f,s);
+ const pageKey=value=>{try{const u=new URL(value);return (u.hostname+' '+u.pathname).replace(/\/$/,'').toLowerCase()}catch(e){return String(value||'').replace(/\/$/,'').toLowerCase()}};
+ const screenshotList=Array.isArray(s.screenshots)?s.screenshots:[];
+ const matchingScreenshot=screenshotList.find(item=>item&&item.sourceUrl&&pageUrl&&pageKey(item.sourceUrl)===pageKey(pageUrl));
+ // For neutral context only, use the crawler's first captured page if canonical
+ // URL differences prevent an exact homepage match. Never do this for a finding.
+ const contextScreenshot=contextOnly?(matchingScreenshot||screenshotList[0]||null):matchingScreenshot;
+ const directScreenshotUrl=getText(f,['screenshotUrl','imageUrl'])||getText(contextScreenshot||{},['imageUrl','screenshotUrl','url']);
+ const embedScreenshotUrl=getText(contextScreenshot||{},['embedUrl']);
+ const placeholder=document.getElementById('evidence-placeholder');
+ const frame=document.getElementById('evidence-screenshot-frame');
+ const image=document.getElementById('evidence-screenshot');
+ const flag=document.getElementById('evidence-flag');
+ const intro=document.getElementById('evidence-annotation-intro');
+ const caption=document.getElementById('evidence-screenshot-caption');
+ const evidenceBadge=document.getElementById('evidence-annotation-badge');
+ const evidenceHeading=document.querySelector('#evidence-annotation-card h4');
+ const title=getText(f,['name','title','growthGap'])||'the finding above';
+ if(contextOnly){
+  if(evidenceBadge){evidenceBadge.className='inline-flex items-center gap-2 rounded-full border border-zinc-600 bg-zinc-800 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-zinc-200';evidenceBadge.textContent='Website context';}
+  if(evidenceHeading)evidenceHeading.textContent='Website screenshot for context.';
+ }else{
+  if(evidenceBadge){evidenceBadge.className='inline-flex items-center gap-2 rounded-full border border-red-400/40 bg-red-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-red-200';evidenceBadge.textContent='Evidence flagged for review';}
+  if(evidenceHeading)evidenceHeading.textContent='Here’s the page signal we’re referring to.';
+ }
+ const driver=String(f.category||f.driver||'').toLowerCase();
+ // Position the review pin near the part of a typical page relevant to the category.
+ // This is a review cue only, not an automated element-level detection.
+ flag.style.top=driver.includes('conversion')?'68%':driver.includes('trust')?'46%':driver.includes('retention')?'76%':'24%';
+ if(!pageUrl){
+  placeholder.classList.remove('hidden');frame.classList.add('hidden');
+  intro.textContent='The scan did not return a page address that can be tied confidently to this finding. We’ll keep this evidence area honest rather than show an unrelated or invented screenshot.';
+  return;
+ }
+ // The preview API should return a real captured image URL for the page selected
+ // as evidence for this finding. Do not silently substitute the homepage or a
+ // generic provider image when that evidence asset is missing.
+ image.alt='Captured page evidence from '+pageUrl+' for review of: '+title;
+ image.onload=()=>{
+  placeholder.classList.add('hidden');
+  frame.classList.remove('hidden');
+  image.dataset.loaded='true';
+  if(contextOnly){
+   flag.classList.add('hidden');
+   intro.textContent='Website screenshot captured for context. No specific growth gap was substantiated by this scan, so this image is not presented as evidence of a fault.';
+   caption.textContent='Website context: '+pageUrl+' · This is a page capture for orientation only, not a finding or proof of a business problem.';
+  }else{
+   flag.classList.remove('hidden');
+   intro.textContent='Captured page relevant to the finding. The annotation highlights an area to inspect; it is not a claim that the scan has detected a faulty element.';
+   caption.textContent='Page: '+pageUrl+' · Review focus: '+title+'. Check the marked area against the live website before drawing conclusions.';
+  }
+ };
+ image.onerror=()=>{
+  const fallbackUrl=embedScreenshotUrl;
+  if(fallbackUrl&&image.dataset.fallbackTried!=='true'&&image.src!==fallbackUrl){image.dataset.fallbackTried='true';image.src=fallbackUrl;return;}
+  image.removeAttribute('src');
+  delete image.dataset.fallbackTried;
+  delete image.dataset.loaded;
+  frame.classList.add('hidden');
+  placeholder.classList.remove('hidden');
+  intro.textContent='The scanner captured the page, but the image could not be loaded in this report. The capture is available on the scan service; the report image display needs attention.';
+ };
+ if(directScreenshotUrl){
+  image.removeAttribute('src');
+  delete image.dataset.fallbackTried;
+  delete image.dataset.loaded;
+  // A cached load can complete before onload is assigned in some browser states.
+  image.src=directScreenshotUrl;
+  if(image.complete&&image.naturalWidth>0){
+   placeholder.classList.add('hidden');
+   frame.classList.remove('hidden');
+   image.dataset.loaded='true';
+  }
+ }else{
+  placeholder.classList.remove('hidden');
+  frame.classList.add('hidden');
+  intro.textContent='The scan did not return a captured image for the page relevant to this finding. The screenshot must be available before visual evidence can be confirmed.';
+ }
+}
+function plainFindingTitle(f){
+ const category=categoryOf(f).toLowerCase();
+ const text=[getText(f,['name','title','growthGap']),getText(f,['description','fact','observation','evidenceSummary'])].filter(Boolean).join(' ').toLowerCase();
+ if(category.includes('conversion') && /form|field|enquir|contact|booking|quote/.test(text)){
+  const sector=String(window.__snapshotSector||'').toLowerCase();
+  const country=String(window.__snapshotCountry||'UK').toUpperCase();
+  const us=country==='US';
+  if(/dent|orthodont|endodont|cosmetic surgeon|medical|clinic|health/.test(sector)) return us?'Could your appointment request form be discouraging prospective patients?':'Could your appointment enquiry form be discouraging prospective patients?';
+  if(/roof|contractor|construction|hvac|plumb|electrician|landscap|builder/.test(sector)) return us?'Could your quote request process be discouraging homeowners from contacting you?':'Could your quote request process be discouraging homeowners from getting in touch?';
+  return us?'Could your contact or quote process be making it harder for customers to get in touch?':'Could your contact or quote process be making it harder for customers to enquire?';
+ }
+ return getText(f,['name','title','growthGap'])||'A signal worth investigating';
+}
+function customerContext(snapshot){
+ const sector=String(snapshot?.sector||window.__snapshotSector||'').toLowerCase();
+ const site=String(snapshot?.website||'').toLowerCase();
+ if(/dent|orthodont|endodont|cosmetic surg|medical|clinic|health/.test(sector)){
+  return {kind:'dental',customer:'patient',plural:'patients',journey:'patient journey',cardLabel:'Dental practice',form:'appointment enquiry form',request:'appointment enquiry',action:'book an appointment'};
+ }
+ if(/roof|contractor|construction|hvac|plumb|electrician|landscap|builder/.test(sector)||/roof|roofer/.test(site)){
+  return {kind:'roofing',customer:'homeowner',plural:'homeowners',journey:'homeowner enquiry journey',cardLabel:'Roofing business',form:'quote request process',request:'quote request',action:'request a quote'};
+ }
+ return {kind:'general',customer:'customer',plural:'customers',journey:'customer enquiry journey',cardLabel:'Business',form:'contact process',request:'enquiry',action:'get in touch'};
+}
+function adaptCustomerTerms(value,ctx){
+ let text=String(value||'');
+ if(ctx.kind==='roofing'){
+  text=text.replace(/prospective patients/gi,'homeowners').replace(/patients/gi,'homeowners').replace(/patient/gi,'homeowner')
+   .replace(/the practice/gi,'the business').replace(/this practice/gi,'this business').replace(/practice's/gi,'business’s').replace(/clinic/gi,'business')
+   .replace(/appointment request form/gi,'quote request process').replace(/appointment enquiry form/gi,'quote request process')
+   .replace(/appointment enquiry/gi,'quote enquiry').replace(/appointments/gi,'quotes')
+   .replace(/booking form/gi,'quote request form').replace(/book an appointment/gi,'request a quote')
+   .replace(/patient journey/gi,'homeowner enquiry journey');
+ }else if(ctx.kind==='dental'){
+  text=text.replace(/homeowners/gi,'patients').replace(/homeowner/gi,'patient')
+   .replace(/quote request process/gi,'appointment enquiry process').replace(/quote request form/gi,'appointment enquiry form')
+   .replace(/quote enquiry/gi,'appointment enquiry').replace(/request a quote/gi,'request an appointment')
+   .replace(/customer enquiry journey/gi,'patient journey');
+ }
+ return text;
+}
+function renderGapSteps(f){
+ const category=categoryOf(f),ctx=customerContext({sector:window.__snapshotSector});
+ const name=getText(f,['name','title','growthGap']);
+ const rawEvidence=getText(f,['fact','observation','evidenceSummary','description']);
+ const combined=[name,rawEvidence].filter(Boolean).join(' ');
+ const simpleObservation={
+  visibility:'In plain English: we need to check whether '+ctx.plural+' can find the relevant service and location information they need.',
+  trust:'In plain English: we need to check whether a prospective '+ctx.customer+' can quickly see real reasons to trust this business.',
+  conversion:'In plain English: we need to check whether a visitor can understand the offer and easily see how to '+ctx.action+'.',
+  retention:'In plain English: we need to check what encourages a '+ctx.customer+' to return, book again or recommend the business.'
+ };
+ const lower=category.toLowerCase();
+ const simpleKey=lower.includes('visibility')?'visibility':lower.includes('trust')?'trust':lower.includes('conversion')?'conversion':lower.includes('retention')?'retention':'';
+ const formRelated=simpleKey==='conversion'&&/form|field|enquir|contact|booking|quote/i.test(combined);
+ let evidence;
+ if(formRelated){
+  const countMatch=combined.match(/(?:approximately|around|over|more than)\s*(\d+)\s*(?:visible\s*)?(?:form\s*)?(?:entry\s*)?(?:fields|controls)/i);
+  const count=countMatch?countMatch[1]:'several';
+  if(ctx.kind==='roofing'){
+   evidence=countMatch?'The scan flagged around '+count+' form fields across the pages checked. If these appear together on the quote request form, a homeowner may have to do a lot before asking for a quote. We need to check the actual form before calling this a problem.':'The scan flagged a quote/contact route that may ask homeowners for several details. If those details are all required before requesting a quote, it could create unnecessary effort. We need to check the actual form before calling this a problem.';
+  }else if(ctx.kind==='dental'){
+   evidence=countMatch?'The scan flagged around '+count+' form fields across the pages checked. If these appear together on the appointment enquiry form, a patient may have to do a lot before contacting the practice. We need to check the actual form before calling this a problem.':'The scan flagged an appointment enquiry route that may ask patients for several details. If those details are all required before making an enquiry, it could create unnecessary effort. We need to check the actual form before calling this a problem.';
+  }else{
+   evidence='The scan flagged a contact route that may ask '+ctx.plural+' for several details. We need to check the actual form before calling this a problem.';
+  }
+ }else{
+  evidence=(rawEvidence?rawEvidence+' ':('The scan has flagged “'+(name||category.toLowerCase())+'” as a point to check. '))+(simpleObservation[simpleKey]||'In plain English: this is a point to check on the live website, not proof that it has cost the business a customer.');
+ }
+ const rawMeaning=getText(f,['diagnosis','interpretation']);
+ let meaning=formRelated
+  ?(ctx.kind==='roofing'?'A homeowner who only wants to ask for a quote may give up if contacting the business feels like too much work. We cannot tell from the website alone whether anyone has abandoned the process.':ctx.kind==='dental'?'A patient who only wants to ask a question may give up if contacting the practice feels like too much work. We cannot tell from the website alone whether anyone has abandoned the form.':'A '+ctx.customer+' may give up if contacting the business feels like too much work. We cannot tell from the website alone whether anyone has abandoned the process.')
+  :(rawMeaning?rawMeaning+' In practical terms, '+plainWhy(category).charAt(0).toLowerCase()+plainWhy(category).slice(1):plainWhy(category));
+ const rawImpact=getText(f,['commercialImplication','businessImpact']);
+ const impact=rawImpact?rawImpact+' To put that simply: '+businessMeaning(category):businessMeaning(category);
+ const rawOptions=getText(f,['treatment','recommendation','options']);
+ const options=rawOptions?rawOptions+' A simple starting point: '+plainOptions(category):plainOptions(category);
+ const rawNext=getText(f,['nextStep','recommendedNextStep']);
+ const next=rawNext?rawNext+' Specifically, '+nextQuestion(category):nextQuestion(category);
+ const steps=[['What we saw',evidence],['Why it matters',meaning],['What it could mean for your business',impact],['Options to consider',options],['What to check next',next]];
+ return steps.map((step,i)=>'<div class="gap-step"><span class="gap-step-number">'+(i+1)+'</span><div><p class="gap-step-label">'+escapeHtml(step[0])+'</p><p class="gap-step-copy">'+escapeHtml(adaptCustomerTerms(step[1],ctx))+'</p></div></div>').join('');
+}
+function renderAdditionalGap(f,index){
+ const category=categoryOf(f),name=getText(f,['name','title','growthGap'])||'Potential growth gap';
+ const impact=String(f.priority||f.urgency||f.impact||'Review').toUpperCase();
+ const isHigh=impact==='HIGH'||impact==='P1'||impact==='CRITICAL';
+ const border=isHigh?'border-red-500/80':'border-red-500/50';
+ const ctx=customerContext({sector:window.__snapshotSector});
+ return '<article class="rounded-2xl border-2 '+border+' bg-zinc-950 p-5"><div class="flex items-start justify-between gap-3"><div><span class="inline-flex rounded-md border border-red-400/30 bg-red-500/10 px-2.5 py-1 text-[10px] font-extrabold uppercase tracking-wider text-red-200">'+escapeHtml(ctx.cardLabel+' · Potential gap')+'</span><h5 class="mt-3 text-lg font-extrabold text-white">'+escapeHtml(plainFindingTitle(f)==='A signal worth investigating'?name:plainFindingTitle(f))+'</h5></div><span class="shrink-0 text-[10px] font-extrabold uppercase tracking-wider text-red-300">'+escapeHtml(impact)+'</span></div><div class="mt-4 space-y-3">'+renderGapSteps(f)+'</div></article>';
+}
+if(gaps.length){
+ const first=gaps[0],category=categoryOf(first);
+ showEvidenceAnnotation(first,s);
+ document.getElementById('primary-gap-category').textContent='Potential Gap: '+category;
+ document.getElementById('primary-gap-title').textContent=plainFindingTitle(first);
+ document.getElementById('primary-gap-priority').textContent='Priority to investigate';
+ document.getElementById('primary-gap-intro').textContent=String(category).toLowerCase().includes('conversion')?'One thing stood out. Here is the question it raises for '+customerContext(s).journey+'.':'One signal stood out in the available public evidence. Here is the plain-English version of what it may mean.';
+ document.getElementById('primary-gap-category').textContent='Potential Gap: '+category;
+ primaryContent.innerHTML=renderGapSteps(first);
+ document.getElementById('primary-gap-caveat').textContent='Important: this is a potential growth constraint, not proof of lost sales. The Diagnostic Review is where we check the context and decide whether it deserves action.';
+ gapCard.classList.remove('hidden');
+ noGap.classList.add('hidden');
+ const rest=gaps.slice(1);
+ const findings=document.getElementById('snapshot-findings');
+ findings.innerHTML='';
+ if(rest.length){
+  rest.slice(0,2).forEach((f,i)=>{const x=document.createElement('div');x.innerHTML=renderAdditionalGap(f,i);findings.appendChild(x.firstElementChild)});
+  additionalWrap.classList.remove('hidden');
+ }else{additionalWrap.classList.add('hidden')}
+}else{
+ gapCard.classList.add('hidden');
+ noGap.classList.remove('hidden');
+ additionalWrap.classList.add('hidden');
+ // A successful scan with no substantiated gap should still show the homepage
+ // capture as neutral context, never as proof of a fault.
+ showEvidenceAnnotation({title:'Website context'},s);
+}
+if(s.cta&&s.cta.url)document.getElementById('snapshot-cta').href=s.cta.url;
+const ctaKicker=document.getElementById('snapshot-cta-kicker'),ctaHeading=document.getElementById('snapshot-cta-heading'),ctaCopy=document.getElementById('snapshot-cta-copy'),ctaReassurance=document.getElementById('snapshot-cta-reassurance'),ctaButton=document.getElementById('snapshot-cta');
+if(gaps.length){
+ ctaKicker.textContent='Turn the finding into a decision';
+ ctaHeading.textContent='What could this mean for your business?';
+ ctaCopy.textContent="In a 20–30-minute Diagnostic Review, we’ll put the finding in context, explore what it may mean commercially, and identify what is worth checking before you spend more.";
+ ctaReassurance.textContent='No obligation to buy anything. The aim is to understand the issue before prescribing a solution.';
+ ctaButton.textContent='Book My Diagnostic Review →';
+}else{
+ ctaKicker.textContent='No problem invented. No blind spots assumed.';
+ ctaHeading.textContent='What should you look at next?';
+ ctaCopy.textContent='This scan did not substantiate a specific growth gap from the public website evidence. In a 20–30-minute Diagnostic Review, we can discuss what the scan could not verify, understand your business priorities, and decide whether a deeper investigation is worthwhile.';
+ ctaReassurance.textContent='A review is exploratory, not a promise that a problem exists or that you need to buy a service.';
+ ctaButton.textContent='Explore My Next Steps →';
+}
+
+// Deep Dive add-on: keep the original Snapshot score/findings and build the solution from its primary finding.
+(function buildGapLedTreatment(){
+ const first=gaps[0]||s.primaryGrowthGap||{};
+ const category=String(categoryOf(first)||first.driver||first.category||'Growth').trim();
+ const lower=category.toLowerCase(),ctx=customerContext(s);
+ const business=String(s.businessName||s.business||website.replace(/^https?:\/\//,'').replace(/\/$/,'')||'Your business');
+ const isRoof=ctx.kind==='roofing',isDental=ctx.kind==='dental';
+ const plural=isRoof?'homeowners':isDental?'patients':'customers';
+ const action=isRoof?'request a quote':isDental?'enquire about an appointment':'make an enquiry';
+ const plans={
+ visibility:{landing:'Make the priority service easier to discover and act on.',guide:'A practical guide to choosing the right provider and knowing what to check.',articles:['What to check before choosing a provider','Questions to ask before requesting a quote','How to compare options with confidence'],treatment:'Prioritise the service and location information that helps the right customers find and choose the business.'},
+ trust:{landing:'Bring genuine proof, credentials and clear next steps together.',guide:'A checklist to help '+plural+' assess quality, credibility and the right questions to ask.',articles:['What credible proof should customers look for?','Questions to ask before choosing a provider','How to compare quality—not just price'],treatment:'Strengthen the visible trust evidence most relevant to the service, using genuine reviews, credentials, examples and clear business information.'},
+ conversion:{landing:'Explain the offer clearly and make it simple to '+action+'.',guide:'A decision guide that answers key questions before the customer gets in touch.',articles:['What to check before choosing a service','Common mistakes to avoid when comparing providers','Questions to ask before you decide'],treatment:'Improve the main service journey: clear value, relevant proof, a visible call to action and a simple enquiry route. Validate the current journey before changing it.'},
+ retention:{landing:'Make follow-up, repeat service or referral options clear where relevant.',guide:'A useful aftercare or maintenance guide that keeps the business helpful after the first transaction.',articles:['How to get more value after your first service','When to arrange a follow-up or maintenance check','What to keep—and when to ask for help'],treatment:'First confirm how the business currently follows up with previous customers. If there is a genuine gap, consider a helpful follow-up sequence, reminders, repeat-service prompts or referral requests.'}
+ };
+ const key=['visibility','trust','conversion','retention'].find(k=>lower.includes(k))||'conversion',plan=plans[key];
+ const supplied=getText(first,['treatment','recommendation','options','nextStep','recommendedNextStep']);
+ const title=getText(first,['name','title','growthGap'])||'Potential growth gap to validate';
+ document.getElementById('assets-intro').textContent='Based on the Snapshot primary finding — '+category+'. Proposed concepts for '+business+', not finished assets or proof of business outcomes.';
+ ['asset-business-1','asset-business-2','asset-business-3'].forEach(id=>document.getElementById(id).textContent=business);
+ document.getElementById('asset-landing-headline').textContent=plan.landing;
+ document.getElementById('asset-landing-copy').textContent='A practical response to the '+category.toLowerCase()+' finding.';
+ document.getElementById('asset-landing-cta').textContent=isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch';
+ document.getElementById('asset-landing-desc').textContent='A focused page designed around the '+category.toLowerCase()+' opportunity.';
+ document.getElementById('asset-guide-title').textContent=plan.guide;
+ document.getElementById('asset-guide-copy').textContent='Practical advice, questions to ask and a clear next step.';
+ document.getElementById('asset-guide-desc').textContent='A downloadable guide that helps '+plural+' make a better-informed decision and creates a useful follow-up opportunity.';
+ ['asset-article-1','asset-article-2','asset-article-3'].forEach((id,i)=>document.getElementById(id).textContent=plan.articles[i]);
+ document.getElementById('asset-blog-desc').textContent='Three starter articles shaped around questions related to the '+category.toLowerCase()+' opportunity.';
+ document.getElementById('proposal-gap-title').textContent=category+': '+title;
+ document.getElementById('proposal-treatment').textContent=supplied||plan.treatment;
+ document.getElementById('proposal-rationale').textContent=key==='retention'?'The public scan cannot confirm actual repeat-customer behaviour. Validate the current follow-up process first; implement only if a real gap is confirmed.':'The proposed work follows the Snapshot finding. Confirm the evidence and business context before finalising scope.';
+ document.getElementById('proposal-intro').textContent='A first-draft treatment plan for '+business+', built around the primary Snapshot finding. Confirm the business context and scope with the owner before accepting work.';
+ const cta=document.getElementById('snapshot-cta');cta.href='#treatment-assets';cta.removeAttribute('target');cta.removeAttribute('rel');cta.textContent='Explore tailored assets ↓';
+ document.getElementById('snapshot-cta-kicker').textContent='Snapshot complete · Next: tailored solution';
+ document.getElementById('snapshot-cta-heading').textContent='Turn the diagnosis into a practical next step.';
+ document.getElementById('snapshot-cta-copy').textContent='The score and evidence above are the original Snapshot result. Next, review three asset concepts and choose a delivery route.';
+})();
+document.querySelectorAll('[data-treatment]').forEach(button=>button.addEventListener('click',()=>{
+ const choices={free:'Free asset route selected. The three agreed assets would be supplied for you to implement. No order or payment has been submitted.',managed:'Managed route selected: £199/month. Confirm the exact assets, hosting, ongoing support and terms before acceptance.',programme:'Custom Growth Implementation Programme selected. Use the diagnosed gap, business priorities and agreed deliverables to prepare a tailored scope and price.'};
+ const out=document.getElementById('proposal-selection');out.textContent=choices[button.dataset.treatment];out.classList.remove('hidden');
+ document.querySelectorAll('[data-treatment]').forEach(x=>x.classList.toggle('ring-2',x===button));
+}));
+document.getElementById('print-treatment-proposal').addEventListener('click',()=>window.print());
+document.getElementById('deep-dive-new-scan').addEventListener('click',()=>document.getElementById('new-scan-button').click());
+result.classList.remove('hidden');show('Your Growth Gap Snapshot is ready.','success');result.scrollIntoView({behavior:'smooth',block:'start'});
+}catch(err){const errorText=String(err&&err.message||'');const errorCode=String(err&&err.code||'');if(errorText.includes('HTTP 403')||errorText.includes('status code 403')||errorCode==='HTTP_403'){showAccessDenied()}else if(['INVALID_URL','BLOCKED_DESTINATION'].includes(errorCode)||/invalid|incorrect|website address format/i.test(errorText)){msg.classList.add('hidden');websiteInput.value='';websiteInput.placeholder='yourbusiness.co.uk';websiteInput.setAttribute('aria-label','Business website');websiteInput.setAttribute('aria-invalid','true');websiteInput.classList.add('border-red-500');websiteIcon.classList.remove('hidden');websiteIcon.classList.add('flex');websiteValidation.textContent='Please enter a valid website address and try again.';websiteValidation.classList.remove('hidden');websiteInput.focus()}else{show(errorText||'Something went wrong. Please try again.','error')}}
+finally{if(typeof progressTimer!=='undefined')clearInterval(progressTimer);progress.classList.add('hidden');btn.disabled=false;document.getElementById('submit-label').classList.remove('hidden');document.getElementById('submit-spinner').classList.add('hidden');document.getElementById('submit-spinner').classList.remove('inline-flex')}
+});
+try{const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in-view')),{threshold:.08});document.querySelectorAll('.reveal').forEach(x=>io.observe(x))}catch(e){document.querySelectorAll('.reveal').forEach(x=>x.classList.add('in-view'))}
+})();
 </script>
-</body></html>
+
+</body>
+</html>
