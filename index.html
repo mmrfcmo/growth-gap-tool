@@ -29,6 +29,47 @@ html,body{overflow-x:hidden}
   footer .text-sm{text-align:left!important}
 }
 
+/* Deep Dive visual system v1: dashboard layout matching the approved visual concept */
+:root{color-scheme:dark}
+body.bg-stone-50{background:#080a0c!important;color:#f4f4f5!important}
+#apply{background:#080a0c!important}
+#apply>.relative{max-width:1240px!important;padding-top:24px!important;padding-bottom:44px!important}
+#apply .text-center.max-w-3xl{max-width:100%!important;text-align:left!important;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0!important}
+#apply .text-center.max-w-3xl>p:first-child{margin:0!important}
+#apply .text-center.max-w-3xl h2{font-size:clamp(1.5rem,2.8vw,2.2rem)!important;line-height:1.15!important;margin:0!important;max-width:500px}
+#apply .text-center.max-w-3xl>p:last-child{font-size:.88rem!important;line-height:1.5!important;margin:0!important;max-width:620px}
+#apply>.relative> .mt-10.max-w-3xl{max-width:100%!important;margin-top:18px!important}
+#apply .rounded-2xl.border-2.border-amber-400\/65{padding:14px!important;border-radius:16px!important}
+#diagnosis-form{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;align-items:center!important;border-radius:13px!important;padding:8px!important;gap:8px!important}
+#diagnosis-form select,#diagnosis-form input,#diagnosis-form button{min-height:44px!important}
+#diagnosis-form input{background:#e8efff!important;color:#111827!important;border-color:#cbd5e1!important}
+#diagnosis-form input::placeholder{color:#64748b!important}
+#diagnosis-form button{white-space:normal!important}
+#apply .mt-3.text-center.text-xs{margin-top:8px!important}
+#snapshot-result{max-width:100%!important;margin-top:18px!important}
+#snapshot-result>.rounded-3xl{border-color:#6b5014!important;background:#0b0d0f!important;padding:14px!important;border-radius:16px!important;box-shadow:none!important}
+#snapshot-result .grid.gap-4.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#treatment-assets,#treatment-proposal{border-radius:15px!important}
+#treatment-assets{border-color:#6b5014!important}
+#treatment-proposal{border-color:#6b5014!important;background:#101113!important}
+#snapshot-result .text-zinc-400{color:#b4b8c0}
+#snapshot-result .text-zinc-300{color:#d4d7dd}
+#snapshot-result .bg-zinc-900{background:#121518}
+#snapshot-result .bg-zinc-950{background:#090b0d}
+#deep-dive-catalogue{margin-top:16px;border:1px solid #6b5014;border-radius:15px;background:#0b0d0f;padding:16px}
+#deep-dive-catalogue .catalogue-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+#deep-dive-catalogue .catalogue-card{border:1px solid #3f3f46;border-radius:12px;padding:12px;min-width:0}
+#deep-dive-catalogue .catalogue-card h4{font-size:14px;font-weight:800;color:#fff}
+#deep-dive-catalogue .catalogue-card p{font-size:11px;line-height:1.4;color:#a1a1aa;margin:4px 0 8px}
+#deep-dive-catalogue .catalogue-card ol{font-size:10px;line-height:1.5;color:#e4e4e7;padding-left:18px;list-style:decimal}
+#deep-dive-catalogue .catalogue-card button{font-size:10px;font-weight:800;border:1px solid #52525b;border-radius:7px;padding:6px 8px;margin-top:8px;color:#fbbf24}
+#deep-dive-catalogue .catalogue-card.visibility{border-color:#075985;background:#06131b}
+#deep-dive-catalogue .catalogue-card.trust{border-color:#854d0e;background:#171207}
+#deep-dive-catalogue .catalogue-card.conversion{border-color:#9f1239;background:#1a0a10}
+#deep-dive-catalogue .catalogue-card.retention{border-color:#166534;background:#07170e}
+@media(max-width:900px){#deep-dive-catalogue .catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#snapshot-result .grid.gap-4.lg\:grid-cols-3{grid-template-columns:1fr}}
+@media(max-width:640px){#diagnosis-form{grid-template-columns:1fr!important}#apply>.relative{padding-left:12px!important;padding-right:12px!important}#apply .text-center.max-w-3xl{display:block}#apply .text-center.max-w-3xl h2{margin-top:10px!important}#apply .text-center.max-w-3xl>p:last-child{margin-top:8px!important}#deep-dive-catalogue .catalogue-grid{grid-template-columns:1fr}}
+
 /* Combined Snapshot + evidence report preview: keep one score, make the inventory mobile-native. */
 #expanded-page-report .report-status-guide{display:flex;flex-direction:column;gap:7px;margin-top:14px}
 #expanded-page-report .report-status-guide .guide-item{display:block;border:1px solid #3f3f46;background:#18181b;border-radius:9px;padding:8px 10px;font-size:12px;font-weight:700}
@@ -243,6 +284,15 @@ html,body{overflow-x:hidden}
 <article class="rounded-2xl border border-zinc-700 bg-zinc-950 p-4"><h4 class="font-extrabold text-white">Option C · Growth Implementation Programme</h4><p class="mt-2 text-sm leading-6 text-zinc-300">A tailored implementation proposal based on the diagnosed gap, agreed priorities and the work required. Scope and price are prepared after review.</p><button type="button" data-treatment="programme" class="mt-3 rounded-xl border border-zinc-600 px-4 py-3 text-sm font-extrabold text-white hover:border-amber-400">Build custom proposal</button></article></div></div>
 <div id="proposal-selection" class="mt-5 hidden rounded-xl border border-amber-400/30 bg-zinc-950 p-4 text-sm text-amber-100" aria-live="polite"></div><p class="mt-4 text-xs leading-relaxed text-zinc-500">Illustrative proposal only. Revenue improvement is not guaranteed. Final scope, implementation responsibilities, pricing and terms must be agreed before work begins.</p>
 </section>
+<section id="deep-dive-catalogue">
+<div class="flex flex-wrap items-end justify-between gap-3 mb-3"><div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-400">The 20-product catalogue</p><h3 class="mt-1 text-xl font-extrabold text-white">Growth Signal products</h3><p class="mt-1 text-xs text-zinc-400">Five products in each category. The Deep Dive recommends the three most relevant to the diagnosed gap.</p></div></div>
+<div class="catalogue-grid">
+<article class="catalogue-card visibility"><h4>◉ Visibility (V1–V5)</h4><p>Help relevant people find the business.</p><ol><li>Local Search Foundation</li><li>Service Landing Page</li><li>Website Discoverability</li><li>Customer-Question Content</li><li>Business &amp; AI Discoverability</li></ol><button type="button" data-catalogue="visibility">View scope details ↓</button><div class="hidden mt-2 text-xs text-zinc-300" data-catalogue-detail="visibility">Free: action plan, page concept, checklist or defined draft. Managed: implement the agreed product, publish where scoped, test and report completion.</div></article>
+<article class="catalogue-card trust"><h4>⬟ Trust (T1–T5)</h4><p>Give customers reasons to choose.</p><ol><li>Review Presentation</li><li>Customer Proof Pack</li><li>Credentials &amp; Credibility</li><li>Trust-Led Service Page</li><li>Review Generation Process</li></ol><button type="button" data-catalogue="trust">View scope details ↓</button><div class="hidden mt-2 text-xs text-zinc-300" data-catalogue-detail="trust">Free: layout, template, checklist or request sequence. Managed: implement using verified credentials, genuine reviews and approved evidence.</div></article>
+<article class="catalogue-card conversion"><h4>➤ Conversion (C1–C5)</h4><p>Turn more attention into enquiries.</p><ol><li>Conversion Landing Page</li><li>Calls to Action &amp; Enquiry Routes</li><li>Enquiry Form Improvement</li><li>Lead Magnet &amp; Customer Guide</li><li>Enquiry Follow-Up System</li></ol><button type="button" data-catalogue="conversion">View scope details ↓</button><div class="hidden mt-2 text-xs text-zinc-300" data-catalogue-detail="conversion">Free: specified page/guide draft, wireframe or workflow templates. Managed: build, configure and functionally test the agreed components.</div></article>
+<article class="catalogue-card retention"><h4>⟳ Retention (R1–R5)</h4><p>Encourage repeat business and referrals.</p><ol><li>Customer Onboarding &amp; Check-Ins</li><li>Repeat Business &amp; Rebooking</li><li>Customer Newsletter</li><li>Reviews &amp; Referrals</li><li>Customer Reactivation</li></ol><button type="button" data-catalogue="retention">View scope details ↓</button><div class="hidden mt-2 text-xs text-zinc-300" data-catalogue-detail="retention">Free: journey map, copy, templates or campaign plan. Managed: configure agreed workflows using suitable systems and appropriately sourced customer data.</div></article>
+</div><p class="mt-3 text-xs leading-relaxed text-zinc-500">Scope note: concepts and drafts are not represented as live implementations. Hosting, third-party tools, integrations and ongoing support are included only where specified in the selected proposal.</p>
+</section>
 <div class="mt-5 flex flex-wrap gap-3 no-print"><button id="deep-dive-new-scan" type="button" class="rounded-xl border border-zinc-700 px-4 py-3 text-sm font-bold text-zinc-300 hover:border-amber-400">Start another scan</button><button id="print-treatment-proposal" type="button" class="rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Print / save proposal</button></div>
 </div>
 </div></div>
@@ -269,6 +319,9 @@ html,body{overflow-x:hidden}
 </main>
 
 <script>
+(function(){
+document.querySelectorAll('[data-catalogue]').forEach(button=>button.addEventListener('click',()=>{const key=button.getAttribute('data-catalogue');const panel=document.querySelector('[data-catalogue-detail="'+key+'"]');if(panel){panel.classList.toggle('hidden');button.textContent=panel.classList.contains('hidden')?'View scope details ↓':'Hide scope details ↑';}}));
+})();
 (function(){
 const form=document.getElementById('diagnosis-form'),btn=document.getElementById('submit-btn'),msg=document.getElementById('form-message'),result=document.getElementById('snapshot-result'),findings=document.getElementById('snapshot-findings');
 document.getElementById('new-scan-button')?.addEventListener('click',()=>{
