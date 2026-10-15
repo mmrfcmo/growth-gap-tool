@@ -844,7 +844,7 @@ if(gaps.length){
  document.getElementById('asset-guide-title').textContent=plan.guide;
  document.getElementById('asset-guide-copy').textContent='Practical advice, questions to ask and a clear next step.';
  document.getElementById('asset-guide-desc').textContent='A downloadable guide that helps '+plural+' make a better-informed decision and creates a useful follow-up opportunity.';
- ['asset-article-1','asset-article-2','asset-article-3'].forEach((id,i)=>document.getElementById(id).textContent=plan.articles[i]);
+ ['asset-article-1','asset-article-2'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=plan.articles[i]||'';});
  document.getElementById('asset-blog-desc').textContent='Three starter articles shaped around questions related to the '+category.toLowerCase()+' opportunity.';
  document.getElementById('proposal-gap-title').textContent=category+': '+title;
  document.getElementById('proposal-treatment').textContent=supplied||plan.treatment;
