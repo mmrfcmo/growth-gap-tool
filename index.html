@@ -951,14 +951,15 @@ function renderGapSteps(f){
  }[kind];
  const steps=[
   ['What the scan found',evidence],
-  ['Why it may matter',consequence],
-  ['Question to ask the owner',question],
-  ['Conclusion to validate',validate]
+  ['Why it may matter',consequence]
  ];
- return steps.map((step,i)=>{
-  const highlighted=i===2?' style="border:1px solid rgba(251,191,36,.35);background:rgba(120,80,10,.12);border-radius:12px;padding:12px"':'';
-  return '<div class="gap-step"'+highlighted+'><span class="gap-step-number"'+(i===2?' style="background:rgba(251,191,36,.14);border-color:rgba(251,191,36,.45);color:#fbbf24"':'')+'>'+(i+1)+'</span><div><p class="gap-step-label"'+(i===2?' style="color:#fbbf24"':'')+'>'+escapeHtml(step[0])+'</p><p class="gap-step-copy">'+escapeHtml(adaptCustomerTerms(step[1],ctx))+'</p></div></div>';
- }).join('');
+ const numbered=steps.map((step,i)=>
+  '<div class="gap-step"><span class="gap-step-number">'+(i+1)+'</span><div><p class="gap-step-label">'+escapeHtml(step[0])+'</p><p class="gap-step-copy">'+escapeHtml(adaptCustomerTerms(step[1],ctx))+'</p></div></div>'
+ ).join('');
+ // The owner sees this report during the live review: finish with a natural,
+ // owner-facing question, without coaching labels or a separate validation step.
+ const closingQuestion='<div class="gap-step" style="margin-top:16px;border:1px solid rgba(251,191,36,.38);background:rgba(120,80,10,.12);border-radius:12px;padding:14px"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(251,191,36,.14);border:1px solid rgba(251,191,36,.45);color:#fbbf24;font-size:1rem;font-weight:800">?</span><div><p class="gap-step-copy" style="margin-top:0;font-weight:600;color:#fef3c7">'+escapeHtml(adaptCustomerTerms(question.replace(/^Ask the owner:\\s*/,'').replace(/^“|”$/g,''),ctx))+'</p></div></div>';
+ return numbered+closingQuestion;
 }
 function renderAdditionalGap(f,index){
  const category=categoryOf(f),name=getText(f,['name','title','growthGap'])||'Potential growth gap';
