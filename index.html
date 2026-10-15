@@ -1014,7 +1014,7 @@ function renderGapSteps(f){
  ).join('');
  // The owner sees this report during the live review: finish with a natural,
  // owner-facing question, without coaching labels or a separate validation step.
- const closingQuestion='<div class="gap-step" style="margin-top:16px;border:1px solid rgba(251,191,36,.38);background:rgba(120,80,10,.12);border-radius:12px;padding:14px"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(251,191,36,.14);border:1px solid rgba(251,191,36,.45);color:#fbbf24;font-size:1rem;font-weight:800">?</span><div><p class="gap-step-copy" style="margin-top:0;font-weight:600;color:#fef3c7">'+escapeHtml(adaptCustomerTerms(question.replace(/^Ask the owner:\\s*/,'').replace(/^“|”$/g,''),ctx))+'</p></div></div>';
+ const closingQuestion='<div class="gap-step" style="margin-top:16px;border:1px solid rgba(251,191,36,.38);background:rgba(120,80,10,.12);border-radius:12px;padding:14px"><span aria-hidden="true" style="display:flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:8px;background:rgba(251,191,36,.14);border:1px solid rgba(251,191,36,.45);color:#fbbf24;font-size:1rem;font-weight:800">?</span><div><p class="gap-step-copy" style="margin-top:0;font-weight:600;color:#fef3c7">'+escapeHtml(adaptCustomerTerms(question.replace(/^Ask the owner:\s*/,'').replace(/^“|”$/g,''),ctx))+'</p></div></div>';
  return numbered+closingQuestion;
 }
 function renderAdditionalGap(f,index){
