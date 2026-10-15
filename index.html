@@ -31,27 +31,115 @@ header{background:#fff;border-bottom:1px solid #e4e4e7}
 .asset{background:#fafafa}
 .bar button.active{background:#f59e0b;color:#18181b;border-color:#f59e0b}
 @media(max-width:760px){.hero{border-radius:18px}}
+
+/* Punchier Growth Gap Scanner visual system */
+:root{--ink:#18181b;--muted:#71717a;--line:#e4e4e7;--paper:#f4f4f5;--amber:#fbbf24;--dark:#09090b}
+body{background:#f4f4f5;color:#18181b}
+header{padding:17px max(22px,calc((100vw - 1220px)/2));background:#fff;border-bottom:1px solid #e4e4e7}
+.brand{font-size:17px}.brand span{color:#71717a}
+header .pill{background:#18181b;color:#fff;border:0;font-weight:700;padding:9px 14px}
+.wrap{max-width:1240px;padding:30px 22px 76px}
+.hero{position:relative;overflow:hidden;isolation:isolate;grid-template-columns:1.35fr .65fr;gap:42px;min-height:330px;padding:clamp(28px,5vw,58px);border:1px solid #27272a;border-radius:28px;background:radial-gradient(ellipse at 92% 8%,#5b4521 0%,transparent 38%),linear-gradient(125deg,#09090b 0%,#18181b 58%,#292524 100%);box-shadow:0 24px 60px #09090b24}
+.hero:after{content:"";position:absolute;z-index:-1;width:330px;height:330px;right:-140px;bottom:-210px;border:1px solid #fbbf2438;border-radius:50%;box-shadow:0 0 0 28px #fbbf2408,0 0 0 58px #fbbf2405}
+.eyebrow{color:#fbbf24;font-size:11px;letter-spacing:.16em}
+h1{font-size:clamp(38px,5.4vw,66px);line-height:.99;letter-spacing:-.065em;max-width:720px;margin:18px 0}
+.hero p{font-size:16px;line-height:1.65;color:#d4d4d8;max-width:650px}
+.formrow{margin-top:26px;max-width:700px}.formrow input{min-height:56px;border:1px solid #52525b;border-radius:12px;padding:16px 18px;font-size:15px}
+.btn{min-height:56px;padding:15px 22px;border-radius:12px;background:linear-gradient(135deg,#fcd34d,#f59e0b);box-shadow:0 8px 25px #f59e0b25;font-size:14px;transition:transform .18s ease,box-shadow .18s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px #f59e0b38}
+.hero-note{align-self:stretch;display:flex;flex-direction:column;justify-content:center;padding:25px;background:#ffffff08;border:1px solid #ffffff20;border-radius:20px;backdrop-filter:blur(6px)}
+.hero-note strong{font-size:24px;letter-spacing:-.04em}.hero-note p{font-size:14px;color:#e4e4e7;line-height:1.95}
+.hero-note .muted{font-size:12px;line-height:1.6}
+.status{color:#fde68a}
+.section{margin-top:24px;padding:clamp(20px,3vw,34px);border:1px solid #e4e4e7;border-radius:24px;box-shadow:0 12px 34px #18181b08}
+.section h2{font-size:clamp(22px,3vw,30px);letter-spacing:-.055em;line-height:1.1;margin:9px 0 12px}
+.section-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}
+#report>.section:first-child{position:relative;overflow:hidden;color:#fafafa;background:radial-gradient(ellipse at 90% 0%,#493719 0%,transparent 36%),linear-gradient(130deg,#09090b,#18181b);border:1px solid #27272a;border-radius:28px;box-shadow:0 24px 65px #09090b25}
+#report>.section:first-child:after{content:"";position:absolute;right:-110px;top:160px;width:300px;height:300px;border:1px solid #fbbf2424;border-radius:50%;box-shadow:0 0 0 35px #fbbf2406,0 0 0 70px #fbbf2404;pointer-events:none}
+#report>.section:first-child .section-head h2{font-size:clamp(24px,3.4vw,36px);margin-top:10px}
+#report>.section:first-child .muted{color:#a1a1aa}
+#report>.section:first-child .pill{background:#27272a;border:1px solid #52525b;color:#f4f4f5;font-weight:700}
+.scoregrid{grid-template-columns:minmax(210px,270px) minmax(0,1fr);gap:clamp(24px,5vw,62px);padding:22px 0 26px;align-items:center}
+.score{width:clamp(190px,22vw,238px);height:clamp(190px,22vw,238px);background:conic-gradient(from 220deg,var(--score-color,#fbbf24) 0%,var(--score-color,#fbbf24) calc(var(--score,50)*1%),#3f3f46 calc(var(--score,50)*1%) 100%);box-shadow:0 0 0 9px #ffffff05,0 0 50px color-mix(in srgb,var(--score-color,#fbbf24) 20%,transparent)}
+.score:before{inset:12px;background:#09090b;border:1px solid #3f3f46}
+.scorein b{font-size:clamp(52px,6vw,68px);color:#fff;line-height:1}
+.scorein span{display:block;color:#a1a1aa;margin-top:8px;font-size:10px}
+#primaryTitle{font-size:clamp(27px,4vw,43px);line-height:1.04;letter-spacing:-.06em;color:#fff;margin:12px 0 14px;max-width:740px}
+#primaryCopy{font-size:15px;line-height:1.75;color:#d4d4d8;max-width:740px}
+#report>.section:first-child .bar{margin-top:22px}
+#report>.section:first-child .bar button{padding:10px 13px;background:#18181b;border-color:#3f3f46;color:#d4d4d8;border-radius:999px;font-size:12px}
+#report>.section:first-child .bar button.active{background:#fbbf24;border-color:#fbbf24;color:#18181b}
+.drivers{gap:12px;margin-top:10px;position:relative;z-index:1}
+.driver{position:relative;overflow:hidden;min-height:122px;padding:18px;border-radius:18px;background:linear-gradient(145deg,#27272a,#18181b);border:1px solid #3f3f46;box-shadow:inset 0 1px #ffffff08}
+.driver:after{content:"";position:absolute;width:70px;height:70px;right:-30px;top:-34px;border-radius:50%;background:#fbbf2414}
+.driver b{color:#d4d4d8;font-size:12px;letter-spacing:.03em;margin-bottom:13px}
+.driver strong{display:block;font-size:34px;color:#fff;line-height:1;letter-spacing:-.06em}
+.driver small{color:#a1a1aa;font-size:11px;margin-top:9px}
+#report>.section:not(:first-child)>.eyebrow{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;background:#fffbeb;color:#92400e;letter-spacing:.08em}
+#report>.section:not(:first-child)>h2{margin-top:13px}
+#report>.section:not(:first-child)>p.muted{max-width:850px}
+.findings{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.finding{position:relative;overflow:hidden;padding:22px;border:1px solid #e4e4e7;border-radius:18px;background:linear-gradient(145deg,#fff,#fafafa);box-shadow:0 8px 20px #18181b06;transition:transform .18s ease,box-shadow .18s ease}
+.finding:hover{transform:translateY(-2px);box-shadow:0 14px 28px #18181b0d}
+.finding:before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:#f59e0b}
+.finding .tag{display:inline-flex;background:#fffbeb;color:#92400e;border-radius:999px;padding:6px 9px;font-size:9px;letter-spacing:.08em}
+.finding h3{font-size:19px;line-height:1.2;letter-spacing:-.035em;margin:13px 0 9px}
+.finding p{font-size:14px;line-height:1.65;color:#52525b}
+.finding details{border-color:#e4e4e7}.finding summary{color:#18181b}
+.calc{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.field{padding:15px;border:1px solid #e4e4e7;border-radius:15px;background:#fafafa}
+.field label{font-size:11px;line-height:1.45;color:#52525b}
+.field input,.field select{border-color:#d4d4d8;border-radius:10px;font-weight:700}
+.metrics{gap:14px}
+.metric{position:relative;overflow:hidden;padding:22px;border:1px solid #3f3f46;border-radius:18px;background:linear-gradient(140deg,#18181b,#27272a)}
+.metric:before{content:"";position:absolute;left:0;top:0;right:0;height:3px;background:linear-gradient(90deg,#fbbf24,#f59e0b)}
+.metric span{color:#d4d4d8;font-size:11px;line-height:1.5}
+.metric strong{font-size:clamp(25px,3vw,34px);color:#fbbf24;letter-spacing:-.055em}
+.asset{position:relative;border:1px solid #e4e4e7;border-radius:18px;background:linear-gradient(145deg,#fff,#fafafa);padding:22px}
+.asset .eyebrow{display:inline-flex;background:#fffbeb;border-radius:999px;padding:6px 8px;color:#92400e}
+.asset h3{font-size:19px;letter-spacing:-.035em}.asset p{font-size:14px;color:#52525b}
+.price{display:inline-block;margin-top:8px;padding:8px 10px;background:#ecfdf5;border-radius:8px;color:#047857;font-size:12px}
+.disclaimer{padding:13px 15px;background:#f4f4f5;border-radius:12px;line-height:1.6}
+#optionsSection .two .asset:first-child{border-color:#fcd34d;background:linear-gradient(145deg,#fffbeb,#fff)}
+#optionsSection .bar button{padding:11px 14px;border-radius:10px;background:#18181b;color:#fff;border-color:#18181b}
+.footer{padding:20px 0}
+@media(max-width:760px){
+ header{padding:15px 18px}.wrap{padding:18px 14px 50px}
+ .hero{grid-template-columns:1fr;gap:22px;min-height:0;border-radius:22px;padding:27px 22px}
+ h1{font-size:clamp(38px,11vw,54px)}
+ .hero-note{padding:19px}.hero-note strong{font-size:21px}
+ .scoregrid{grid-template-columns:1fr;gap:24px;padding-top:10px}
+ .score{width:205px;height:205px}
+ .drivers{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+ .driver{padding:14px;min-height:112px}.driver strong{font-size:29px}
+ .findings,.two,.calc,.metrics{grid-template-columns:1fr}
+ .section-head{display:block}.section-head>.pill{display:inline-flex;margin-top:8px}
+ #report>.section:first-child{border-radius:22px}
+ #report>.section:first-child:after{right:-220px;top:210px}
+ .bar{gap:7px}.bar button{font-size:11px}
+}
+
 </style></head><body>
 <header><div class="brand">THE DOCTOR APPROACH<span>Growth Gap Intelligence</span></div><div class="pill">Independent Deep Dive</div></header>
 <main class="wrap">
-<section class="hero"><div><div class="eyebrow">Evidence-led business diagnosis</div><h1>Find the gaps.<br>See the opportunity.</h1><p>Run an independent Growth Gap Deep Dive to examine your website and identify practical opportunities across visibility, trust, conversion and retention.</p>
+<section class="hero"><div><div class="eyebrow">Evidence-led business diagnosis</div><h1>Spot the gaps.<br>Unlock the growth.</h1><p>See what may be holding growth back. Get a clear, evidence-led diagnosis across visibility, trust, conversion and retention—then focus on what to fix first.</p>
 <form id="scanForm"><div class="formrow"><input id="website" type="text" placeholder="Enter your website, e.g. example.co.uk" autocomplete="url" required><button class="btn" id="scanBtn" type="submit">Run Deep Dive →</button></div><div class="status" id="status" role="status"></div><div class="error" id="error"></div></form></div>
 <div class="hero-note"><strong>What you'll see</strong><p>• An overall diagnostic score where evidence allows<br>• Four Growth Driver assessments<br>• Prioritised findings with supporting evidence<br>• An illustrative revenue opportunity model<br>• Complimentary asset concepts and next steps</p><div class="muted" style="color:#c7c7c7">Public website evidence has limits. Business performance and revenue assumptions must be validated with you.</div></div></section>
 <div id="report" class="hidden">
-<section class="section"><div class="section-head"><div><div class="eyebrow">01 / Initial diagnosis</div><h2 id="businessTitle">Growth Gap Snapshot</h2><p id="scanMeta" class="muted"></p></div><div class="pill" id="evidenceBadge">Evidence-led</div></div>
+<section class="section"><div class="section-head"><div><div class="eyebrow">YOUR GROWTH GAP SNAPSHOT</div><h2 id="businessTitle">Growth Gap Snapshot</h2><p id="scanMeta" class="muted"></p></div><div class="pill" id="evidenceBadge">Evidence-led</div></div>
 <div class="scoregrid"><div class="score" id="scoreDial"><div class="scorein"><b id="overallScore">—</b><span>Overall score</span></div></div><div><h2 id="primaryTitle">Your key opportunity will appear here</h2><p id="primaryCopy" class="muted">Findings will be based on the scan response, not assumptions.</p><div class="bar no-print"><button data-view="diagnosis" class="active">Diagnosis</button><button data-view="gaps">Growth gaps</button><button data-view="revenue">Revenue opportunity</button><button data-view="assets">Complimentary assets</button><button data-view="options">Options & next steps</button></div></div></div>
 <div class="drivers" id="drivers"></div></section>
-<section class="section" id="gapsSection"><div class="eyebrow">02 / Evidence-backed findings</div><h2>Growth gaps worth exploring</h2><p class="muted">Potential gaps are not proof of lost sales. Each finding should be discussed and validated with the business owner.</p><div id="findings" class="findings"></div></section>
-<section class="section" id="revenueSection"><div class="eyebrow">03 / Illustrative model</div><h2>What could an improvement be worth?</h2><p class="muted">Enter the business's own figures. This estimates a scenario, not actual lost revenue or a promise of results.</p>
+<section class="section" id="gapsSection"><div class="eyebrow">WHAT THE SCAN FOUND</div><h2>Growth gaps worth exploring</h2><p class="muted">Potential gaps are not proof of lost sales. Each finding should be discussed and validated with the business owner.</p><div id="findings" class="findings"></div></section>
+<section class="section" id="revenueSection"><div class="eyebrow">THE COMMERCIAL OPPORTUNITY</div><h2>What could an improvement be worth?</h2><p class="muted">Enter the business's own figures. This estimates a scenario, not actual lost revenue or a promise of results.</p>
 <div class="calc"><div class="field"><label for="currency">Country / currency</label><select id="currency"><option value="GBP">UK (£)</option><option value="USD">USA ($)</option></select></div><div class="field"><label for="customerValue">Revenue per new customer over 12 months</label><input id="customerValue" type="number" min="0" value="800"></div><div class="field"><label for="enquiries">Monthly enquiries</label><input id="enquiries" type="number" min="0" value="40"></div><div class="field"><label for="conversion">Current enquiry-to-customer rate (%)</label><input id="conversion" type="number" min="0" max="100" value="10"></div><div class="field"><label for="uplift">Relative conversion improvement</label><select id="uplift"><option value=".10">10%</option><option value=".15" selected>15%</option><option value=".20">20%</option><option value=".25">25%</option></select></div></div>
 <div class="metrics"><div class="metric"><span>Extra customers / month (modelled)</span><strong id="extraCustomers">—</strong></div><div class="metric"><span>Potential monthly revenue run-rate</span><strong id="monthlyGap">—</strong></div><div class="metric"><span>Annualised revenue run-rate opportunity</span><strong id="annualGap">—</strong></div></div><p class="disclaimer">Illustrative only, not actual lost revenue, a forecast, guarantee or profit. Uses a relative improvement in the existing conversion rate (not percentage points), assumes enquiry volume and customer value remain unchanged, and excludes margin, capacity, timing, seasonality and customer-mix effects. Annualised figures are steady-state run-rate scenarios and may not be realised within 12 months.</p></section>
-<section class="section" id="assetsSection"><div class="eyebrow">04 / Complimentary asset concepts</div><h2>Three practical assets to consider</h2><p class="muted">These are concepts for discussion, not completed deliverables. Tailoring requires business information and approval.</p><div class="two">
+<section class="section" id="assetsSection"><div class="eyebrow">PRACTICAL WAYS TO CLOSE THE GAP</div><h2>Three practical assets to consider</h2><p class="muted">These are concepts for discussion, not completed deliverables. Tailoring requires business information and approval.</p><div class="two">
 <div class="asset"><div class="eyebrow">Asset 01</div><h3>Focused landing page</h3><p>A clear page for a priority service or customer need, designed to explain the value and make the next step obvious.</p><div class="price">Illustrative value: £750</div></div>
 <div class="asset"><div class="eyebrow">Asset 02</div><h3>Lead magnet and guide</h3><p>A useful downloadable guide with an enquiry or sign-up form and a clear delivery process.</p><div class="price">Illustrative value: £500</div></div>
 <div class="asset"><div class="eyebrow">Asset 03</div><h3>Blog setup + two articles</h3><p>An initial content foundation to answer customer questions and demonstrate expertise.</p><div class="price">Illustrative value: £600</div></div>
 <div class="asset"><div class="eyebrow">Complimentary package</div><h3>Three assets at no charge</h3><p>Subject to agreed eligibility, information gathering and approval. Publishing, hosting and ongoing maintenance are separate unless agreed.</p><div class="price">Combined illustrative value: £1,850</div></div>
 </div><p class="disclaimer">Asset values are provisional estimates and should be confirmed before they are used as a public marketing claim.</p></section>
-<section class="section" id="optionsSection"><div class="eyebrow">05 / Review & next steps</div><h2>Choose the appropriate next step</h2><div class="two"><div class="asset"><h3>Take the complimentary assets</h3><p>Complete a business information form, review the concepts and receive the agreed assets. You arrange publishing, integrations, tracking and ongoing technical maintenance yourself.</p></div><div class="asset"><h3>Explore managed support</h3><p>If you would rather have agreed assets implemented and maintained for you, discuss the appropriate managed package. Scope, delivery and responsibilities should be confirmed before purchase.</p></div></div><div class="bar no-print"><button onclick="window.print()">Print / save report</button><button onclick="resetScan()">Start a new scan</button></div></section>
+<section class="section" id="optionsSection"><div class="eyebrow">YOUR NEXT MOVE</div><h2>Choose the appropriate next step</h2><div class="two"><div class="asset"><h3>Take the complimentary assets</h3><p>Complete a business information form, review the concepts and receive the agreed assets. You arrange publishing, integrations, tracking and ongoing technical maintenance yourself.</p></div><div class="asset"><h3>Explore managed support</h3><p>If you would rather have agreed assets implemented and maintained for you, discuss the appropriate managed package. Scope, delivery and responsibilities should be confirmed before purchase.</p></div></div><div class="bar no-print"><button onclick="window.print()">Print / save report</button><button onclick="resetScan()">Start a new scan</button></div></section>
 </div><div class="footer">The Doctor Approach · Diagnose before prescribing · Public website scan only; unavailable information is not assumed.</div></main>
 <script>
 const API='https://doctor-approach-dd2-api.onrender.com/api/dd2/diagnose';
