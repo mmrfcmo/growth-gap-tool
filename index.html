@@ -1542,5 +1542,27 @@ try{const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.targ
 })();
 </script>
 
+
+<script id="suite-art-initial-render">
+/* Render unmistakably new product artwork on initial page load as well as after a scan. */
+(function(){
+ const root=document.getElementById('diagnosed-solution-grid');
+ if(!root)return;
+ const cards=root.querySelectorAll('.asset-preview-card');
+ const data=[
+  {id:'C1',name:'Conversion Landing Page',kicker:'A CLEAR ROUTE TO ENQUIRE',cta:'REQUEST AN APPOINTMENT',desc:'A focused service page with a clear next step.'},
+  {id:'C2',name:'Lead Magnet System',kicker:'A USEFUL GUIDE BEFORE YOU DECIDE',cta:'GET THE FREE GUIDE',desc:'A helpful resource with an opt-in and follow-up route.'},
+  {id:'C3',name:'Sticky CTA / Notification Bar',kicker:'MAKE THE NEXT STEP EASY',cta:'GET IN TOUCH',desc:'A persistent, unobtrusive way to contact the business.'}
+ ];
+ cards.forEach((card,i)=>{
+  const d=data[i];if(!d)return;
+  const old=card.firstElementChild;
+  if(!old)return;
+  old.outerHTML='<div class="suite-art" role="img" aria-label="'+d.name+' visual concept"><div class="suite-art-top"><span class="suite-art-mark">DA</span><span>CONVERSION · PRODUCT '+d.id+'</span><span class="suite-art-chip">CONCEPT</span></div><div class="suite-art-body"><div class="suite-art-copy"><p>DOCTOR APPROACH · PRODUCT SUITE</p><h4>'+d.name+'</h4><span>'+d.desc+'</span><div class="suite-art-lines"><i></i><i></i><i></i></div><b>'+d.cta+' →</b></div><svg viewBox="0 0 330 270" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="initialSuiteGlow'+i+'" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fef3c7"/><stop offset="1" stop-color="#f8fafc"/></linearGradient></defs><rect width="330" height="270" rx="18" fill="url(#initialSuiteGlow'+i+')"/><circle cx="272" cy="48" r="36" fill="#fde68a" opacity=".8"/><rect x="65" y="68" width="202" height="156" rx="12" fill="#e2e8f0" opacity=".8"/><rect x="80" y="83" width="172" height="125" rx="8" fill="#fff" stroke="#cbd5e1"/><path d="M96 102h110M96 119h139M96 136h122" stroke="#94a3b8" stroke-width="5" stroke-linecap="round"/><rect x="'+(i===1?96:132)+'" y="155" width="'+(i===1?86:104)+'" height="27" rx="6" fill="#b45309"/><path d="M96 194h128" stroke="#cbd5e1" stroke-width="4" stroke-linecap="round"/></svg></div><div class="suite-art-footer"><span>'+d.kicker+'</span><span>ILLUSTRATIVE DESIGN</span><span>NOT YET IMPLEMENTED</span></div></div>';
+ });
+ const st=document.createElement('style');st.textContent='#treatment-assets .suite-art{overflow:hidden;border:1px solid #334155;border-radius:12px;background:#f8fafc;color:#0f172a;box-shadow:0 12px 26px #0002}#treatment-assets .suite-art-top{display:flex;align-items:center;gap:10px;padding:12px 15px;background:#0f172a;color:#e2e8f0;font-size:9px;font-weight:900;letter-spacing:.12em}#treatment-assets .suite-art-mark{display:grid;place-items:center;width:27px;height:27px;border-radius:8px;background:#fbbf24;color:#111827;font-size:10px;letter-spacing:0}#treatment-assets .suite-art-chip{margin-left:auto;border:1px solid #64748b;border-radius:99px;padding:4px 7px;font-size:8px}#treatment-assets .suite-art-body{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:12px;align-items:center;padding:16px;background:linear-gradient(130deg,#fff,#f1f5f9)}#treatment-assets .suite-art-copy>p{font-size:8px;font-weight:900;letter-spacing:.12em;color:#b45309}#treatment-assets .suite-art-copy h4{margin-top:10px;font-size:clamp(17px,1.8vw,25px);line-height:1.08;font-weight:900;letter-spacing:-.04em;color:#0f172a}#treatment-assets .suite-art-copy>span{display:block;margin-top:9px;font-size:10px;color:#475569}#treatment-assets .suite-art-lines{display:grid;gap:6px;margin-top:14px}#treatment-assets .suite-art-lines i{height:5px;border-radius:9px;background:#cbd5e1}#treatment-assets .suite-art-lines i:nth-child(2){width:80%}#treatment-assets .suite-art-lines i:nth-child(3){width:62%}#treatment-assets .suite-art-copy>b{display:inline-block;margin-top:14px;padding:9px 11px;border-radius:6px;background:#b45309;color:#fff;font-size:9px}#treatment-assets .suite-art-body svg{display:block;width:100%;height:auto;max-height:250px}#treatment-assets .suite-art-footer{display:flex;flex-wrap:wrap;gap:7px;padding:10px 14px;background:#e2e8f0}#treatment-assets .suite-art-footer span{padding:5px 8px;border-radius:5px;background:#fff;border:1px solid #cbd5e1;color:#334155;font-size:8px;font-weight:800}@media(max-width:480px){#treatment-assets .suite-art-body{grid-template-columns:1fr}#treatment-assets .suite-art-body svg{max-height:180px}}';document.head.appendChild(st);
+})();
+</script>
+
 </body>
 </html>
