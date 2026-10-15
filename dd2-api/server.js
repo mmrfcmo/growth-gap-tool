@@ -24,8 +24,14 @@ function text(html) {
     .replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/\s+/g,' ').trim();
 }
 function meta(html, name) {
-  const re = new RegExp('<meta[^>]+(?:name|property)=["\\']'+name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'["\\'][^>]+content=["\\']([^"\\']*)["\\']|<meta[^>]+content=["\\']([^"\\']*)["\\'][^>]+(?:name|property)=["\\']'+name.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'["\\']','i');
-  const m=html.match(re); return m ? (m[1] || m[2] || '').trim() : '';
+  const safe = String(name || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const tags = String(html || '').match(/<meta\b[^>]*>/gi) || [];
+  for (const tag of tags) {
+    const key = tag.match(/\b(?:name|property)\s*=\s*["']([^"']+)["']/i);
+    const value = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i);
+    if (key && value && key[1].toLowerCase() === String(name).toLowerCase()) return value[1].trim();
+  }
+  return '';
 }
 function count(html, re) { return (html.match(re) || []).length; }
 function extractLinks(html, base) {
