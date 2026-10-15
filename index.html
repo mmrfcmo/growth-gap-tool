@@ -442,6 +442,68 @@ html,body{overflow-x:hidden}
 @media(max-width:1100px){#diagnosed-solution-grid{grid-template-columns:repeat(3,minmax(0,1fr))}#diagnosed-gap-card{grid-column:1/-1}#diagnosed-gap-card ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}#diagnosed-gap-card .diagnosed-gap-note{margin-top:12px;max-width:280px}}
 @media(max-width:680px){#diagnosed-solution-grid{grid-template-columns:minmax(0,1fr)}#diagnosed-gap-card{grid-column:auto}#diagnosed-gap-card ol{display:flex;flex-direction:column}#diagnosed-solution-grid>.asset-preview-card .asset-hero{min-height:220px}#diagnosed-solution-grid>.asset-preview-card .asset-hero .asset-photo{min-height:220px}#diagnosed-solution-grid>.asset-preview-card .asset-hero-copy h4{font-size:20px}#diagnosed-solution-grid>.asset-preview-card .asset-hero-copy>p:not(.asset-eyebrow){font-size:12px}#diagnosed-solution-grid>.asset-preview-card .asset-cta{font-size:10px}#diagnosed-solution-grid>.asset-preview-card .asset-guide-stage{min-height:290px}}
 
+
+/* Horizontal report flow: gap banner, then three full-width asset rows, then annual package */
+#treatment-assets{padding:clamp(14px,2vw,24px)!important}
+#treatment-assets #diagnosed-solution-grid{display:flex!important;flex-direction:column!important;gap:14px!important;align-items:stretch!important}
+#treatment-assets #diagnosed-gap-card{display:grid!important;grid-template-columns:minmax(180px,.9fr) minmax(0,2fr) minmax(170px,.85fr)!important;align-items:center;gap:16px;min-height:0;border-radius:12px!important;padding:clamp(16px,2vw,24px)!important;background:#fff0dc!important;color:#171717!important;border:1px solid #fed7aa!important}
+#treatment-assets #diagnosed-gap-card .diagnosed-gap-kicker{grid-column:1;color:#c2410c!important;font-size:10px!important}
+#treatment-assets #diagnosed-gap-card h4{grid-column:1;color:#ea580c!important;font-size:clamp(24px,2.5vw,36px)!important;line-height:1.05!important;margin-top:3px!important}
+#treatment-assets #diagnosed-gap-card #diagnosed-gap-summary{grid-column:2;grid-row:1/3;color:#7c2d12!important;font-size:clamp(16px,1.5vw,21px)!important;line-height:1.35!important;margin:0!important}
+#treatment-assets #diagnosed-gap-card .diagnosed-gap-divider{display:none}
+#treatment-assets #diagnosed-gap-card .diagnosed-gap-note{grid-column:3;grid-row:1;color:#c2410c!important;background:#ffdfad!important;margin:0!important;padding:8px 12px!important;border-radius:999px!important;text-align:center;font-size:11px!important}
+#treatment-assets #diagnosed-gap-card ol{grid-column:3;grid-row:2;display:flex!important;flex-direction:column!important;gap:5px!important;margin:0!important}
+#treatment-assets #diagnosed-gap-card li{display:flex!important;flex-direction:row!important;align-items:baseline!important;gap:7px!important}
+#treatment-assets #diagnosed-gap-card li b{color:#ea580c!important;min-width:22px!important}
+#treatment-assets #diagnosed-gap-card li span{color:#292524!important;font-size:11px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card{display:grid!important;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr)!important;grid-template-rows:auto!important;align-items:stretch!important;width:100%!important;min-width:0!important;border-radius:12px!important;border:1px solid #fed7aa!important;background:#fff8ed!important;color:#171717!important;overflow:hidden!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card>.asset-browser,
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card>.asset-guide-stage,
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card>.asset-blog-window{grid-column:1!important;grid-row:1!important;align-self:stretch!important;min-width:0!important;width:100%!important;height:100%!important;min-height:0!important;margin:0!important;border-radius:0!important;order:0!important;overflow:hidden!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card>.p-5{grid-column:2!important;grid-row:1!important;align-self:stretch!important;min-width:0!important;width:100%!important;padding:clamp(16px,2.2vw,28px)!important;display:flex!important;flex-direction:column!important;justify-content:center!important;gap:7px!important;order:1!important;background:#fff8ed!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-browser-bar{font-size:10px!important;padding:8px 12px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-brand{padding:10px!important;font-size:10px!important;gap:7px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-brand .asset-nav{display:flex!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-brand b{font-size:9px!important;padding:6px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-hero{min-height:270px!important;grid-template-columns:1.1fr .8fr!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-hero .asset-photo{min-height:270px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-hero-copy{padding:clamp(12px,2vw,24px)!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-hero-copy h4{font-size:clamp(19px,2vw,30px)!important;line-height:1.1!important;color:#111827!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-hero-copy>p:not(.asset-eyebrow){font-size:clamp(11px,1vw,14px)!important;line-height:1.45!important;color:#334155!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-hero-copy .asset-eyebrow{font-size:9px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-cta{font-size:10px!important;padding:8px 10px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-proof{display:flex!important;flex-wrap:wrap!important;font-size:9px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-service-strip{font-size:9px!important;padding:8px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-guide-stage{min-height:330px!important;padding:20px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-guide-cover{max-width:250px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-price-panel{margin:8px 0 0!important;padding:12px!important;background:#fffaf3!important;border-color:#fed7aa!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-price-panel .price-value{font-size:22px!important;color:#c2410c!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-price-panel p:last-child{font-size:11px!important;line-height:1.45!important;color:#57534e!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-price-panel .rounded-full{font-size:9px!important;padding:4px 7px!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-price-panel .text-zinc-400{color:#78716c!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card #asset-landing-label,
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card #asset-guide-label,
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card #asset-blog-label{font-size:11px!important;color:#c2410c!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card #asset-landing-title,
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card #asset-guide-card-title,
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card #asset-blog-title{font-size:clamp(18px,1.8vw,24px)!important;color:#171717!important;line-height:1.2!important}
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .text-zinc-300,
+#treatment-assets #diagnosed-solution-grid>.asset-preview-card .text-zinc-200{color:#44403c!important}
+@media(max-width:760px){
+ #treatment-assets #diagnosed-gap-card{grid-template-columns:minmax(0,1fr)!important;gap:8px!important}
+ #treatment-assets #diagnosed-gap-card #diagnosed-gap-summary,
+ #treatment-assets #diagnosed-gap-card .diagnosed-gap-note,
+ #treatment-assets #diagnosed-gap-card ol{grid-column:1!important;grid-row:auto!important}
+ #treatment-assets #diagnosed-solution-grid>.asset-preview-card{grid-template-columns:minmax(0,1fr)!important}
+ #treatment-assets #diagnosed-solution-grid>.asset-preview-card>.asset-browser,
+ #treatment-assets #diagnosed-solution-grid>.asset-preview-card>.asset-guide-stage,
+ #treatment-assets #diagnosed-solution-grid>.asset-preview-card>.asset-blog-window{grid-column:1!important;grid-row:1!important}
+ #treatment-assets #diagnosed-solution-grid>.asset-preview-card>.p-5{grid-column:1!important;grid-row:2!important}
+ #treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-hero{min-height:230px!important}
+ #treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-hero .asset-photo{min-height:230px!important}
+ #treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-guide-stage{min-height:300px!important}
+}
+
 </style>
 </head>
 
