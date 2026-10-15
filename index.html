@@ -30,25 +30,20 @@ html,body{overflow-x:hidden}
 }
 
 
-/* Step 2: three horizontal asset rows, each with a visual preview and description beside it */
-#treatment-assets .asset-preview-card{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);align-items:stretch;}
+/* Step 2: full-width visual first, then a vertically stacked explanation */
+#treatment-assets .asset-preview-card{display:flex;flex-direction:column;align-items:stretch;}
 #treatment-assets .asset-preview-card>.asset-browser,
 #treatment-assets .asset-preview-card>.asset-guide-stage,
-#treatment-assets .asset-preview-card>.asset-blog-window{grid-column:1;grid-row:1;min-width:0;align-self:stretch;}
-#treatment-assets .asset-preview-card>.p-5{grid-column:2;grid-row:1;align-self:center;padding:clamp(18px,3vw,32px);}
+#treatment-assets .asset-preview-card>.asset-blog-window{order:1;width:100%;min-width:0;margin:0;border-radius:0;}
+#treatment-assets .asset-preview-card>.p-5{order:2;width:100%;padding:clamp(20px,3vw,34px);}
 #treatment-assets .asset-preview-card>.asset-browser{display:flex;flex-direction:column;justify-content:center;}
-#treatment-assets .asset-preview-card .asset-hero{min-height:250px;}
-#treatment-assets .asset-preview-card .asset-hero .asset-photo{min-height:250px;}
-#treatment-assets .asset-preview-card .asset-guide-stage{min-height:340px;}
-#treatment-assets .asset-preview-card .asset-guide-cover{max-width:290px;}
-#treatment-assets .asset-preview-card .asset-blog-window{align-self:center;margin:12px;width:calc(100% - 24px);}
+#treatment-assets .asset-preview-card .asset-hero{min-height:300px;}
+#treatment-assets .asset-preview-card .asset-hero .asset-photo{min-height:300px;}
+#treatment-assets .asset-preview-card .asset-guide-stage{min-height:380px;}
+#treatment-assets .asset-preview-card .asset-guide-cover{max-width:320px;}
+#treatment-assets .asset-preview-card .asset-blog-window{align-self:stretch;}
 #treatment-assets .asset-preview-card .asset-benefit-list{margin-top:14px;}
 @media(max-width:700px){
- #treatment-assets .asset-preview-card{grid-template-columns:minmax(0,1fr);}
- #treatment-assets .asset-preview-card>.asset-browser,
- #treatment-assets .asset-preview-card>.asset-guide-stage,
- #treatment-assets .asset-preview-card>.asset-blog-window{grid-column:1;grid-row:1;}
- #treatment-assets .asset-preview-card>.p-5{grid-column:1;grid-row:2;padding:20px;}
  #treatment-assets .asset-preview-card .asset-hero{min-height:225px;}
  #treatment-assets .asset-preview-card .asset-hero .asset-photo{min-height:225px;}
  #treatment-assets .asset-preview-card .asset-guide-stage{min-height:315px;}
@@ -421,7 +416,7 @@ html,body{overflow-x:hidden}
 </div>
 <div class="asset-service-strip"><span>General dentistry</span><span>Cosmetic treatments</span><span>Patient reviews</span></div>
 </div></div>
-<div class="p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C1 · Conversion</p><h4 class="mt-1 text-lg font-extrabold text-white">Conversion-focused landing page</h4><p id="asset-landing-desc" class="mt-2 text-sm leading-6 text-zinc-300">A focused page concept with a clear value proposition, reassurance and a prominent enquiry route.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-landing-why" class="mt-1 text-sm leading-6 text-zinc-200">The scan suggests the current service journey may not make the next step clear enough.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-landing-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Make the offer easier to understand and the enquiry route easier to follow.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed design concept · not published</p></div>
+<div class="p-5"><p id="asset-landing-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C1 · Conversion</p><h4 id="asset-landing-title" class="mt-1 text-lg font-extrabold text-white">Conversion-focused landing page</h4><p id="asset-landing-desc" class="mt-2 text-sm leading-6 text-zinc-300">A focused page concept with a clear value proposition, reassurance and a prominent enquiry route.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-landing-why" class="mt-1 text-sm leading-6 text-zinc-200">The scan suggests the current service journey may not make the next step clear enough.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-landing-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Make the offer easier to understand and the enquiry route easier to follow.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed design concept · not published</p></div>
 </article>
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
 <div class="asset-guide-stage leadmagnet-scene">
@@ -434,7 +429,7 @@ html,body{overflow-x:hidden}
 </div>
 <div class="leadmagnet-guide-wrap"><div class="asset-guide-shadow"></div><div class="asset-guide-cover"><div class="asset-guide-brand"><span class="asset-tooth">✧</span><span>DENTAL SMILES LONDON</span></div><p class="asset-guide-label">COMPLIMENTARY PATIENT GUIDE</p><h4 id="asset-guide-title">The essential guide to a healthier, brighter smile</h4><p id="asset-guide-copy">Practical advice to help you understand your options and feel confident about your dental care.</p><div class="asset-guide-rule"></div><div class="asset-guide-image" role="img" aria-label="Illustrative close-up of a confident smile"></div><span class="asset-guide-tag">PATIENT RESOURCE</span></div><div class="asset-guide-meta"><span>PDF GUIDE</span><span>DOWNLOADABLE RESOURCE</span></div></div>
 </div>
-<div class="p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C3 · Conversion</p><h4 class="mt-1 text-lg font-extrabold text-white">Lead capture &amp; customer guide</h4><p id="asset-guide-desc" class="mt-2 text-sm leading-6 text-zinc-300">A useful, branded guide concept that can answer common customer questions and offer a natural next step.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-guide-why" class="mt-1 text-sm leading-6 text-zinc-200">This is most useful when customers need information before they are ready to enquire.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-guide-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Give prospective customers a useful resource and a reason to take the next step.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed cover concept · not a finished guide</p></div>
+<div class="p-5"><p id="asset-guide-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C3 · Conversion</p><h4 id="asset-guide-card-title" class="mt-1 text-lg font-extrabold text-white">Lead capture &amp; customer guide</h4><p id="asset-guide-desc" class="mt-2 text-sm leading-6 text-zinc-300">A useful, branded guide concept that can answer common customer questions and offer a natural next step.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-guide-why" class="mt-1 text-sm leading-6 text-zinc-200">This is most useful when customers need information before they are ready to enquire.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-guide-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Give prospective customers a useful resource and a reason to take the next step.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed cover concept · not a finished guide</p></div>
 </article>
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
 <div class="asset-blog-window asset-blog-professional">
@@ -448,7 +443,7 @@ html,body{overflow-x:hidden}
 </div>
 <div class="blog-bottom-bar"><span><b>✦</b> Helpful information. Clear next steps.</span><span>Explore services <b>→</b></span></div>
 </div>
-<div class="p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset V3 · Visibility</p><h4 class="mt-1 text-lg font-extrabold text-white">Customer-question content hub</h4><p id="asset-blog-desc" class="mt-2 text-sm leading-6 text-zinc-300">A starter editorial hub with two useful article concepts designed around the questions customers ask.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-blog-why" class="mt-1 text-sm leading-6 text-zinc-200">Useful customer questions may not be answered clearly by the current site.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-blog-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Help customers find relevant information and create a foundation for useful, discoverable content.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed editorial mockup · not published</p></div>
+<div class="p-5"><p id="asset-blog-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset V3 · Visibility</p><h4 id="asset-blog-title" class="mt-1 text-lg font-extrabold text-white">Customer-question content hub</h4><p id="asset-blog-desc" class="mt-2 text-sm leading-6 text-zinc-300">A starter editorial hub with two useful article concepts designed around the questions customers ask.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-blog-why" class="mt-1 text-sm leading-6 text-zinc-200">Useful customer questions may not be answered clearly by the current site.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-blog-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Help customers find relevant information and create a foundation for useful, discoverable content.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed editorial mockup · not published</p></div>
 </article>
 </div>
 <p class="mt-5 rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 text-xs leading-relaxed text-zinc-400"><strong class="text-zinc-200">Important:</strong> These are visual mockups to make the proposed deliverables tangible. The practice name is used for illustration; no official logo, testimonials, ratings, clinical claims or finished content have been verified or supplied. Final branding and copy should be approved before publication.</p>
@@ -936,50 +931,82 @@ if(gaps.length){
  ctaButton.textContent='Explore My Next Steps →';
 }
 
-// Deep Dive add-on: keep the original Snapshot score/findings and build the solution from its primary finding.
+// Deep Dive add-on: rank catalogue assets against actual scan findings; original Snapshot scoring is untouched.
 (function buildGapLedTreatment(){
- const first=gaps[0]||s.primaryGrowthGap||{};
- const category=String(categoryOf(first)||first.driver||first.category||'Growth').trim();
- const lower=category.toLowerCase(),ctx=customerContext(s);
+ const first=gaps[0]||s.primaryGrowthGap||{},category=String(categoryOf(first)||'Growth').trim(),ctx=customerContext(s);
  const business=String(s.businessName||s.business||website.replace(/^https?:\/\//,'').replace(/\/$/,'')||'Your business');
- const isRoof=ctx.kind==='roofing',isDental=ctx.kind==='dental';
- const plural=isRoof?'homeowners':isDental?'patients':'customers';
- const action=isRoof?'request a quote':isDental?'enquire about an appointment':'make an enquiry';
- const plans={
- visibility:{landing:'Make the priority service easier to discover and act on.',guide:'A practical guide to choosing the right provider and knowing what to check.',articles:['What to check before choosing a provider','Questions to ask before requesting a quote','How to compare options with confidence'],treatment:'Prioritise the service and location information that helps the right customers find and choose the business.'},
- trust:{landing:'Bring genuine proof, credentials and clear next steps together.',guide:'A checklist to help '+plural+' assess quality, credibility and the right questions to ask.',articles:['What credible proof should customers look for?','Questions to ask before choosing a provider','How to compare quality—not just price'],treatment:'Strengthen the visible trust evidence most relevant to the service, using genuine reviews, credentials, examples and clear business information.'},
- conversion:{landing:'Explain the offer clearly and make it simple to '+action+'.',guide:'A decision guide that answers key questions before the customer gets in touch.',articles:['What to check before choosing a service','Common mistakes to avoid when comparing providers','Questions to ask before you decide'],treatment:'Improve the main service journey: clear value, relevant proof, a visible call to action and a simple enquiry route. Validate the current journey before changing it.'},
- retention:{landing:'Make follow-up, repeat service or referral options clear where relevant.',guide:'A useful aftercare or maintenance guide that keeps the business helpful after the first transaction.',articles:['How to get more value after your first service','When to arrange a follow-up or maintenance check','What to keep—and when to ask for help'],treatment:'First confirm how the business currently follows up with previous customers. If there is a genuine gap, consider a helpful follow-up sequence, reminders, repeat-service prompts or referral requests.'}
- };
- const key=['visibility','trust','conversion','retention'].find(k=>lower.includes(k))||'conversion',plan=plans[key];
+ const isRoof=ctx.kind==='roofing',isDental=ctx.kind==='dental',plural=isRoof?'homeowners':isDental?'patients':'customers';
+ const all=Array.isArray(gaps)?gaps.filter(Boolean):[];
+ const primaryText=[categoryOf(first),getText(first,['name','title','growthGap']),getText(first,['description','fact','observation','evidenceSummary'])].join(' ').toLowerCase();
+ const allText=all.map(f=>[categoryOf(f),getText(f,['name','title','growthGap']),getText(f,['description','fact','observation','evidenceSummary'])].join(' ')).join(' ').toLowerCase();
+ const catOf=f=>{const c=categoryOf(f).toLowerCase();return ['visibility','trust','conversion','retention'].find(k=>c.includes(k))||''};
+ const primaryCat=catOf(first)||'conversion';
+ const products=[
+ ['V1','Visibility','Local Search Foundation','local search|map pack|google business profile|service area|location page|local ranking','Use only if the evidence points to a local search or service-area information gap.','Clarify priority services, locations and local business information.'],
+ ['V2','Visibility','Service Landing Page','service page|service landing|missing service page|thin service page','Relevant when an important service lacks a clear, dedicated page.','Give the priority service a focused page, useful detail and a clear next step.'],
+ ['V3','Visibility','Customer-Question Content Hub','content|article|blog|question|answer|information|discoverab|topic','Relevant when the scan shows useful customer questions are not answered well by existing content.','Build useful answers around real customer questions; rankings are not guaranteed.'],
+ ['V4','Visibility','Website Discoverability','crawl|index|search engine|metadata|technical|organic visibility','Use when a specific discoverability or technical access issue is flagged.','Address the discoverability issue actually identified by the scan.'],
+ ['V5','Visibility','Business & AI Discoverability','entity|business information|inconsistent|ai visibility|knowledge|business profile','Relevant when business or service information is unclear or inconsistent.','Make core business and service information easier to understand and verify.'],
+ ['T1','Trust','Review Presentation','review|rating|testimonial|feedback|social proof','Relevant when genuine reviews exist but are difficult to find or connect to the service.','Present verified customer feedback clearly; do not invent ratings or testimonials.'],
+ ['T2','Trust','Customer Proof Pack','case study|portfolio|completed work|before and after|proof|example','Relevant when customers need proof of real work or experience that the site does not show clearly.','Organise genuine examples, case studies and approved proof.'],
+ ['T3','Trust','Credentials & Credibility','credential|qualification|accredit|membership|insurance|license|licence|certification','Relevant only when important credentials or assurances are missing or hard to verify.','Present verifiable qualifications, memberships, insurance or credentials clearly.'],
+ ['T4','Trust','Trust-Led Service Page','trust|reassurance|credib|service page|proof','Useful when the service page needs clearer reassurance alongside the offer.','Combine clear service information with appropriate, verifiable proof.'],
+ ['T5','Trust','Review Generation Process','review request|review generation|ask for reviews|feedback process','Only recommend after confirming the business lacks a suitable process for requesting genuine feedback.','Create a simple, respectful process for requesting honest reviews.'],
+ ['C1','Conversion','Conversion Landing Page','value proposition|offer clarity|service page|landing page|call to action|cta|next step','Relevant when the offer, customer benefit or next step is unclear on an important page.','Help suitable visitors understand the service and see a clear route to enquire.'],
+ ['C2','Conversion','Calls to Action & Enquiry Routes','call to action|cta|contact route|phone|contact details|enquir|quote|booking|appointment|next step','Relevant when the scan flags a missing, unclear or hard-to-find contact route.','Make the intended next step obvious and reduce ambiguity about how to get in touch.'],
+ ['C3','Conversion','Enquiry Form Improvement','form|field|submit|validation|contact form|booking form|enquiry form|enquir form','Relevant when the scan specifically flags a form, field burden or enquiry-flow issue; test the live form before changing it.','Make the form easier to complete and test it end-to-end on mobile and desktop.'],
+ ['C4','Conversion','Lead Magnet & Customer Guide','guide|lead magnet|download|customer question|before enquiry|before enquire','Useful when customers need information before enquiring and there is a credible follow-up route.','Offer helpful decision-support information and a relevant next step.'],
+ ['C5','Conversion','Enquiry Follow-Up System','follow-up|follow up|response time|lead response|missed call|reply|what happens next','Recommend only when the scan or business evidence identifies an actual follow-up gap.','Define a consistent process for responding to enquiries and recording next actions.'],
+ ['R1','Retention','Customer Onboarding & Check-Ins','onboard|aftercare|check-in|check in|post-sale|post-service','Requires confirmation of the current post-service process; a public scan cannot establish retention performance.','Create a helpful post-service check-in where appropriate.'],
+ ['R2','Retention','Repeat Business & Rebooking','repeat|rebook|maintenance reminder|next service','Only appropriate where the service naturally repeats and the business confirms a rebooking opportunity.','Make the next relevant service or rebooking step easy to remember.'],
+ ['R3','Retention','Customer Newsletter','newsletter|email update|customer email','Use only if the business has a permission-based audience and a useful reason to keep in touch.','Share useful updates with customers who agreed to receive them.'],
+ ['R4','Retention','Reviews & Referrals','referral|recommendation|advocacy','Requires a suitable customer follow-up process; the scan cannot prove a referral gap.','Make it easy for satisfied customers to leave honest feedback or refer others.'],
+ ['R5','Retention','Customer Reactivation','reactivation|lapsed customer|inactive customer','Requires customer records showing past customers who have not returned.','Plan a relevant, respectful re-engagement message for eligible past customers.']
+ ].map(a=>({id:a[0],cat:a[1],name:a[2],re:/\b(?:x)\b/.test('')?null:new RegExp(a[3],'i'),why:a[4],outcome:a[5]}));
+ function score(p){
+  const cat=p.cat.toLowerCase(),categoryCount=all.filter(f=>catOf(f)===cat).length;
+  let n=categoryCount*5+(primaryCat===cat?4:0)+(p.re.test(primaryText)?10:0)+(p.re.test(allText)?2:0);
+  if(p.id==='C3'&&/form|field|submit|enquir|contact form|booking form/.test(primaryText))n+=12;
+  if(p.id==='C2'&&/call to action|cta|contact|phone|enquir|quote|booking|appointment|next step/.test(primaryText))n+=8;
+  if(p.id==='T1'&&/review|rating|testimonial|feedback/.test(primaryText))n+=8;
+  if(p.id==='T3'&&/credential|qualification|accredit|membership|insurance|licen[cs]e/.test(primaryText))n+=8;
+  if(p.id==='V3'&&/article|blog|content|question|answer|information/.test(primaryText))n+=8;
+  if(cat==='retention'&&primaryCat!=='retention'&&!/follow.?up|repeat|rebook|reactivat|newsletter|referral/.test(primaryText))n-=8;
+  return n;
+ }
+ const ranked=products.map(p=>({...p,score:score(p)})).sort((a,b)=>b.score-a.score);
+ let chosen=ranked.filter(p=>p.score>0).slice(0,3);
+ if(chosen.length<3)chosen=chosen.concat(ranked.filter(p=>p.cat.toLowerCase()===primaryCat&&!chosen.some(c=>c.id===p.id))).slice(0,3);
+ if(chosen.length<3)chosen=chosen.concat(ranked.filter(p=>!chosen.some(c=>c.id===p.id)).slice(0,3-chosen.length));
+ const slots=[
+ {label:'asset-landing-label',title:'asset-landing-title',desc:'asset-landing-desc',why:'asset-landing-why',out:'asset-landing-outcome'},
+ {label:'asset-guide-label',title:'asset-guide-card-title',desc:'asset-guide-desc',why:'asset-guide-why',out:'asset-guide-outcome'},
+ {label:'asset-blog-label',title:'asset-blog-title',desc:'asset-blog-desc',why:'asset-blog-why',out:'asset-blog-outcome'}
+ ];
+ const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+ chosen.forEach((p,i)=>{
+  const z=slots[i],preview=['landing page','customer guide / resource','content or information hub'][i];
+  set(z.label,'Asset '+p.id+' · '+p.cat);set(z.title,p.name);
+  set(z.desc,'Proposed '+p.name.toLowerCase()+'. The visual above is an illustrative '+preview+' layout, not a finished or published deliverable.');
+  set(z.why,p.why);set(z.out,p.outcome);
+ });
+ document.getElementById('assets-intro').textContent='Recommendations are ranked against the actual scan findings and specific evidence signals. The visual previews illustrate possible formats; confirm the live experience and business context before finalising the work for '+business+'.';
+ ['asset-business-1','asset-business-2','asset-business-3'].forEach(id=>set(id,business));
+ set('asset-landing-headline',chosen[0]?.name||'Recommended solution concept');
+ set('asset-landing-copy','A proposed response to the scan findings—not proof that the issue has cost a customer.');
+ set('asset-landing-cta',isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch');
+ set('asset-guide-title',chosen[1]?.name||'Customer resource concept');set('asset-guide-copy','A practical resource concept shaped around the diagnosed opportunity.');
+ set('asset-article-1',chosen[2]?.name||'Recommended customer resource');set('asset-article-2','What customers need to know before taking the next step');
  const supplied=getText(first,['treatment','recommendation','options','nextStep','recommendedNextStep']);
  const title=getText(first,['name','title','growthGap'])||'Potential growth gap to validate';
- document.getElementById('assets-intro').textContent='Because the scan identified a potential '+category.toLowerCase()+' gap, these concepts are selected to address the most relevant issues for '+business+'. The recommendation is provisional where the available evidence needs human validation.';
- ['asset-business-1','asset-business-2','asset-business-3'].forEach(id=>document.getElementById(id).textContent=business);
- document.getElementById('asset-landing-headline').textContent=plan.landing;
- document.getElementById('asset-landing-copy').textContent='A practical response to the '+category.toLowerCase()+' finding.';
- document.getElementById('asset-landing-cta').textContent=isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch';
- document.getElementById('asset-landing-desc').textContent='A focused page designed around the '+category.toLowerCase()+' opportunity, with a clear offer and next step.';
- document.getElementById('asset-landing-why').textContent=key==='conversion'?'The scan points to a potential gap in how clearly the service, customer benefit or next step is presented. Confirm the exact cause during review.':'This page is recommended because it can address the '+category.toLowerCase()+' opportunity by making the relevant service and next step clearer.';
- document.getElementById('asset-landing-outcome').textContent=key==='conversion'?'Make it easier for suitable visitors to understand the offer and take the next step towards an enquiry.':'Help relevant customers understand the service and find a clearer route to the business.';
- document.getElementById('asset-guide-title').textContent=plan.guide;
- document.getElementById('asset-guide-copy').textContent='Practical advice, questions to ask and a clear next step.';
- document.getElementById('asset-guide-desc').textContent='A downloadable guide that helps '+plural+' make a better-informed decision and creates a useful follow-up opportunity.';
- document.getElementById('asset-guide-why').textContent='This is recommended when the scan suggests prospective customers may need clearer answers or useful information before they are ready to enquire.';
- document.getElementById('asset-guide-outcome').textContent='Answer common questions, build confidence and offer a relevant next step without requiring an immediate enquiry.';
- ['asset-article-1','asset-article-2'].forEach((id,i)=>{const el=document.getElementById(id);if(el)el.textContent=plan.articles[i]||'';});
- document.getElementById('asset-blog-desc').textContent='A starter content hub with two article concepts shaped around questions related to the '+category.toLowerCase()+' opportunity.';
- document.getElementById('asset-blog-why').textContent='This content is recommended where customers’ key questions are not clearly answered by the current website or relevant content is limited.';
- document.getElementById('asset-blog-outcome').textContent='Provide useful answers that support customer decisions and create a stronger base for relevant, discoverable content.';
- document.getElementById('proposal-gap-title').textContent=category+': '+title;
- document.getElementById('proposal-treatment').textContent=supplied||plan.treatment;
- document.getElementById('proposal-rationale').textContent=key==='retention'?'The public scan cannot confirm actual repeat-customer behaviour. Validate the current follow-up process first; implement only if a real gap is confirmed.':'The proposed work follows the Snapshot finding. Confirm the evidence and business context before finalising scope.';
- document.getElementById('proposal-intro').textContent='A first-draft treatment plan for '+business+', built around the primary Snapshot finding. Confirm the business context and scope with the owner before accepting work.';
+ const treatment={visibility:'Prioritise the service, location and information signals actually found. Validate search and analytics evidence before expanding content.',trust:'Strengthen the specific trust evidence that is missing or hard to verify, using genuine reviews, credentials and examples only.',conversion:'Improve the specific customer journey flagged by the scan—such as the call to action, contact route or form—and test it before and after changes.',retention:'First confirm follow-up and repeat-customer performance from business records. The public website scan alone cannot establish a retention gap.'}[primaryCat];
+ set('proposal-gap-title',category+': '+title);set('proposal-treatment',supplied||treatment);
+ set('proposal-rationale',primaryCat==='retention'?'The public scan cannot confirm actual repeat-customer behaviour. Validate the current follow-up process first; implement only if a real gap is confirmed.':'The proposed work follows the scan findings. Confirm the live experience and business context before finalising scope.');
+ set('proposal-intro','A first-draft treatment plan for '+business+', built around the primary Snapshot finding. Confirm the evidence and scope with the owner before accepting work.');
  const cta=document.getElementById('snapshot-cta');cta.href='#treatment-assets';cta.removeAttribute('target');cta.removeAttribute('rel');cta.textContent='Explore tailored assets ↓';
- document.getElementById('snapshot-cta-kicker').textContent='Step 1 · What the scan found';
- document.getElementById('snapshot-cta-heading').textContent='Here is the potential problem—and why it matters.';
- document.getElementById('snapshot-cta-copy').textContent='Primary finding: '+title+'. '+businessMeaning(key)+' The scan identifies a signal to investigate; it does not prove that customers have already been lost. Below, we translate this finding into three relevant solution concepts.';
-})();
+ set('snapshot-cta-kicker','Step 1 · What the scan found');set('snapshot-cta-heading','Here is the potential problem—and why it matters.');
+ set('snapshot-cta-copy','Primary finding: '+title+'. '+businessMeaning(primaryCat)+' The scan identifies a signal to investigate; it does not prove customers have already been lost. The three concepts below are ranked against the available findings, not selected as a fixed set.');
+})();;
 document.querySelectorAll('[data-treatment]').forEach(button=>button.addEventListener('click',()=>{
  const choices={free:'Free asset route selected. The three agreed assets would be supplied for you to implement. No order or payment has been submitted.',managed:'Managed route selected: £199/month. Confirm the exact assets, hosting, ongoing support and terms before acceptance.',programme:'Custom Growth Implementation Programme selected. Use the diagnosed gap, business priorities and agreed deliverables to prepare a tailored scope and price.'};
  const out=document.getElementById('proposal-selection');out.textContent=choices[button.dataset.treatment];out.classList.remove('hidden');
