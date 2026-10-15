@@ -436,6 +436,59 @@ html,body{overflow-x:hidden}
   </div>
 </section>
 
+<!-- Private consultant sales guide: collapsed by default so presenter notes are not accidentally shown to the prospect. -->
+<section id="presenter-guide" class="no-print mt-6 overflow-hidden rounded-2xl border border-amber-400/35 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950">
+  <div class="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+    <div class="max-w-3xl">
+      <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Consultant view · private prompts</p>
+      <h3 class="mt-2 text-xl sm:text-2xl font-extrabold text-white">Your 30-minute Diagnostic Review guide</h3>
+      <p class="mt-2 text-sm leading-6 text-zinc-300">Use this as a quiet running order while you screen-share. The prospect sees the scan evidence and solution previews; these questions and timing cues are for you. Keep the conversation natural—do not read it like a script.</p>
+    </div>
+    <button id="presenter-guide-toggle" type="button" class="shrink-0 rounded-xl border border-amber-300/60 bg-amber-400 px-5 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300" aria-expanded="false" aria-controls="presenter-guide-content">Open my presenter guide ↓</button>
+  </div>
+  <div id="presenter-guide-content" class="hidden border-t border-amber-400/20 p-4 sm:p-6">
+    <div class="mb-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
+      <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-zinc-400">First</p><p class="mt-1 text-sm font-bold text-white">Understand</p><p class="mt-1 text-xs text-zinc-500">Minutes 0–5</p></div>
+      <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Then</p><p class="mt-1 text-sm font-bold text-white">Examine</p><p class="mt-1 text-xs text-zinc-500">Minutes 5–15</p></div>
+      <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Next</p><p class="mt-1 text-sm font-bold text-white">Prioritise</p><p class="mt-1 text-xs text-zinc-500">Minutes 15–20</p></div>
+      <div class="rounded-xl border border-emerald-400/30 bg-emerald-950/20 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Finally</p><p class="mt-1 text-sm font-bold text-white">Prescribe</p><p class="mt-1 text-xs text-zinc-500">Minutes 20–30</p></div>
+    </div>
+    <div class="space-y-3">
+      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
+        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">1</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Open the conversation</h4><span class="text-xs font-bold text-zinc-500">0–2 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Set the expectation: “I’ll show you what the scan picked up, check it against the actual website and your experience, then we can decide whether there’s anything worth addressing.”</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p class="mt-1 text-sm leading-6 text-white">“Before we look at the findings, what would you most like your website to do better for the business?”</p><p class="mt-2 text-xs text-zinc-500">Listen for their priority. Do not assume the scan’s primary gap is their biggest commercial concern.</p></div></div>
+      </article>
+      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
+        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">2</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Reveal the diagnosis</h4><span class="text-xs font-bold text-zinc-500">2–5 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Show the primary growth gap and the evidence that supports it. Separate what the scan observed from what still needs to be checked.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p id="guide-diagnosis-question" class="mt-1 text-sm leading-6 text-white">“Does this match anything you’ve noticed, or is there context we should take into account?”</p><p class="mt-2 text-xs text-zinc-500">Do not defend the score. Invite the owner to correct or add context.</p></div></div>
+      </article>
+      <article class="rounded-xl border border-amber-400/30 bg-amber-400/[0.04] p-4 sm:p-5">
+        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-amber-400/30 bg-amber-400/10 text-sm font-black text-amber-300">3</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Inspect the actual website together</h4><span class="text-xs font-bold text-amber-300">5–11 min · key stage</span></div>
+          <p class="mt-2 text-sm leading-6 text-zinc-300">Use the real screenshot above, then open the relevant live page in another tab. Follow the visitor’s journey from the page to the next step. Examine only two or three relevant points; do not turn the call into a full website audit.</p>
+          <div class="mt-4 grid gap-3 sm:grid-cols-3">
+            <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><div class="mb-3 flex h-24 items-center justify-center rounded-lg border border-zinc-800 bg-gradient-to-br from-zinc-800 to-zinc-950"><div class="w-3/4 space-y-2"><div class="h-2 w-2/3 rounded bg-zinc-600"></div><div class="h-3 w-full rounded bg-zinc-700"></div><div class="h-3 w-4/5 rounded bg-zinc-700"></div><div class="mt-3 h-6 w-1/2 rounded bg-amber-400/80"></div></div></div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">1 · Understand</p><p class="mt-1 text-sm font-bold text-white">Page & message</p><p class="mt-1 text-xs leading-5 text-zinc-400">Can a suitable visitor quickly understand the service and why it may fit?</p></div>
+            <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><div class="mb-3 flex h-24 items-center justify-center rounded-lg border border-zinc-800 bg-gradient-to-br from-zinc-800 to-zinc-950"><div class="w-3/4 rounded-lg border border-zinc-700 p-2"><div class="mb-2 h-2 w-2/3 rounded bg-zinc-600"></div><div class="mb-2 h-4 rounded border border-zinc-700 bg-zinc-900"></div><div class="mb-2 h-4 rounded border border-zinc-700 bg-zinc-900"></div><div class="h-5 rounded bg-amber-400/80"></div></div></div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">2 · Act</p><p class="mt-1 text-sm font-bold text-white">Next step</p><p class="mt-1 text-xs leading-5 text-zinc-400">Is the call, quote, booking or enquiry route obvious and easy to use?</p></div>
+            <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><div class="mb-3 flex h-24 items-center justify-center rounded-lg border border-zinc-800 bg-gradient-to-br from-zinc-800 to-zinc-950"><div class="w-3/4 space-y-2 rounded-lg border border-zinc-700 p-2"><div class="flex gap-2"><span class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400/20 text-[10px] text-emerald-300">✓</span><div class="h-2 flex-1 rounded bg-zinc-600"></div></div><div class="flex gap-2"><span class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400/20 text-[10px] text-emerald-300">✓</span><div class="h-2 flex-1 rounded bg-zinc-600"></div></div><div class="h-2 w-2/3 rounded bg-zinc-700"></div></div></div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">3 · Believe</p><p class="mt-1 text-sm font-bold text-white">Trust & proof</p><p class="mt-1 text-xs leading-5 text-zinc-400">Can visitors verify genuine experience, reviews, credentials or examples?</p></div>
+          </div>
+          <p class="mt-4 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask while looking at the page</p><p id="guide-website-question" class="mt-1 text-sm leading-6 text-white">“If you were a new customer landing here, what would you expect to happen next?”</p>
+          <p class="mt-2 text-xs text-zinc-500">These mini-visuals are prompts for what to inspect, not claims about this website. Use the actual page screenshot and live site as evidence.</p>
+        </div></div>
+      </article>
+      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
+        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">4</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Validate the commercial reality</h4><span class="text-xs font-bold text-zinc-500">11–15 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Move from what you can see to what they know about the business. Ask one question, listen, then follow up where needed.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p id="guide-validation-question" class="mt-1 text-sm leading-6 text-white">“How do you currently judge whether the website is generating the right enquiries?”</p><p class="mt-2 text-xs text-zinc-500">If they do not track it, record that as unknown—not proof of poor performance.</p></div></div>
+      </article>
+      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
+        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">5</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Establish the value of fixing it</h4><span class="text-xs font-bold text-zinc-500">15–20 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Use their own figures if available. If not, explain the potential mechanism without inventing lost leads or guaranteed uplift.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p id="guide-value-question" class="mt-1 text-sm leading-6 text-white">“If this improved, what would a worthwhile result look like for the business?”</p><p class="mt-2 text-xs text-zinc-500">Only model revenue when you have a defensible baseline and clearly stated assumptions.</p></div></div>
+      </article>
+      <article class="rounded-xl border border-emerald-400/30 bg-emerald-950/15 p-4 sm:p-5">
+        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-sm font-black text-emerald-300">6</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Prescribe, then discuss implementation</h4><span class="text-xs font-bold text-emerald-300">20–26 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Show the three asset concepts. Explain which confirmed or plausible issue each addresses and what success should be measured against. Then fairly explain the free route before the managed routes.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-emerald-300">Ask</p><p id="guide-prescription-question" class="mt-1 text-sm leading-6 text-white">“Would you prefer to implement this internally, or would it be more useful for us to take responsibility for the agreed work?”</p></div></div>
+      </article>
+      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
+        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">7</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Agree a specific next step</h4><span class="text-xs font-bold text-zinc-500">26–30 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Clarify priorities, who will do the work, the scope and the next decision. Use the custom proposal route only when the requirement genuinely falls outside the standard options.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p class="mt-1 text-sm leading-6 text-white">“What would you need to be comfortable deciding on the next step?”</p></div></div>
+      </article>
+    </div>
+    <div class="mt-5 rounded-xl border border-zinc-800 bg-zinc-950 p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Keep the diagnosis honest</p><p class="mt-2 text-sm leading-6 text-zinc-300">Observed signal → plausible customer consequence → owner validation → proportionate recommendation → agreed measurement. If the owner disproves the initial hypothesis, revise the recommendation rather than forcing the sale.</p></div>
+  </div>
+</section>
+
 <div class="mt-6 rounded-2xl border border-amber-400/50 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-5 sm:p-7">
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
 <div class="max-w-2xl"><p id="snapshot-cta-kicker" class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Step 1 · What the scan found</p><h4 id="snapshot-cta-heading" class="mt-2 text-2xl sm:text-3xl font-extrabold leading-tight text-white">The problem, why it matters, and what may need to change</h4><p id="snapshot-cta-copy" class="mt-3 text-sm sm:text-base leading-relaxed text-zinc-200">We’ll summarise the main evidence, the potential commercial consequence, and the type of improvement worth considering. Possible impact is not a claim that customers have already been lost.</p></div>
@@ -1081,6 +1134,43 @@ if(gaps.length){
  set('asset-landing-cta',isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch');
  set('asset-guide-title',chosen[1]?.name||'Customer resource concept');set('asset-guide-copy','A practical resource concept shaped around the diagnosed opportunity.');
  set('asset-article-1',chosen[2]?.name||'Recommended customer resource');set('asset-article-2','What customers need to know before taking the next step');
+ const guideQuestions={
+  visibility:{
+   diagnosis:'“Does this match what you have noticed about how people find your services, or is there context we should consider?”',
+   website:'“If someone needed this service in your area, is it immediately clear from this page that you offer it and where you work?”',
+   validation:'“Where do most of your new enquiries come from today, and do you know how much comes through the website?”',
+   value:'“If more of the right local customers found and understood this service, what would that be worth to the business?”',
+   prescription:'“Would it help if we addressed the specific visibility issue we have just reviewed, or is another priority more important right now?”'
+  },
+  trust:{
+   diagnosis:'“Do you think a new customer would have enough evidence here to feel confident choosing you?”',
+   website:'“What would a first-time customer look for here to verify your experience, credentials or previous work?”',
+   validation:'“What questions or concerns do prospective customers usually raise before they decide to contact you?”',
+   value:'“If customers could verify the right evidence more easily, where might that make the biggest difference in their decision?”',
+   prescription:'“Would you like to strengthen the specific proof we have identified, using genuine reviews, credentials or examples you can stand behind?”'
+  },
+  conversion:{
+   diagnosis:'“Does this look like the journey you expect a prospective customer to take, or is there context we should know?”',
+   website:'“If you were a new customer landing on this page, would you know what to do next—and would you feel ready to do it?”',
+   validation:'“How do you currently judge whether the website is generating the right enquiries, and what happens after someone contacts you?”',
+   value:'“If the enquiry journey worked better, what would a worthwhile improvement look like in terms of suitable enquiries or booked work?”',
+   prescription:'“Would you rather have your team make these changes, or would you value us implementing and testing the agreed improvements?”'
+  },
+  retention:{
+   diagnosis:'“The public website cannot tell us how well repeat business or follow-up performs. Is that an area you already measure?”',
+   website:'“What happens after a customer has bought from you or the work is complete? Is there a useful follow-up step?”',
+   validation:'“Do you track repeat customers, rebooking, referrals or follow-up outcomes—and is there a process you would like to improve?”',
+   value:'“If there is a confirmed follow-up or repeat-business opportunity, which customer outcome would be most valuable to improve?”',
+   prescription:'“If the business records confirm a gap, would you like help designing a practical follow-up process—or is this not a current priority?”'
+  }
+ }[primaryCat]||{
+  diagnosis:'“Does this match anything you have noticed, or is there context we should take into account?”',
+  website:'“If you were a new customer landing here, what would you expect to happen next?”',
+  validation:'“How do you currently judge whether the website is generating the right enquiries?”',
+  value:'“If this improved, what would a worthwhile result look like for the business?”',
+  prescription:'“Would you prefer to implement this internally, or have us take responsibility for the agreed work?”'
+ };
+ [['guide-diagnosis-question',guideQuestions.diagnosis],['guide-website-question',guideQuestions.website],['guide-validation-question',guideQuestions.validation],['guide-value-question',guideQuestions.value],['guide-prescription-question',guideQuestions.prescription]].forEach(([id,value])=>{const el=document.getElementById(id);if(el)el.textContent=value});
  const supplied=getText(first,['treatment','recommendation','options','nextStep','recommendedNextStep']);
  const title=getText(first,['name','title','growthGap'])||'Potential growth gap to validate';
  const treatment={visibility:'Prioritise the service, location and information signals actually found. Validate search and analytics evidence before expanding content.',trust:'Strengthen the specific trust evidence that is missing or hard to verify, using genuine reviews, credentials and examples only.',conversion:'Improve the specific customer journey flagged by the scan—such as the call to action, contact route or form—and test it before and after changes.',retention:'First confirm follow-up and repeat-customer performance from business records. The public website scan alone cannot establish a retention gap.'}[primaryCat];
@@ -1105,6 +1195,14 @@ managedToggle?.addEventListener('click',()=>{
  managedPanel.classList.toggle('hidden',!opening);
  managedToggle.setAttribute('aria-expanded',String(opening));
  managedToggle.textContent=opening?'Hide managed options ↑':'Explore managed options B1–B3 ↓';
+});
+const guideToggle=document.getElementById('presenter-guide-toggle'),guidePanel=document.getElementById('presenter-guide-content');
+guideToggle?.addEventListener('click',()=>{
+ const opening=guidePanel.classList.contains('hidden');
+ guidePanel.classList.toggle('hidden',!opening);
+ guideToggle.setAttribute('aria-expanded',String(opening));
+ guideToggle.textContent=opening?'Close my presenter guide ↑':'Open my presenter guide ↓';
+ if(opening)guidePanel.scrollIntoView({behavior:'smooth',block:'start'});
 });
 const customToggle=document.getElementById('show-custom-proposal'),customPanel=document.getElementById('custom-proposal-panel');
 customToggle?.addEventListener('click',()=>{
