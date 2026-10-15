@@ -24,10 +24,10 @@ function text(html) {
     .replace(/&lt;/gi,'<').replace(/&gt;/gi,'>').replace(/\s+/g,' ').trim();
 }
 function meta(html, name) {
-  const tags = String(html || '').match(/<meta\\b[^>]*>/gi) || [];
+  const tags = String(html || '').match(/<meta\b[^>]*>/gi) || [];
   for (const tag of tags) {
-    const key = tag.match(/\\b(?:name|property)\\s*=\\s*[\"']([^\"']+)[\"']/i);
-    const value = tag.match(/\\bcontent\\s*=\\s*[\"']([^\"']*)[\"']/i);
+    const key = tag.match(/\b(?:name|property)\s*=\s*["']([^"']+)["']/i);
+    const value = tag.match(/\bcontent\s*=\s*["']([^"']*)["']/i);
     if (key && value && key[1].toLowerCase() === String(name).toLowerCase()) return value[1].trim();
   }
   return '';
