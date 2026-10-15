@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <style>
-html,body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html,body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}.glow{box-shadow:0 20px 60px rgba(0,0,0,.18)}
 .score-dial{width:190px;height:190px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(from 0deg,#27272a 0%,#27272a calc((100 - var(--score))*1%),var(--score-color,#f59e0b) calc((100 - var(--score))*1%) 100%);position:relative;flex:0 0 auto;box-shadow:0 0 34px color-mix(in srgb,var(--score-color,#f59e0b) 22%,transparent)}
 .score-dial:before{content:"";position:absolute;inset:12px;border-radius:50%;background:#09090b;border:1px solid #27272a}
 .score-dial>div{position:relative;text-align:center}.score-number{font-size:3.25rem;line-height:1;font-weight:800;color:#fff;letter-spacing:-.06em}.score-out-of{font-size:.95rem;font-weight:700;color:#d4d4d8;margin-left:3px}
@@ -51,11 +51,27 @@ html,body{font-family:Inter,ui-sans-serif,system-ui,sans-serif;-webkit-font-smoo
 
 <div id="report" class="hidden scroll-mt-6">
 <section class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-900 p-4 shadow-2xl sm:p-7">
-<div class="mb-4 flex items-center justify-between gap-3 border-b border-zinc-800 pb-4"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-zinc-400">Your scan results</p><p class="mt-1 text-xs text-zinc-500">Snapshot-style opening · Independent deep scan</p></div><button id="newScan" type="button" class="inline-flex shrink-0 items-center gap-2 rounded-xl border border-amber-400/60 bg-amber-400 px-4 py-2.5 text-sm font-extrabold text-zinc-950 shadow-md transition hover:bg-amber-300">↻ New scan</button></div>
-<section class="mt-2 flex flex-wrap items-center gap-x-6 gap-y-4 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:flex-nowrap sm:p-5" aria-label="Growth Health snapshot">
-<div class="flex shrink-0 items-center gap-4"><p class="hidden text-xs font-extrabold uppercase tracking-[.16em] text-zinc-300 [writing-mode:vertical-rl] sm:block">Growth Health</p><div id="scoreDial" class="score-dial" style="--score:0;--score-color:#f59e0b" role="img" aria-label="Overall Growth Health score"><div class="flex items-baseline justify-center"><span id="overallScore" class="score-number">—</span><span class="score-out-of">/100</span></div></div></div>
-<div class="min-w-[180px] flex-1"><p class="hidden text-xs font-extrabold uppercase tracking-[.16em] text-zinc-300 sm:block">Growth Health</p><div class="mt-2 flex flex-wrap items-center gap-2"><span id="scoreGrade" class="score-grade" style="--score-color:#f59e0b">Awaiting score</span><span id="scoreLabel" class="text-xs font-extrabold text-white">—/100</span></div><div class="progress mt-3"><span id="scoreBar" style="width:0;background:#f59e0b"></span></div><p class="mt-2 text-xs leading-relaxed text-zinc-300">An initial indication from public evidence, not a full diagnosis.</p></div>
-<div class="min-w-[210px] flex-[1.25]"><p class="text-xs font-extrabold uppercase tracking-[.18em] text-amber-400">Growth Gap Snapshot™</p><h2 id="businessTitle" class="mt-1 text-xl font-extrabold tracking-tight text-white sm:text-2xl">Snapshot complete</h2><p id="scanMeta" class="mt-1 break-all text-sm text-zinc-400"></p><span class="mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-300"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Initial evidence review</span></div>
+<div class="mb-4 flex items-center justify-between gap-3 border-b border-zinc-800 pb-4">
+<p class="text-xs font-extrabold uppercase tracking-[.16em] text-zinc-400">Your scan results</p>
+<button id="newScan" type="button" class="inline-flex shrink-0 items-center gap-2 rounded-xl border border-amber-400/60 bg-amber-400 px-4 py-2.5 text-sm font-extrabold text-zinc-950 shadow-md transition hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300 focus:ring-offset-2 focus:ring-offset-zinc-950"><span aria-hidden="true">↻</span> New scan</button>
+</div>
+<section class="mt-2 flex flex-wrap lg:flex-nowrap items-center gap-x-6 gap-y-4 rounded-2xl border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5" aria-label="Growth Health snapshot">
+<div class="shrink-0 flex items-center gap-4">
+<p class="text-xs font-extrabold uppercase tracking-[.16em] text-zinc-300 [writing-mode:vertical-rl] rotate-180 lg:hidden">Growth Health</p>
+<div id="scoreDial" class="score-dial" style="--score:0;--score-color:#f59e0b" role="img" aria-label="Overall Growth Health score"><div class="flex items-baseline justify-center"><span id="overallScore" class="score-number">—</span><span class="score-out-of">/100</span></div></div>
+</div>
+<div class="min-w-[180px] flex-1">
+<p class="hidden lg:block text-xs font-extrabold uppercase tracking-[.16em] text-zinc-300">Growth Health</p>
+<div class="mt-2 flex flex-wrap items-center gap-2"><span id="scoreGrade" class="score-grade" style="--score-color:#f59e0b">Awaiting score</span><span id="scoreLabel" class="text-xs font-extrabold text-white">—/100</span></div>
+<div class="progress mt-3"><span id="scoreBar" style="width:0;background:#f59e0b"></span></div>
+<p class="mt-2 text-xs leading-relaxed text-zinc-300">An initial indication from public evidence, not a full diagnosis.</p>
+</div>
+<div class="min-w-[210px] flex-[1.25]">
+<p class="text-xs font-extrabold uppercase tracking-[.18em] text-amber-400">Your Growth Gap Snapshot™</p>
+<h3 id="businessTitle" class="mt-1 text-xl sm:text-2xl font-extrabold tracking-tight text-white">Snapshot complete</h3>
+<p id="scanMeta" class="mt-1 text-sm text-zinc-400 break-all"></p>
+<span class="mt-2 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-emerald-300"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Initial evidence review</span>
+</div>
 </section>
 <section class="mt-5 rounded-2xl border border-zinc-700 bg-zinc-950/70 p-4 sm:p-5">
 <div class="flex flex-wrap items-start justify-between gap-3"><div><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Your primary growth gap</p><h3 id="primaryTitle" class="mt-2 text-2xl font-extrabold leading-tight tracking-tight text-white sm:text-3xl">What deserves a closer look?</h3><p id="primaryCopy" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300"></p></div><span id="primaryPill" class="rounded-full border border-red-400/40 bg-red-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-red-200">Worth investigating</span></div>
