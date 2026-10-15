@@ -104,6 +104,33 @@ html,body{overflow-x:hidden}
 @media(max-width:700px){#treatment-assets .leadmagnet-scene{grid-template-columns:minmax(0,1fr) minmax(112px,.7fr);padding:12px;gap:8px;}#treatment-assets .leadmagnet-hero{padding:11px 8px;}#treatment-assets .leadmagnet-signup{padding:7px;}}
 @media(max-width:420px){#treatment-assets .leadmagnet-scene{grid-template-columns:minmax(0,1fr);}#treatment-assets .leadmagnet-guide-wrap{max-width:210px;margin:4px auto 0;}#treatment-assets .leadmagnet-guide-wrap .asset-guide-cover{max-width:180px;}}
 
+
+/* Step 2 product-card unity: one green padded frame surrounds the preview and its explanation */
+#treatment-assets .asset-preview-card{
+  border:1px solid rgba(74,222,128,.68)!important;
+  border-radius:18px!important;
+  padding:12px!important;
+  gap:12px;
+  background:linear-gradient(145deg,rgba(20,83,45,.16),#111214 42%)!important;
+  box-shadow:0 0 0 1px rgba(74,222,128,.06),0 14px 32px rgba(0,0,0,.2);
+}
+#treatment-assets .asset-preview-card>.asset-browser,
+#treatment-assets .asset-preview-card>.asset-guide-stage,
+#treatment-assets .asset-preview-card>.asset-blog-window{
+  border-radius:12px!important;
+  overflow:hidden;
+  border:1px solid rgba(74,222,128,.18);
+}
+#treatment-assets .asset-preview-card>.p-5{
+  padding:clamp(14px,2.2vw,24px)!important;
+  border-radius:12px;
+  background:rgba(9,9,11,.48);
+}
+@media(max-width:640px){
+  #treatment-assets .asset-preview-card{padding:8px!important;gap:8px}
+  #treatment-assets .asset-preview-card>.p-5{padding:14px!important}
+}
+
 /* Step 2 visual mockups: polished, legible asset previews */
 .asset-preview-card{min-width:0;box-shadow:0 12px 30px rgba(0,0,0,.16)}
 .asset-browser{padding:10px;background:#e8edf4}
