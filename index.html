@@ -497,18 +497,21 @@ html,body{overflow-x:hidden}
 </div>
 <div class="treatment-route-grid mt-5">
  <article class="treatment-route-card rounded-2xl border border-emerald-500/40 bg-emerald-950/20 p-5">
-  <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option A · Free self-implementation</h4><span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">£0</span></div>
-  <p class="mt-2 text-sm leading-6 text-zinc-300">Take the agreed asset concepts and implement them with your own team or webmaster.</p>
-  <div class="treatment-detail-columns mt-4">
-   <div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">What’s included</p><ul class="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>The three agreed asset concepts and recommended copy direction.</li><li>Practical implementation notes and a checklist for your team.</li><li>A clear explanation of what each asset is intended to improve.</li></ul></div>
-   <div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">What you need to handle</p><ul class="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Send the materials to your webmaster and explain where each item belongs.</li><li>Build/update pages, upload content and configure forms, downloads or email delivery.</li><li>Check mobile layout, links, privacy/consent and that enquiries reach the right person.</li><li>Publish, test, monitor results and maintain everything when your site or tools change.</li></ul></div>
+  <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option A · Take your assets free</h4><span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">£0</span></div>
+  <p class="mt-2 text-sm leading-6 text-zinc-300">Receive the three agreed growth-asset concepts and practical guidance, then decide whether to implement them with your own team or developer.</p>
+  <button type="button" id="show-free-assets" class="mt-4 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10" aria-expanded="false" aria-controls="free-assets-panel">Take My Assets Free ↓</button>
+  <div id="free-assets-panel" class="hidden mt-5 rounded-xl border border-emerald-500/25 bg-zinc-950/70 p-4">
+   <div class="treatment-detail-columns">
+    <div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">What you get</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li>Three agreed asset concepts, shaped around the growth opportunity identified in your review.</li><li>Recommended copy direction and practical guidance for each asset.</li><li>An implementation checklist your team or web developer can work from.</li><li>A clear explanation of what each asset is intended to improve.</li></ul></div>
+    <div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">What you’ll still need to do</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li><strong class="text-white">Find the time or technical support:</strong> someone will need to turn the concepts into live pages, content or customer resources.</li><li><strong class="text-white">Connect the moving parts:</strong> forms, downloads, contact routes and any email follow-up need to be configured where relevant.</li><li><strong class="text-white">Check everything works:</strong> mobile layout, links, consent and enquiry delivery need to be tested before launch.</li><li><strong class="text-white">Keep it working:</strong> you’ll be responsible for monitoring the assets and maintaining them as your website and processes change.</li></ul></div>
+   </div>
+   <p class="mt-4 rounded-lg border border-amber-400/25 bg-amber-400/5 p-3 text-sm leading-6 text-zinc-300"><strong class="text-amber-300">Worth considering:</strong> do you already have the time and support to get these assets implemented, tested and maintained—or would it be easier to have one team take responsibility for the agreed work?</p>
+   <button type="button" data-treatment="free" class="mt-4 rounded-xl bg-emerald-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-emerald-300">Choose the free route</button>
   </div>
-  <p class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950/70 p-3 text-sm leading-6 text-zinc-300"><strong class="text-amber-300">The practical trade-off:</strong> the assets are free, but they do not go live by themselves. You’ll need time, technical help and responsibility for testing and ongoing upkeep.</p>
-  <button type="button" data-treatment="free" class="mt-4 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10">Choose free self-implementation</button>
  </article>
  <article class="treatment-route-card rounded-2xl border border-zinc-700 bg-zinc-950 p-5">
-  <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option B · We host and manage the assets</h4><span class="text-sm font-extrabold text-amber-300">Managed packages</span></div>
-  <p class="mt-2 text-sm leading-6 text-zinc-300">If you’d prefer us to handle implementation, hosting and the agreed ongoing work, choose the level that best fits what you need.</p>
+  <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option B · Let us manage it for you</h4><span class="text-sm font-extrabold text-amber-300">Managed packages</span></div>
+  <p class="mt-2 text-sm leading-6 text-zinc-300">Prefer not to coordinate implementation, testing and ongoing upkeep yourself? We can manage the agreed work with you. Explore the levels below and choose the scope that best fits your priorities.</p>
   <button type="button" id="show-managed-options" class="mt-4 rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300" aria-expanded="false" aria-controls="managed-options-panel">Show managed options B1–B3 ↓</button>
   <div id="managed-options-panel" class="hidden mt-5">
    <p class="mb-3 text-xs leading-relaxed text-zinc-400">Illustrative annual packages. Confirm the final asset scope, hosting, support and terms before acceptance.</p>
@@ -1088,12 +1091,20 @@ if(gaps.length){
  set('snapshot-cta-kicker','Step 1 · What the scan found');set('snapshot-cta-heading','Here is the potential problem—and why it matters.');
  set('snapshot-cta-copy','Primary finding: '+title+'. '+businessMeaning(primaryCat)+' The scan identifies a signal to investigate; it does not prove customers have already been lost. The three concepts below are ranked against the available findings, not selected as a fixed set.');
 })();;
+const freeToggle=document.getElementById('show-free-assets'),freePanel=document.getElementById('free-assets-panel');
+freeToggle?.addEventListener('click',()=>{
+ const opening=freePanel.classList.contains('hidden');
+ freePanel.classList.toggle('hidden',!opening);
+ freeToggle.setAttribute('aria-expanded',String(opening));
+ freeToggle.textContent=opening?'Hide free option ↑':'Take My Assets Free ↓';
+ if(opening)freePanel.scrollIntoView({behavior:'smooth',block:'nearest'});
+});
 const managedToggle=document.getElementById('show-managed-options'),managedPanel=document.getElementById('managed-options-panel');
 managedToggle?.addEventListener('click',()=>{
  const opening=managedPanel.classList.contains('hidden');
  managedPanel.classList.toggle('hidden',!opening);
  managedToggle.setAttribute('aria-expanded',String(opening));
- managedToggle.textContent=opening?'Hide managed options ↑':'Show managed options B1–B3 ↓';
+ managedToggle.textContent=opening?'Hide managed options ↑':'Explore managed options B1–B3 ↓';
 });
 document.querySelectorAll('[data-treatment]').forEach(button=>button.addEventListener('click',()=>{
  const choices={
