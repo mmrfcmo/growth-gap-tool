@@ -29,43 +29,7 @@ html,body{overflow-x:hidden}
   footer .text-sm{text-align:left!important}
 }
 
-/* Layout refinement: preserve the original centered scanner and report widths */
-#apply>.relative{max-width:64rem!important;padding-top:24px!important;padding-bottom:44px!important}
-#apply .text-center.max-w-3xl{max-width:48rem!important;text-align:center!important;display:block!important;margin-left:auto!important;margin-right:auto!important}
-#apply .text-center.max-w-3xl>p:first-child{display:inline-flex!important;margin-left:auto!important;margin-right:auto!important}
-#apply .text-center.max-w-3xl h2{font-size:clamp(1.8rem,3.2vw,3rem)!important;line-height:1.08!important;margin-top:1.5rem!important;margin-left:auto!important;margin-right:auto!important;max-width:none!important}
-#apply .text-center.max-w-3xl>p:last-child{font-size:1.125rem!important;line-height:1.65!important;margin:1.25rem auto 0!important;max-width:none!important}
-#apply>.relative> .mt-10.max-w-3xl{max-width:48rem!important;margin:2.5rem auto 0!important}
-#snapshot-result{max-width:64rem!important;margin-left:auto!important;margin-right:auto!important}
-@media(max-width:640px){#apply>.relative{padding-left:1.25rem!important;padding-right:1.25rem!important}#apply .text-center.max-w-3xl{display:block!important}#apply .text-center.max-w-3xl h2{margin-top:1.5rem!important}#apply .text-center.max-w-3xl>p:last-child{margin-top:1.25rem!important}}
-
-/* Deep Dive visual system v1: dashboard layout matching the approved visual concept */
-:root{color-scheme:dark}
-body.bg-stone-50{background:#080a0c!important;color:#f4f4f5!important}
-#apply{background:#080a0c!important}
-#apply>.relative{max-width:1240px!important;padding-top:24px!important;padding-bottom:44px!important}
-#apply .text-center.max-w-3xl{max-width:100%!important;text-align:left!important;display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;margin:0!important}
-#apply .text-center.max-w-3xl>p:first-child{margin:0!important}
-#apply .text-center.max-w-3xl h2{font-size:clamp(1.5rem,2.8vw,2.2rem)!important;line-height:1.15!important;margin:0!important;max-width:500px}
-#apply .text-center.max-w-3xl>p:last-child{font-size:.88rem!important;line-height:1.5!important;margin:0!important;max-width:620px}
-#apply>.relative> .mt-10.max-w-3xl{max-width:100%!important;margin-top:18px!important}
-#apply .rounded-2xl.border-2.border-amber-400\/65{padding:14px!important;border-radius:16px!important}
-#diagnosis-form{display:grid!important;grid-template-columns:auto minmax(0,1fr) auto!important;align-items:center!important;border-radius:13px!important;padding:8px!important;gap:8px!important}
-#diagnosis-form select,#diagnosis-form input,#diagnosis-form button{min-height:44px!important}
-#diagnosis-form input{background:#e8efff!important;color:#111827!important;border-color:#cbd5e1!important}
-#diagnosis-form input::placeholder{color:#64748b!important}
-#diagnosis-form button{white-space:normal!important}
-#apply .mt-3.text-center.text-xs{margin-top:8px!important}
-#snapshot-result{max-width:100%!important;margin-top:18px!important}
-#snapshot-result>.rounded-3xl{border-color:#6b5014!important;background:#0b0d0f!important;padding:14px!important;border-radius:16px!important;box-shadow:none!important}
-#snapshot-result .grid.gap-4.lg\:grid-cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}
-#treatment-assets,#treatment-proposal{border-radius:15px!important}
-#treatment-assets{border-color:#6b5014!important}
-#treatment-proposal{border-color:#6b5014!important;background:#101113!important}
-#snapshot-result .text-zinc-400{color:#b4b8c0}
-#snapshot-result .text-zinc-300{color:#d4d7dd}
-#snapshot-result .bg-zinc-900{background:#121518}
-#snapshot-result .bg-zinc-950{background:#090b0d}
+/* Catalogue styling only. Keep the scanner and results on the original Snapshot layout. */
 #deep-dive-catalogue{margin-top:16px;border:1px solid #6b5014;border-radius:15px;background:#0b0d0f;padding:16px}
 #deep-dive-catalogue .catalogue-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
 #deep-dive-catalogue .catalogue-card{border:1px solid #3f3f46;border-radius:12px;padding:12px;min-width:0}
@@ -77,8 +41,8 @@ body.bg-stone-50{background:#080a0c!important;color:#f4f4f5!important}
 #deep-dive-catalogue .catalogue-card.trust{border-color:#854d0e;background:#171207}
 #deep-dive-catalogue .catalogue-card.conversion{border-color:#9f1239;background:#1a0a10}
 #deep-dive-catalogue .catalogue-card.retention{border-color:#166534;background:#07170e}
-@media(max-width:900px){#deep-dive-catalogue .catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr))}#snapshot-result .grid.gap-4.lg\:grid-cols-3{grid-template-columns:1fr}}
-@media(max-width:640px){#diagnosis-form{grid-template-columns:1fr!important}#apply>.relative{padding-left:12px!important;padding-right:12px!important}#apply .text-center.max-w-3xl{display:block}#apply .text-center.max-w-3xl h2{margin-top:10px!important}#apply .text-center.max-w-3xl>p:last-child{margin-top:8px!important}#deep-dive-catalogue .catalogue-grid{grid-template-columns:1fr}}
+@media(max-width:900px){#deep-dive-catalogue .catalogue-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){#deep-dive-catalogue .catalogue-grid{grid-template-columns:1fr}}
 
 /* Combined Snapshot + evidence report preview: keep one score, make the inventory mobile-native. */
 #expanded-page-report .report-status-guide{display:flex;flex-direction:column;gap:7px;margin-top:14px}
@@ -128,7 +92,7 @@ body.bg-stone-50{background:#080a0c!important;color:#f4f4f5!important}
 <div class="text-center max-w-3xl mx-auto reveal">
 <p class="inline-flex items-center gap-2 bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full">Explore Deep Dive Scan · Evidence-led diagnosis</p>
 <h2 class="mt-6 text-4xl sm:text-5xl font-extrabold tracking-tight leading-[1.05]">Let the evidence guide the next step.</h2>
-<p class="mt-5 text-lg text-zinc-300 leading-relaxed">Enter a website to run the original Snapshot diagnostic. Your findings will guide the deeper review, tailored asset concepts and treatment proposal below.</p>
+<p class="mt-5 text-lg text-zinc-300 leading-relaxed">Enter a website to run the original Snapshot diagnostic. Your findings will guide you through a deeper review.</p>
 </div>
 <div class="mt-10 max-w-3xl mx-auto">
 <div class="rounded-2xl border-2 border-amber-400/65 bg-zinc-900 p-6 sm:p-8 shadow-[0_0_0_1px_rgba(251,191,36,0.10),0_18px_55px_rgba(0,0,0,0.42)] reveal">
