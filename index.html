@@ -29,8 +29,6 @@ html,body{overflow-x:hidden}
   footer .text-sm{text-align:left!important}
 }
 
-
-
 /* Step 3 treatment proposal: diagnosis runs horizontally, then implementation routes */
 .treatment-recommendation-strip{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:24px;align-items:center}
 .treatment-route-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:stretch}
@@ -103,7 +101,6 @@ html,body{overflow-x:hidden}
 #treatment-assets .asset-preview-card .asset-article>span{font-size:9px;padding-left:10px;padding-right:10px;}
 @media(max-width:700px){#treatment-assets .leadmagnet-scene{grid-template-columns:minmax(0,1fr) minmax(112px,.7fr);padding:12px;gap:8px;}#treatment-assets .leadmagnet-hero{padding:11px 8px;}#treatment-assets .leadmagnet-signup{padding:7px;}}
 @media(max-width:420px){#treatment-assets .leadmagnet-scene{grid-template-columns:minmax(0,1fr);}#treatment-assets .leadmagnet-guide-wrap{max-width:210px;margin:4px auto 0;}#treatment-assets .leadmagnet-guide-wrap .asset-guide-cover{max-width:180px;}}
-
 
 /* Step 2 product-card unity: one green padded frame surrounds the preview and its explanation */
 #treatment-assets .asset-preview-card{
@@ -223,7 +220,6 @@ html,body{overflow-x:hidden}
  #expanded-page-report .report-status-guide{margin-bottom:4px}
 }
 
-
 /* Premium editorial-style blog mockup: two clear article cards inside a believable site preview. */
 #treatment-assets .asset-blog-professional{padding:0 0 12px;border-radius:10px;background:#fff;color:#16364c;box-shadow:0 18px 45px #0f172a24;overflow:hidden}
 #treatment-assets .blog-browser-chrome{height:29px;display:flex;align-items:center;gap:12px;padding:0 12px;background:#e9eef2;border-bottom:1px solid #d7e0e7;color:#728292;font-size:8px;font-weight:700}
@@ -267,6 +263,42 @@ html,body{overflow-x:hidden}
 #treatment-assets .blog-bottom-bar b{color:#b58124}
 @media(max-width:700px){#treatment-assets .blog-nav{display:none}#treatment-assets .blog-editorial-hero{grid-template-columns:minmax(0,1fr);gap:12px;padding:18px 15px}#treatment-assets .blog-hero-image{min-height:125px}#treatment-assets .blog-section-head{padding:15px 14px 8px}#treatment-assets .blog-article-grid{padding:8px 14px 14px;gap:8px}#treatment-assets .blog-article-body{padding:0 9px 10px}#treatment-assets .blog-bottom-bar{margin:0 14px}}
 @media(max-width:420px){#treatment-assets .blog-header-cta{padding:7px}#treatment-assets .blog-brandbar{padding:10px}#treatment-assets .blog-article-grid{grid-template-columns:minmax(0,1fr)}#treatment-assets .blog-article .asset-article-photo{height:150px}#treatment-assets .blog-article h5{min-height:0}}
+
+
+/* Third core asset: conversion-first pop-up and sticky CTA mockup */
+#treatment-assets .conversion-tools-stage{position:relative;display:grid;grid-template-columns:minmax(0,1fr) minmax(220px,.72fr);gap:18px;align-items:center;padding:clamp(14px,3vw,30px);min-height:390px;background:radial-gradient(circle at 18% 18%,#334155,#111827 58%,#09090b);overflow:hidden}
+#treatment-assets .conversion-site-window{min-width:0;overflow:hidden;border:1px solid #475569;border-radius:12px;background:#f8fafc;box-shadow:0 20px 50px #0006;transform:perspective(1000px) rotateY(3deg)}
+#treatment-assets .conversion-browser-bar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 12px;background:#e2e8f0;color:#475569;font-size:9px;font-weight:800}
+#treatment-assets .conversion-browser-bar>span:last-child{font-size:7px;letter-spacing:.12em}
+#treatment-assets .conversion-site-page{color:#172b42;background:#fff}
+#treatment-assets .conversion-site-header{display:flex;align-items:center;gap:7px;padding:12px 14px;border-bottom:1px solid #e2e8f0;font-size:8px;color:#18344e}
+#treatment-assets .conversion-brand-mark{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:7px;background:#0f766e;color:#fff;font-size:13px}
+#treatment-assets .conversion-site-header strong{font-size:8px;letter-spacing:.02em}
+#treatment-assets .conversion-site-nav{margin-left:auto;color:#64748b;font-size:7px}
+#treatment-assets .conversion-site-header>b{padding:7px 9px;border-radius:5px;background:#0f766e;color:#fff;font-size:7px}
+#treatment-assets .conversion-site-hero{display:grid;grid-template-columns:1.2fr .8fr;gap:10px;align-items:center;padding:22px 16px;background:linear-gradient(120deg,#f0fdfa,#fff 72%)}
+#treatment-assets .conversion-eyebrow{font-size:7px;font-weight:900;letter-spacing:.14em;color:#0f766e}
+#treatment-assets .conversion-site-hero h4{margin-top:9px;font-size:clamp(16px,2vw,24px);line-height:1.12;font-weight:900;letter-spacing:-.04em;color:#17344b}
+#treatment-assets .conversion-site-hero p:not(.conversion-eyebrow){margin-top:8px;font-size:9px;line-height:1.6;color:#52677a}
+#treatment-assets .conversion-primary-cta{display:inline-flex;align-items:center;gap:12px;margin-top:12px;padding:9px 11px;border-radius:6px;background:#0f766e;color:#fff;font-size:8px;font-weight:900}
+#treatment-assets .conversion-site-illustration{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:140px;border-radius:9px;background:linear-gradient(145deg,#ccfbf1,#dbeafe);color:#0f766e}
+#treatment-assets .conversion-site-illustration span{font-size:7px;font-weight:900;letter-spacing:.13em}
+#treatment-assets .conversion-site-illustration i{display:flex;align-items:center;justify-content:center;width:58px;height:58px;margin-top:12px;border:1px solid #0f766e55;border-radius:50%;font-size:30px;font-style:normal}
+#treatment-assets .conversion-service-row{display:flex;flex-wrap:wrap;gap:8px;padding:12px 14px;border-top:1px solid #e2e8f0;font-size:7px;font-weight:800;color:#476072}
+#treatment-assets .conversion-popup-card{position:relative;z-index:1;padding:18px;border:1px solid #fbbf24;border-radius:14px;background:#fff;color:#1f2937;box-shadow:0 20px 50px #0007;transform:rotate(1.5deg)}
+#treatment-assets .conversion-popup-top{display:flex;align-items:center;gap:7px;padding-bottom:13px;border-bottom:1px solid #e5e7eb;color:#64748b;font-size:7px;font-weight:900;letter-spacing:.12em}
+#treatment-assets .conversion-popup-dot{width:7px;height:7px;border-radius:50%;background:#f59e0b}
+#treatment-assets .conversion-popup-close{margin-left:auto;font-size:18px;line-height:1}
+#treatment-assets .conversion-popup-kicker{margin-top:14px;font-size:8px;font-weight:900;letter-spacing:.13em;color:#0f766e}
+#treatment-assets .conversion-popup-card h4{margin-top:7px;font-size:20px;line-height:1.15;font-weight:900;letter-spacing:-.04em;color:#172b42}
+#treatment-assets .conversion-popup-card>p:not(.conversion-popup-kicker){margin-top:8px;font-size:10px;line-height:1.55;color:#64748b}
+#treatment-assets .conversion-popup-fields{display:grid;grid-template-columns:1fr;gap:6px;margin-top:13px}
+#treatment-assets .conversion-popup-fields span{padding:9px;border:1px solid #dbe2ea;border-radius:6px;color:#94a3b8;font-size:8px}
+#treatment-assets .conversion-popup-button{display:flex;justify-content:space-between;align-items:center;margin-top:9px;padding:10px;border-radius:6px;background:#0f766e;color:#fff;font-size:9px}
+#treatment-assets .conversion-popup-card small{display:block;margin-top:8px;text-align:center;color:#94a3b8;font-size:7px}
+#treatment-assets .conversion-sticky-bar{position:absolute;z-index:2;right:clamp(14px,3vw,30px);bottom:12px;left:clamp(14px,3vw,30px);display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;border:1px solid #fbbf24;border-radius:9px;background:#111827;color:#f8fafc;box-shadow:0 8px 28px #0005;font-size:9px}
+#treatment-assets .conversion-sticky-bar strong{flex-shrink:0;padding:8px 10px;border-radius:6px;background:#fbbf24;color:#111827;font-size:8px}
+@media(max-width:650px){#treatment-assets .conversion-tools-stage{grid-template-columns:1fr;gap:14px;padding:12px 12px 60px}#treatment-assets .conversion-site-window{transform:none}#treatment-assets .conversion-site-nav{display:none}#treatment-assets .conversion-site-hero{grid-template-columns:1fr .65fr;padding:16px 11px}#treatment-assets .conversion-site-illustration{min-height:100px}#treatment-assets .conversion-popup-card{margin:0 8px;transform:none}#treatment-assets .conversion-sticky-bar{right:12px;left:12px;bottom:10px;font-size:8px}#treatment-assets .conversion-sticky-bar strong{font-size:7px}}
 
 </style>
 </head>
@@ -436,59 +468,6 @@ html,body{overflow-x:hidden}
   </div>
 </section>
 
-<!-- Private consultant sales guide: collapsed by default so presenter notes are not accidentally shown to the prospect. -->
-<section id="presenter-guide" class="no-print mt-6 overflow-hidden rounded-2xl border border-amber-400/35 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950">
-  <div class="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-    <div class="max-w-3xl">
-      <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Consultant view · private prompts</p>
-      <h3 class="mt-2 text-xl sm:text-2xl font-extrabold text-white">Your 30-minute Diagnostic Review guide</h3>
-      <p class="mt-2 text-sm leading-6 text-zinc-300">Use this as a quiet running order while you screen-share. The prospect sees the scan evidence and solution previews; these questions and timing cues are for you. Keep the conversation natural—do not read it like a script.</p>
-    </div>
-    <button id="presenter-guide-toggle" type="button" class="shrink-0 rounded-xl border border-amber-300/60 bg-amber-400 px-5 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300" aria-expanded="false" aria-controls="presenter-guide-content">Open my presenter guide ↓</button>
-  </div>
-  <div id="presenter-guide-content" class="hidden border-t border-amber-400/20 p-4 sm:p-6">
-    <div class="mb-5 grid grid-cols-2 gap-2 sm:grid-cols-4">
-      <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-zinc-400">First</p><p class="mt-1 text-sm font-bold text-white">Understand</p><p class="mt-1 text-xs text-zinc-500">Minutes 0–5</p></div>
-      <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Then</p><p class="mt-1 text-sm font-bold text-white">Examine</p><p class="mt-1 text-xs text-zinc-500">Minutes 5–15</p></div>
-      <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Next</p><p class="mt-1 text-sm font-bold text-white">Prioritise</p><p class="mt-1 text-xs text-zinc-500">Minutes 15–20</p></div>
-      <div class="rounded-xl border border-emerald-400/30 bg-emerald-950/20 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Finally</p><p class="mt-1 text-sm font-bold text-white">Prescribe</p><p class="mt-1 text-xs text-zinc-500">Minutes 20–30</p></div>
-    </div>
-    <div class="space-y-3">
-      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
-        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">1</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Open the conversation</h4><span class="text-xs font-bold text-zinc-500">0–2 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Set the expectation: “I’ll show you what the scan picked up, check it against the actual website and your experience, then we can decide whether there’s anything worth addressing.”</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p class="mt-1 text-sm leading-6 text-white">“Before we look at the findings, what would you most like your website to do better for the business?”</p><p class="mt-2 text-xs text-zinc-500">Listen for their priority. Do not assume the scan’s primary gap is their biggest commercial concern.</p></div></div>
-      </article>
-      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
-        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">2</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Reveal the diagnosis</h4><span class="text-xs font-bold text-zinc-500">2–5 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Show the primary growth gap and the evidence that supports it. Separate what the scan observed from what still needs to be checked.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p id="guide-diagnosis-question" class="mt-1 text-sm leading-6 text-white">“Does this match anything you’ve noticed, or is there context we should take into account?”</p><p class="mt-2 text-xs text-zinc-500">Do not defend the score. Invite the owner to correct or add context.</p></div></div>
-      </article>
-      <article class="rounded-xl border border-amber-400/30 bg-amber-400/[0.04] p-4 sm:p-5">
-        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-amber-400/30 bg-amber-400/10 text-sm font-black text-amber-300">3</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Inspect the actual website together</h4><span class="text-xs font-bold text-amber-300">5–11 min · key stage</span></div>
-          <p class="mt-2 text-sm leading-6 text-zinc-300">Use the real screenshot above, then open the relevant live page in another tab. Follow the visitor’s journey from the page to the next step. Examine only two or three relevant points; do not turn the call into a full website audit.</p>
-          <div class="mt-4 grid gap-3 sm:grid-cols-3">
-            <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><div class="mb-3 flex h-24 items-center justify-center rounded-lg border border-zinc-800 bg-gradient-to-br from-zinc-800 to-zinc-950"><div class="w-3/4 space-y-2"><div class="h-2 w-2/3 rounded bg-zinc-600"></div><div class="h-3 w-full rounded bg-zinc-700"></div><div class="h-3 w-4/5 rounded bg-zinc-700"></div><div class="mt-3 h-6 w-1/2 rounded bg-amber-400/80"></div></div></div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">1 · Understand</p><p class="mt-1 text-sm font-bold text-white">Page & message</p><p class="mt-1 text-xs leading-5 text-zinc-400">Can a suitable visitor quickly understand the service and why it may fit?</p></div>
-            <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><div class="mb-3 flex h-24 items-center justify-center rounded-lg border border-zinc-800 bg-gradient-to-br from-zinc-800 to-zinc-950"><div class="w-3/4 rounded-lg border border-zinc-700 p-2"><div class="mb-2 h-2 w-2/3 rounded bg-zinc-600"></div><div class="mb-2 h-4 rounded border border-zinc-700 bg-zinc-900"></div><div class="mb-2 h-4 rounded border border-zinc-700 bg-zinc-900"></div><div class="h-5 rounded bg-amber-400/80"></div></div></div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">2 · Act</p><p class="mt-1 text-sm font-bold text-white">Next step</p><p class="mt-1 text-xs leading-5 text-zinc-400">Is the call, quote, booking or enquiry route obvious and easy to use?</p></div>
-            <div class="rounded-xl border border-zinc-800 bg-zinc-950 p-3"><div class="mb-3 flex h-24 items-center justify-center rounded-lg border border-zinc-800 bg-gradient-to-br from-zinc-800 to-zinc-950"><div class="w-3/4 space-y-2 rounded-lg border border-zinc-700 p-2"><div class="flex gap-2"><span class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400/20 text-[10px] text-emerald-300">✓</span><div class="h-2 flex-1 rounded bg-zinc-600"></div></div><div class="flex gap-2"><span class="flex h-5 w-5 items-center justify-center rounded-full bg-emerald-400/20 text-[10px] text-emerald-300">✓</span><div class="h-2 flex-1 rounded bg-zinc-600"></div></div><div class="h-2 w-2/3 rounded bg-zinc-700"></div></div></div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">3 · Believe</p><p class="mt-1 text-sm font-bold text-white">Trust & proof</p><p class="mt-1 text-xs leading-5 text-zinc-400">Can visitors verify genuine experience, reviews, credentials or examples?</p></div>
-          </div>
-          <p class="mt-4 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask while looking at the page</p><p id="guide-website-question" class="mt-1 text-sm leading-6 text-white">“If you were a new customer landing here, what would you expect to happen next?”</p>
-          <p class="mt-2 text-xs text-zinc-500">These mini-visuals are prompts for what to inspect, not claims about this website. Use the actual page screenshot and live site as evidence.</p>
-        </div></div>
-      </article>
-      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
-        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">4</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Validate the commercial reality</h4><span class="text-xs font-bold text-zinc-500">11–15 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Move from what you can see to what they know about the business. Ask one question, listen, then follow up where needed.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p id="guide-validation-question" class="mt-1 text-sm leading-6 text-white">“How do you currently judge whether the website is generating the right enquiries?”</p><p class="mt-2 text-xs text-zinc-500">If they do not track it, record that as unknown—not proof of poor performance.</p></div></div>
-      </article>
-      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
-        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">5</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Establish the value of fixing it</h4><span class="text-xs font-bold text-zinc-500">15–20 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Use their own figures if available. If not, explain the potential mechanism without inventing lost leads or guaranteed uplift.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p id="guide-value-question" class="mt-1 text-sm leading-6 text-white">“If this improved, what would a worthwhile result look like for the business?”</p><p class="mt-2 text-xs text-zinc-500">Only model revenue when you have a defensible baseline and clearly stated assumptions.</p></div></div>
-      </article>
-      <article class="rounded-xl border border-emerald-400/30 bg-emerald-950/15 p-4 sm:p-5">
-        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-emerald-400/30 bg-emerald-400/10 text-sm font-black text-emerald-300">6</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Prescribe, then discuss implementation</h4><span class="text-xs font-bold text-emerald-300">20–26 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Show the three asset concepts. Explain which confirmed or plausible issue each addresses and what success should be measured against. Then fairly explain the free route before the managed routes.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-emerald-300">Ask</p><p id="guide-prescription-question" class="mt-1 text-sm leading-6 text-white">“Would you prefer to implement this internally, or would it be more useful for us to take responsibility for the agreed work?”</p></div></div>
-      </article>
-      <article class="rounded-xl border border-zinc-800 bg-zinc-950/80 p-4 sm:p-5">
-        <div class="flex items-start gap-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-zinc-700 bg-zinc-900 text-sm font-black text-amber-300">7</span><div class="min-w-0 flex-1"><div class="flex flex-wrap items-center gap-2"><h4 class="font-extrabold text-white">Agree a specific next step</h4><span class="text-xs font-bold text-zinc-500">26–30 min</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Clarify priorities, who will do the work, the scope and the next decision. Use the custom proposal route only when the requirement genuinely falls outside the standard options.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-amber-300">Ask</p><p class="mt-1 text-sm leading-6 text-white">“What would you need to be comfortable deciding on the next step?”</p></div></div>
-      </article>
-    </div>
-    <div class="mt-5 rounded-xl border border-zinc-800 bg-zinc-950 p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Keep the diagnosis honest</p><p class="mt-2 text-sm leading-6 text-zinc-300">Observed signal → plausible customer consequence → owner validation → proportionate recommendation → agreed measurement. If the owner disproves the initial hypothesis, revise the recommendation rather than forcing the sale.</p></div>
-  </div>
-</section>
-
 <div class="mt-6 rounded-2xl border border-amber-400/50 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-5 sm:p-7">
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
 <div class="max-w-2xl"><p id="snapshot-cta-kicker" class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Step 1 · What the scan found</p><h4 id="snapshot-cta-heading" class="mt-2 text-2xl sm:text-3xl font-extrabold leading-tight text-white">The problem, why it matters, and what may need to change</h4><p id="snapshot-cta-copy" class="mt-3 text-sm sm:text-base leading-relaxed text-zinc-200">We’ll summarise the main evidence, the potential commercial consequence, and the type of improvement worth considering. Possible impact is not a claim that customers have already been lost.</p></div>
@@ -497,7 +476,7 @@ html,body{overflow-x:hidden}
 <p id="snapshot-cta-reassurance" class="mt-4 text-xs leading-relaxed text-zinc-300">This is the handover from diagnosis to prescription: first understand the potential problem, then see the three solutions selected to address it.</p>
 </div>
 <section id="treatment-assets" class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-950 p-4 sm:p-7">
-<div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three recommended assets — and why they fit</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">Because the scan identified a potential growth gap, these three proposed assets are selected to address the most relevant problems. Each card explains why it was recommended and what it is designed to improve.</p></div>
+<div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three core assets — plus two bonus conversion tools</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The first two assets form the foundation: a conversion landing page and a lead magnet with an opt-in page. The recommended third asset is a smart pop-up or sticky call-to-action. Expand the two bonus options to see how an estimate calculator or callback/booking widget could add further value.</p></div>
 <div class="grid grid-cols-1 gap-5">
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
 <div class="asset-browser">
@@ -526,21 +505,42 @@ html,body{overflow-x:hidden}
 <div class="p-5"><p id="asset-guide-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C3 · Conversion</p><h4 id="asset-guide-card-title" class="mt-1 text-lg font-extrabold text-white">Lead capture &amp; customer guide</h4><p id="asset-guide-desc" class="mt-2 text-sm leading-6 text-zinc-300">A useful, branded guide concept that can answer common customer questions and offer a natural next step.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-guide-why" class="mt-1 text-sm leading-6 text-zinc-200">This is most useful when customers need information before they are ready to enquire.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-guide-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Give prospective customers a useful resource and a reason to take the next step.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed cover concept · not a finished guide</p></div>
 </article>
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
-<div class="asset-blog-window asset-blog-professional">
-<div class="blog-browser-chrome"><span class="asset-window-dots"><i></i><i></i><i></i></span><span>yourbusiness.co.uk / advice</span><span class="blog-live-label"><i></i> BLOG PREVIEW</span></div>
-<header class="blog-brandbar"><div class="blog-brand-lockup"><span class="blog-brand-mark">✦</span><span id="asset-business-3">DENTAL SMILES LONDON</span></div><nav class="blog-nav"><span>Services</span><span>Our team</span><span class="active">Advice &amp; insights</span></nav><span class="blog-header-cta">Get in touch <b>↗</b></span></header>
-<section class="blog-editorial-hero"><div><p class="blog-overline">THE KNOWLEDGE HUB <span></span> PRACTICAL ADVICE</p><h4>Good decisions start with good information.</h4><p>Useful, straightforward advice to help you understand your options and take the next step with confidence.</p><div class="blog-topic-pills"><span>Guides &amp; advice</span><span>What to expect</span><span>Expert insights</span></div></div><div class="blog-hero-image" role="img" aria-label="Illustrative professional dental care photograph"><span>ADVICE YOU CAN USE</span></div></section>
-<div class="blog-section-head"><div><p class="blog-section-kicker">LATEST ARTICLES</p><h5>Explore the latest insights</h5></div><span class="blog-view-all">View all articles <b>→</b></span></div>
-<div class="asset-article-grid blog-article-grid">
-<article class="asset-article blog-article"><div class="asset-article-photo asset-photo-smile" role="img" aria-label="Illustrative patient smile photograph"><span class="blog-image-chip">GUIDE</span></div><div class="blog-article-body"><p class="asset-article-kicker">CHOOSING WITH CONFIDENCE <span>· 5 MIN READ</span></p><h5 id="asset-article-1">How to choose the right treatment for your smile</h5><p>Clear information to help you understand your options and the questions worth asking.</p><span class="blog-read-link">Read the article <b>↗</b></span></div></article>
-<article class="asset-article blog-article"><div class="asset-article-photo asset-photo-dental" role="img" aria-label="Illustrative dental consultation photograph"><span class="blog-image-chip">WHAT TO EXPECT</span></div><div class="blog-article-body"><p class="asset-article-kicker">YOUR FIRST VISIT <span>· 4 MIN READ</span></p><h5 id="asset-article-2">What to expect at your first dental consultation</h5><p>A reassuring walkthrough of the first visit, the conversation and possible next steps.</p><span class="blog-read-link">Read the article <b>↗</b></span></div></article>
+<div class="conversion-tools-stage">
+  <div class="conversion-site-window">
+    <div class="conversion-browser-bar"><span class="asset-window-dots"><i></i><i></i><i></i></span><span id="asset-conversion-domain">yourbusiness.co.uk</span><span>WEBSITE PREVIEW</span></div>
+    <div class="conversion-site-page">
+      <header class="conversion-site-header"><span class="conversion-brand-mark">✦</span><strong id="asset-business-3">YOUR BUSINESS</strong><span class="conversion-site-nav">Services&nbsp;&nbsp; About&nbsp;&nbsp; Contact</span><b>Get in touch</b></header>
+      <div class="conversion-site-hero"><div><p class="conversion-eyebrow">HERE WHEN YOU NEED US</p><h4 id="asset-pop-headline">The right help starts with a simple conversation.</h4><p>Clear information, helpful answers and an easy next step when you're ready.</p><span class="conversion-primary-cta" id="asset-pop-cta">Get in touch <b>→</b></span></div><div class="conversion-site-illustration"><span>YOUR NEXT STEP</span><i>↗</i></div></div>
+      <div class="conversion-service-row"><span>✓ Clear service information</span><span>✓ Helpful, direct contact</span><span>✓ No-pressure next step</span></div>
+    </div>
+  </div>
+  <div class="conversion-popup-card">
+    <div class="conversion-popup-top"><span class="conversion-popup-dot"></span><span>SMART PROMPT · CONCEPT</span><span class="conversion-popup-close">×</span></div>
+    <p class="conversion-popup-kicker">CAN WE HELP?</p><h4>Have a question before you decide?</h4><p>Tell us what you need and we'll help you find the right next step.</p>
+    <div class="conversion-popup-fields"><span>Your name</span><span>Phone or email</span></div><b class="conversion-popup-button">Request a response <span>→</span></b><small>Illustrative design · not a live form</small>
+  </div>
+  <div class="conversion-sticky-bar"><span><b>Need a hand?</b> Make your next step simple.</span><strong id="asset-sticky-cta">Get in touch&nbsp; →</strong></div>
 </div>
-<div class="blog-bottom-bar"><span><b>✦</b> Helpful information. Clear next steps.</span><span>Explore services <b>→</b></span></div>
+<div class="p-5">
+  <p id="asset-blog-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C6 · Conversion</p><h4 id="asset-blog-title" class="mt-1 text-lg font-extrabold text-white">Smart pop-up &amp; sticky call-to-action</h4>
+  <p id="asset-blog-desc" class="mt-2 text-sm leading-6 text-zinc-300">A well-timed prompt and persistent next-step button designed to help interested visitors contact the business without making the page feel pushy.</p>
+  <div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-blog-why" class="mt-1 text-sm leading-6 text-zinc-200">The landing page and guide create a destination and a useful resource; this tool helps visitors notice a clear next step while they browse.</p></div>
+  <div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-blog-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Make it easier to request a quote, book an appointment or ask a question, depending on the business.</p></div>
+  <p class="mt-4 text-xs font-bold text-emerald-300">Recommended third asset · illustrative concept, not published</p>
+  <div class="mt-5 space-y-3">
+    <div class="rounded-xl border border-zinc-700 bg-zinc-950/70 overflow-hidden">
+      <button type="button" id="calculator-bonus-toggle" class="flex w-full items-center gap-3 p-4 text-left hover:bg-zinc-800/70" aria-expanded="false" aria-controls="calculator-bonus-panel"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-400/10 text-amber-300"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2m-8 3h2m4 0h2"/></svg></span><span class="min-w-0 flex-1"><strong class="block text-sm text-white">Bonus option 1 · Estimate calculator</strong><span class="mt-1 block text-xs text-zinc-400">Help visitors explore an indicative cost or project scope</span></span><span id="calculator-bonus-chevron" class="text-amber-300 text-lg">＋</span></button>
+      <div id="calculator-bonus-panel" class="hidden border-t border-zinc-700 p-4 sm:p-5"><p class="text-sm leading-6 text-zinc-300">A simple interactive calculator can ask a few relevant questions and provide an indicative range or next-step recommendation. It is useful when uncertainty about cost or scope may be holding people back.</p><p class="mt-3 text-xs leading-5 text-zinc-400">Any figure would be labelled indicative unless it is connected to a verified quoting process. It does not replace a formal quotation.</p></div>
+    </div>
+    <div class="rounded-xl border border-zinc-700 bg-zinc-950/70 overflow-hidden">
+      <button type="button" id="callback-bonus-toggle" class="flex w-full items-center gap-3 p-4 text-left hover:bg-zinc-800/70" aria-expanded="false" aria-controls="callback-bonus-panel"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-400/10 text-amber-300"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M16 3v4M8 3v4M3 10h18M8 14h3m-3 3h6"/></svg></span><span class="min-w-0 flex-1"><strong class="block text-sm text-white">Bonus option 2 · Callback or booking widget</strong><span class="mt-1 block text-xs text-zinc-400">Make it easier to arrange the next conversation</span></span><span id="callback-bonus-chevron" class="text-amber-300 text-lg">＋</span></button>
+      <div id="callback-bonus-panel" class="hidden border-t border-zinc-700 p-4 sm:p-5"><p class="text-sm leading-6 text-zinc-300">Give visitors a simple way to request a callback or, where suitable, choose an available appointment time. A callback request is the simpler starting point; live booking may require a calendar or third-party integration.</p><p class="mt-3 text-xs leading-5 text-zinc-400">Both bonus tools can be included in the agreed package, with the final functionality confirmed before implementation.</p></div>
+    </div>
+  </div>
 </div>
-<div class="p-5"><p id="asset-blog-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset V3 · Visibility</p><h4 id="asset-blog-title" class="mt-1 text-lg font-extrabold text-white">Customer-question content hub</h4><p id="asset-blog-desc" class="mt-2 text-sm leading-6 text-zinc-300">A starter editorial hub with two useful article concepts designed around the questions customers ask.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-blog-why" class="mt-1 text-sm leading-6 text-zinc-200">Useful customer questions may not be answered clearly by the current site.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-blog-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Help customers find relevant information and create a foundation for useful, discoverable content.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed editorial mockup · not published</p></div>
 </article>
 </div>
-<p class="mt-5 rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 text-xs leading-relaxed text-zinc-400"><strong class="text-zinc-200">Important:</strong> These are visual mockups to make the proposed deliverables tangible. The practice name is used for illustration; no official logo, testimonials, ratings, clinical claims or finished content have been verified or supplied. Final branding and copy should be approved before publication.</p>
+<p class="mt-5 rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 text-xs leading-relaxed text-zinc-400"><strong class="text-zinc-200">Important:</strong> These are illustrative concepts, not published assets or live integrations. Confirm the business details, final copy, consent requirements and required functionality before implementation. Calculator outputs must be labelled indicative unless backed by a verified quoting process.</p>
 </section>
 <section id="treatment-proposal" class="mt-5 rounded-3xl border border-amber-400/40 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-4 sm:p-7">
 <div class="mb-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 3 · Treatment proposal</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">A practical plan to address the identified gap</h3><p id="proposal-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The proposal will be shaped around the primary finding from this scan.</p></div>
@@ -551,27 +551,27 @@ html,body{overflow-x:hidden}
 <div class="treatment-route-grid mt-5">
  <article class="treatment-route-card rounded-2xl border border-emerald-500/40 bg-emerald-950/20 p-5">
   <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option A · Take your assets free</h4><span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">£0</span></div>
-  <p class="mt-2 text-sm leading-6 text-zinc-300">Receive the three agreed growth-asset concepts and practical guidance, then decide whether to implement them with your own team or developer.</p>
-  <button type="button" id="show-free-assets" class="mt-4 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10" aria-expanded="false" aria-controls="free-assets-panel">Take My Assets Free ↓</button>
+  <p class="mt-2 text-sm leading-6 text-zinc-300">Receive the files for all five agreed assets: the landing page, lead magnet and opt-in page, smart pop-up/sticky CTA, estimate calculator and callback/booking tool. You or your developer will upload, host, connect, test and maintain them.</p>
+  <button type="button" id="show-free-assets" class="mt-4 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10" aria-expanded="false" aria-controls="free-assets-panel">Receive All Five Asset Files Free ↓</button>
   <div id="free-assets-panel" class="hidden mt-5 rounded-xl border border-emerald-500/25 bg-zinc-950/70 p-4">
    <div class="treatment-detail-columns">
-    <div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">What you get</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li>Three agreed asset concepts, shaped around the growth opportunity identified in your review.</li><li>Recommended copy direction and practical guidance for each asset.</li><li>An implementation checklist your team or web developer can work from.</li><li>A clear explanation of what each asset is intended to improve.</li></ul></div>
-    <div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">What you’ll still need to do</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li><strong class="text-white">Find the time or technical support:</strong> someone will need to turn the concepts into live pages, content or customer resources.</li><li><strong class="text-white">Connect the moving parts:</strong> forms, downloads, contact routes and any email follow-up need to be configured where relevant.</li><li><strong class="text-white">Check everything works:</strong> mobile layout, links, consent and enquiry delivery need to be tested before launch.</li><li><strong class="text-white">Keep it working:</strong> you’ll be responsible for monitoring the assets and maintaining them as your website and processes change.</li></ul></div>
+    <div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">What you get</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li>Files for all five agreed assets: landing page, lead magnet/opt-in page, smart pop-up/sticky CTA, estimate calculator and callback/booking tool.</li><li>Recommended copy and configuration notes for each asset.</li><li>An implementation checklist for your team or web developer.</li><li>A clear explanation of each asset’s purpose and intended customer journey.</li></ul></div>
+    <div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">What you’ll still need to do</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li><strong class="text-white">Upload and host the files:</strong> your team will need to place the assets on your website or hosting environment.</li><li><strong class="text-white">Connect the moving parts:</strong> forms, downloads, callback requests and any calendar or email integrations need to be configured.</li><li><strong class="text-white">Test before launch:</strong> check mobile layout, consent, links and enquiry delivery end-to-end.</li><li><strong class="text-white">Maintain the assets:</strong> you will be responsible for ongoing hosting, updates and troubleshooting.</li></ul></div>
    </div>
    <p class="mt-4 rounded-lg border border-amber-400/25 bg-amber-400/5 p-3 text-sm leading-6 text-zinc-300"><strong class="text-amber-300">Worth considering:</strong> do you already have the time and support to get these assets implemented, tested and maintained—or would it be easier to have one team take responsibility for the agreed work?</p>
    <button type="button" data-treatment="free" class="mt-4 rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Choose the free route</button>
   </div>
  </article>
  <article class="treatment-route-card rounded-2xl border border-zinc-700 bg-zinc-950 p-5">
-  <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option B · Let us manage it for you</h4><span class="text-sm font-extrabold text-emerald-300">Managed packages</span></div>
-  <p class="mt-2 text-sm leading-6 text-zinc-300">Prefer not to coordinate implementation, testing and ongoing upkeep yourself? We can manage the agreed work with you. Explore the levels below and choose the scope that best fits your priorities.</p>
+  <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option B · Let us implement and host all five</h4><span class="text-sm font-extrabold text-emerald-300">Managed packages</span></div>
+  <p class="mt-2 text-sm leading-6 text-zinc-300">Prefer not to coordinate implementation, hosting, testing and upkeep yourself? We can implement and host all five agreed assets for 12 months, with support and refinement depending on the package you choose.</p>
   <button type="button" id="show-managed-options" class="mt-4 rounded-xl bg-emerald-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-emerald-300" aria-expanded="false" aria-controls="managed-options-panel">Show managed options B1–B3 ↓</button>
   <div id="managed-options-panel" class="hidden mt-5">
-   <p class="mb-3 text-xs leading-relaxed text-zinc-400">Illustrative annual packages. Confirm the final asset scope, hosting, support and terms before acceptance.</p>
+   <p class="mb-3 text-xs leading-relaxed text-zinc-400">12-month managed packages. Final functionality and scope are agreed before work starts. External calendar, CRM, email or other paid subscriptions are not included unless expressly agreed.</p>
    <div class="managed-package-grid">
-    <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B1 · Essential</p><h5 class="mt-2 text-lg font-extrabold text-white">Launch the priority assets</h5><p class="mt-2 text-2xl font-extrabold text-white">£1,500<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Implement the three agreed priority assets within the defined scope.</li><li>Host the agreed assets and complete basic launch checks.</li><li>One agreed review round before launch.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: getting the agreed foundations live with a defined scope.</p><button type="button" data-treatment="B1" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B1</button></article>
-    <article class="managed-package-card managed-package-featured"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B2 · Growth</p><h5 class="mt-2 text-lg font-extrabold text-white">Launch + ongoing refinement</h5><p class="mt-2 text-2xl font-extrabold text-white">£2,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B1.</li><li>Agreed content or asset refinements during the year.</li><li>Periodic review of the agreed assets and next actions.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: owners who want the assets maintained and improved over time.</p><button type="button" data-treatment="B2" class="mt-4 w-full rounded-xl bg-amber-400 px-3 py-3 text-sm font-extrabold text-zinc-950">Select B2</button></article>
-    <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B3 · Growth Plus</p><h5 class="mt-2 text-lg font-extrabold text-white">Broader implementation support</h5><p class="mt-2 text-2xl font-extrabold text-white">£3,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B2.</li><li>Broader implementation support across the agreed priority areas.</li><li>A more detailed review and recommended next-step plan.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: businesses needing a wider set of improvements coordinated.</p><button type="button" data-treatment="B3" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B3</button></article>
+    <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B1 · Essential</p><h5 class="mt-2 text-lg font-extrabold text-white">Implement & host all five assets</h5><p class="mt-2 text-2xl font-extrabold text-white">£1,500<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Implement the five agreed assets: landing page, guide/opt-in page, pop-up/CTA, estimate calculator and callback/booking tool.</li><li>Host the agreed assets for 12 months and complete launch checks.</li><li>One agreed review round before launch.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: getting the agreed foundations live with a defined scope.</p><button type="button" data-treatment="B1" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B1</button></article>
+    <article class="managed-package-card managed-package-featured"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B2 · Growth</p><h5 class="mt-2 text-lg font-extrabold text-white">All five assets + refinement</h5><p class="mt-2 text-2xl font-extrabold text-white">£2,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B1.</li><li>Agreed content or asset refinements during the 12-month term.</li><li>Periodic review of the agreed assets and next actions.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: owners who want the assets maintained and improved over time.</p><button type="button" data-treatment="B2" class="mt-4 w-full rounded-xl bg-amber-400 px-3 py-3 text-sm font-extrabold text-zinc-950">Select B2</button></article>
+    <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B3 · Growth Plus</p><h5 class="mt-2 text-lg font-extrabold text-white">Broader support across all five assets</h5><p class="mt-2 text-2xl font-extrabold text-white">£3,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B2.</li><li>Broader implementation support across the agreed priority areas.</li><li>A more detailed review and recommended next-step plan.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: businesses needing a wider set of improvements coordinated.</p><button type="button" data-treatment="B3" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B3</button></article>
    </div>
   </div>
  </article>
@@ -1112,9 +1112,11 @@ if(gaps.length){
   return n;
  }
  const ranked=products.map(p=>({...p,score:score(p)})).sort((a,b)=>b.score-a.score);
- let chosen=ranked.filter(p=>p.score>0).slice(0,3);
- if(chosen.length<3)chosen=chosen.concat(ranked.filter(p=>p.cat.toLowerCase()===primaryCat&&!chosen.some(c=>c.id===p.id))).slice(0,3);
- if(chosen.length<3)chosen=chosen.concat(ranked.filter(p=>!chosen.some(c=>c.id===p.id)).slice(0,3-chosen.length));
+ const chosen=[
+  {id:'C1',cat:'Conversion',name:'Conversion-focused landing page',why:'This is the main destination where a prospective customer should quickly understand the service and the next step.',outcome:'Give visitors a focused page with a clear offer, relevant reassurance and an obvious route to enquire.'},
+  {id:'C4',cat:'Conversion',name:'Lead magnet & customer guide',why:'Not every visitor is ready to enquire immediately. A useful guide gives earlier-stage prospects a reason to share their details.',outcome:'Capture interested prospects with a useful resource and a clear, permission-based next step.'},
+  {id:'C6',cat:'Conversion',name:'Smart pop-up & sticky call-to-action',why:'The landing page and guide create a destination and a useful resource; this tool helps visitors notice a clear next step while they browse.',outcome:'Make it easier to request a quote, book an appointment or ask a question, depending on the business.'}
+ ];
  const slots=[
  {label:'asset-landing-label',title:'asset-landing-title',desc:'asset-landing-desc',why:'asset-landing-why',out:'asset-landing-outcome'},
  {label:'asset-guide-label',title:'asset-guide-card-title',desc:'asset-guide-desc',why:'asset-guide-why',out:'asset-guide-outcome'},
@@ -1122,7 +1124,7 @@ if(gaps.length){
  ];
  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
  chosen.forEach((p,i)=>{
-  const z=slots[i],preview=['landing page','customer guide / resource','content or information hub'][i];
+  const z=slots[i],preview=['landing page','customer guide and opt-in page','smart pop-up and sticky call-to-action'][i];
   set(z.label,'Asset '+p.id+' · '+p.cat);set(z.title,p.name);
   set(z.desc,'Proposed '+p.name.toLowerCase()+'. The visual above is an illustrative '+preview+' layout, not a finished or published deliverable.');
   set(z.why,p.why);set(z.out,p.outcome);
@@ -1132,6 +1134,9 @@ if(gaps.length){
  set('asset-landing-headline',chosen[0]?.name||'Recommended solution concept');
  set('asset-landing-copy','A proposed response to the scan findings—not proof that the issue has cost a customer.');
  set('asset-landing-cta',isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch');
+ set('asset-pop-cta',isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch');
+ set('asset-sticky-cta',isRoof?'Request a quote →':isDental?'Book an appointment →':'Get in touch →');
+ set('asset-pop-headline',isRoof?'Need help planning your roofing project?':isDental?'Have a question about your treatment?':'Have a question before you decide?');
  set('asset-guide-title',chosen[1]?.name||'Customer resource concept');set('asset-guide-copy','A practical resource concept shaped around the diagnosed opportunity.');
  set('asset-article-1',chosen[2]?.name||'Recommended customer resource');set('asset-article-2','What customers need to know before taking the next step');
  const guideQuestions={
@@ -1189,6 +1194,15 @@ freeToggle?.addEventListener('click',()=>{
  freeToggle.textContent=opening?'Hide free option ↑':'Take My Assets Free ↓';
  if(opening)freePanel.scrollIntoView({behavior:'smooth',block:'nearest'});
 });
+[['calculator-bonus-toggle','calculator-bonus-panel','calculator-bonus-chevron'],['callback-bonus-toggle','callback-bonus-panel','callback-bonus-chevron']].forEach(([buttonId,panelId,chevronId])=>{
+ const toggle=document.getElementById(buttonId),panel=document.getElementById(panelId),chevron=document.getElementById(chevronId);
+ toggle?.addEventListener('click',()=>{
+  const opening=panel.classList.contains('hidden');
+  panel.classList.toggle('hidden',!opening);
+  toggle.setAttribute('aria-expanded',String(opening));
+  if(chevron)chevron.textContent=opening?'−':'＋';
+ });
+});
 const managedToggle=document.getElementById('show-managed-options'),managedPanel=document.getElementById('managed-options-panel');
 managedToggle?.addEventListener('click',()=>{
  const opening=managedPanel.classList.contains('hidden');
@@ -1196,14 +1210,7 @@ managedToggle?.addEventListener('click',()=>{
  managedToggle.setAttribute('aria-expanded',String(opening));
  managedToggle.textContent=opening?'Hide managed options ↑':'Explore managed options B1–B3 ↓';
 });
-const guideToggle=document.getElementById('presenter-guide-toggle'),guidePanel=document.getElementById('presenter-guide-content');
-guideToggle?.addEventListener('click',()=>{
- const opening=guidePanel.classList.contains('hidden');
- guidePanel.classList.toggle('hidden',!opening);
- guideToggle.setAttribute('aria-expanded',String(opening));
- guideToggle.textContent=opening?'Close my presenter guide ↑':'Open my presenter guide ↓';
- if(opening)guidePanel.scrollIntoView({behavior:'smooth',block:'start'});
-});
+
 const customToggle=document.getElementById('show-custom-proposal'),customPanel=document.getElementById('custom-proposal-panel');
 customToggle?.addEventListener('click',()=>{
  const opening=customPanel.classList.contains('hidden');
@@ -1214,7 +1221,7 @@ customToggle?.addEventListener('click',()=>{
 });
 document.querySelectorAll('[data-treatment]').forEach(button=>button.addEventListener('click',()=>{
  const choices={
-  free:'Option A selected: free self-implementation. The agreed asset concepts and implementation notes would be supplied for you or your webmaster to implement. Nothing has been ordered and no payment has been taken.',
+  free:'Option A selected: receive the five agreed asset files and implementation notes free. You or your developer will implement, host, test and maintain them. Nothing has been ordered and no payment has been taken.',
   B1:'Option B1 selected: Essential — £1,500/year (illustrative). Proposed scope: implement the three agreed priority assets, host the agreed assets, complete basic launch checks and include one review round. Confirm exact inclusions and terms before acceptance.',
   B2:'Option B2 selected: Growth — £2,000/year (illustrative). Proposed scope: everything in B1, plus agreed asset/content refinements and periodic reviews during the year. Confirm exact inclusions and terms before acceptance.',
   B3:'Option B3 selected: Growth Plus — £3,000/year (illustrative). Proposed scope: everything in B2, plus broader implementation support and a more detailed next-step plan. Confirm exact inclusions and terms before acceptance.',
