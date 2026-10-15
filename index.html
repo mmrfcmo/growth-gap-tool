@@ -396,6 +396,52 @@ html,body{overflow-x:hidden}
  #diagnosed-solution-grid>.asset-preview-card .asset-guide-stage{min-height:300px}
 }
 
+
+/* Wide Product Suite infographic treatment — diagnosis panel + three full visual assets */
+#treatment-assets{background:#101113!important;border-color:#303238!important;padding:18px!important}
+#treatment-assets>div:first-child{margin:0 0 14px!important;padding:0 2px}
+#treatment-assets>div:first-child>p:first-child{color:#fb923c!important}
+#treatment-assets>div:first-child h3{font-size:clamp(22px,2.2vw,30px)!important}
+#diagnosed-solution-grid{display:grid;grid-template-columns:minmax(185px,.8fr) repeat(3,minmax(0,1fr));gap:7px;align-items:stretch}
+#diagnosed-gap-card{border:0;border-radius:9px;padding:16px;background:#fff0dc;color:#111827;display:flex;flex-direction:column;justify-content:flex-start;min-width:0}
+#diagnosed-gap-card .diagnosed-gap-kicker{color:#c2410c;font-size:10px}
+#diagnosed-gap-card h4{font-size:clamp(20px,1.6vw,27px);color:#ea580c;line-height:1.08;margin-top:8px}
+#diagnosed-gap-summary{font-size:14px;line-height:1.4;color:#9a3412;margin-top:6px}
+#diagnosed-gap-card .diagnosed-gap-divider{height:1px;background:#fed7aa;margin:16px 0 12px}
+#diagnosed-gap-card .diagnosed-gap-note{margin-top:auto;background:#ffdfad;border-radius:999px;color:#c2410c;padding:8px 10px;font-size:11px;line-height:1.3;letter-spacing:0;text-transform:none;text-align:center}
+#diagnosed-gap-card ol{gap:10px;margin-top:12px}
+#diagnosed-gap-card li{display:flex;flex-direction:row;align-items:flex-start;gap:7px}
+#diagnosed-gap-card li b{color:#ea580c;font-size:10px;min-width:20px}
+#diagnosed-gap-card li span{color:#292524;font-size:11px;line-height:1.3;font-weight:700}
+#diagnosed-solution-grid>.asset-preview-card{border:0!important;border-radius:9px!important;background:#fff0dc!important;color:#111827!important;overflow:hidden;box-shadow:none!important;display:flex;flex-direction:column}
+#diagnosed-solution-grid>.asset-preview-card>.asset-browser,
+#diagnosed-solution-grid>.asset-preview-card>.asset-guide-stage,
+#diagnosed-solution-grid>.asset-preview-card>.asset-blog-window{order:0;width:100%;min-width:0;margin:0;border-radius:0;overflow:hidden;flex:0 0 auto}
+#diagnosed-solution-grid>.asset-preview-card>.p-5{order:1;padding:12px!important;display:flex;flex-direction:column;gap:5px;flex:1}
+#diagnosed-solution-grid>.asset-preview-card .asset-browser-bar{font-size:8px;padding:6px 8px}
+#diagnosed-solution-grid>.asset-preview-card .asset-brand{padding:6px;font-size:7px;gap:4px}
+#diagnosed-solution-grid>.asset-preview-card .asset-brand .asset-nav{display:none}
+#diagnosed-solution-grid>.asset-preview-card .asset-brand b{font-size:7px;padding:4px}
+#diagnosed-solution-grid>.asset-preview-card .asset-hero{min-height:170px;grid-template-columns:1.1fr .75fr}
+#diagnosed-solution-grid>.asset-preview-card .asset-hero .asset-photo{min-height:170px}
+#diagnosed-solution-grid>.asset-preview-card .asset-hero-copy{padding:10px}
+#diagnosed-solution-grid>.asset-preview-card .asset-hero-copy .asset-eyebrow{font-size:7px}
+#diagnosed-solution-grid>.asset-preview-card .asset-hero-copy h4{font-size:clamp(12px,1.05vw,16px);line-height:1.1;color:#111827}
+#diagnosed-solution-grid>.asset-preview-card .asset-hero-copy>p:not(.asset-eyebrow){font-size:8px;line-height:1.35;color:#334155}
+#diagnosed-solution-grid>.asset-preview-card .asset-cta{font-size:7px;padding:5px 6px}
+#diagnosed-solution-grid>.asset-preview-card .asset-proof{display:none}
+#diagnosed-solution-grid>.asset-preview-card .asset-service-strip{font-size:7px;padding:5px;gap:3px}
+#diagnosed-solution-grid>.asset-preview-card .asset-guide-stage{min-height:225px;padding:10px}
+#diagnosed-solution-grid>.asset-preview-card .asset-guide-cover{max-width:150px}
+#diagnosed-solution-grid>.asset-preview-card .asset-price-panel{margin:6px 0 0;padding:8px;background:#fffaf3;border-color:#fed7aa}
+#diagnosed-solution-grid>.asset-preview-card .asset-price-panel .price-value{font-size:15px;color:#c2410c}
+#diagnosed-solution-grid>.asset-preview-card .asset-price-panel p:last-child{font-size:9px;line-height:1.35;color:#57534e}
+#diagnosed-solution-grid>.asset-preview-card .asset-price-panel .rounded-full{font-size:7px;padding:3px 5px}
+#diagnosed-solution-grid>.asset-preview-card .asset-price-panel .text-zinc-400{color:#78716c!important}
+#annual-product-bundle{margin-top:16px}
+@media(max-width:1100px){#diagnosed-solution-grid{grid-template-columns:repeat(3,minmax(0,1fr))}#diagnosed-gap-card{grid-column:1/-1}#diagnosed-gap-card ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}#diagnosed-gap-card .diagnosed-gap-note{margin-top:12px;max-width:280px}}
+@media(max-width:680px){#diagnosed-solution-grid{grid-template-columns:minmax(0,1fr)}#diagnosed-gap-card{grid-column:auto}#diagnosed-gap-card ol{display:flex;flex-direction:column}#diagnosed-solution-grid>.asset-preview-card .asset-hero{min-height:220px}#diagnosed-solution-grid>.asset-preview-card .asset-hero .asset-photo{min-height:220px}#diagnosed-solution-grid>.asset-preview-card .asset-hero-copy h4{font-size:20px}#diagnosed-solution-grid>.asset-preview-card .asset-hero-copy>p:not(.asset-eyebrow){font-size:12px}#diagnosed-solution-grid>.asset-preview-card .asset-cta{font-size:10px}#diagnosed-solution-grid>.asset-preview-card .asset-guide-stage{min-height:290px}}
+
 </style>
 </head>
 
@@ -504,7 +550,7 @@ html,body{overflow-x:hidden}
 
 <section id="primary-gap-card" class="rounded-2xl border-2 border-red-500/90 bg-gradient-to-br from-red-950/35 via-zinc-950 to-zinc-950 p-5 sm:p-6 shadow-[0_0_0_1px_rgba(239,68,68,0.12),0_16px_45px_rgba(0,0,0,0.22)]">
 <div class="flex flex-wrap items-center justify-between gap-3">
-<span id="primary-gap-category" class="inline-flex items-center rounded-lg border border-red-400/40 bg-red-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-red-200">Primary growth gap</span>
+<span id="primary-gap-category" class="inline-flex items-center rounded-lg border border-red-400/40 bg-red-500/10 px-3 py-1.5 text-xs font-extrabold uppercase tracking-wider text-red-200">CONVERSION</span>
 <span id="primary-gap-priority" class="text-xs font-extrabold uppercase tracking-[.14em] text-red-300">Worth investigating</span>
 </div>
 <h4 id="primary-gap-title" class="mt-4 text-2xl sm:text-3xl font-extrabold leading-tight text-white">What deserves a closer look?</h4>
@@ -573,9 +619,9 @@ html,body{overflow-x:hidden}
 </div>
 
 <section id="treatment-assets" class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-950 p-4 sm:p-7">
-<div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Recommended Growth Gap solution</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The scan has identified Conversion as the primary growth gap for this example. These three illustrative assets are designed to give prospective patients a clearer route from interest to enquiry or appointment.</p></div>
+<div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Conversion · Recommended products</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The scan has identified Conversion as the primary growth gap for this example. These three illustrative assets are designed to give prospective patients a clearer route from interest to enquiry or appointment.</p></div>
 <div id="diagnosed-solution-grid" class="diagnosed-solution-grid">
-<aside id="diagnosed-gap-card" class="diagnosed-gap-card"><p class="diagnosed-gap-kicker">Primary growth gap</p><h4 id="diagnosed-gap-title">Conversion</h4><p id="diagnosed-gap-summary">Turn interest into enquiries.</p><div class="diagnosed-gap-divider"></div><p class="diagnosed-gap-note">Three recommended assets</p><ol><li><b>C1</b><span>Conversion Landing Page</span></li><li><b>C2</b><span>Lead Magnet System</span></li><li><b>C3</b><span>Sticky CTA / Notification Bar</span></li></ol></aside>
+<aside id="diagnosed-gap-card" class="diagnosed-gap-card"><p class="diagnosed-gap-kicker">Primary growth gap</p><h4 id="diagnosed-gap-title">Conversion</h4><p id="diagnosed-gap-summary">Turn interest into enquiries.</p><div class="diagnosed-gap-divider"></div><p class="diagnosed-gap-note">Recommended products (3 of 5)</p><ol><li><b>C1</b><span>Conversion Landing Page</span></li><li><b>C2</b><span>Lead Magnet System</span></li><li><b>C3</b><span>Sticky CTA / Notification Bar</span></li></ol></aside>
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
 <div class="asset-browser">
 <div class="asset-browser-bar"><span class="asset-window-dots"><i></i><i></i><i></i></span><span>C1 · Conversion Landing Page</span><span>↗</span></div>
