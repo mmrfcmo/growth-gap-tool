@@ -1131,7 +1131,8 @@ if(gaps.length){
  });
  document.getElementById('assets-intro').textContent='Recommendations are ranked against the actual scan findings and specific evidence signals. The visual previews illustrate possible formats; confirm the live experience and business context before finalising the work for '+business+'.';
  ['asset-business-1','asset-business-2','asset-business-3'].forEach(id=>set(id,business));
- set('asset-landing-headline',chosen[0]?.name||'Recommended solution concept');
+ set('asset-landing-headline',isRoof?'A clearer route to your next roofing quote.':isDental?'A clearer route to your next dental appointment.':'A clearer route to the service you need.');
+ set('asset-conversion-domain',(()=>{try{return new URL(s.website||website).hostname}catch(e){return String(website||'yourbusiness.co.uk')}})());
  set('asset-landing-copy','A proposed response to the scan findings—not proof that the issue has cost a customer.');
  set('asset-landing-cta',isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch');
  set('asset-pop-cta',isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch');
