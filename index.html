@@ -300,6 +300,32 @@ html,body{overflow-x:hidden}
 #treatment-assets .conversion-sticky-bar strong{flex-shrink:0;padding:8px 10px;border-radius:6px;background:#fbbf24;color:#111827;font-size:8px}
 @media(max-width:650px){#treatment-assets .conversion-tools-stage{grid-template-columns:1fr;gap:14px;padding:12px 12px 60px}#treatment-assets .conversion-site-window{transform:none}#treatment-assets .conversion-site-nav{display:none}#treatment-assets .conversion-site-hero{grid-template-columns:1fr .65fr;padding:16px 11px}#treatment-assets .conversion-site-illustration{min-height:100px}#treatment-assets .conversion-popup-card{margin:0 8px;transform:none}#treatment-assets .conversion-sticky-bar{right:12px;left:12px;bottom:10px;font-size:8px}#treatment-assets .conversion-sticky-bar strong{font-size:7px}}
 
+
+/* Product Suite overview and pricing */
+#product-suite-overview .product-suite-row{display:grid;grid-template-columns:minmax(190px,1.05fr) repeat(3,minmax(0,1fr));gap:10px;align-items:stretch;padding:10px;border:1px solid #30343a;border-radius:15px;background:#111316}
+#product-suite-overview .product-suite-driver{display:flex;align-items:flex-start;gap:12px;padding:13px;border-radius:11px;color:#fff}
+#product-suite-overview .product-suite-icon{display:grid;place-items:center;flex:0 0 34px;width:34px;height:34px;border-radius:50%;background:#ffffff20;font-size:22px;font-weight:800}
+#product-suite-overview .product-suite-driver h4{font-size:18px;font-weight:900;margin-top:2px}
+#product-suite-overview .product-suite-driver p:last-child{font-size:11px;line-height:1.45;margin-top:5px;color:#f8fafc}
+#product-suite-overview .product-suite-kicker{font-size:9px;text-transform:uppercase;letter-spacing:.1em;font-weight:800;opacity:.85}
+#product-suite-overview .driver-visibility{background:#173f75}
+#product-suite-overview .driver-trust{background:#14532d}
+#product-suite-overview .driver-conversion{background:#7c2d12}
+#product-suite-overview .driver-retention{background:#4c1d95}
+#product-suite-overview .product-suite-item{min-width:0;padding:8px;border:1px solid #30343a;border-radius:10px;background:#0b0d0f;display:flex;flex-direction:column;gap:6px}
+#product-suite-overview .product-suite-item img{width:100%;height:75px;object-fit:cover;border-radius:6px;background:#20252b}
+#product-suite-overview .product-suite-item b{font-size:11px;line-height:1.35;color:#f4f4f5}
+#product-suite-overview .product-suite-item span{font-size:10px;line-height:1.4;color:#a1a1aa}
+#product-suite-overview .product-suite-row.is-primary{border-color:#fb923c;box-shadow:0 0 0 1px #fb923c45,0 0 25px #f9731615;background:#1c130f}
+#product-suite-overview .product-suite-row.is-primary .product-suite-driver{box-shadow:0 0 0 2px #fdba74}
+#treatment-assets .asset-price-panel{margin-top:14px;padding:14px;border:1px solid #3f3f46;border-radius:12px;background:#09090b}
+#treatment-assets .asset-price-panel .price-value{font-size:20px;font-weight:900;color:#fff}
+#annual-product-bundle{border:1px solid rgba(52,211,153,.5);background:linear-gradient(125deg,#052e2b,#09090b 70%);border-radius:18px;padding:clamp(18px,3vw,30px);margin-top:22px}
+#annual-product-bundle .bundle-number{font-size:clamp(30px,4vw,42px);font-weight:900;letter-spacing:-.04em;color:#fff;line-height:1}
+#treatment-assets .asset-preview-card .asset-hero-copy h4{font-size:clamp(20px,2vw,28px)}
+@media(max-width:850px){#product-suite-overview .product-suite-row{grid-template-columns:repeat(3,minmax(0,1fr))}#product-suite-overview .product-suite-driver{grid-column:1/-1;min-height:0}#product-suite-overview .product-suite-item img{height:95px}}
+@media(max-width:560px){#product-suite-overview .product-suite-row{grid-template-columns:minmax(0,1fr)}#product-suite-overview .product-suite-driver{grid-column:auto}#product-suite-overview .product-suite-item{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;column-gap:10px}#product-suite-overview .product-suite-item img{grid-row:span 2;height:68px}#product-suite-overview .product-suite-item b{align-self:end}#product-suite-overview .product-suite-item span{align-self:start}}
+
 </style>
 </head>
 
@@ -475,8 +501,40 @@ html,body{overflow-x:hidden}
 </div>
 <p id="snapshot-cta-reassurance" class="mt-4 text-xs leading-relaxed text-zinc-300">This is the handover from diagnosis to prescription: first understand the potential problem, then see the three solutions selected to address it.</p>
 </div>
+
+<section id="product-suite-overview" class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-950 p-4 sm:p-7">
+ <div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Doctor Approach · Product Suite</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Four growth drivers. Three practical solutions for each.</h3><p class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The scan’s primary growth gap is highlighted. The examples below are tailored to the business sector; the three recommended products are expanded in the proposal that follows.</p></div>
+ <div class="space-y-3">
+  <div class="product-suite-row" data-suite-category="visibility">
+   <div class="product-suite-driver driver-visibility"><span class="product-suite-icon">⌕</span><div><p class="product-suite-kicker">Growth driver 01</p><h4>Visibility</h4><p>Help the right customers find your business.</p></div></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=500&q=80" alt="Dental practice website illustration"><b>V1 · Local Visibility Page</b><span>Make services and locations easier to understand.</span></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=500&q=80" alt="Dental service page illustration"><b>V2 · Service Page Builder</b><span>Give priority treatments a clear, useful page.</span></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&w=500&q=80" alt="Dental information content illustration"><b>V3 · Blog Starter</b><span>Answer common patient questions with useful content.</span></div>
+  </div>
+  <div class="product-suite-row" data-suite-category="trust">
+   <div class="product-suite-driver driver-trust"><span class="product-suite-icon">✓</span><div><p class="product-suite-kicker">Growth driver 02</p><h4>Trust</h4><p>Help customers feel confident choosing you.</p></div></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=500&q=80" alt="Patient review presentation illustration"><b>T1 · Reviews Showcase</b><span>Present genuine feedback clearly.</span></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=500&q=80" alt="Dental practice case study illustration"><b>T2 · Customer Success Story</b><span>Explain a real patient journey with permission.</span></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=500&q=80" alt="Dental team profile illustration"><b>T3 · Credibility Profile</b><span>Make verifiable team and practice information clear.</span></div>
+  </div>
+  <div class="product-suite-row" data-suite-category="conversion">
+   <div class="product-suite-driver driver-conversion"><span class="product-suite-icon">↗</span><div><p class="product-suite-kicker">Growth driver 03</p><h4>Conversion</h4><p>Turn interest into enquiries.</p></div></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=500&q=80" alt="Dental conversion landing page illustration"><b>C1 · Conversion Landing Page</b><span>Focus a treatment offer and appointment route.</span></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=500&q=80" alt="Dental patient guide illustration"><b>C2 · Lead Magnet System</b><span>Offer a useful patient guide and opt-in.</span></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=500&q=80" alt="Dental booking call to action illustration"><b>C3 · Sticky CTA / Notification Bar</b><span>Keep a helpful appointment prompt visible.</span></div>
+  </div>
+  <div class="product-suite-row" data-suite-category="retention">
+   <div class="product-suite-driver driver-retention"><span class="product-suite-icon">↻</span><div><p class="product-suite-kicker">Growth driver 04</p><h4>Retention</h4><p>Generate more value from existing customers.</p></div></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=500&q=80" alt="Patient follow-up illustration"><b>R1 · Customer Follow-up</b><span>Plan helpful post-visit communication.</span></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?auto=format&fit=crop&w=500&q=80" alt="Patient rebooking illustration"><b>R2 · Customer Comeback Campaign</b><span>Encourage relevant check-ups and rebooking.</span></div>
+   <div class="product-suite-item"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=500&q=80" alt="Patient review and referral illustration"><b>R3 · Review & Referral Sequence</b><span>Invite honest feedback and recommendations.</span></div>
+  </div>
+ </div>
+ <p class="mt-4 text-xs leading-relaxed text-zinc-500">Illustrative product concepts, not claims that these assets already exist on the practice website. The primary gap and the three detailed recommendations below are determined by the scan results.</p>
+</section>
+
 <section id="treatment-assets" class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-950 p-4 sm:p-7">
-<div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three core assets — plus two bonus conversion tools</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The first two assets form the foundation: a conversion landing page and a lead magnet with an opt-in page. The recommended third asset is a smart pop-up or sticky call-to-action. Expand the two bonus options to see how an estimate calculator or callback/booking widget could add further value.</p></div>
+<div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Recommended Growth Gap solution</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">Three products are selected for the primary growth gap. Review the visual concepts, what each would involve and the annual pricing below. The other growth drivers remain visible above for context.</p></div>
 <div class="grid grid-cols-1 gap-5">
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
 <div class="asset-browser">
@@ -484,12 +542,13 @@ html,body{overflow-x:hidden}
 <div class="asset-page">
 <header class="asset-brand"><span class="asset-tooth" aria-hidden="true">✧</span><span id="asset-business-1">DENTAL SMILES LONDON</span><span class="asset-nav">Treatments　 About　 Contact</span><b>Book appointment</b></header>
 <div class="asset-hero">
-<div class="asset-hero-copy"><p class="asset-eyebrow">YOUR SMILE. YOUR CONFIDENCE.</p><h4 id="asset-landing-headline">A healthier, brighter smile starts here.</h4><p id="asset-landing-copy">Friendly, expert dental care with a clear next step when you're ready.</p><span id="asset-landing-cta" class="asset-cta">Book your consultation <span>→</span></span><div class="asset-proof"><span>✓ Experienced team</span><span>✓ Patient-first care</span></div></div>
+<div class="asset-hero-copy"><p class="asset-eyebrow">YOUR SMILE. YOUR CONFIDENCE.</p><h4 id="asset-landing-headline">A healthier, brighter smile starts here.</h4><p id="asset-landing-copy">Explore general and cosmetic dentistry at Kings Cross and Euston, with a clear route to book or enquire.</p><span id="asset-landing-cta" class="asset-cta">Book your consultation <span>→</span></span><div class="asset-proof"><span>✓ Experienced team</span><span>✓ Patient-first care</span></div></div>
 <div class="asset-photo asset-photo-smile" role="img" aria-label="Illustrative smiling patient photograph"></div>
 </div>
 <div class="asset-service-strip"><span>General dentistry</span><span>Cosmetic treatments</span><span>Patient reviews</span></div>
 </div></div>
-<div class="p-5"><p id="asset-landing-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C1 · Conversion</p><h4 id="asset-landing-title" class="mt-1 text-lg font-extrabold text-white">Conversion-focused landing page</h4><p id="asset-landing-desc" class="mt-2 text-sm leading-6 text-zinc-300">A focused page concept with a clear value proposition, reassurance and a prominent enquiry route.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-landing-why" class="mt-1 text-sm leading-6 text-zinc-200">The scan suggests the current service journey may not make the next step clear enough.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-landing-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Make the offer easier to understand and the enquiry route easier to follow.</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed design concept · not published</p></div>
+<div class="p-5"><p id="asset-landing-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C1 · Conversion</p><h4 id="asset-landing-title" class="mt-1 text-lg font-extrabold text-white">Conversion-focused landing page</h4><p id="asset-landing-desc" class="mt-2 text-sm leading-6 text-zinc-300">A focused page concept with a clear value proposition, reassurance and a prominent enquiry route.</p><div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-landing-why" class="mt-1 text-sm leading-6 text-zinc-200">The scan suggests the current service journey may not make the next step clear enough.</p></div><div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-landing-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Make the offer easier to understand and the enquiry route easier to follow.</p></div><div class="asset-price-panel"><div class="flex flex-wrap items-center justify-between gap-3"><div><p class="text-[10px] font-extrabold uppercase tracking-wider text-zinc-400">Individual annual price</p><p class="price-value">£699 <span class="text-xs font-semibold text-zinc-400">/ year</span></p></div><span class="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">Fully managed · 12 months</span></div><p class="mt-2 text-xs leading-relaxed text-zinc-400">Includes the agreed landing-page build, hosting and defined launch checks. Final page scope and update allowance are confirmed before work starts.</p></div>
+<p class="mt-4 text-xs font-bold text-emerald-300">Proposed design concept · not published</p></div>
 </article>
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
 <div class="asset-guide-stage leadmagnet-scene">
@@ -497,7 +556,7 @@ html,body{overflow-x:hidden}
 <div class="asset-browser-bar"><span class="asset-window-dots"><i></i><i></i><i></i></span><span>Lead magnet landing page · concept</span><span>↗</span></div>
 <div class="leadmagnet-page">
 <div class="leadmagnet-top"><span class="asset-tooth">✧</span><span id="asset-business-2">DENTAL SMILES LONDON</span><span class="leadmagnet-nav">PATIENT RESOURCES</span></div>
-<div class="leadmagnet-hero"><p class="asset-eyebrow">YOUR SMILE, YOUR CHOICE</p><h4>A clearer guide to your treatment options.</h4><p>Get practical answers to common questions before you book.</p><div class="leadmagnet-signup"><strong>Get your free patient guide</strong><span>Understand your options. Know what to ask.</span><div class="leadmagnet-fields"><i>Your name</i><i>Email address</i></div><b>Send me the free guide →</b><small>No pressure. Just useful information.</small></div></div>
+<div class="leadmagnet-hero"><p class="asset-eyebrow">YOUR SMILE, YOUR CHOICE</p><h4>Your guide to exploring treatment options.</h4><p>Explore your options and prepare questions before booking.</p><div class="leadmagnet-signup"><strong>Get your free patient guide</strong><span>Understand your options. Know what to ask.</span><div class="leadmagnet-fields"><i>Your name</i><i>Email address</i></div><b>Send me the free guide →</b><small>No pressure. Just useful information.</small></div></div>
 </div>
 </div>
 <div class="leadmagnet-guide-wrap"><div class="asset-guide-shadow"></div><div class="asset-guide-cover"><div class="asset-guide-brand"><span class="asset-tooth">✧</span><span>DENTAL SMILES LONDON</span></div><p class="asset-guide-label">COMPLIMENTARY PATIENT GUIDE</p><h4 id="asset-guide-title">The essential guide to a healthier, brighter smile</h4><p id="asset-guide-copy">Practical advice to help you understand your options and feel confident about your dental care.</p><div class="asset-guide-rule"></div><div class="asset-guide-image" role="img" aria-label="Illustrative close-up of a confident smile"></div><span class="asset-guide-tag">PATIENT RESOURCE</span></div><div class="asset-guide-meta"><span>PDF GUIDE</span><span>DOWNLOADABLE RESOURCE</span></div></div>
@@ -525,8 +584,9 @@ html,body{overflow-x:hidden}
   <p id="asset-blog-label" class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset C6 · Conversion</p><h4 id="asset-blog-title" class="mt-1 text-lg font-extrabold text-white">Smart pop-up &amp; sticky call-to-action</h4>
   <p id="asset-blog-desc" class="mt-2 text-sm leading-6 text-zinc-300">A well-timed prompt and persistent next-step button designed to help interested visitors contact the business without making the page feel pushy.</p>
   <div class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-amber-300">Why recommended</p><p id="asset-blog-why" class="mt-1 text-sm leading-6 text-zinc-200">The landing page and guide create a destination and a useful resource; this tool helps visitors notice a clear next step while they browse.</p></div>
-  <div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-blog-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Make it easier to request a quote, book an appointment or ask a question, depending on the business.</p></div>
+  <div class="mt-3 rounded-xl border border-zinc-700 bg-zinc-950/70 p-3"><p class="text-[10px] font-extrabold uppercase tracking-wider text-emerald-300">Designed to achieve</p><p id="asset-blog-outcome" class="mt-1 text-sm leading-6 text-zinc-200">Make the appointment or enquiry route easier to find while patients browse, without obstructing the page.</p></div>
   <p class="mt-4 text-xs font-bold text-emerald-300">Recommended third asset · illustrative concept, not published</p>
+<div class="asset-price-panel"><div class="flex flex-wrap items-center justify-between gap-3"><div><p class="text-[10px] font-extrabold uppercase tracking-wider text-zinc-400">Individual annual price</p><p class="price-value">£699 <span class="text-xs font-semibold text-zinc-400">/ year</span></p></div><span class="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">Fully managed · 12 months</span></div><p class="mt-2 text-xs leading-relaxed text-zinc-400">Includes the agreed CTA bar or prompt, responsive styling and basic display checks. Placement, frequency and dismissal behaviour are agreed to avoid disrupting the patient journey.</p></div>
   <div class="mt-5 space-y-3">
     <div class="rounded-xl border border-zinc-700 bg-zinc-950/70 overflow-hidden">
       <button type="button" id="calculator-bonus-toggle" class="flex w-full items-center gap-3 p-4 text-left hover:bg-zinc-800/70" aria-expanded="false" aria-controls="calculator-bonus-panel"><span class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-400/10 text-amber-300"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h2m4 0h2m-8 4h2m4 0h2m-8 3h2m4 0h2"/></svg></span><span class="min-w-0 flex-1"><strong class="block text-sm text-white">Bonus option 1 · Estimate calculator</strong><span class="mt-1 block text-xs text-zinc-400">Help visitors explore an indicative cost or project scope</span></span><span id="calculator-bonus-chevron" class="text-amber-300 text-lg">＋</span></button>
@@ -551,11 +611,11 @@ html,body{overflow-x:hidden}
 <div class="treatment-route-grid mt-5">
  <article class="treatment-route-card rounded-2xl border border-emerald-500/40 bg-emerald-950/20 p-5">
   <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option A · Take your assets free</h4><span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">£0</span></div>
-  <p class="mt-2 text-sm leading-6 text-zinc-300">Receive the files for all five agreed assets: the landing page, lead magnet and opt-in page, smart pop-up/sticky CTA, estimate calculator and callback/booking tool. You or your developer will upload, host, connect, test and maintain them.</p>
-  <button type="button" id="show-free-assets" class="mt-4 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10" aria-expanded="false" aria-controls="free-assets-panel">Receive All Five Asset Files Free ↓</button>
+  <p class="mt-2 text-sm leading-6 text-zinc-300">Receive the agreed files for the three recommended products. You or your developer will implement, host, connect, test and maintain them.</p>
+  <button type="button" id="show-free-assets" class="mt-4 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10" aria-expanded="false" aria-controls="free-assets-panel">Receive the Three Product Files Free ↓</button>
   <div id="free-assets-panel" class="hidden mt-5 rounded-xl border border-emerald-500/25 bg-zinc-950/70 p-4">
    <div class="treatment-detail-columns">
-    <div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">What you get</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li>Files for all five agreed assets: landing page, lead magnet/opt-in page, smart pop-up/sticky CTA, estimate calculator and callback/booking tool.</li><li>Recommended copy and configuration notes for each asset.</li><li>An implementation checklist for your team or web developer.</li><li>A clear explanation of each asset’s purpose and intended customer journey.</li></ul></div>
+    <div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">What you get</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li>Files for the three recommended products, with agreed copy and configuration notes.</li><li>Recommended copy and configuration notes for each asset.</li><li>An implementation checklist for your team or web developer.</li><li>A clear explanation of each asset’s purpose and intended customer journey.</li></ul></div>
     <div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">What you’ll still need to do</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li><strong class="text-white">Upload and host the files:</strong> your team will need to place the assets on your website or hosting environment.</li><li><strong class="text-white">Connect the moving parts:</strong> forms, downloads, callback requests and any calendar or email integrations need to be configured.</li><li><strong class="text-white">Test before launch:</strong> check mobile layout, consent, links and enquiry delivery end-to-end.</li><li><strong class="text-white">Maintain the assets:</strong> you will be responsible for ongoing hosting, updates and troubleshooting.</li></ul></div>
    </div>
    <p class="mt-4 rounded-lg border border-amber-400/25 bg-amber-400/5 p-3 text-sm leading-6 text-zinc-300"><strong class="text-amber-300">Worth considering:</strong> do you already have the time and support to get these assets implemented, tested and maintained—or would it be easier to have one team take responsibility for the agreed work?</p>
@@ -569,8 +629,8 @@ html,body{overflow-x:hidden}
   <div id="managed-options-panel" class="hidden mt-5">
    <p class="mb-3 text-xs leading-relaxed text-zinc-400">12-month managed packages. Final functionality and scope are agreed before work starts. External calendar, CRM, email or other paid subscriptions are not included unless expressly agreed.</p>
    <div class="managed-package-grid">
-    <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B1 · Essential</p><h5 class="mt-2 text-lg font-extrabold text-white">Implement & host all five assets</h5><p class="mt-2 text-2xl font-extrabold text-white">£1,500<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Implement the five agreed assets: landing page, guide/opt-in page, pop-up/CTA, estimate calculator and callback/booking tool.</li><li>Host the agreed assets for 12 months and complete launch checks.</li><li>One agreed review round before launch.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: getting the agreed foundations live with a defined scope.</p><button type="button" data-treatment="B1" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B1</button></article>
-    <article class="managed-package-card managed-package-featured"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B2 · Growth</p><h5 class="mt-2 text-lg font-extrabold text-white">All five assets + refinement</h5><p class="mt-2 text-2xl font-extrabold text-white">£2,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B1.</li><li>Agreed content or asset refinements during the 12-month term.</li><li>Periodic review of the agreed assets and next actions.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: owners who want the assets maintained and improved over time.</p><button type="button" data-treatment="B2" class="mt-4 w-full rounded-xl bg-amber-400 px-3 py-3 text-sm font-extrabold text-zinc-950">Select B2</button></article>
+    <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B1 · Essential</p><h5 class="mt-2 text-lg font-extrabold text-white">Implement & host three products</h5><p class="mt-2 text-2xl font-extrabold text-white">£1,500<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Implement the three agreed products selected for the primary growth gap.</li><li>Host the agreed assets for 12 months and complete launch checks.</li><li>One agreed review round before launch.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: getting the agreed foundations live with a defined scope.</p><button type="button" data-treatment="B1" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B1</button></article>
+    <article class="managed-package-card managed-package-featured"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B2 · Growth</p><h5 class="mt-2 text-lg font-extrabold text-white">Three products + refinement</h5><p class="mt-2 text-2xl font-extrabold text-white">£2,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B1.</li><li>Agreed content or asset refinements during the 12-month term.</li><li>Periodic review of the agreed assets and next actions.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: owners who want the assets maintained and improved over time.</p><button type="button" data-treatment="B2" class="mt-4 w-full rounded-xl bg-amber-400 px-3 py-3 text-sm font-extrabold text-zinc-950">Select B2</button></article>
     <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B3 · Growth Plus</p><h5 class="mt-2 text-lg font-extrabold text-white">Broader support across all five assets</h5><p class="mt-2 text-2xl font-extrabold text-white">£3,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B2.</li><li>Broader implementation support across the agreed priority areas.</li><li>A more detailed review and recommended next-step plan.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: businesses needing a wider set of improvements coordinated.</p><button type="button" data-treatment="B3" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B3</button></article>
    </div>
   </div>
@@ -1113,8 +1173,8 @@ if(gaps.length){
  }
  const ranked=products.map(p=>({...p,score:score(p)})).sort((a,b)=>b.score-a.score);
  const chosen=[
-  {id:'C1',cat:'Conversion',name:'Conversion-focused landing page',why:'This is the main destination where a prospective customer should quickly understand the service and the next step.',outcome:'Give visitors a focused page with a clear offer, relevant reassurance and an obvious route to enquire.'},
-  {id:'C4',cat:'Conversion',name:'Lead magnet & customer guide',why:'Not every visitor is ready to enquire immediately. A useful guide gives earlier-stage prospects a reason to share their details.',outcome:'Capture interested prospects with a useful resource and a clear, permission-based next step.'},
+  {id:'C1',cat:'Conversion',name:'Conversion-focused landing page',why:'This is the main destination where a prospective customer should quickly understand the service and the next step.',outcome:'Give prospective patients a focused treatment page, relevant reassurance and an obvious route to book or enquire.'},
+  {id:'C4',cat:'Conversion',name:'Lead magnet & customer guide',why:'Not every visitor is ready to enquire immediately. A useful guide gives earlier-stage prospects a reason to share their details.',outcome:'Offer a practical patient guide with an opt-in route and a permission-based next step.'},
   {id:'C6',cat:'Conversion',name:'Smart pop-up & sticky call-to-action',why:'The landing page and guide create a destination and a useful resource; this tool helps visitors notice a clear next step while they browse.',outcome:'Make it easier to request a quote, book an appointment or ask a question, depending on the business.'}
  ];
  const slots=[
@@ -1122,7 +1182,22 @@ if(gaps.length){
  {label:'asset-guide-label',title:'asset-guide-card-title',desc:'asset-guide-desc',why:'asset-guide-why',out:'asset-guide-outcome'},
  {label:'asset-blog-label',title:'asset-blog-title',desc:'asset-blog-desc',why:'asset-blog-why',out:'asset-blog-outcome'}
  ];
+ 
  const set=(id,v)=>{const e=document.getElementById(id);if(e)e.textContent=v};
+ document.querySelectorAll('#product-suite-overview [data-suite-category]').forEach(row=>row.classList.toggle('is-primary',row.dataset.suiteCategory===primaryCat));
+ const suiteIntro=document.querySelector('#product-suite-overview > div:first-child p.mt-2');
+ if(suiteIntro)suiteIntro.textContent='Personalised product examples for '+business+'. The scan’s primary growth gap is '+(primaryCat.charAt(0).toUpperCase()+primaryCat.slice(1))+'. The detailed recommendation below focuses on that category; all examples are illustrative until agreed and implemented.';
+ const bundleCopy=document.getElementById('bundle-industry-copy');
+ if(bundleCopy)bundleCopy.textContent=(isDental?'For '+business+': three dental-practice concepts focused on helping prospective patients understand treatment options and find a clear appointment next step.':isRoof?'For '+business+': three roofing concepts focused on helping homeowners understand services and request a quote.':'For '+business+': three sector-adapted concepts focused on the diagnosed growth gap and a clear next step.');
+ const bundleItems=document.querySelectorAll('#annual-product-bundle li');
+ const bundleNames={
+  visibility:['Local Visibility Page','Service Page Builder','Blog Starter'],
+  trust:['Reviews Showcase','Customer Success Story','Credibility Profile'],
+  conversion:['Conversion Landing Page','Lead Magnet System','Sticky CTA / Notification Bar'],
+  retention:['Customer Follow-up Sequence','Customer Comeback Campaign','Review & Referral Sequence']
+ }[primaryCat]||['Recommended product 1','Recommended product 2','Recommended product 3'];
+ bundleItems.forEach((el,i)=>{el.textContent=String(i+1).padStart(2,'0')+' · '+bundleNames[i]});
+
  chosen.forEach((p,i)=>{
   const z=slots[i],preview=['landing page','customer guide and opt-in page','smart pop-up and sticky call-to-action'][i];
   set(z.label,'Asset '+p.id+' · '+p.cat);set(z.title,p.name);
@@ -1131,13 +1206,13 @@ if(gaps.length){
  });
  document.getElementById('assets-intro').textContent='Recommendations are ranked against the actual scan findings and specific evidence signals. The visual previews illustrate possible formats; confirm the live experience and business context before finalising the work for '+business+'.';
  ['asset-business-1','asset-business-2','asset-business-3'].forEach(id=>set(id,business));
- set('asset-landing-headline',isRoof?'A clearer route to your next roofing quote.':isDental?'A clearer route to your next dental appointment.':'A clearer route to the service you need.');
+ set('asset-landing-headline',isRoof?'A clearer route to your next roofing quote.':isDental?'A clearer route to your next dental consultation.':'A clearer route to the service you need.');
  set('asset-conversion-domain',(()=>{try{return new URL(s.website||website).hostname}catch(e){return String(website||'yourbusiness.co.uk')}})());
  set('asset-landing-copy','A proposed response to the scan findings—not proof that the issue has cost a customer.');
  set('asset-landing-cta',isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch');
  set('asset-pop-cta',isRoof?'Request a quote':isDental?'Request an appointment':'Get in touch');
  set('asset-sticky-cta',isRoof?'Request a quote →':isDental?'Book an appointment →':'Get in touch →');
- set('asset-pop-headline',isRoof?'Need help planning your roofing project?':isDental?'Have a question about your treatment?':'Have a question before you decide?');
+ set('asset-pop-headline',isRoof?'Need help planning your roofing project?':isDental?'Have a question about a treatment?':'Have a question before you decide?');
  set('asset-guide-title',chosen[1]?.name||'Customer resource concept');set('asset-guide-copy','A practical resource concept shaped around the diagnosed opportunity.');
  set('asset-article-1',chosen[2]?.name||'Recommended customer resource');set('asset-article-2','What customers need to know before taking the next step');
  const guideQuestions={
