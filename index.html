@@ -29,6 +29,31 @@ html,body{overflow-x:hidden}
   footer .text-sm{text-align:left!important}
 }
 
+
+/* Step 2: three horizontal asset rows, each with a visual preview and description beside it */
+#treatment-assets .asset-preview-card{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);align-items:stretch;}
+#treatment-assets .asset-preview-card>.asset-browser,
+#treatment-assets .asset-preview-card>.asset-guide-stage,
+#treatment-assets .asset-preview-card>.asset-blog-window{grid-column:1;grid-row:1;min-width:0;align-self:stretch;}
+#treatment-assets .asset-preview-card>.p-5{grid-column:2;grid-row:1;align-self:center;padding:clamp(18px,3vw,32px);}
+#treatment-assets .asset-preview-card>.asset-browser{display:flex;flex-direction:column;justify-content:center;}
+#treatment-assets .asset-preview-card .asset-hero{min-height:250px;}
+#treatment-assets .asset-preview-card .asset-hero .asset-photo{min-height:250px;}
+#treatment-assets .asset-preview-card .asset-guide-stage{min-height:340px;}
+#treatment-assets .asset-preview-card .asset-guide-cover{max-width:290px;}
+#treatment-assets .asset-preview-card .asset-blog-window{align-self:center;margin:12px;width:calc(100% - 24px);}
+#treatment-assets .asset-preview-card .asset-benefit-list{margin-top:14px;}
+@media(max-width:700px){
+ #treatment-assets .asset-preview-card{grid-template-columns:minmax(0,1fr);}
+ #treatment-assets .asset-preview-card>.asset-browser,
+ #treatment-assets .asset-preview-card>.asset-guide-stage,
+ #treatment-assets .asset-preview-card>.asset-blog-window{grid-column:1;grid-row:1;}
+ #treatment-assets .asset-preview-card>.p-5{grid-column:1;grid-row:2;padding:20px;}
+ #treatment-assets .asset-preview-card .asset-hero{min-height:225px;}
+ #treatment-assets .asset-preview-card .asset-hero .asset-photo{min-height:225px;}
+ #treatment-assets .asset-preview-card .asset-guide-stage{min-height:315px;}
+}
+
 /* Step 2 visual mockups: polished, legible asset previews */
 .asset-preview-card{min-width:0;box-shadow:0 12px 30px rgba(0,0,0,.16)}
 .asset-browser{padding:10px;background:#e8edf4}
@@ -298,7 +323,7 @@ html,body{overflow-x:hidden}
 </div>
 <section id="treatment-assets" class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-950 p-4 sm:p-7">
 <div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three assets built around the growth gap</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">Based on your Snapshot primary finding, these are proposed concepts for your business—not finished articles or live assets. Each concept is designed to address the diagnosed opportunity.</p></div>
-<div class="grid gap-5 xl:grid-cols-3">
+<div class="grid grid-cols-1 gap-5">
 <article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
 <div class="asset-browser">
 <div class="asset-browser-bar"><span class="asset-window-dots"><i></i><i></i><i></i></span><span>Proposed landing page · concept</span><span>↗</span></div>
