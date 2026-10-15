@@ -29,6 +29,59 @@ html,body{overflow-x:hidden}
   footer .text-sm{text-align:left!important}
 }
 
+/* Step 2 visual mockups: polished, legible asset previews */
+.asset-preview-card{min-width:0;box-shadow:0 12px 30px rgba(0,0,0,.16)}
+.asset-browser{padding:10px;background:#e8edf4}
+.asset-browser-bar{height:23px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 6px;color:#64748b;font-size:9px;font-weight:700}
+.asset-window-dots{display:flex;gap:4px}.asset-window-dots i{width:6px;height:6px;border-radius:50%;background:#94a3b8}
+.asset-page,.asset-blog-window{overflow:hidden;border-radius:8px;background:#fff;color:#12243a;box-shadow:0 4px 14px #0f172a18}
+.asset-brand{min-height:44px;display:flex;align-items:center;gap:7px;padding:9px 11px;border-bottom:1px solid #e5edf4;color:#0d5f7d;font-size:9px;font-weight:900;letter-spacing:.02em}
+.asset-tooth{display:inline-flex;align-items:center;justify-content:center;width:25px;height:25px;flex-shrink:0;border:2px solid #1384a4;border-radius:9px 9px 12px 12px;color:#1384a4;font-size:17px}
+.asset-nav{margin-left:auto;font-size:7px;color:#64748b;font-weight:600}
+.asset-brand b{background:#087c9e;color:white;border-radius:5px;padding:7px 8px;font-size:7px;white-space:nowrap}
+.asset-hero{display:grid;grid-template-columns:1.08fr .92fr;min-height:230px;background:linear-gradient(120deg,#f8fcff,#e3f4fa)}
+.asset-hero-copy{padding:17px 10px 12px 14px;position:relative;z-index:1}
+.asset-eyebrow{font-size:7px;font-weight:900;letter-spacing:.12em;color:#087e9e}
+.asset-hero-copy h4{font-size:clamp(18px,1.8vw,25px);font-weight:900;line-height:1.05;letter-spacing:-.04em;color:#103554;margin-top:10px}
+.asset-hero-copy>p:not(.asset-eyebrow){font-size:9px;line-height:1.5;color:#526b80;margin-top:10px}
+.asset-cta{display:inline-flex;align-items:center;gap:8px;margin-top:13px;padding:9px 10px;border-radius:6px;background:#087fa4;color:#fff;font-size:8px;font-weight:900;box-shadow:0 4px 10px #087fa433}
+.asset-proof{display:flex;flex-direction:column;gap:5px;margin-top:12px;font-size:7px;color:#426378;font-weight:700}
+.asset-photo{background-size:cover;background-position:center}
+.asset-photo-smile{background-image:url('https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&w=800&q=85')}
+.asset-photo-dental{background-image:url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=85')}
+.asset-hero .asset-photo{min-height:230px;background-position:center;clip-path:ellipse(95% 82% at 80% 50%)}
+.asset-service-strip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:10px;background:#fff;color:#36536a;font-size:8px;font-weight:800;text-align:center}
+.asset-service-strip span{padding:8px 2px;border:1px solid #e0edf3;border-radius:5px}
+.asset-guide-stage{min-height:300px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px 18px 14px;background:radial-gradient(circle at 50% 35%,#d8f2f7,#edf3f6 58%,#d6e1e9);overflow:hidden}
+.asset-guide-shadow{position:absolute;width:66%;height:220px;transform:rotate(8deg) translate(10px,10px);background:#9aaebb;box-shadow:0 12px 25px #33415522}
+.asset-guide-cover{position:relative;width:78%;min-height:250px;padding:17px 16px 12px;background:linear-gradient(155deg,#fff 0%,#f4fbff 62%,#cbeef4 100%);border:1px solid #d1e1e8;box-shadow:0 15px 30px #33415530;transform:rotate(-3deg);color:#12334d}
+.asset-guide-brand{display:flex;align-items:center;gap:6px;font-size:8px;font-weight:900;color:#087b9a}
+.asset-guide-brand .asset-tooth{width:22px;height:22px}
+.asset-guide-label{font-size:7px;letter-spacing:.13em;font-weight:900;color:#0d849d;margin-top:17px}
+.asset-guide-cover h4{font-size:clamp(19px,1.8vw,25px);font-weight:900;line-height:1.02;letter-spacing:-.04em;margin-top:8px}
+.asset-guide-cover>p:not(.asset-guide-label){font-size:9px;line-height:1.45;color:#526b80;margin-top:9px}
+.asset-guide-rule{width:36px;height:3px;background:#e9a829;margin-top:12px}
+.asset-guide-image{height:54px;border-radius:5px;margin-top:11px;background-image:url('https://images.unsplash.com/photo-1606811971618-4486d14f3f99?auto=format&fit=crop&w=700&q=85');background-size:cover;background-position:center 42%}
+.asset-guide-tag{display:inline-block;margin-top:8px;background:#087c9e;color:#fff;padding:5px 7px;border-radius:4px;font-size:7px;font-weight:900;letter-spacing:.08em}
+.asset-guide-meta{position:relative;display:flex;justify-content:space-between;gap:8px;width:100%;color:#4b6375;font-size:8px;font-weight:800}
+.asset-blog-window{padding-bottom:10px}
+.asset-blog-heading{padding:20px 14px 14px;background:linear-gradient(120deg,#e9f7fb,#f7fbfd)}
+.asset-blog-heading h4{font-size:21px;font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-top:8px;color:#12334d}
+.asset-blog-heading>p:last-child{font-size:9px;color:#5a7183;margin-top:6px;line-height:1.5}
+.asset-article-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:10px}
+.asset-article{min-width:0;border:1px solid #e0e9ee;border-radius:7px;overflow:hidden;padding-bottom:10px}
+.asset-article-photo{height:90px;background-size:cover;background-position:center}
+.asset-article-kicker{font-size:7px;font-weight:900;letter-spacing:.09em;color:#0c819e;padding:9px 8px 0}
+.asset-article h5{font-size:12px;font-weight:900;line-height:1.18;color:#173b57;padding:5px 8px 0}
+.asset-article>p:not(.asset-article-kicker){font-size:8px;line-height:1.45;color:#64798a;padding:6px 8px 0}
+.asset-article>span{display:block;padding:8px 8px 0;font-size:8px;color:#087fa4;font-weight:900}
+.asset-blog-footer{border-top:1px solid #e7edf1;margin:0 10px;padding-top:9px;color:#62788a;font-size:8px;font-weight:700}
+.asset-benefit-list{display:grid;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid #34383f}
+.asset-benefit-list p{display:flex;align-items:flex-start;gap:8px;font-size:12px;line-height:1.45;color:#d4d4d8}
+.asset-benefit-list span{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:17px;height:17px;border-radius:50%;background:#fbbf24;color:#18181b;font-size:11px;font-weight:900}
+@media(max-width:1279px){.asset-hero-copy h4{font-size:23px}.asset-guide-cover h4{font-size:23px}}
+@media(max-width:640px){.asset-hero{min-height:210px}.asset-hero .asset-photo{min-height:210px}.asset-guide-cover{width:84%}.asset-article-photo{height:75px}}
+
 /* Catalogue styling only. Keep the scanner and results on the original Snapshot layout. */
 #deep-dive-catalogue{margin-top:16px;border:1px solid #6b5014;border-radius:15px;background:#0b0d0f;padding:16px}
 #deep-dive-catalogue .catalogue-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
@@ -244,12 +297,43 @@ html,body{overflow-x:hidden}
 <p id="snapshot-cta-reassurance" class="mt-4 text-xs leading-relaxed text-zinc-300">Review the diagnosis first, then explore the three assets and implementation options.</p>
 </div>
 <section id="treatment-assets" class="mt-8 rounded-3xl border border-zinc-800 bg-zinc-950 p-4 sm:p-7">
-<div class="mb-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three assets built around the growth gap</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">These are tailored concepts for discussion. The recommended focus follows the actual scan finding.</p></div>
-<div class="grid gap-4 lg:grid-cols-3">
-<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="bg-white p-3 text-zinc-900"><div class="flex items-center justify-between border-b pb-2 text-[9px] font-extrabold"><span id="asset-business-1">YOUR BUSINESS</span><span>Services · About · Contact</span></div><div class="grid grid-cols-2 gap-2 py-4"><div><p id="asset-landing-headline" class="text-sm font-extrabold leading-tight">A clearer route to your next customer</p><p id="asset-landing-copy" class="mt-2 text-[9px] leading-relaxed text-zinc-600">Focused message, trust evidence and one clear next step.</p><span id="asset-landing-cta" class="mt-3 inline-block rounded bg-amber-400 px-2 py-1 text-[8px] font-extrabold">Get started</span></div><div class="rounded bg-slate-100 p-2"><div class="h-12 rounded bg-slate-300"></div><div class="mt-2 h-2 rounded bg-slate-200"></div><div class="mt-1 h-2 w-2/3 rounded bg-slate-200"></div><div class="mt-2 rounded border p-1 text-[8px]">Enquiry route</div></div></div><div class="grid grid-cols-3 gap-1 border-t pt-2 text-center text-[8px]"><span>Proof</span><span>Benefits</span><span>Next step</span></div></div><div class="p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 01</p><h4 class="mt-1 font-extrabold text-white">Focused landing page</h4><p id="asset-landing-desc" class="mt-2 text-sm leading-6 text-zinc-400">A focused page built around the primary growth gap.</p><p class="mt-3 text-xs font-bold text-emerald-300">Complimentary concept</p></div></article>
-<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="flex min-h-[200px] items-center justify-center bg-stone-100 p-5"><div class="w-4/5 -rotate-2 border border-stone-300 bg-white p-4 text-zinc-900 shadow-xl"><p class="text-[8px] font-extrabold uppercase tracking-widest text-amber-700">Free practical guide</p><p id="asset-guide-title" class="mt-3 text-lg font-extrabold leading-tight">The Customer's Guide to Making the Right Choice</p><div class="mt-3 h-1 w-12 bg-amber-400"></div><p id="asset-guide-copy" class="mt-3 text-[9px] leading-relaxed text-zinc-600">Useful advice, key questions and a clear next step.</p><p id="asset-business-2" class="mt-4 text-[8px] font-bold">YOUR BUSINESS</p></div></div><div class="p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 02</p><h4 class="mt-1 font-extrabold text-white">Lead magnet and guide</h4><p id="asset-guide-desc" class="mt-2 text-sm leading-6 text-zinc-400">A useful resource designed to start a relationship with a potential customer.</p><p class="mt-3 text-xs font-bold text-emerald-300">Complimentary concept</p></div></article>
-<article class="overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900"><div class="bg-white p-3 text-zinc-900"><div class="flex items-center justify-between border-b pb-2"><span id="asset-business-3" class="text-[9px] font-extrabold">YOUR BUSINESS · INSIGHTS</span><span class="text-[8px]">Home · Blog</span></div><p class="mt-3 text-base font-extrabold">Advice & Insights</p><p class="mt-1 text-[9px] text-zinc-500">Answers to the questions your customers ask.</p><div class="mt-3 grid grid-cols-3 gap-2"><div><div class="h-10 rounded bg-slate-200"></div><p id="asset-article-1" class="mt-2 text-[8px] font-bold leading-tight">What to check before choosing a provider</p><p class="mt-1 text-[7px] text-zinc-500">Article 01</p></div><div><div class="h-10 rounded bg-slate-300"></div><p id="asset-article-2" class="mt-2 text-[8px] font-bold leading-tight">Questions to ask before requesting a quote</p><p class="mt-1 text-[7px] text-zinc-500">Article 02</p></div><div><div class="h-10 rounded bg-amber-100"></div><p id="asset-article-3" class="mt-2 text-[8px] font-bold leading-tight">How to compare options with confidence</p><p class="mt-1 text-[7px] text-zinc-500">Article 03</p></div></div></div><div class="p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 03</p><h4 class="mt-1 font-extrabold text-white">Blog setup + three articles</h4><p id="asset-blog-desc" class="mt-2 text-sm leading-6 text-zinc-400">A small content base shaped around customer questions.</p><p class="mt-3 text-xs font-bold text-emerald-300">Complimentary concept</p></div></article>
-</div></section>
+<div class="mb-6"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 2 · Solution preview</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three assets built around the growth gap</h3><p id="assets-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">Based on your Snapshot primary finding, these are proposed concepts for your business—not finished articles or live assets. Each concept is designed to address the diagnosed opportunity.</p></div>
+<div class="grid gap-5 xl:grid-cols-3">
+<article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
+<div class="asset-browser">
+<div class="asset-browser-bar"><span class="asset-window-dots"><i></i><i></i><i></i></span><span>Proposed landing page · concept</span><span>↗</span></div>
+<div class="asset-page">
+<header class="asset-brand"><span class="asset-tooth" aria-hidden="true">✧</span><span id="asset-business-1">DENTAL SMILES LONDON</span><span class="asset-nav">Treatments　 About　 Contact</span><b>Book appointment</b></header>
+<div class="asset-hero">
+<div class="asset-hero-copy"><p class="asset-eyebrow">YOUR SMILE. YOUR CONFIDENCE.</p><h4 id="asset-landing-headline">A healthier, brighter smile starts here.</h4><p id="asset-landing-copy">Friendly, expert dental care with a clear next step when you're ready.</p><span id="asset-landing-cta" class="asset-cta">Book your consultation <span>→</span></span><div class="asset-proof"><span>✓ Experienced team</span><span>✓ Patient-first care</span></div></div>
+<div class="asset-photo asset-photo-smile" role="img" aria-label="Illustrative smiling patient photograph"></div>
+</div>
+<div class="asset-service-strip"><span>General dentistry</span><span>Cosmetic treatments</span><span>Patient reviews</span></div>
+</div></div>
+<div class="p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 01</p><h4 class="mt-1 text-lg font-extrabold text-white">Focused landing page</h4><p id="asset-landing-desc" class="mt-2 text-sm leading-6 text-zinc-300">A focused page concept with a clear value proposition, reassurance and a prominent appointment route.</p><div class="asset-benefit-list"><p><span>✓</span> Clear message and call to action</p><p><span>✓</span> Patient trust and proof areas</p><p><span>✓</span> Service benefits and enquiry path</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed design concept · not published</p></div>
+</article>
+<article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
+<div class="asset-guide-stage">
+<div class="asset-guide-shadow"></div><div class="asset-guide-cover"><div class="asset-guide-brand"><span class="asset-tooth">✧</span><span id="asset-business-2">DENTAL SMILES LONDON</span></div><p class="asset-guide-label">COMPLIMENTARY PATIENT GUIDE</p><h4 id="asset-guide-title">The essential guide to a healthier, brighter smile</h4><p id="asset-guide-copy">Practical advice to help you understand your options and feel confident about your dental care.</p><div class="asset-guide-rule"></div><div class="asset-guide-image" role="img" aria-label="Illustrative close-up of a confident smile"></div><span class="asset-guide-tag">PATIENT RESOURCE</span></div>
+<div class="asset-guide-meta"><span>PDF GUIDE</span><span>Helpful · Clear · Patient-focused</span></div>
+</div>
+<div class="p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 02</p><h4 class="mt-1 text-lg font-extrabold text-white">Patient guide lead magnet</h4><p id="asset-guide-desc" class="mt-2 text-sm leading-6 text-zinc-300">A useful, branded guide concept that can answer common patient questions and offer a natural next step.</p><div class="asset-benefit-list"><p><span>✓</span> Useful information before an appointment</p><p><span>✓</span> Positions the practice as helpful and credible</p><p><span>✓</span> Can support an enquiry or download route</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed cover concept · not a finished guide</p></div>
+</article>
+<article class="asset-preview-card overflow-hidden rounded-2xl border border-zinc-700 bg-zinc-900">
+<div class="asset-blog-window">
+<header class="asset-brand"><span class="asset-tooth" aria-hidden="true">✧</span><span id="asset-business-3">DENTAL SMILES LONDON</span><span class="asset-nav">Treatments　 About　 Blog</span><b>Book appointment</b></header>
+<div class="asset-blog-heading"><p class="asset-eyebrow">FROM YOUR DENTAL TEAM</p><h4>Helpful advice. Healthier smiles.</h4><p>Two proposed article concepts based on questions patients commonly ask.</p></div>
+<div class="asset-article-grid">
+<div class="asset-article"><div class="asset-article-photo asset-photo-smile" role="img" aria-label="Illustrative patient smile photograph"></div><p class="asset-article-kicker">PATIENT GUIDE</p><h5 id="asset-article-1">How to choose the right treatment for your smile</h5><p>Clear information to help patients understand their options.</p><span>Read article →</span></div>
+<div class="asset-article"><div class="asset-article-photo asset-photo-dental" role="img" aria-label="Illustrative dental consultation photograph"></div><p class="asset-article-kicker">WHAT TO EXPECT</p><h5 id="asset-article-2">What to expect at your first dental consultation</h5><p>A reassuring walkthrough of the first visit and next steps.</p><span>Read article →</span></div>
+</div>
+<div class="asset-blog-footer">Dental Smiles London · Advice &amp; Insights</div>
+</div>
+<div class="p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Asset 03</p><h4 class="mt-1 text-lg font-extrabold text-white">Blog setup + two articles</h4><p id="asset-blog-desc" class="mt-2 text-sm leading-6 text-zinc-300">A clean blog layout and two article concepts designed to answer patient questions and build confidence.</p><div class="asset-benefit-list"><p><span>✓</span> Helpful, patient-centred topics</p><p><span>✓</span> Clear routes to related treatments</p><p><span>✓</span> Search-friendly structure to build on</p></div><p class="mt-4 text-xs font-bold text-emerald-300">Proposed layout and titles · not finished articles</p></div>
+</article>
+</div>
+<p class="mt-5 rounded-xl border border-zinc-800 bg-zinc-900/70 p-4 text-xs leading-relaxed text-zinc-400"><strong class="text-zinc-200">Important:</strong> These are visual mockups to make the proposed deliverables tangible. The practice name is used for illustration; no official logo, testimonials, ratings, clinical claims or finished content have been verified or supplied. Final branding and copy should be approved before publication.</p>
+</section>
 <section id="treatment-proposal" class="mt-5 rounded-3xl border border-amber-400/40 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-4 sm:p-7">
 <div class="mb-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 3 · Treatment proposal</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">A practical plan to address the identified gap</h3><p id="proposal-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The proposal will be shaped around the primary finding from this scan.</p></div>
 <div class="grid gap-4 lg:grid-cols-[1fr_1.2fr]"><article class="rounded-2xl border border-zinc-700 bg-zinc-950 p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Recommended treatment</p><h4 id="proposal-gap-title" class="mt-2 text-xl font-extrabold text-white">Primary growth gap</h4><p id="proposal-treatment" class="mt-3 text-sm leading-6 text-zinc-300">Confirm the diagnosis with the business owner before choosing the treatment.</p><div class="mt-4 border-t border-zinc-800 pt-4"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Why this route</p><p id="proposal-rationale" class="mt-2 text-sm leading-6 text-zinc-400">The recommended scope should follow verified evidence, not a generic package.</p></div></article>
