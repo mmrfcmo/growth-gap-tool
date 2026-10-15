@@ -881,44 +881,57 @@ function adaptCustomerTerms(value,ctx){
 }
 function renderGapSteps(f){
  const category=categoryOf(f),ctx=customerContext({sector:window.__snapshotSector});
- const name=getText(f,['name','title','growthGap']);
+ const name=getText(f,['name','title','growthGap'])||'Potential growth gap';
  const rawEvidence=getText(f,['fact','observation','evidenceSummary','description']);
  const combined=[name,rawEvidence].filter(Boolean).join(' ');
- const simpleObservation={
-  visibility:'In plain English: we need to check whether '+ctx.plural+' can find the relevant service and location information they need.',
-  trust:'In plain English: we need to check whether a prospective '+ctx.customer+' can quickly see real reasons to trust this business.',
-  conversion:'In plain English: we need to check whether a visitor can understand the offer and easily see how to '+ctx.action+'.',
-  retention:'In plain English: we need to check what encourages a '+ctx.customer+' to return, book again or recommend the business.'
- };
  const lower=category.toLowerCase();
- const simpleKey=lower.includes('visibility')?'visibility':lower.includes('trust')?'trust':lower.includes('conversion')?'conversion':lower.includes('retention')?'retention':'';
- const formRelated=simpleKey==='conversion'&&/form|field|enquir|contact|booking|quote/i.test(combined);
+ const kind=lower.includes('visibility')?'visibility':lower.includes('trust')?'trust':lower.includes('conversion')?'conversion':lower.includes('retention')?'retention':'growth';
+ const formRelated=kind==='conversion'&&/form|field|enquir|contact|booking|quote/i.test(combined);
  let evidence;
  if(formRelated){
   const countMatch=combined.match(/(?:approximately|around|over|more than)\s*(\d+)\s*(?:visible\s*)?(?:form\s*)?(?:entry\s*)?(?:fields|controls)/i);
   const count=countMatch?countMatch[1]:'several';
   if(ctx.kind==='roofing'){
-   evidence=countMatch?'The scan flagged around '+count+' form fields across the pages checked. If these appear together on the quote request form, a homeowner may have to do a lot before asking for a quote. We need to check the actual form before calling this a problem.':'The scan flagged a quote/contact route that may ask homeowners for several details. If those details are all required before requesting a quote, it could create unnecessary effort. We need to check the actual form before calling this a problem.';
+   evidence=countMatch?'The scan flagged around '+count+' form fields across the pages checked. We still need to confirm whether these are required on the quote form.':'The scan flagged a quote/contact route that may ask homeowners for several details. We need to check the live form and which fields are required.';
   }else if(ctx.kind==='dental'){
-   evidence=countMatch?'The scan flagged around '+count+' form fields across the pages checked. If these appear together on the appointment enquiry form, a patient may have to do a lot before contacting the practice. We need to check the actual form before calling this a problem.':'The scan flagged an appointment enquiry route that may ask patients for several details. If those details are all required before making an enquiry, it could create unnecessary effort. We need to check the actual form before calling this a problem.';
+   evidence=countMatch?'The scan flagged around '+count+' form fields across the pages checked. We still need to confirm whether these are required on the appointment enquiry form.':'The scan flagged an appointment enquiry route that may ask patients for several details. We need to check the live form and which fields are required.';
   }else{
-   evidence='The scan flagged a contact route that may ask '+ctx.plural+' for several details. We need to check the actual form before calling this a problem.';
+   evidence='The scan flagged a contact route that may ask '+ctx.plural+' for several details. We need to check the live form and which fields are required.';
   }
  }else{
-  evidence=(rawEvidence?rawEvidence+' ':('The scan has flagged “'+(name||category.toLowerCase())+'” as a point to check. '))+(simpleObservation[simpleKey]||'In plain English: this is a point to check on the live website, not proof that it has cost the business a customer.');
+  evidence=(rawEvidence?rawEvidence+' ':'The scan flagged “'+name+'” as a point to check. ')+(kind==='visibility'?'We need to confirm how clearly the relevant services and locations are represented.':kind==='trust'?'We need to confirm whether the relevant trust evidence is present, genuine and easy to verify.':kind==='conversion'?'We need to check whether the offer and next step are clear on the live page.':kind==='retention'?'The public website cannot establish customer retention performance; the current follow-up process needs checking.':'This signal needs to be checked against the live website and business context.');
  }
- const rawMeaning=getText(f,['diagnosis','interpretation']);
- let meaning=formRelated
-  ?(ctx.kind==='roofing'?'A homeowner who only wants to ask for a quote may give up if contacting the business feels like too much work. We cannot tell from the website alone whether anyone has abandoned the process.':ctx.kind==='dental'?'A patient who only wants to ask a question may give up if contacting the practice feels like too much work. We cannot tell from the website alone whether anyone has abandoned the form.':'A '+ctx.customer+' may give up if contacting the business feels like too much work. We cannot tell from the website alone whether anyone has abandoned the process.')
-  :(rawMeaning?rawMeaning+' In practical terms, '+plainWhy(category).charAt(0).toLowerCase()+plainWhy(category).slice(1):plainWhy(category));
- const rawImpact=getText(f,['commercialImplication','businessImpact']);
- const impact=rawImpact?rawImpact+' To put that simply: '+businessMeaning(category):businessMeaning(category);
- const rawOptions=getText(f,['treatment','recommendation','options']);
- const options=rawOptions?rawOptions+' A simple starting point: '+plainOptions(category):plainOptions(category);
- const rawNext=getText(f,['nextStep','recommendedNextStep']);
- const next=rawNext?rawNext+' Specifically, '+nextQuestion(category):nextQuestion(category);
- const steps=[['What we saw',evidence],['Why it matters',meaning],['What it could mean for your business',impact],['Options to consider',options],['What to check next',next]];
- return steps.map((step,i)=>'<div class="gap-step"><span class="gap-step-number">'+(i+1)+'</span><div><p class="gap-step-label">'+escapeHtml(step[0])+'</p><p class="gap-step-copy">'+escapeHtml(adaptCustomerTerms(step[1],ctx))+'</p></div></div>').join('');
+ const consequence={
+  visibility:'If suitable customers cannot easily find or understand the relevant service and location information, they may not consider this business. The scan cannot tell us how many people, if any, are missing it.',
+  trust:'If prospective customers cannot quickly verify relevant experience, credentials or genuine customer proof, they may hesitate or compare another provider. This is a possibility to test, not evidence that customers have been lost.',
+  conversion:formRelated?'If the enquiry route asks for more effort than customers expect, some may delay contacting the business or abandon the process. Website evidence alone cannot establish whether this happens.':'If visitors cannot quickly understand the offer or next step, some may leave without enquiring. We need customer-journey or enquiry data to establish whether this is happening.',
+  retention:'If useful follow-up or repeat-service opportunities are missed, the business may lose chances to earn repeat work or referrals. A public website scan cannot establish whether this is a real gap.',
+  growth:'If this signal affects how customers find, trust, contact or return to the business, it may matter commercially. The effect needs to be checked rather than assumed.'
+ }[kind];
+ const question={
+  visibility:'Ask the owner: “Are these the services and locations you most want to win work from, and do you know how customers currently find you?”',
+  trust:'Ask the owner: “What proof do customers usually want to see before they feel confident choosing you—and where do you show it today?”',
+  conversion:formRelated?'Ask the owner: “Have you tested this enquiry form on a phone, and do you know whether people complete it or drop out?”':'Ask the owner: “If a suitable customer lands on this page, is the next step obvious—and do your enquiry figures suggest people are taking it?”',
+  retention:'Ask the owner: “What happens after a job or sale, and do you track repeat customers, follow-up or referrals?”',
+  growth:'Ask the owner: “Does this reflect a problem you recognise in the business, and what evidence do you have that it affects customers?”'
+ }[kind];
+ const validate={
+  visibility:'Validate the live service and location pages, relevant search visibility and how new customers found the business. Only prioritise this if the evidence supports a meaningful gap.',
+  trust:'Check the live page, verify any credentials or customer proof, and compare the experience with real customer questions or feedback.',
+  conversion:formRelated?'Complete the enquiry journey on mobile and desktop, confirm which fields are required, and review any available form-completion or enquiry data.':'Test the live customer journey on mobile and desktop, then compare it with calls, forms, bookings or quote data where available.',
+  retention:'Review the actual follow-up process and customer records. Do not prescribe a retention programme based on the public website scan alone.',
+  growth:'Check the live experience and relevant business data with the owner. If the concern cannot be substantiated, do not treat it as a priority.'
+ }[kind];
+ const steps=[
+  ['What the scan found',evidence],
+  ['Why it may matter',consequence],
+  ['Question to ask the owner',question],
+  ['Conclusion to validate',validate]
+ ];
+ return steps.map((step,i)=>{
+  const highlighted=i===2?' style="border:1px solid rgba(251,191,36,.35);background:rgba(120,80,10,.12);border-radius:12px;padding:12px"':'';
+  return '<div class="gap-step"'+highlighted+'><span class="gap-step-number"'+(i===2?' style="background:rgba(251,191,36,.14);border-color:rgba(251,191,36,.45);color:#fbbf24"':'')+'>'+(i+1)+'</span><div><p class="gap-step-label"'+(i===2?' style="color:#fbbf24"':'')+'>'+escapeHtml(step[0])+'</p><p class="gap-step-copy">'+escapeHtml(adaptCustomerTerms(step[1],ctx))+'</p></div></div>';
+ }).join('');
 }
 function renderAdditionalGap(f,index){
  const category=categoryOf(f),name=getText(f,['name','title','growthGap'])||'Potential growth gap';
