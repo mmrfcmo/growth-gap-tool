@@ -30,6 +30,20 @@ html,body{overflow-x:hidden}
 }
 
 
+
+/* Step 3 treatment proposal: diagnosis runs horizontally, then implementation routes */
+.treatment-recommendation-strip{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:24px;align-items:center}
+.treatment-route-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:stretch}
+.treatment-route-card{min-width:0}
+.treatment-detail-columns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.managed-package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.managed-package-card{display:flex;flex-direction:column;align-items:stretch;min-width:0;border:1px solid #3f3f46;border-radius:14px;background:#09090b;padding:16px}
+.managed-package-card>ul{flex:1}
+.managed-package-featured{border-color:rgba(251,191,36,.7);background:linear-gradient(180deg,rgba(120,80,10,.14),#09090b 55%)}
+.treatment-custom-route{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}
+@media(max-width:850px){.treatment-route-grid{grid-template-columns:minmax(0,1fr)}.treatment-custom-route{grid-column:auto}}
+@media(max-width:650px){.treatment-recommendation-strip,.treatment-detail-columns,.managed-package-grid{grid-template-columns:minmax(0,1fr)}.treatment-rationale-copy{border-left:0;border-top:1px solid #3f3f46;padding:16px 0 0}.managed-package-card{padding:14px}}
+
 /* Step 2: full-width visual first, then a vertically stacked explanation */
 #treatment-assets .asset-preview-card{display:flex;flex-direction:column;align-items:stretch;}
 #treatment-assets .asset-preview-card>.asset-browser,
@@ -450,10 +464,36 @@ html,body{overflow-x:hidden}
 </section>
 <section id="treatment-proposal" class="mt-5 rounded-3xl border border-amber-400/40 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-4 sm:p-7">
 <div class="mb-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 3 · Treatment proposal</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">A practical plan to address the identified gap</h3><p id="proposal-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The proposal will be shaped around the primary finding from this scan.</p></div>
-<div class="grid gap-4 lg:grid-cols-[1fr_1.2fr]"><article class="rounded-2xl border border-zinc-700 bg-zinc-950 p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Recommended treatment</p><h4 id="proposal-gap-title" class="mt-2 text-xl font-extrabold text-white">Primary growth gap</h4><p id="proposal-treatment" class="mt-3 text-sm leading-6 text-zinc-300">Confirm the diagnosis with the business owner before choosing the treatment.</p><div class="mt-4 border-t border-zinc-800 pt-4"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Why this route</p><p id="proposal-rationale" class="mt-2 text-sm leading-6 text-zinc-400">The recommended scope should follow verified evidence, not a generic package.</p></div></article>
-<div class="space-y-3"><article class="rounded-2xl border border-emerald-500/40 bg-emerald-950/20 p-4"><div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option A · Free self-implementation</h4><span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">£0</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">Receive the three agreed assets and put them into use yourself. The assets are concepts and materials; making them live is your responsibility.</p><p class="mt-3 text-xs font-extrabold uppercase tracking-wider text-zinc-400">What you would need to handle</p><ul class="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Build or update the relevant pages and match them to your website.</li><li>Set up forms, downloads, email delivery or other required tools.</li><li>Check mobile layout, links, privacy/consent and contact routing.</li><li>Publish, test, track results and maintain the assets over time.</li></ul><button type="button" data-treatment="free" class="mt-3 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10">Select free assets</button></article>
-<article class="rounded-2xl border border-zinc-700 bg-zinc-950 p-4"><div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option B · We host and manage the assets</h4><span class="text-lg font-extrabold text-amber-300">£199/month</span></div><p class="mt-2 text-sm leading-6 text-zinc-300">We agree the scope, publish the assets, provide hosting and manage the agreed ongoing updates. Exact inclusions are confirmed before acceptance.</p><button type="button" data-treatment="managed" class="mt-3 rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Select managed option</button></article>
-<article class="rounded-2xl border border-zinc-700 bg-zinc-950 p-4"><h4 class="font-extrabold text-white">Option C · Growth Implementation Programme</h4><p class="mt-2 text-sm leading-6 text-zinc-300">A tailored implementation proposal based on the diagnosed gap, agreed priorities and the work required. Scope and price are prepared after review.</p><button type="button" data-treatment="programme" class="mt-3 rounded-xl border border-zinc-600 px-4 py-3 text-sm font-extrabold text-white hover:border-amber-400">Build custom proposal</button></article></div></div>
+<div class="treatment-recommendation-strip rounded-2xl border border-amber-400/30 bg-zinc-950 p-5">
+ <div class="treatment-recommendation-copy"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Recommended treatment</p><h4 id="proposal-gap-title" class="mt-2 text-xl font-extrabold text-white">Primary growth gap</h4><p id="proposal-treatment" class="mt-2 text-sm leading-6 text-zinc-300">Confirm the diagnosis with the business owner before choosing the treatment.</p></div>
+ <div class="treatment-rationale-copy border-l border-zinc-700 pl-5"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Why this route</p><p id="proposal-rationale" class="mt-2 text-sm leading-6 text-zinc-400">The recommended scope should follow verified evidence, not a generic package.</p></div>
+</div>
+<div class="treatment-route-grid mt-5">
+ <article class="treatment-route-card rounded-2xl border border-emerald-500/40 bg-emerald-950/20 p-5">
+  <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option A · Free self-implementation</h4><span class="rounded-full border border-emerald-400/40 bg-emerald-400/10 px-3 py-1 text-xs font-extrabold text-emerald-300">£0</span></div>
+  <p class="mt-2 text-sm leading-6 text-zinc-300">Take the agreed asset concepts and implement them with your own team or webmaster.</p>
+  <div class="treatment-detail-columns mt-4">
+   <div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">What’s included</p><ul class="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>The three agreed asset concepts and recommended copy direction.</li><li>Practical implementation notes and a checklist for your team.</li><li>A clear explanation of what each asset is intended to improve.</li></ul></div>
+   <div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">What you need to handle</p><ul class="mt-2 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Send the materials to your webmaster and explain where each item belongs.</li><li>Build/update pages, upload content and configure forms, downloads or email delivery.</li><li>Check mobile layout, links, privacy/consent and that enquiries reach the right person.</li><li>Publish, test, monitor results and maintain everything when your site or tools change.</li></ul></div>
+  </div>
+  <p class="mt-4 rounded-xl border border-amber-400/20 bg-zinc-950/70 p-3 text-sm leading-6 text-zinc-300"><strong class="text-amber-300">The practical trade-off:</strong> the assets are free, but they do not go live by themselves. You’ll need time, technical help and responsibility for testing and ongoing upkeep.</p>
+  <button type="button" data-treatment="free" class="mt-4 rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-200 hover:bg-emerald-400/10">Choose free self-implementation</button>
+ </article>
+ <article class="treatment-route-card rounded-2xl border border-zinc-700 bg-zinc-950 p-5">
+  <div class="flex flex-wrap items-center justify-between gap-2"><h4 class="font-extrabold text-white">Option B · We host and manage the assets</h4><span class="text-sm font-extrabold text-amber-300">Managed packages</span></div>
+  <p class="mt-2 text-sm leading-6 text-zinc-300">If you’d prefer us to handle implementation, hosting and the agreed ongoing work, choose the level that best fits what you need.</p>
+  <button type="button" id="show-managed-options" class="mt-4 rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300" aria-expanded="false" aria-controls="managed-options-panel">Show managed options B1–B3 ↓</button>
+  <div id="managed-options-panel" class="hidden mt-5">
+   <p class="mb-3 text-xs leading-relaxed text-zinc-400">Illustrative annual packages. Confirm the final asset scope, hosting, support and terms before acceptance.</p>
+   <div class="managed-package-grid">
+    <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B1 · Essential</p><h5 class="mt-2 text-lg font-extrabold text-white">Launch the priority assets</h5><p class="mt-2 text-2xl font-extrabold text-white">£1,500<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Implement the three agreed priority assets within the defined scope.</li><li>Host the agreed assets and complete basic launch checks.</li><li>One agreed review round before launch.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: getting the agreed foundations live with a defined scope.</p><button type="button" data-treatment="B1" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B1</button></article>
+    <article class="managed-package-card managed-package-featured"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B2 · Growth</p><h5 class="mt-2 text-lg font-extrabold text-white">Launch + ongoing refinement</h5><p class="mt-2 text-2xl font-extrabold text-white">£2,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B1.</li><li>Agreed content or asset refinements during the year.</li><li>Periodic review of the agreed assets and next actions.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: owners who want the assets maintained and improved over time.</p><button type="button" data-treatment="B2" class="mt-4 w-full rounded-xl bg-amber-400 px-3 py-3 text-sm font-extrabold text-zinc-950">Select B2</button></article>
+    <article class="managed-package-card"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B3 · Growth Plus</p><h5 class="mt-2 text-lg font-extrabold text-white">Broader implementation support</h5><p class="mt-2 text-2xl font-extrabold text-white">£3,000<span class="text-xs font-medium text-zinc-400"> / year</span></p><ul class="mt-3 list-disc space-y-1 pl-5 text-sm leading-6 text-zinc-300"><li>Everything in B2.</li><li>Broader implementation support across the agreed priority areas.</li><li>A more detailed review and recommended next-step plan.</li></ul><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: businesses needing a wider set of improvements coordinated.</p><button type="button" data-treatment="B3" class="mt-4 w-full rounded-xl border border-amber-400/50 px-3 py-3 text-sm font-extrabold text-amber-200">Select B3</button></article>
+   </div>
+  </div>
+ </article>
+ <article class="treatment-route-card treatment-custom-route rounded-2xl border border-zinc-700 bg-zinc-950 p-5"><h4 class="font-extrabold text-white">Option C · Growth Implementation Programme</h4><p class="mt-2 text-sm leading-6 text-zinc-300">For a wider or more complex gap, we can prepare a custom proposal around the diagnosed priorities, agreed deliverables and implementation requirements.</p><p class="mt-3 text-xs leading-relaxed text-zinc-400">Best for: work that falls outside the defined managed packages.</p><button type="button" data-treatment="programme" class="mt-4 rounded-xl border border-zinc-600 px-4 py-3 text-sm font-extrabold text-white hover:border-amber-400">Discuss a custom proposal</button></article>
+</div>
 <div id="proposal-selection" class="mt-5 hidden rounded-xl border border-amber-400/30 bg-zinc-950 p-4 text-sm text-amber-100" aria-live="polite"></div><p class="mt-4 text-xs leading-relaxed text-zinc-500">Illustrative proposal only. Revenue improvement is not guaranteed. Final scope, implementation responsibilities, pricing and terms must be agreed before work begins.</p>
 </section>
 <section id="deep-dive-catalogue">
@@ -1007,10 +1047,24 @@ if(gaps.length){
  set('snapshot-cta-kicker','Step 1 · What the scan found');set('snapshot-cta-heading','Here is the potential problem—and why it matters.');
  set('snapshot-cta-copy','Primary finding: '+title+'. '+businessMeaning(primaryCat)+' The scan identifies a signal to investigate; it does not prove customers have already been lost. The three concepts below are ranked against the available findings, not selected as a fixed set.');
 })();;
+const managedToggle=document.getElementById('show-managed-options'),managedPanel=document.getElementById('managed-options-panel');
+managedToggle?.addEventListener('click',()=>{
+ const opening=managedPanel.classList.contains('hidden');
+ managedPanel.classList.toggle('hidden',!opening);
+ managedToggle.setAttribute('aria-expanded',String(opening));
+ managedToggle.textContent=opening?'Hide managed options ↑':'Show managed options B1–B3 ↓';
+});
 document.querySelectorAll('[data-treatment]').forEach(button=>button.addEventListener('click',()=>{
- const choices={free:'Free asset route selected. The three agreed assets would be supplied for you to implement. No order or payment has been submitted.',managed:'Managed route selected: £199/month. Confirm the exact assets, hosting, ongoing support and terms before acceptance.',programme:'Custom Growth Implementation Programme selected. Use the diagnosed gap, business priorities and agreed deliverables to prepare a tailored scope and price.'};
- const out=document.getElementById('proposal-selection');out.textContent=choices[button.dataset.treatment];out.classList.remove('hidden');
+ const choices={
+  free:'Option A selected: free self-implementation. The agreed asset concepts and implementation notes would be supplied for you or your webmaster to implement. Nothing has been ordered and no payment has been taken.',
+  B1:'Option B1 selected: Essential — £1,500/year (illustrative). Proposed scope: implement the three agreed priority assets, host the agreed assets, complete basic launch checks and include one review round. Confirm exact inclusions and terms before acceptance.',
+  B2:'Option B2 selected: Growth — £2,000/year (illustrative). Proposed scope: everything in B1, plus agreed asset/content refinements and periodic reviews during the year. Confirm exact inclusions and terms before acceptance.',
+  B3:'Option B3 selected: Growth Plus — £3,000/year (illustrative). Proposed scope: everything in B2, plus broader implementation support and a more detailed next-step plan. Confirm exact inclusions and terms before acceptance.',
+  programme:'Option C selected: Growth Implementation Programme. The diagnosed gap, business priorities and required deliverables would be used to prepare a custom scope and price.'
+ };
+ const out=document.getElementById('proposal-selection');out.textContent=choices[button.dataset.treatment]||'Selected option. Confirm the scope and terms before proceeding.';out.classList.remove('hidden');
  document.querySelectorAll('[data-treatment]').forEach(x=>x.classList.toggle('ring-2',x===button));
+ out.scrollIntoView({behavior:'smooth',block:'nearest'});
 }));
 document.getElementById('print-treatment-proposal').addEventListener('click',()=>window.print());
 document.getElementById('deep-dive-new-scan').addEventListener('click',()=>document.getElementById('new-scan-button').click());
