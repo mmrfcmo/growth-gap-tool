@@ -29,6 +29,16 @@ html,body{overflow-x:hidden}
   footer .text-sm{text-align:left!important}
 }
 
+/* Layout refinement: preserve the original centered scanner and report widths */
+#apply>.relative{max-width:64rem!important;padding-top:24px!important;padding-bottom:44px!important}
+#apply .text-center.max-w-3xl{max-width:48rem!important;text-align:center!important;display:block!important;margin-left:auto!important;margin-right:auto!important}
+#apply .text-center.max-w-3xl>p:first-child{display:inline-flex!important;margin-left:auto!important;margin-right:auto!important}
+#apply .text-center.max-w-3xl h2{font-size:clamp(1.8rem,3.2vw,3rem)!important;line-height:1.08!important;margin-top:1.5rem!important;margin-left:auto!important;margin-right:auto!important;max-width:none!important}
+#apply .text-center.max-w-3xl>p:last-child{font-size:1.125rem!important;line-height:1.65!important;margin:1.25rem auto 0!important;max-width:none!important}
+#apply>.relative> .mt-10.max-w-3xl{max-width:48rem!important;margin:2.5rem auto 0!important}
+#snapshot-result{max-width:64rem!important;margin-left:auto!important;margin-right:auto!important}
+@media(max-width:640px){#apply>.relative{padding-left:1.25rem!important;padding-right:1.25rem!important}#apply .text-center.max-w-3xl{display:block!important}#apply .text-center.max-w-3xl h2{margin-top:1.5rem!important}#apply .text-center.max-w-3xl>p:last-child{margin-top:1.25rem!important}}
+
 /* Deep Dive visual system v1: dashboard layout matching the approved visual concept */
 :root{color-scheme:dark}
 body.bg-stone-50{background:#080a0c!important;color:#f4f4f5!important}
