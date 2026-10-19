@@ -564,6 +564,23 @@ html,body{overflow-x:hidden}
 .solution-reveal-kicker{display:inline-flex;align-items:center;gap:.55rem;border:1px solid rgba(251,191,36,.35);background:rgba(251,191,36,.08);color:#fcd34d;padding:.45rem .75rem;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
 .solution-reveal-title{font-size:clamp(2rem,4.4vw,3.6rem);line-height:1.02;letter-spacing:-.055em;font-weight:800;max-width:850px;margin:1rem 0}
 .solution-reveal-intro{color:#cbd5e1;line-height:1.75;max-width:780px;font-size:1.02rem}
+.solution-evidence-compare{margin:1.5rem 0 1.75rem;border:1px solid #3c4652;border-radius:1.25rem;overflow:hidden;background:linear-gradient(135deg,#111821,#090c11);box-shadow:0 20px 55px rgba(0,0,0,.24)}
+.solution-evidence-head{padding:1.2rem 1.35rem;border-bottom:1px solid #303945;display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.solution-evidence-head h3{font-size:clamp(1.15rem,2vw,1.55rem);font-weight:850;letter-spacing:-.035em;color:#f8fafc;margin:.2rem 0}
+.solution-evidence-head p{color:#aab5c3;font-size:.9rem;line-height:1.6;max-width:720px}
+.solution-evidence-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0}
+.solution-evidence-side{min-width:0;padding:1rem;border-right:1px solid #303945}
+.solution-evidence-side:last-child{border-right:0}
+.solution-evidence-label{display:flex;align-items:center;gap:.5rem;color:#e2e8f0;font-size:.76rem;font-weight:850;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.75rem}
+.solution-evidence-label .dot{width:8px;height:8px;border-radius:50%;background:#f59e0b;flex:none}
+.solution-evidence-label.proposed .dot{background:#34d399}
+.solution-evidence-image{width:100%;max-height:440px;object-fit:contain;object-position:top;background:#080b10;border:1px solid #303945;border-radius:.8rem;display:block}
+.solution-evidence-source{margin-top:.7rem;font-size:.72rem;line-height:1.5;color:#9ca3af;overflow-wrap:anywhere}
+.solution-evidence-proposed{overflow:hidden;border:1px solid #35404b;border-radius:.8rem;background:#f8fafc;color:#172033}
+.solution-evidence-difference{padding:1rem 1.2rem;border-top:1px solid #303945;background:rgba(15,23,42,.65);color:#dbe4ee;font-size:.9rem;line-height:1.65}
+.solution-evidence-difference strong{color:#fbbf24}
+.solution-evidence-note{margin:1rem 0;padding:1rem 1.1rem;border:1px solid rgba(251,191,36,.3);border-radius:1rem;background:rgba(120,78,8,.12);color:#dbe4ee;font-size:.88rem;line-height:1.65}
+@media(max-width:700px){.solution-evidence-grid{grid-template-columns:1fr}.solution-evidence-side{border-right:0;border-bottom:1px solid #303945}.solution-evidence-side:last-child{border-bottom:0}.solution-evidence-image{max-height:320px}}
 .solution-reveal-row{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:clamp(1.25rem,3vw,2.5rem);align-items:center;padding:clamp(1.15rem,3vw,2rem);margin-top:1.5rem;border:1px solid #303640;border-radius:1.5rem;background:linear-gradient(125deg,#111720,#0b0e13 72%);box-shadow:0 18px 55px rgba(0,0,0,.22)}
 .solution-reveal-row:nth-of-type(odd){border-color:#49402c}
 .solution-preview-shell{overflow:hidden;border:1px solid #414852;border-radius:1rem;background:#f8fafc;color:#172033;box-shadow:0 18px 40px rgba(0,0,0,.28);min-width:0}
@@ -891,6 +908,27 @@ html,body{overflow-x:hidden}
    <h2 class="solution-reveal-title">Here’s what a better customer journey could look like.</h2>
    <p class="solution-reveal-intro">The scan gives us a starting point. These three roofing-business concepts show how the right pages and content could help homeowners understand your services, feel more confident, and know what to do next. They are substantial working previews—not flat images—and will be refined against verified business details before production.</p>
   </div>
+
+  <section id="solution-evidence-compare" class="solution-evidence-compare" hidden aria-label="Evidence-backed current and proposed comparison">
+   <div class="solution-evidence-head">
+    <div><span class="solution-reveal-kicker">Evidence → proposed change</span><h3 id="solution-compare-title">What could change?</h3><p id="solution-compare-intro">The current page is shown beside a proposed concept. The capture provides context; it does not by itself prove lost enquiries or a conversion uplift.</p></div>
+    <span class="solution-asset-number">Current vs proposed</span>
+   </div>
+   <div class="solution-evidence-grid">
+    <div class="solution-evidence-side">
+     <div class="solution-evidence-label"><span class="dot"></span>Current page · captured</div>
+     <img id="solution-compare-current-image" class="solution-evidence-image" alt="Captured current website page for evidence review" loading="lazy" decoding="async">
+     <p id="solution-compare-current-source" class="solution-evidence-source">Source page supplied by the scan.</p>
+    </div>
+    <div class="solution-evidence-side">
+     <div class="solution-evidence-label proposed"><span class="dot"></span>Proposed improvement · concept</div>
+     <div id="solution-compare-proposed-art" class="solution-evidence-proposed"></div>
+     <p class="solution-evidence-source">Illustrative design concept, not a live change or a claim about measured results.</p>
+    </div>
+   </div>
+   <div class="solution-evidence-difference"><strong>What is different:</strong> <span id="solution-compare-difference">The proposed design will be explained in relation to the finding returned by the scan.</span> <span id="solution-compare-outcome">The intended benefit is described qualitatively; any conversion or revenue impact needs to be tested.</span></div>
+  </section>
+  <div id="solution-evidence-fallback" class="solution-evidence-note" hidden><strong>Proposed solution, without an unsupported before-and-after claim.</strong> We couldn’t match a usable screenshot to a specific finding on this scan, so the report shows the proposed asset and its intended benefit below instead of implying we have proved a current-page problem.</div>
 
   <article class="solution-reveal-row" id="solution-asset-landing">
    <div class="solution-preview-shell" id="solution-preview-1" aria-label="Recommended asset visual preview"></div><div class="solution-asset-copy">
@@ -1554,7 +1592,7 @@ if(gaps.length){
   {id:'R3',cat:'Retention',name:'Customer Newsletter Starter',why:'Use only if the business has a permission-based audience and a useful reason to keep in touch.',outcome:'Share useful updates with customers who agreed to receive them.'}
  ]
  };
- const fallbackOrder={visibility:['V2','V1','V5'],trust:['T1','T2','T3'],conversion:['C1','C2','C3'],retention:['R1','R2','R3']};
+ const fallbackOrder={visibility:['V2','V1','V5'],trust:['T1','T2','T3'],conversion:['C1','C3','C2'],retention:['R1','R2','R3']};
  const inCategory=ranked.filter(p=>p.cat.toLowerCase()===primaryCat);
  const evidenceMatched=inCategory.filter(p=>p.re.test(primaryText)).sort((a,b)=>b.score-a.score);
  const fallback=inCategory.filter(p=>(fallbackOrder[primaryCat]||[]).includes(p.id)).sort((a,b)=>(fallbackOrder[primaryCat]||[]).indexOf(a.id)-(fallbackOrder[primaryCat]||[]).indexOf(b.id));
@@ -1772,6 +1810,42 @@ if(gaps.length){
   return '<div class="solution-dynamic-art" style="'+vars+'">'+chrome+body+footer+'</div>';
  }
  ['solution-preview-1','solution-preview-2','solution-preview-3'].forEach((id,i)=>{const node=document.getElementById(id),p=chosen[i];if(node&&p)node.innerHTML=visualFor(p)});
+
+ // Evidence-backed comparison: show a real captured page only when its source URL matches
+ // the finding and the finding text describes a concrete, relevant conversion issue.
+ const compare=document.getElementById('solution-evidence-compare');
+ const fallbackNote=document.getElementById('solution-evidence-fallback');
+ const evidenceDetail=getText(first,['observation','evidenceSummary','fact','description']).toLowerCase();
+ const evidenceUrl=getText(first,['evidencePageUrl','pageUrl','sourceUrl']);
+ const normaliseEvidenceUrl=value=>{try{const u=new URL(value);return (u.origin+u.pathname).replace(/\\/$/,'').toLowerCase()}catch(e){return String(value||'').split(/[?#]/)[0].replace(/\\/$/,'').toLowerCase()}};
+ const concreteIssue=/(form|field|submit|contact|call to action|\\bcta\\b|enquir|booking|appointment|next step|value proposition|button|missing|unclear|hard to find|difficult|confusing|friction|broken|error|not visible|not prominent|page layout)/i.test(evidenceDetail);
+ const screenshotItems=Array.isArray(s.screenshots)?s.screenshots:[];
+ const matchedCapture=screenshotItems.map(item=>({imageUrl:getText(item,['imageUrl','screenshotUrl','url']),sourceUrl:getText(item,['sourceUrl']),title:getText(item,['title'])})).find(item=>item.imageUrl&&item.sourceUrl&&evidenceUrl&&normaliseEvidenceUrl(item.sourceUrl)===normaliseEvidenceUrl(evidenceUrl));
+ if(compare&&fallbackNote){
+  if(matchedCapture&&concreteIssue&&chosen[0]){
+   const currentImage=document.getElementById('solution-compare-current-image');
+   const currentSource=document.getElementById('solution-compare-current-source');
+   const proposed=document.getElementById('solution-compare-proposed-art');
+   const difference=document.getElementById('solution-compare-difference');
+   const outcome=document.getElementById('solution-compare-outcome');
+   const compareTitle=document.getElementById('solution-compare-title');
+   const compareIntro=document.getElementById('solution-compare-intro');
+   currentImage.src=matchedCapture.imageUrl;
+   currentSource.textContent=(matchedCapture.title||'Captured page')+' · '+matchedCapture.sourceUrl;
+   proposed.innerHTML=visualFor(chosen[0]);
+   compareTitle.textContent='From the current page to a clearer next step';
+   compareIntro.textContent='The left side is a real page capture returned by the scan and matched to the finding’s source URL. The right side is a proposed design concept—not a published change.';
+   difference.textContent=chosen[0].id==='C3'?'The concept focuses on making the enquiry form easier to complete, with clearer fields and a more considered submission step.':chosen[0].id==='C2'?'The concept makes the intended contact or booking route more prominent and easier to identify.':chosen[0].id==='C4'?'The concept gives visitors useful decision-support information before inviting them to take the next step.':'The concept gives the service, customer benefit and next action a clearer visual hierarchy.';
+   outcome.textContent=' The intended benefit is a clearer customer journey; any change in enquiries or revenue must be measured, not assumed.';
+   compare.hidden=false;
+   fallbackNote.hidden=true;
+   currentImage.addEventListener('error',()=>{compare.hidden=true;fallbackNote.hidden=false;},{once:true});
+  }else{
+   compare.hidden=true;
+   fallbackNote.hidden=false;
+  }
+ }
+
 
  const detailMap={
   V1:['Confirm priority services and service areas.','Prepare a consistent local business-information checklist.','Validate the proposed changes against current search evidence.'],
