@@ -557,6 +557,126 @@ html,body{overflow-x:hidden}
  #treatment-assets #diagnosed-solution-grid>.asset-preview-card .asset-guide-stage{min-height:300px!important}
 }
 
+
+/* Step 2: bespoke visual solution concepts — intentionally isolated from scanner styles */
+.solution-reveal{background:#080b10;color:#f8fafc;padding:clamp(2.5rem,5vw,5rem) 1rem;border-top:1px solid #292524;border-bottom:1px solid #292524}
+.solution-reveal-inner{max-width:1180px;margin:0 auto}
+.solution-reveal-kicker{display:inline-flex;align-items:center;gap:.55rem;border:1px solid rgba(251,191,36,.35);background:rgba(251,191,36,.08);color:#fcd34d;padding:.45rem .75rem;border-radius:999px;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.solution-reveal-title{font-size:clamp(2rem,4.4vw,3.6rem);line-height:1.02;letter-spacing:-.055em;font-weight:800;max-width:850px;margin:1rem 0}
+.solution-reveal-intro{color:#cbd5e1;line-height:1.75;max-width:780px;font-size:1.02rem}
+.solution-reveal-row{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:clamp(1.25rem,3vw,2.5rem);align-items:center;padding:clamp(1.15rem,3vw,2rem);margin-top:1.5rem;border:1px solid #303640;border-radius:1.5rem;background:linear-gradient(125deg,#111720,#0b0e13 72%);box-shadow:0 18px 55px rgba(0,0,0,.22)}
+.solution-reveal-row:nth-of-type(odd){border-color:#49402c}
+.solution-preview-shell{overflow:hidden;border:1px solid #414852;border-radius:1rem;background:#f8fafc;color:#172033;box-shadow:0 18px 40px rgba(0,0,0,.28);min-width:0}
+.solution-browserbar{height:31px;background:#e9edf2;border-bottom:1px solid #d5dbe4;display:flex;align-items:center;gap:5px;padding:0 11px}
+.solution-browserbar i{display:block;width:7px;height:7px;border-radius:50%;background:#a5adb8}
+.solution-browserbar span{font-size:9px;color:#64748b;margin-left:8px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.solution-web-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 4%;background:#fff;color:#1b2938;font-size:clamp(8px,.9vw,11px);font-weight:800}
+.solution-web-logo{display:flex;align-items:center;gap:7px;letter-spacing:-.03em;font-size:clamp(10px,1.2vw,14px)}
+.solution-roof-mark{width:23px;height:20px;display:inline-block;position:relative;flex:none}
+.solution-roof-mark:before{content:"";position:absolute;left:2px;top:2px;width:15px;height:15px;border-left:3px solid #d97706;border-top:3px solid #d97706;transform:rotate(45deg)}
+.solution-roof-mark:after{content:"";position:absolute;left:5px;bottom:0;width:12px;height:10px;background:#173c35;border-radius:1px}
+.solution-web-nav-cta{background:#d97706;color:white;padding:8px 11px;border-radius:5px;font-size:9px;white-space:nowrap}
+.solution-hero{min-height:250px;position:relative;display:flex;align-items:center;padding:clamp(20px,4vw,42px);background:linear-gradient(90deg,rgba(8,23,32,.96) 0%,rgba(8,23,32,.82) 48%,rgba(8,23,32,.08) 100%),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=85') center/cover;color:#fff}
+.solution-hero-copy{max-width:410px;position:relative;z-index:1}
+.solution-mini-label{font-size:9px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:#fbbf24}
+.solution-hero h4{font-size:clamp(21px,3vw,36px);line-height:1.05;letter-spacing:-.04em;font-weight:800;margin:10px 0}
+.solution-hero p{font-size:clamp(10px,1.15vw,13px);line-height:1.65;color:#e2e8f0;max-width:350px}
+.solution-hero-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:17px}
+.solution-hero-actions span{font-size:9px;font-weight:800;padding:9px 11px;border-radius:5px;background:#f59e0b;color:#1c1917}
+.solution-hero-actions span+span{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff}
+.solution-proofline{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e2e8f0}
+.solution-proofline div{padding:13px 8px;text-align:center;background:#fff}
+.solution-proofline strong{display:block;font-size:10px;color:#142d2a}
+.solution-proofline small{display:block;margin-top:4px;font-size:8px;color:#64748b}
+.solution-preview-section{padding:19px 4%;background:#fff}
+.solution-preview-section h5{font-size:clamp(14px,1.7vw,20px);font-weight:800;letter-spacing:-.03em;margin-bottom:7px}
+.solution-preview-section p{font-size:10px;line-height:1.6;color:#5b6675}
+.solution-service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:13px}
+.solution-service-tile{border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;background:#fff}
+.solution-service-photo{height:70px;background:linear-gradient(145deg,rgba(8,23,32,.08),rgba(8,23,32,.1)),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=75') center/cover}
+.solution-service-tile:nth-child(2) .solution-service-photo{background-position:60% 55%}
+.solution-service-tile:nth-child(3) .solution-service-photo{background-position:90% 50%}
+.solution-service-tile b{display:block;font-size:9px;padding:8px 8px 2px}
+.solution-service-tile small{display:block;font-size:8px;line-height:1.4;color:#64748b;padding:0 8px 9px}
+.solution-preview-bottom{padding:13px 4%;background:#f1f5f9;display:flex;align-items:center;justify-content:space-between;gap:10px}
+.solution-preview-bottom strong{font-size:10px}
+.solution-preview-bottom span{font-size:9px;font-weight:800;background:#173c35;color:#fff;padding:9px 11px;border-radius:5px;white-space:nowrap}
+.solution-asset-copy{min-width:0}
+.solution-asset-number{font-size:.68rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:#fbbf24}
+.solution-asset-copy h3{font-size:clamp(1.45rem,2.4vw,2rem);font-weight:800;line-height:1.1;letter-spacing:-.04em;margin:.65rem 0}
+.solution-asset-copy p{color:#cbd5e1;font-size:.92rem;line-height:1.75}
+.solution-asset-copy ul{list-style:none;padding:0;margin:1rem 0}
+.solution-asset-copy li{position:relative;padding-left:1.35rem;margin:.6rem 0;color:#e2e8f0;font-size:.85rem;line-height:1.55}
+.solution-asset-copy li:before{content:"✓";position:absolute;left:0;top:0;color:#34d399;font-weight:900}
+.solution-expand{border:1px solid #555e6a;background:rgba(255,255,255,.03);color:#f8fafc;border-radius:.7rem;padding:.7rem .9rem;font-size:.8rem;font-weight:800;cursor:pointer}
+.solution-expand:hover{border-color:#fbbf24;background:rgba(251,191,36,.07)}
+.solution-detail{margin-top:1rem;padding:1rem;border-radius:.8rem;border:1px solid #343b46;background:#080b10;color:#cbd5e1;font-size:.83rem;line-height:1.7}
+.solution-detail h4{font-size:.9rem;color:#fff;font-weight:800;margin:.7rem 0 .2rem}
+.solution-guide-preview{display:grid;grid-template-columns:minmax(125px,.55fr) minmax(0,1fr);min-height:300px;background:#f5f1e8}
+.solution-guide-cover{padding:20px 16px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(155deg,#123a36,#0b2426 75%);color:#fff;position:relative;overflow:hidden}
+.solution-guide-cover:after{content:"";position:absolute;width:210px;height:210px;border:1px solid rgba(255,255,255,.15);border-radius:50%;right:-105px;top:20px;box-shadow:0 0 0 18px rgba(255,255,255,.035),0 0 0 40px rgba(255,255,255,.025)}
+.solution-guide-cover small{position:relative;z-index:1;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:#fbbf24;font-weight:800}
+.solution-guide-cover h4{position:relative;z-index:1;font-size:clamp(19px,2.5vw,31px);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin:20px 0}
+.solution-guide-cover p{position:relative;z-index:1;font-size:9px;line-height:1.6;color:#dbe7e2}
+.solution-guide-cover .guide-edition{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.25);padding-top:12px;font-size:8px;color:#dbe7e2}
+.solution-guide-content{padding:clamp(15px,3vw,27px);color:#263344}
+.solution-guide-content .guide-eyebrow{font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#9a5b12;font-weight:900}
+.solution-guide-content h5{font-size:clamp(15px,1.7vw,21px);line-height:1.15;font-weight:800;margin:9px 0}
+.solution-guide-content p{font-size:10px;line-height:1.65;color:#586575}
+.solution-guide-content ol{counter-reset:guide;list-style:none;padding:0;margin:14px 0}
+.solution-guide-content li{counter-increment:guide;display:grid;grid-template-columns:22px 1fr;gap:8px;padding:9px 0;border-bottom:1px solid #d9d9d1;font-size:10px;line-height:1.5;color:#334155}
+.solution-guide-content li:before{content:counter(guide,decimal-leading-zero);font-size:9px;font-weight:900;color:#b45309}
+.solution-checklist{margin-top:13px;background:#fff;border:1px solid #e1ded4;padding:12px;border-radius:8px}
+.solution-checklist b{display:block;font-size:10px;margin-bottom:7px}
+.solution-checklist span{display:block;font-size:9px;color:#586575;margin-top:6px}
+.solution-checklist span:before{content:"□";color:#b45309;margin-right:7px;font-size:12px}
+.solution-guide-footer{padding:12px 4%;background:#e9e5da;color:#344054;font-size:9px;display:flex;justify-content:space-between;gap:10px}
+.solution-blog-preview{background:#f7f8fa;color:#1e293b}
+.solution-blog-header{background:#102c2b;color:white;padding:19px 4%;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.solution-blog-header strong{font-size:clamp(12px,1.5vw,18px);letter-spacing:-.03em}
+.solution-blog-header span{font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#d1fae5}
+.solution-blog-feature{display:grid;grid-template-columns:1fr 1fr;min-height:185px;background:#fff}
+.solution-blog-feature-image{background:linear-gradient(0deg,rgba(8,23,32,.12),rgba(8,23,32,.02)),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80') center/cover}
+.solution-blog-feature-copy{padding:clamp(14px,3vw,26px);display:flex;flex-direction:column;justify-content:center}
+.solution-blog-category{font-size:8px;text-transform:uppercase;letter-spacing:.12em;font-weight:900;color:#b45309}
+.solution-blog-feature-copy h4{font-size:clamp(16px,2.3vw,25px);font-weight:800;line-height:1.1;letter-spacing:-.035em;margin:8px 0}
+.solution-blog-feature-copy p{font-size:10px;line-height:1.65;color:#64748b}
+.solution-blog-feature-copy small{margin-top:11px;font-size:8px;color:#64748b}
+.solution-blog-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px 4% 20px}
+.solution-blog-card{background:#fff;border:1px solid #e2e8f0;border-radius:9px;overflow:hidden}
+.solution-blog-card .blog-card-photo{height:80px;background:url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600&q=75') center/cover}
+.solution-blog-card:nth-child(2) .blog-card-photo{background-position:right center}
+.solution-blog-card div:last-child{padding:12px}
+.solution-blog-card small{font-size:8px;color:#b45309;font-weight:900;text-transform:uppercase;letter-spacing:.1em}
+.solution-blog-card h5{font-size:12px;line-height:1.3;font-weight:800;margin:6px 0}
+.solution-blog-card p{font-size:9px;line-height:1.55;color:#64748b}
+.solution-blog-foot{padding:11px 4%;background:#e9eef1;font-size:9px;display:flex;justify-content:space-between;gap:8px}
+.solution-value-strip{margin-top:1.5rem;padding:1.2rem;border:1px solid rgba(52,211,153,.3);border-radius:1rem;background:linear-gradient(100deg,rgba(16,185,129,.1),rgba(15,23,42,.3));display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
+.solution-value-strip strong{font-size:1rem;color:#ecfdf5}
+.solution-value-strip p{font-size:.82rem;color:#cbd5e1;line-height:1.6;margin-top:.25rem}
+.solution-value-badge{background:#064e3b;color:#d1fae5;border:1px solid #059669;border-radius:.75rem;padding:.7rem 1rem;font-weight:900;white-space:nowrap}
+.solution-request{margin-top:1.5rem;padding:clamp(1.2rem,3vw,2rem);border-radius:1.25rem;background:#111720;border:1px solid #424a56}
+.solution-request h3{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;letter-spacing:-.04em;margin:.4rem 0}
+.solution-request p{font-size:.88rem;line-height:1.7;color:#cbd5e1}
+.solution-request-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:1rem}
+.solution-request label{display:block;font-size:.76rem;color:#e2e8f0;font-weight:700}
+.solution-request input,.solution-request textarea{display:block;width:100%;margin-top:6px;border:1px solid #475569;background:#080b10;color:white;border-radius:.6rem;padding:.8rem;font:inherit;font-size:.85rem}
+.solution-request input:focus,.solution-request textarea:focus{outline:2px solid #fbbf24;outline-offset:1px}
+.solution-asset-checks{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:1rem}
+.solution-asset-check{border:1px solid #424a56;background:#0b0e13;border-radius:.75rem;padding:.8rem;display:flex;align-items:flex-start;gap:8px;font-size:.78rem;line-height:1.45;color:#e2e8f0}
+.solution-asset-check input{accent-color:#34d399;margin-top:2px}
+.solution-request-submit{margin-top:1.2rem;background:#34d399;color:#052e24;padding:.95rem 1.2rem;border-radius:.7rem;font-weight:900;font-size:.9rem;cursor:pointer}
+.solution-request-note{font-size:.73rem!important;color:#94a3b8!important;margin-top:.8rem}
+.solution-choice-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:1.5rem}
+.solution-choice{border:1px solid #424a56;border-radius:1rem;padding:1.2rem;background:#0d1118}
+.solution-choice h4{font-size:1rem;font-weight:800;margin:.4rem 0}
+.solution-choice p{font-size:.82rem;line-height:1.65;color:#cbd5e1}
+.solution-choice a{display:inline-flex;margin-top:1rem;border-radius:.65rem;padding:.7rem .9rem;font-size:.8rem;font-weight:900;text-decoration:none}
+.solution-choice-diy a{border:1px solid #34d399;color:#a7f3d0}
+.solution-choice-managed a{background:#fbbf24;color:#1c1917}
+@media(max-width:760px){.solution-reveal-row{grid-template-columns:minmax(0,1fr);gap:1.25rem}.solution-hero{min-height:225px}.solution-guide-preview{grid-template-columns:minmax(110px,.7fr) minmax(0,1fr)}.solution-choice-row{grid-template-columns:1fr}.solution-request-grid{grid-template-columns:1fr}.solution-asset-checks{grid-template-columns:1fr}.solution-web-nav{padding:11px 3%}.solution-web-nav-cta{padding:7px 8px}.solution-blog-grid{gap:8px}.solution-blog-feature{min-height:155px}}
+@media(max-width:430px){.solution-guide-preview{grid-template-columns:1fr}.solution-guide-cover{min-height:205px}.solution-guide-cover h4{max-width:240px}.solution-guide-content{padding:14px}.solution-hero{padding:19px;min-height:250px}.solution-service-grid{gap:5px}.solution-service-photo{height:52px}.solution-blog-feature{grid-template-columns:1fr}.solution-blog-feature-image{min-height:115px}.solution-blog-feature-copy{padding:14px}.solution-preview-bottom{align-items:flex-start;flex-direction:column}}
+
 </style>
 </head>
 
@@ -736,6 +856,102 @@ html,body{overflow-x:hidden}
 
 
 
+
+<section id="solution-reveal-step2" class="solution-reveal">
+ <div class="solution-reveal-inner">
+  <div class="max-w-4xl">
+   <span class="solution-reveal-kicker">Step 2 · See the solution</span>
+   <h2 class="solution-reveal-title">Here’s what a better customer journey could look like.</h2>
+   <p class="solution-reveal-intro">The scan gives us a starting point. These three roofing-business concepts show how the right pages and content could help homeowners understand your services, feel more confident, and know what to do next. They are substantial working previews—not flat images—and will be refined against verified business details before production.</p>
+  </div>
+
+  <article class="solution-reveal-row" id="solution-asset-landing">
+   <div class="solution-preview-shell">
+    <div class="solution-browserbar"><i></i><i></i><i></i><span class="solution-preview-domain">yourroofingbusiness.co.uk / roofing-services</span></div>
+    <div class="solution-web-nav"><span class="solution-web-logo"><span class="solution-roof-mark"></span><span class="solution-business-name">YOUR ROOFING COMPANY</span></span><span>Roof Repairs　 New Roofs　 About</span><span class="solution-web-nav-cta">Request a quote</span></div>
+    <div class="solution-hero"><div class="solution-hero-copy"><span class="solution-mini-label">Roofing help for local homeowners</span><h4>A roof you can rely on. A team you can talk to.</h4><p>From a repair that needs attention to planning a new roof, get clear advice on the next step for your home.</p><div class="solution-hero-actions"><span>Request a roofing assessment →</span><span>Explore our services</span></div></div></div>
+    <div class="solution-proofline"><div><strong>Clear next steps</strong><small>Know what happens next</small></div><div><strong>Work explained plainly</strong><small>Understand the options</small></div><div><strong>Easy to contact</strong><small>Choose your enquiry route</small></div></div>
+    <div class="solution-preview-section"><h5>Roofing help, without the guesswork.</h5><p>A useful service page answers the questions homeowners have before they invite a contractor to quote.</p><div class="solution-service-grid"><div class="solution-service-tile"><div class="solution-service-photo"></div><b>Roof repairs</b><small>Understand the issue and arrange an assessment.</small></div><div class="solution-service-tile"><div class="solution-service-photo"></div><b>Roof replacement</b><small>Explore the process, choices and next steps.</small></div><div class="solution-service-tile"><div class="solution-service-photo"></div><b>Roof inspections</b><small>Discuss visible concerns and suitable options.</small></div></div></div>
+    <div class="solution-preview-bottom"><strong>Have a roofing concern? Start with a conversation.</strong><span>Arrange a call back →</span></div>
+   </div>
+   <div class="solution-asset-copy">
+    <span class="solution-asset-number">Asset 01 · Enquiry landing page</span>
+    <h3>Turn a visit into a clear next step.</h3>
+    <p>A focused page for homeowners who need roofing help. Instead of making visitors work out what to do, it explains the service, answers early questions and presents a clear route to enquire.</p>
+    <ul><li>Purpose-built headline and homeowner-focused message</li><li>Distinct service pathways and useful next steps</li><li>Space for verified reviews, credentials and project evidence</li><li>Prominent quote or call-back action, designed for mobile</li></ul>
+    <button class="solution-expand" type="button" aria-expanded="false" aria-controls="solution-detail-landing">Explore what the full page includes ↓</button>
+    <div class="solution-detail" id="solution-detail-landing" hidden><h4>What the finished concept contains</h4>Hero and service proposition; repair, replacement and inspection pathways; homeowner questions; process and expectations; verified trust evidence; enquiry form brief; mobile-first call-to-action; and a handover checklist for publishing and testing.<h4>Why it matters</h4>It gives the homeowner a clearer reason to enquire and a more obvious way to do it. Whether that changes enquiry volume must be measured after launch.</div>
+   </div>
+  </article>
+
+  <article class="solution-reveal-row" id="solution-asset-guide">
+   <div class="solution-preview-shell">
+    <div class="solution-browserbar"><i></i><i></i><i></i><span>Homeowner guide · preview of the downloadable resource</span></div>
+    <div class="solution-guide-preview">
+     <div class="solution-guide-cover"><small>A practical homeowner guide</small><h4>Before You Choose a Roofer</h4><p>Five checks that help you ask better questions and compare roofing quotes with confidence.</p><div class="guide-edition">Prepared for <span class="solution-business-name">YOUR ROOFING COMPANY</span><br>Local homeowner edition</div></div>
+     <div class="solution-guide-content"><span class="guide-eyebrow">A clear, practical checklist</span><h5>Make a confident, informed decision about your roof.</h5><p>Choosing a contractor is easier when you know what to ask, what to compare and what should be explained before work starts.</p><ol><li><span><b>Describe the problem clearly.</b> Note what you can see and when it began.</span></li><li><span><b>Ask what the inspection covers.</b> Clarify access, findings and any limits.</span></li><li><span><b>Compare like with like.</b> Check materials, labour, waste removal and exclusions.</span></li><li><span><b>Understand the written quote.</b> Ask about timing, payment stages and changes.</span></li><li><span><b>Know who to contact.</b> Get the scope and aftercare arrangements in writing.</span></li></ol><div class="solution-checklist"><b>Questions worth asking</b><span>What work is included—and excluded?</span><span>How will unexpected issues be handled?</span><span>What documentation will I receive?</span></div></div>
+    </div>
+    <div class="solution-guide-footer"><span>Plain-English advice · Keep as a reference</span><span>01 / Homeowner checklist</span></div>
+   </div>
+   <div class="solution-asset-copy">
+    <span class="solution-asset-number">Asset 02 · Lead magnet + guide</span>
+    <h3>Give homeowners something genuinely useful.</h3>
+    <p>A branded guide can help a homeowner make sense of a roofing decision before they are ready to call. The guide earns attention by helping first—not by forcing a sales pitch.</p>
+    <ul><li>A designed downloadable guide with practical homeowner advice</li><li>Checklists and questions people can actually use</li><li>A matching landing page explaining what the guide offers</li><li>A natural invitation to discuss a real roofing concern</li></ul>
+    <button class="solution-expand" type="button" aria-expanded="false" aria-controls="solution-detail-guide">Explore the guide and download journey ↓</button>
+    <div class="solution-detail" id="solution-detail-guide" hidden><h4>The complete concept</h4>Guide cover and interior pages; useful advice; quote-comparison checklist; callout boxes; a simple next-step page; matching download landing page; thank-you message; and a suggested follow-up email draft. No email automation is claimed to be configured in this preview.<h4>Why it matters</h4>The resource gives the business a helpful way to begin a relationship before the homeowner is ready to request a quote. Any follow-up must respect consent and applicable privacy requirements.</div>
+   </div>
+  </article>
+
+  <article class="solution-reveal-row" id="solution-asset-blog">
+   <div class="solution-preview-shell">
+    <div class="solution-browserbar"><i></i><i></i><i></i><span class="solution-preview-domain">yourroofingbusiness.co.uk / advice</span></div>
+    <div class="solution-blog-preview">
+     <div class="solution-blog-header"><strong><span class="solution-business-name">YOUR ROOFING COMPANY</span> <span style="display:block;margin-top:4px">Homeowner advice centre</span></strong><span>Roofing explained · Practical guidance</span></div>
+     <div class="solution-blog-feature"><div class="solution-blog-feature-image"></div><div class="solution-blog-feature-copy"><span class="solution-blog-category">Roof care · 6 minute read</span><h4>Roof leak or condensation? What homeowners should check first</h4><p>Understand the signs, what you can safely observe from ground level, and when to arrange a professional assessment.</p><small>Practical guidance · Reviewed before publication</small></div></div>
+     <div class="solution-blog-grid"><article class="solution-blog-card"><div class="blog-card-photo"></div><div><small>Planning a project</small><h5>What should a roofing quote include?</h5><p>A plain-English look at scope, materials, exclusions, access, waste and questions to ask before agreeing work.</p></div></article><article class="solution-blog-card"><div class="blog-card-photo"></div><div><small>Roof maintenance</small><h5>Five signs your roof may need a closer look</h5><p>Learn what homeowners may notice and why a visible sign is not the same as a confirmed diagnosis.</p></div></article></div>
+     <div class="solution-blog-foot"><span>Useful answers before you need to book</span><span>Need advice? Contact the team →</span></div>
+    </div>
+   </div>
+   <div class="solution-asset-copy">
+    <span class="solution-asset-number">Asset 03 · Blog starter</span>
+    <h3>Answer the questions homeowners are already asking.</h3>
+    <p>A branded advice area with two complete starter articles. It gives the business useful content to review, publish and share—rather than a blank blog page or a list of suggested topics.</p>
+    <ul><li>Two readable, homeowner-focused roofing articles</li><li>Clear headings, practical advice and next-step links</li><li>Designed to sit within a consistent branded advice section</li><li>Careful wording: helpful guidance, not unsupported technical promises</li></ul>
+    <button class="solution-expand" type="button" aria-expanded="false" aria-controls="solution-detail-blog">Explore the two article drafts ↓</button>
+    <div class="solution-detail" id="solution-detail-blog" hidden><h4>Article 1 · Roof leak or condensation?</h4>Explains common signs, what a homeowner can safely observe from the ground, why symptoms can have different causes, and when to seek a qualified inspection. It avoids telling readers to climb onto a roof or self-diagnose structural issues.<h4>Article 2 · What should a roofing quote include?</h4>Walks through scope, materials, access, waste, exclusions, timing, payment stages and how changes are agreed. It helps readers ask informed questions and links naturally to a conversation with the business.</div>
+   </div>
+  </article>
+
+  <div class="solution-value-strip"><div><strong>Three connected concepts. One clearer customer journey.</strong><p>Help homeowners understand the service, make an informed choice and find the next step. The previews are illustrative concepts—not live assets or a promise of a particular revenue result.</p></div><span class="solution-value-badge">Complimentary asset concepts · £0</span></div>
+
+  <div class="solution-choice-row">
+   <article class="solution-choice solution-choice-diy"><span class="solution-asset-number">Option A · £0</span><h4>Take the assets and implement them yourself.</h4><p>Request the complimentary concepts. We’ll need your business details and approved brand material before preparing the final files. Your team then handles publishing, hosting, form connections, testing and ongoing upkeep.</p><a href="#asset-request-form">Request the free assets ↓</a></article>
+   <article class="solution-choice solution-choice-managed"><span class="solution-asset-number">Option B · Managed by Doctor Approach</span><h4>Let us take care of the implementation.</h4><p>We can agree the right scope, build and connect the selected assets, then provide hosting and management under the existing proposal. You can review the available package and terms below.</p><a href="#treatment-proposal">Compare managed options ↓</a></article>
+  </div>
+
+  <form id="asset-request-form" class="solution-request">
+   <span class="solution-asset-number">Complimentary asset request</span>
+   <h3>Which concepts would you like us to prepare?</h3>
+   <p>Select the assets you want. Submitting opens a pre-filled email request to Doctor Approach; it does not automatically publish or configure the assets. We’ll confirm the brief and what’s needed before production starts.</p>
+   <div class="solution-request-grid">
+    <label>Business name<input name="business" id="solution-request-business" required placeholder="Your roofing business"></label>
+    <label>Business website<input name="website" id="solution-request-website" required type="url" placeholder="https://yourwebsite.co.uk"></label>
+    <label>Your name<input name="contact" required placeholder="Your name"></label>
+    <label>Email address<input name="email" required type="email" placeholder="you@business.co.uk"></label>
+   </div>
+   <div class="solution-asset-checks">
+    <label class="solution-asset-check"><input type="checkbox" name="assets" value="Enquiry landing page" checked><span><b>01 · Enquiry landing page</b><br>Service page concept and enquiry route</span></label>
+    <label class="solution-asset-check"><input type="checkbox" name="assets" value="Lead magnet and homeowner guide" checked><span><b>02 · Homeowner guide</b><br>Downloadable guide and landing page concept</span></label>
+    <label class="solution-asset-check"><input type="checkbox" name="assets" value="Blog starter with two articles" checked><span><b>03 · Blog + two articles</b><br>Advice section and two article drafts</span></label>
+   </div>
+   <label style="display:block;margin-top:1rem">Anything we should know? (optional)<textarea name="notes" rows="3" placeholder="Your main service area, preferred services or brand notes"></textarea></label>
+   <button type="submit" class="solution-request-submit">Prepare my free asset request →</button>
+   <p class="solution-request-note">The concepts shown above use placeholder branding and example copy. Final production requires verified business details, approval of the copy and any genuine credentials or reviews you want included. Revenue impact is illustrative and not guaranteed.</p>
+  </form>
+ </div>
+</section>
+
 <section id="treatment-proposal" class="mt-5 rounded-3xl border border-amber-400/40 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-4 sm:p-7">
 <div class="mb-5"><p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-400">Step 3 · Treatment proposal</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">A practical plan to address the identified gap</h3><p id="proposal-intro" class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">The proposal will be shaped around the primary finding from this scan.</p></div>
 <div class="treatment-recommendation-strip rounded-2xl border border-amber-400/30 bg-zinc-950 p-5">
@@ -753,7 +969,7 @@ html,body{overflow-x:hidden}
     <div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">What you’ll still need to do</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li><strong class="text-white">Upload and host the files:</strong> your team will need to place the assets on your website or hosting environment.</li><li><strong class="text-white">Connect the moving parts:</strong> forms, downloads, callback requests and any calendar or email integrations need to be configured.</li><li><strong class="text-white">Test before launch:</strong> check mobile layout, consent, links and enquiry delivery end-to-end.</li><li><strong class="text-white">Maintain the assets:</strong> you will be responsible for ongoing hosting, updates and troubleshooting.</li></ul></div>
    </div>
    <p class="mt-4 rounded-lg border border-amber-400/25 bg-amber-400/5 p-3 text-sm leading-6 text-zinc-300"><strong class="text-amber-300">DIY responsibility:</strong> you arrange publishing, hosting, testing, ongoing maintenance and any required paid tools, email autoresponder, API access or integrations.</p>
-   <div class="mt-4 rounded-xl border border-zinc-700 bg-zinc-900 p-4"><p class="text-sm leading-relaxed text-zinc-300">The free asset request form is available in Step 2 above. Use it to send the brief for review; production starts only after the agreed scope and delivery are confirmed.</p><a href="#treatment-assets" class="mt-3 inline-flex rounded-lg border border-emerald-400/40 px-4 py-2 text-sm font-bold text-emerald-200">Go to Step 2 request form ↑</a></div>
+   <div class="mt-4 rounded-xl border border-zinc-700 bg-zinc-900 p-4"><p class="text-sm leading-relaxed text-zinc-300">The complimentary asset request is in Step 2 above. Use it to send the brief; production starts only after the scope and delivery are confirmed.</p><a href="#asset-request-form" class="mt-3 inline-flex rounded-lg border border-emerald-400/40 px-4 py-2 text-sm font-bold text-emerald-200">Go to complimentary asset request ↑</a></div>
    </div>
   </div>
  </article>
@@ -1647,6 +1863,67 @@ try{const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.targ
 })();
 </script>
 
+
+
+<script>
+(function(){
+ const root=document.getElementById('solution-reveal-step2');
+ if(!root)return;
+ root.querySelectorAll('.solution-expand').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+   const panel=document.getElementById(btn.getAttribute('aria-controls'));
+   if(!panel)return;
+   const opening=panel.hidden;
+   panel.hidden=!opening;
+   btn.setAttribute('aria-expanded',String(opening));
+   btn.textContent=opening?btn.textContent.replace(' ↓',' ↑').replace(' drafts ↑',' drafts ↑') : btn.textContent.replace(' ↑',' ↓');
+  });
+ });
+ const websiteInput=document.getElementById('website');
+ const companyNodes=root.querySelectorAll('.solution-business-name');
+ const domainNodes=root.querySelectorAll('.solution-preview-domain');
+ const requestBusiness=document.getElementById('solution-request-business');
+ const requestWebsite=document.getElementById('solution-request-website');
+ function brandFromScan(){
+  const raw=(document.getElementById('snapshot-website')?.textContent||websiteInput?.value||'').trim();
+  if(!raw)return;
+  let host=raw;
+  try{host=new URL(raw.match(/^https?:\/\//i)?raw:'https://'+raw).hostname.replace(/^www\./,'')}catch(e){}
+  if(!host)return;
+  const brand=host.split('.')[0].replace(/[-_]+/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+  if(brand && brand.length>1){
+   companyNodes.forEach(n=>n.textContent=brand.toUpperCase());
+   domainNodes.forEach(n=>n.textContent=host+' / '+(n.textContent.includes('advice')?'advice':'roofing-services'));
+   if(requestBusiness && !requestBusiness.value)requestBusiness.value=brand;
+   if(requestWebsite && !requestWebsite.value)requestWebsite.value=raw.match(/^https?:\/\//i)?raw:'https://'+raw;
+  }
+ }
+ document.getElementById('diagnosis-form')?.addEventListener('submit',()=>window.setTimeout(brandFromScan,800));
+ const result=document.getElementById('snapshot-result');
+ if(result && window.MutationObserver){new MutationObserver(()=>{if(!result.classList.contains('hidden'))brandFromScan()}).observe(result,{attributes:true,attributeFilter:['class']});}
+ root.querySelectorAll('a[href="#asset-request-form"]').forEach(a=>a.addEventListener('click',()=>window.setTimeout(()=>document.getElementById('solution-request-business')?.focus({preventScroll:true}),350)));
+ document.getElementById('asset-request-form')?.addEventListener('submit',e=>{
+  e.preventDefault();
+  const form=e.currentTarget;
+  const fd=new FormData(form);
+  const assets=[...form.querySelectorAll('input[name="assets"]:checked')].map(x=>x.value);
+  if(!assets.length){alert('Please select at least one asset.');return;}
+  const subject='Complimentary Growth Gap assets request — '+String(fd.get('business')||'Business');
+  const body=[
+   'Hello Doctor Approach,','',
+   'I would like to request the following complimentary asset concepts:','- '+assets.join('\n- '),'',
+   'Business name: '+fd.get('business'),
+   'Website: '+fd.get('website'),
+   'Contact name: '+fd.get('contact'),
+   'Email: '+fd.get('email'),
+   'Notes: '+(fd.get('notes')||'Not supplied'),'',
+   'I understand the previews are illustrative concepts and that the scope and required business/brand details will be confirmed before production begins.'
+  ].join('\n');
+  window.location.href='mailto:info@thedoctorapproach.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+ });
+ brandFromScan();
+})();
+</script>
 
 </body>
 </html>
