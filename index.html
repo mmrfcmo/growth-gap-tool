@@ -1347,11 +1347,12 @@ function plainFindingTitle(f){
 }
 function customerContext(snapshot){
  const sector=String(snapshot?.sector||window.__snapshotSector||'').toLowerCase();
- const site=String(snapshot?.website||'').toLowerCase();
- if(/dent|orthodont|endodont|cosmetic surg|medical|clinic|health/.test(sector)){
+ const site=String(snapshot?.website||document.getElementById('snapshot-website')?.textContent||document.getElementById('website')?.value||'').toLowerCase();
+ const identity=[sector,site,String(snapshot?.businessName||snapshot?.business||'').toLowerCase()].join(' ');
+ if(/dent|orthodont|endodont|cosmetic surg|medical|clinic|health/.test(identity)){
   return {kind:'dental',customer:'patient',plural:'patients',journey:'patient journey',cardLabel:'Dental practice',form:'appointment enquiry form',request:'appointment enquiry',action:'book an appointment'};
  }
- if(/roof|contractor|construction|hvac|plumb|electrician|landscap|builder/.test(sector)||/roof|roofer/.test(site)){
+ if(/roof|roofer|contractor|construction|hvac|plumb|electrician|landscap|builder/.test(identity)){
   return {kind:'roofing',customer:'homeowner',plural:'homeowners',journey:'homeowner enquiry journey',cardLabel:'Roofing business',form:'quote request process',request:'quote request',action:'request a quote'};
  }
  return {kind:'general',customer:'customer',plural:'customers',journey:'customer enquiry journey',cardLabel:'Business',form:'contact process',request:'enquiry',action:'get in touch'};
@@ -1781,36 +1782,6 @@ if(gaps.length){
  set('snapshot-cta-kicker','Step 1 · What the scan found');set('snapshot-cta-heading','Here is the potential problem—and why it matters.');
  set('snapshot-cta-copy','Primary finding: '+title+'. '+businessMeaning(primaryCat)+' The scan identifies a signal to investigate; it does not prove customers have already been lost. The three concepts below are ranked against the available findings, not selected as a fixed set.');
 })();;
-const assetRequestForm=document.getElementById('asset-request-form');
-assetRequestForm?.addEventListener('submit',event=>{
- event.preventDefault();
- const fd=new FormData(assetRequestForm);
- const lines=[
-  'FREE ASSET REQUEST',
-  '',
-  'Business: '+(fd.get('business')||''),
-  'Contact: '+(fd.get('contact')||''),
-  'Email: '+(fd.get('email')||''),
-  'Website: '+(fd.get('website')||''),
-  'Logo / brand link: '+(fd.get('brandLink')||'Not provided'),
-  '',
-  'Services, audience and brand notes:',
-  fd.get('brandNotes')||'',
-  '',
-  'Additional notes:',
-  fd.get('extra')||'',
-  '',
-  'DIY responsibility acknowledged: '+(fd.get('responsibility')?'Yes':'No'),
-  'Scan business: '+(document.getElementById('scan-business-name')?.textContent||'See website above'),
-  'Recommended assets: '+Array.from(document.querySelectorAll('#diagnosed-gap-card li span')).map(x=>x.textContent).join(', ')
- ];
- const subject='Free Asset Request — '+String(fd.get('business')||'Business').trim();
- const mailto='mailto:info@thedoctorapproach.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(lines.join('\n'));
- const feedback=document.getElementById('asset-request-feedback');
- feedback.textContent='Your email request is ready. Check the details in your email app and send it to complete the claim. Doctor Approach will review the information and confirm the agreed assets and delivery timeframe.';
- feedback.classList.remove('hidden');
- window.location.href=mailto;
-});
 const freeToggle=document.getElementById('show-free-assets-legacy'),freePanel=document.getElementById('free-assets-panel-legacy');
 const step2FreeToggle=document.getElementById('show-free-assets'),step2FreePanel=document.getElementById('free-assets-panel');
 step2FreeToggle?.addEventListener('click',()=>{const opening=step2FreePanel.classList.contains('hidden');step2FreePanel.classList.toggle('hidden',!opening);step2FreeToggle.setAttribute('aria-expanded',String(opening));step2FreeToggle.textContent=opening?'Hide free request form ↑':'Request my free assets ↓';if(opening)step2FreePanel.scrollIntoView({behavior:'smooth',block:'nearest'});});
