@@ -1817,8 +1817,8 @@ if(gaps.length){
  const fallbackNote=document.getElementById('solution-evidence-fallback');
  const evidenceDetail=getText(first,['observation','evidenceSummary','fact','description']).toLowerCase();
  const evidenceUrl=getText(first,['evidencePageUrl','pageUrl','sourceUrl']);
- const normaliseEvidenceUrl=value=>{try{const u=new URL(value);return (u.origin+u.pathname).replace(/\\/$/,'').toLowerCase()}catch(e){return String(value||'').split(/[?#]/)[0].replace(/\\/$/,'').toLowerCase()}};
- const concreteIssue=/(form|field|submit|contact|call to action|\\bcta\\b|enquir|booking|appointment|next step|value proposition|button|missing|unclear|hard to find|difficult|confusing|friction|broken|error|not visible|not prominent|page layout)/i.test(evidenceDetail);
+ const normaliseEvidenceUrl=value=>{try{const u=new URL(value);return (u.origin+u.pathname).replace(/\/$/,'').toLowerCase()}catch(e){return String(value||'').split(/[?#]/)[0].replace(/\/$/,'').toLowerCase()}};
+ const concreteIssue=/(form|field|submit|contact|call to action|\bcta\b|enquir|booking|appointment|next step|value proposition|button|missing|unclear|hard to find|difficult|confusing|friction|broken|error|not visible|not prominent|page layout)/i.test(evidenceDetail);
  const screenshotItems=Array.isArray(s.screenshots)?s.screenshots:[];
  const matchedCapture=screenshotItems.map(item=>({imageUrl:getText(item,['imageUrl','screenshotUrl','url']),sourceUrl:getText(item,['sourceUrl']),title:getText(item,['title'])})).find(item=>item.imageUrl&&item.sourceUrl&&evidenceUrl&&normaliseEvidenceUrl(item.sourceUrl)===normaliseEvidenceUrl(evidenceUrl));
  if(compare&&fallbackNote){
