@@ -181,6 +181,37 @@ html,body{overflow-x:hidden}
 @media(max-width:1279px){.asset-hero-copy h4{font-size:23px}.asset-guide-cover h4{font-size:23px}}
 @media(max-width:640px){.asset-hero{min-height:210px}.asset-hero .asset-photo{min-height:210px}.asset-guide-cover{width:84%}.asset-article-photo{height:75px}}
 
+/* Revised Step 2: three full-width horizontal product rows, ordered Asset 1 → 2 → 3 */
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card{
+ display:grid;
+ grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);
+ align-items:stretch;
+ gap:0;
+ padding:12px;
+}
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card>.asset-browser,
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card>.asset-guide-stage,
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card>.asset-blog-window{
+ width:100%;min-width:0;align-self:stretch;border-radius:12px!important;overflow:hidden;
+}
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card>.p-5{
+ width:100%;min-width:0;align-self:center;padding:clamp(18px,3vw,36px)!important;
+}
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card>.asset-browser{display:flex;flex-direction:column;justify-content:center}
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-hero,
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-hero .asset-photo{min-height:280px}
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-guide-stage{min-height:340px}
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-guide-cover{max-width:340px}
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-blog-heading{padding:clamp(20px,3vw,36px)}
+#treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-article-photo{height:clamp(100px,12vw,170px)}
+@media(max-width:760px){
+ #treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card{grid-template-columns:minmax(0,1fr);gap:10px;padding:8px}
+ #treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card>.p-5{padding:16px!important}
+ #treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-hero,
+ #treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-hero .asset-photo{min-height:220px}
+ #treatment-assets>div.mt-5.grid.grid-cols-1.gap-5>.asset-preview-card .asset-guide-stage{min-height:300px}
+}
+
 /* Catalogue styling only. Keep the scanner and results on the original Snapshot layout. */
 #deep-dive-catalogue{margin-top:16px;border:1px solid #6b5014;border-radius:15px;background:#0b0d0f;padding:16px}
 #deep-dive-catalogue .catalogue-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
@@ -715,7 +746,7 @@ html,body{overflow-x:hidden}
    <p class="mt-1 text-xs leading-relaxed text-zinc-400">Indicative standalone values for these three example assets; final scope and value depend on the agreed brief.</p>
   </div>
  </div>
- <div class="mt-5 grid grid-cols-1 lg:grid-cols-3 gap-4">
+ <div class="mt-5 grid grid-cols-1 gap-5">
   <article class="asset-preview-card overflow-hidden rounded-2xl border border-emerald-400/35 bg-zinc-900">
    <div class="asset-browser">
     <div class="asset-browser-bar"><span>● ● ● &nbsp; <span id="asset-business-1">Your business</span></span><span>WEBSITE CONCEPT</span></div>
