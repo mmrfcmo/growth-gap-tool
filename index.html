@@ -728,6 +728,46 @@ html,body{overflow-x:hidden}
 #offer-page{display:block!important;scroll-margin-top:24px}
 @media(max-width:640px){#offer-page .grid{min-width:0}#offer-page article{min-width:0}}
 
+
+/* Real webpage implementation of the approved visual direction: full-width horizontal diagnosis, recommendation, and illustrated product rows. */
+#offer-page .offer-priority-grid{grid-template-columns:minmax(0,1fr)!important}
+#offer-page #offer-gap-card{display:grid;grid-template-columns:minmax(220px,.72fr) minmax(0,1.28fr);gap:24px;align-items:center}
+#offer-page #offer-gap-card .offer-priority-explanation{border-left:1px solid rgba(251,191,36,.35);padding-left:24px}
+#offer-page #offer-approach-card{display:grid;grid-template-columns:minmax(0,1fr) minmax(240px,.65fr);gap:24px;align-items:center}
+#offer-page .offer-product-row{display:grid;grid-template-columns:minmax(260px,.85fr) minmax(0,1.15fr);gap:0;overflow:hidden;border:1px solid #164e63;border-radius:18px;background:linear-gradient(110deg,#071725,#09090b 72%);margin-top:18px}
+#offer-page .offer-product-art{min-height:285px;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(ellipse at 50% 45%,rgba(14,116,144,.28),transparent 70%),linear-gradient(135deg,#06111f,#0b2031);border-right:1px solid #164e63}
+#offer-page .offer-product-copy{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;justify-content:center}
+#offer-page .offer-product-kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:#67e8f9}
+#offer-page .offer-product-copy h4{font-size:clamp(20px,2.2vw,28px);font-weight:800;line-height:1.2;color:#fff;margin-top:8px}
+#offer-page .offer-product-copy p{font-size:14px;line-height:1.7;color:#d4d4d8;margin-top:12px}
+#offer-page .offer-product-copy ul{margin-top:14px;display:grid;gap:8px;color:#e4e4e7;font-size:13px;line-height:1.55}
+#offer-page .offer-product-copy li:before{content:"✓";color:#34d399;font-weight:900;margin-right:9px}
+#offer-page .offer-product-art .product-window{width:100%;max-width:430px;overflow:hidden;border:1px solid #3f5369;border-radius:12px;background:#f8fafc;box-shadow:0 22px 55px rgba(0,0,0,.4);transform:rotate(-1deg)}
+#offer-page .product-window-top{height:24px;background:#e2e8f0;display:flex;gap:5px;align-items:center;padding:0 10px}
+#offer-page .product-window-top i{width:6px;height:6px;border-radius:50%;background:#94a3b8}
+#offer-page .product-window-body{padding:17px;color:#0f172a}
+#offer-page .product-window-brand{font-size:8px;font-weight:900;letter-spacing:.15em;color:#0e7490;text-transform:uppercase}
+#offer-page .product-window-headline{font-size:clamp(15px,1.8vw,22px);font-weight:900;line-height:1.08;margin-top:10px;max-width:290px}
+#offer-page .product-window-sub{font-size:9px;line-height:1.5;color:#475569;margin-top:8px;max-width:300px}
+#offer-page .product-window-button{display:inline-block;margin-top:12px;padding:7px 11px;border-radius:5px;background:#0369a1;color:#fff;font-size:8px;font-weight:800}
+#offer-page .product-window-bars{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:15px}
+#offer-page .product-window-bars span{display:block;height:38px;border-radius:4px;background:linear-gradient(145deg,#cffafe,#bae6fd);border:1px solid #bae6fd}
+#offer-page .guide-spread{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%;max-width:420px;align-items:center}
+#offer-page .guide-cover{min-height:210px;padding:17px;display:flex;flex-direction:column;justify-content:space-between;background:linear-gradient(155deg,#0e7490,#082f49 65%,#0f172a);color:white;border:1px solid #67e8f9;border-radius:7px;box-shadow:0 18px 30px #0006;transform:rotate(-3deg)}
+#offer-page .guide-cover strong{font-size:clamp(17px,2vw,24px);line-height:1.05}
+#offer-page .guide-cover small{font-size:8px;letter-spacing:.15em;text-transform:uppercase}
+#offer-page .guide-pages{background:#f8fafc;border-radius:5px;padding:13px;transform:rotate(3deg);box-shadow:0 15px 30px #0005;color:#0f172a}
+#offer-page .guide-pages span{display:block;height:6px;margin-top:8px;border-radius:3px;background:#cbd5e1}
+#offer-page .guide-pages span:nth-child(3n){width:70%;background:#67e8f9}
+#offer-page .blog-window{width:100%;max-width:430px;background:#f8fafc;color:#0f172a;padding:14px;border-radius:10px;box-shadow:0 20px 40px #0006}
+#offer-page .blog-window-head{font-size:8px;letter-spacing:.15em;font-weight:900;color:#0e7490;text-transform:uppercase}
+#offer-page .blog-window-feature{margin-top:10px;padding:16px;border-radius:7px;background:linear-gradient(120deg,#164e63,#0f172a);color:white;min-height:90px;display:flex;flex-direction:column;justify-content:end}
+#offer-page .blog-window-feature strong{font-size:16px;line-height:1.15}
+#offer-page .blog-window-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:9px}
+#offer-page .blog-window-cards div{background:#e2e8f0;padding:9px;border-radius:5px;font-size:8px;font-weight:800}
+#offer-page .offer-package-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media(max-width:720px){#offer-page #offer-gap-card,#offer-page #offer-approach-card,#offer-page .offer-product-row{grid-template-columns:1fr}#offer-page #offer-gap-card .offer-priority-explanation{border-left:0;border-top:1px solid rgba(251,191,36,.35);padding:18px 0 0}#offer-page .offer-product-art{min-height:220px;border-right:0;border-bottom:1px solid #164e63}#offer-page .offer-package-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 
@@ -915,14 +955,14 @@ html,body{overflow-x:hidden}
   <p class="text-xs font-extrabold uppercase tracking-[.18em] text-amber-300">Step 2 · Your recommended solution</p>
   <h2 class="mt-3 max-w-4xl text-3xl sm:text-4xl font-extrabold leading-tight text-white">Turn the growth gap into a practical plan.</h2>
   <p class="mt-3 max-w-3xl text-sm sm:text-base leading-relaxed text-zinc-200">The Snapshot highlights an area worth investigating. Here is how Doctor Approach can help you address it with practical assets and a clear 12-month implementation option. We confirm the evidence, business details and final scope before work begins.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-[1.1fr_.9fr]">
-   <div class="rounded-2xl border border-red-400/30 bg-red-950/20 p-5">
+  <div class="offer-priority-grid mt-6 grid gap-4">
+   <div id="offer-gap-card" class="rounded-2xl border border-red-400/30 bg-red-950/20 p-5">
     <p class="text-xs font-extrabold uppercase tracking-wider text-red-200">Your priority to review</p>
     <h3 id="offer-gap-title" class="mt-2 text-2xl font-extrabold text-white">Potential Growth Gap</h3>
     <p id="offer-gap-summary" class="mt-2 text-sm leading-relaxed text-zinc-200">We will connect the recommended treatment to the primary finding from your Snapshot.</p>
-    <p class="mt-3 text-xs leading-relaxed text-zinc-400">This is a potential constraint based on available public evidence, not proof that sales have been lost.</p>
+    <div class="offer-priority-explanation"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-200">Why this matters</p><p class="mt-2 text-sm leading-relaxed text-zinc-200">A potential conversion gap means some interested visitors may not immediately see the right reason to enquire or an easy next step. Improving clarity and reducing friction can help the business make better use of the attention it already receives. The scan is a starting signal, not proof of lost sales; we confirm the context with you first.</p></div>
    </div>
-   <div class="rounded-2xl border border-emerald-400/30 bg-emerald-950/20 p-5">
+   <div id="offer-approach-card" class="rounded-2xl border border-emerald-400/30 bg-emerald-950/20 p-5">
     <p class="text-xs font-extrabold uppercase tracking-wider text-emerald-200">Recommended approach</p>
     <h3 id="offer-treatment-title" class="mt-2 text-xl font-extrabold text-white">Build the missing pieces of the customer journey</h3>
     <p id="offer-treatment-summary" class="mt-2 text-sm leading-relaxed text-zinc-200">A focused set of useful pages and content, selected to address the diagnosed priority rather than adding unnecessary extras.</p>
@@ -938,17 +978,17 @@ html,body{overflow-x:hidden}
    <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Practical assets, not just mockups.</h3>
    <p class="mt-2 text-sm leading-relaxed text-zinc-300">The exact assets are confirmed against your business, customers and priority gap. These are the deliverables available within the packages—not claims that the assets already exist or have been published.</p>
   </div>
-  <div class="mt-5 grid gap-3 md:grid-cols-3">
-   <article class="rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5"><div class="text-2xl" aria-hidden="true">↗</div><h4 class="mt-3 font-extrabold text-white">Conversion landing pages</h4><p class="mt-2 text-sm leading-relaxed text-zinc-300">A focused page that explains the service, builds confidence with verified information and gives homeowners a clear next step.</p></article>
-   <article class="rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5"><div class="text-2xl" aria-hidden="true">▤</div><h4 class="mt-3 font-extrabold text-white">Lead magnets and homeowner guides</h4><p class="mt-2 text-sm leading-relaxed text-zinc-300">Useful customer-facing content designed around real questions, with a clear route to enquire where appropriate.</p></article>
-   <article class="rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5"><div class="text-2xl" aria-hidden="true">✎</div><h4 class="mt-3 font-extrabold text-white">Blog setup and articles</h4><p class="mt-2 text-sm leading-relaxed text-zinc-300">A structured advice section and relevant article content to answer customer questions and support the wider website.</p></article>
+  <div class="mt-5">
+   <article class="offer-product-row"><div class="offer-product-art"><div class="product-window"><div class="product-window-top"><i></i><i></i><i></i></div><div class="product-window-body"><div class="product-window-brand">Your Roofing Company</div><div class="product-window-headline">Roof repairs you can feel confident about.</div><div class="product-window-sub">Clear services. Your local area. Genuine credentials and a simple way to request a quote.</div><span class="product-window-button">Request a quote</span><div class="product-window-bars"><span></span><span></span><span></span></div></div></div></div><div class="offer-product-copy"><span class="offer-product-kicker">Product 01 · Conversion</span><h4>Conversion-focused landing page</h4><p><strong class="text-white">What it is:</strong> A dedicated page focused on one key service or offer, rather than making visitors work through a general website to find what they need.</p><p><strong class="text-white">What it does:</strong> Explains the service and area covered, presents verified trust evidence, answers key questions and makes the next step obvious on desktop and mobile.</p><ul><li>Clear service message and homeowner benefits</li><li>Relevant, genuine trust evidence and a visible enquiry route</li><li>Designed to reduce confusion and unnecessary steps</li></ul><p><strong class="text-white">Potential outcome:</strong> More of the existing relevant traffic may progress to an enquiry. Actual impact depends on traffic quality, offer, market and testing; it is not guaranteed.</p></div></article>
+   <article class="offer-product-row"><div class="offer-product-art"><div class="guide-spread"><div class="guide-cover"><small>Free homeowner guide</small><strong>What to check before choosing a roofer</strong><small>Practical advice · Local service area</small></div><div class="guide-pages"><b style="font-size:11px">A helpful checklist</b><span></span><span></span><span></span><span></span><span></span><span></span><p style="font-size:8px;line-height:1.4;margin-top:12px">Questions to ask, details to check and what to expect next.</p></div></div></div><div class="offer-product-copy"><span class="offer-product-kicker">Product 02 · Lead generation</span><h4>Lead magnet and homeowner guide</h4><p><strong class="text-white">What it is:</strong> A useful downloadable guide, checklist or planning resource that answers a question homeowners genuinely have.</p><p><strong class="text-white">What it does:</strong> Gives potential customers something valuable before they are ready to request a quote, with an appropriate next step to contact the business.</p><ul><li>Written around common homeowner questions</li><li>Presented as a branded, easy-to-read resource</li><li>Can be paired with a landing page and enquiry call to action</li></ul><p><strong class="text-white">Potential outcome:</strong> More opportunities to start a conversation with people who are still researching. If contact details are collected, the form, consent and follow-up process must be configured and tested.</p></div></article>
+   <article class="offer-product-row"><div class="offer-product-art"><div class="blog-window"><div class="blog-window-head">Advice from your local roofing team</div><div class="blog-window-feature"><strong>How to spot roof damage before it becomes a bigger problem</strong><span style="font-size:8px;margin-top:7px;color:#bae6fd">Practical homeowner advice</span></div><div class="blog-window-cards"><div>What happens during a roof inspection?</div><div>Repair or replacement: what to consider</div></div></div></div><div class="offer-product-copy"><span class="offer-product-kicker">Product 03 · Useful content</span><h4>Blog setup and helpful articles</h4><p><strong class="text-white">What it is:</strong> A structured advice area for useful, relevant articles written for the questions your customers ask.</p><p><strong class="text-white">What it does:</strong> Helps homeowners understand their options, supports service pages with relevant information and gives the business useful material to share.</p><ul><li>Clear blog structure and readable article layouts</li><li>Articles focused on real customer questions</li><li>Links to relevant services and appropriate next steps</li></ul><p><strong class="text-white">Potential outcome:</strong> Stronger customer understanding and additional opportunities to be found through useful content over time. Search visibility and enquiries depend on competition, distribution and ongoing quality; they are not guaranteed.</p></div></article>
   </div>
   <div class="mt-8">
    <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Choose how you want to proceed</p>
    <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three fixed 12-month packages</h3>
    <p class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">Choose the level of implementation that fits your priorities. Monthly prices mean a 12-month commitment. The annual price covers the same 12-month term and costs less than twelve monthly payments.</p>
   </div>
-  <div class="mt-5 grid gap-4 lg:grid-cols-3">
+  <div class="offer-package-grid mt-5">
    <article class="flex flex-col rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5">
     <p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B1 · Core</p><h4 class="mt-2 text-xl font-extrabold text-white">Focused foundation</h4>
     <p class="mt-3 text-3xl font-extrabold text-white">£1,500 <span class="text-xs font-semibold text-zinc-400">annual</span></p><p class="mt-1 text-sm text-zinc-300">or £149/month for 12 months</p>
