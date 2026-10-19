@@ -722,6 +722,12 @@ html,body{overflow-x:hidden}
 .solution-art-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 4%;background:#111827;color:#cbd5e1;font-size:7px;letter-spacing:.08em;text-transform:uppercase}.solution-art-footer b{color:#fbbf24}
 @media(max-width:520px){.solution-art-hero{grid-template-columns:1fr}.solution-art-photo{min-height:110px;grid-row:1}.solution-art-photo:after{background:linear-gradient(0deg,var(--d),transparent 75%)}.solution-art-guide{padding:7px;gap:6px}.solution-art-cover{padding:11px 8px;min-height:235px}.solution-art-cover h4{font-size:18px;margin-top:18px}.solution-art-inside{padding:9px}.solution-art-inside h5{font-size:11px}.solution-art-grid{gap:5px}.solution-art-tile .photo{height:44px}.solution-art-tile .copy{padding:6px}.solution-art-navlinks{display:none}.solution-art-flow{gap:5px;padding:10px 3%}.solution-art-flow div{padding:8px 5px}}
 
+
+/* Updated Step 2 offer page: replace old mockup-driven sales content in the preview */
+#solution-reveal-step2,#treatment-proposal{display:none!important}
+#offer-page{display:block!important;scroll-margin-top:24px}
+@media(max-width:640px){#offer-page .grid{min-width:0}#offer-page article{min-width:0}}
+
 </style>
 </head>
 
@@ -893,7 +899,7 @@ html,body{overflow-x:hidden}
 <div class="mt-6 rounded-2xl border border-amber-400/50 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-5 sm:p-7">
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-5">
 <div class="max-w-2xl"><p id="snapshot-cta-kicker" class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Step 1 · What the scan found</p><h4 id="snapshot-cta-heading" class="mt-2 text-2xl sm:text-3xl font-extrabold leading-tight text-white">The problem, why it matters, and what may need to change</h4><p id="snapshot-cta-copy" class="mt-3 text-sm sm:text-base leading-relaxed text-zinc-200">We’ll summarise the main evidence, the potential commercial consequence, and the type of improvement worth considering. Possible impact is not a claim that customers have already been lost.</p></div>
-<a id="snapshot-cta" href="#solution-reveal-step2" class="inline-flex shrink-0 w-full md:w-auto justify-center rounded-xl bg-amber-400 hover:bg-amber-300 px-6 py-4 text-sm font-extrabold text-zinc-950 shadow-[0_8px_30px_rgba(245,158,11,.18)] transition">See the solution concepts ↓</a>
+<a id="snapshot-cta" href="#offer-page" class="inline-flex shrink-0 w-full md:w-auto justify-center rounded-xl bg-amber-400 hover:bg-amber-300 px-6 py-4 text-sm font-extrabold text-zinc-950 shadow-[0_8px_30px_rgba(245,158,11,.18)] transition">See the solution concepts ↓</a>
 </div>
 <p id="snapshot-cta-reassurance" class="mt-4 text-xs leading-relaxed text-zinc-300">This is the handover from diagnosis to prescription: first understand the potential problem, then see the three solutions selected to address it.</p>
 </div>
@@ -901,6 +907,76 @@ html,body{overflow-x:hidden}
 
 
 
+
+
+<!-- New Step 2: personalised offer page replaces the old asset-mockup sales section -->
+<section id="offer-page" class="mt-6 overflow-hidden rounded-3xl border border-amber-400/40 bg-zinc-950 shadow-2xl">
+ <div class="border-b border-zinc-800 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-5 sm:p-8">
+  <p class="text-xs font-extrabold uppercase tracking-[.18em] text-amber-300">Step 2 · Your recommended solution</p>
+  <h2 class="mt-3 max-w-4xl text-3xl sm:text-4xl font-extrabold leading-tight text-white">Turn the growth gap into a practical plan.</h2>
+  <p class="mt-3 max-w-3xl text-sm sm:text-base leading-relaxed text-zinc-200">The Snapshot highlights an area worth investigating. Here is how Doctor Approach can help you address it with practical assets and a clear 12-month implementation option. We confirm the evidence, business details and final scope before work begins.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-[1.1fr_.9fr]">
+   <div class="rounded-2xl border border-red-400/30 bg-red-950/20 p-5">
+    <p class="text-xs font-extrabold uppercase tracking-wider text-red-200">Your priority to review</p>
+    <h3 id="offer-gap-title" class="mt-2 text-2xl font-extrabold text-white">Potential Growth Gap</h3>
+    <p id="offer-gap-summary" class="mt-2 text-sm leading-relaxed text-zinc-200">We will connect the recommended treatment to the primary finding from your Snapshot.</p>
+    <p class="mt-3 text-xs leading-relaxed text-zinc-400">This is a potential constraint based on available public evidence, not proof that sales have been lost.</p>
+   </div>
+   <div class="rounded-2xl border border-emerald-400/30 bg-emerald-950/20 p-5">
+    <p class="text-xs font-extrabold uppercase tracking-wider text-emerald-200">Recommended approach</p>
+    <h3 id="offer-treatment-title" class="mt-2 text-xl font-extrabold text-white">Build the missing pieces of the customer journey</h3>
+    <p id="offer-treatment-summary" class="mt-2 text-sm leading-relaxed text-zinc-200">A focused set of useful pages and content, selected to address the diagnosed priority rather than adding unnecessary extras.</p>
+    <ul class="mt-4 space-y-2 text-sm text-zinc-200">
+     <li>✓ Clear deliverables and agreed scope</li><li>✓ Plain-English implementation plan</li><li>✓ 12 months of hosting and management on managed packages</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+ <div class="p-5 sm:p-8">
+  <div class="max-w-3xl">
+   <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">What we can put in place</p>
+   <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Practical assets, not just mockups.</h3>
+   <p class="mt-2 text-sm leading-relaxed text-zinc-300">The exact assets are confirmed against your business, customers and priority gap. These are the deliverables available within the packages—not claims that the assets already exist or have been published.</p>
+  </div>
+  <div class="mt-5 grid gap-3 md:grid-cols-3">
+   <article class="rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5"><div class="text-2xl" aria-hidden="true">↗</div><h4 class="mt-3 font-extrabold text-white">Conversion landing pages</h4><p class="mt-2 text-sm leading-relaxed text-zinc-300">A focused page that explains the service, builds confidence with verified information and gives homeowners a clear next step.</p></article>
+   <article class="rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5"><div class="text-2xl" aria-hidden="true">▤</div><h4 class="mt-3 font-extrabold text-white">Lead magnets and homeowner guides</h4><p class="mt-2 text-sm leading-relaxed text-zinc-300">Useful customer-facing content designed around real questions, with a clear route to enquire where appropriate.</p></article>
+   <article class="rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5"><div class="text-2xl" aria-hidden="true">✎</div><h4 class="mt-3 font-extrabold text-white">Blog setup and articles</h4><p class="mt-2 text-sm leading-relaxed text-zinc-300">A structured advice section and relevant article content to answer customer questions and support the wider website.</p></article>
+  </div>
+  <div class="mt-8">
+   <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Choose how you want to proceed</p>
+   <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Three fixed 12-month packages</h3>
+   <p class="mt-2 max-w-3xl text-sm leading-relaxed text-zinc-300">Choose the level of implementation that fits your priorities. Monthly prices mean a 12-month commitment. The annual price covers the same 12-month term and costs less than twelve monthly payments.</p>
+  </div>
+  <div class="mt-5 grid gap-4 lg:grid-cols-3">
+   <article class="flex flex-col rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5">
+    <p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B1 · Core</p><h4 class="mt-2 text-xl font-extrabold text-white">Focused foundation</h4>
+    <p class="mt-3 text-3xl font-extrabold text-white">£1,500 <span class="text-xs font-semibold text-zinc-400">annual</span></p><p class="mt-1 text-sm text-zinc-300">or £149/month for 12 months</p>
+    <ul class="mt-4 flex-1 space-y-2 text-sm leading-relaxed text-zinc-300"><li>✓ One conversion-focused landing page</li><li>✓ One lead magnet or customer guide</li><li>✓ Blog setup with two initial articles</li><li>✓ Hosting and management for 12 months</li></ul>
+    <p class="mt-4 rounded-lg border border-zinc-700 p-3 text-xs leading-relaxed text-zinc-400">Annual payment saves £288 compared with 12 monthly payments.</p>
+    <a href="mailto:info@thedoctorapproach.com?subject=Request%20B1%20secure%20payment%20link" class="mt-4 block rounded-xl border border-amber-400/60 px-4 py-3 text-center text-sm font-extrabold text-amber-200 hover:bg-amber-400/10">Request secure payment link</a>
+   </article>
+   <article class="flex flex-col rounded-2xl border-2 border-emerald-400/70 bg-emerald-950/20 p-5 shadow-lg shadow-emerald-950/20">
+    <div class="flex items-center justify-between gap-2"><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">B2 · Growth</p><span class="rounded-full bg-emerald-400 px-2 py-1 text-[10px] font-extrabold uppercase text-zinc-950">More coverage</span></div>
+    <h4 class="mt-2 text-xl font-extrabold text-white">Build momentum</h4>
+    <p class="mt-3 text-3xl font-extrabold text-white">£2,000 <span class="text-xs font-semibold text-zinc-400">annual</span></p><p class="mt-1 text-sm text-zinc-300">or £199/month for 12 months</p>
+    <ul class="mt-4 flex-1 space-y-2 text-sm leading-relaxed text-zinc-200"><li>✓ Two conversion-focused landing pages</li><li>✓ Two lead magnets or customer guides</li><li>✓ Blog setup and two articles per month</li><li>✓ Hosting and management for 12 months</li><li>✓ Annual-payment bonus: social media setup and content for the first three months</li></ul>
+    <p class="mt-4 rounded-lg border border-emerald-400/30 p-3 text-xs leading-relaxed text-zinc-300">Annual payment saves £388 compared with 12 monthly payments.</p>
+    <a href="mailto:info@thedoctorapproach.com?subject=Request%20B2%20secure%20payment%20link" class="mt-4 block rounded-xl bg-emerald-400 px-4 py-3 text-center text-sm font-extrabold text-zinc-950 hover:bg-emerald-300">Request secure payment link</a>
+   </article>
+   <article class="flex flex-col rounded-2xl border border-zinc-700 bg-zinc-900/70 p-5">
+    <p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">B3 · Growth Plus</p><h4 class="mt-2 text-xl font-extrabold text-white">Broader implementation</h4>
+    <p class="mt-3 text-3xl font-extrabold text-white">£3,000 <span class="text-xs font-semibold text-zinc-400">annual</span></p><p class="mt-1 text-sm text-zinc-300">or £299/month for 12 months</p>
+    <ul class="mt-4 flex-1 space-y-2 text-sm leading-relaxed text-zinc-300"><li>✓ Three conversion-focused landing pages</li><li>✓ Three lead magnets or customer guides</li><li>✓ Blog setup and two articles per month</li><li>✓ Hosting and management for 12 months</li><li>✓ Annual-payment bonus: social media setup and content for the first three months</li></ul>
+    <p class="mt-4 rounded-lg border border-zinc-700 p-3 text-xs leading-relaxed text-zinc-400">Annual payment saves £588 compared with 12 monthly payments.</p>
+    <a href="mailto:info@thedoctorapproach.com?subject=Request%20B3%20secure%20payment%20link" class="mt-4 block rounded-xl border border-amber-400/60 px-4 py-3 text-center text-sm font-extrabold text-amber-200 hover:bg-amber-400/10">Request secure payment link</a>
+   </article>
+  </div>
+  <div class="mt-5 rounded-xl border border-zinc-700 bg-zinc-900/60 p-4"><p class="text-sm font-bold text-white">Prefer to implement it yourself?</p><p class="mt-1 text-sm leading-relaxed text-zinc-300">A complimentary asset route can be discussed separately. You would be responsible for publishing, hosting, integrations, testing and ongoing upkeep.</p><a class="mt-3 inline-flex text-sm font-extrabold text-amber-200 underline" href="mailto:info@thedoctorapproach.com?subject=Complimentary%20asset%20request">Ask about complimentary assets</a></div>
+  <div class="mt-5 rounded-xl border border-zinc-700 p-4"><p class="text-sm font-bold text-white">Need a wider solution?</p><p class="mt-1 text-sm leading-relaxed text-zinc-300">For work beyond these packages, request a Growth Implementation Programme discussion. Scope and price will be agreed before work begins.</p><a class="mt-3 inline-flex text-sm font-extrabold text-amber-200 underline" href="mailto:info@thedoctorapproach.com?subject=Growth%20Implementation%20Programme">Discuss a bespoke programme</a></div>
+  <p class="mt-6 text-xs leading-relaxed text-zinc-500">Terms: managed packages run for 12 months. Renewal after the term requires a new agreement. Third-party subscriptions, paid email platforms, API access and work outside the agreed scope are excluded unless explicitly included. Revenue improvement is illustrative and not guaranteed. Payment links are not yet connected; these buttons request the correct secure link rather than pretending checkout is live.</p>
+ </div>
+</section>
 
 <section id="solution-reveal-step2" class="solution-reveal">
  <div class="solution-reveal-inner">
@@ -2016,7 +2092,7 @@ if(gaps.length){
  set('proposal-gap-title',category+': '+title);set('proposal-treatment',supplied||treatment);
  set('proposal-rationale',primaryCat==='retention'?'The public scan cannot confirm actual repeat-customer behaviour. Validate the current follow-up process first; implement only if a real gap is confirmed.':'The proposed work follows the scan findings. Confirm the live experience and business context before finalising scope.');
  set('proposal-intro','A first-draft treatment plan for '+business+', built around the primary Snapshot finding. Confirm the evidence and scope with the owner before accepting work.');
- const cta=document.getElementById('snapshot-cta');if(cta){cta.href='#solution-reveal-step2';cta.removeAttribute('target');cta.removeAttribute('rel');cta.textContent='See the matched solution concepts ↓';}
+ const cta=document.getElementById('snapshot-cta');if(cta){cta.href='#offer-page';cta.removeAttribute('target');cta.removeAttribute('rel');cta.textContent='See the matched solution concepts ↓';}
  set('snapshot-cta-kicker','Step 1 · What the scan found');set('snapshot-cta-heading','Here is the potential problem—and why it matters.');
  set('snapshot-cta-copy','Primary finding: '+title+'. '+businessMeaning(primaryCat)+' The scan identifies a signal to investigate; it does not prove customers have already been lost. The three concepts below are ranked against the available findings, not selected as a fixed set.');
 })();;
@@ -2136,6 +2212,49 @@ try{const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.targ
   window.location.href='mailto:info@thedoctorapproach.com?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
  });
  brandFromScan();
+})();
+</script>
+
+
+<script>
+/* Keep the offer page aligned with the actual Snapshot finding, without inventing scan results. */
+(function(){
+ const title=document.getElementById('primary-gap-title');
+ const category=document.getElementById('primary-gap-category');
+ const intro=document.getElementById('primary-gap-intro');
+ const offerTitle=document.getElementById('offer-gap-title');
+ const offerSummary=document.getElementById('offer-gap-summary');
+ const treatmentTitle=document.getElementById('offer-treatment-title');
+ const treatmentSummary=document.getElementById('offer-treatment-summary');
+ if(!title||!category||!intro||!offerTitle||!offerSummary)return;
+ function sync(){
+  const cat=(category.textContent||'Potential Growth Gap').replace(/^Potential Gap:\s*/i,'').trim();
+  const t=(title.textContent||'Your priority growth gap').trim();
+  const i=(intro.textContent||'The scan provides an initial signal to review.').trim();
+  offerTitle.textContent='Potential Gap: '+cat;
+  offerSummary.textContent=t+'. '+i+' We should confirm this with you before deciding what to implement.';
+  const key=cat.toLowerCase();
+  if(key.includes('conversion')){
+   treatmentTitle.textContent='Make it easier for interested homeowners to enquire';
+   treatmentSummary.textContent='Prioritise a clear service landing page, a useful homeowner guide and a straightforward enquiry route—subject to confirming the finding and current setup.';
+  }else if(key.includes('trust')){
+   treatmentTitle.textContent='Give homeowners clearer reasons to trust the business';
+   treatmentSummary.textContent='Prioritise verified credentials, genuine customer proof and clear service information, supported by relevant pages and content.';
+  }else if(key.includes('visibility')){
+   treatmentTitle.textContent='Help the right homeowners find and understand the business';
+   treatmentSummary.textContent='Prioritise clear service and location information plus useful customer-question content, subject to confirming the evidence.';
+  }else if(key.includes('retention')){
+   treatmentTitle.textContent='Create a clearer route to repeat work and referrals';
+   treatmentSummary.textContent='Prioritise useful follow-up content and customer communication processes, with any tools and consent requirements agreed first.';
+  }else{
+   treatmentTitle.textContent='Build the solution around the confirmed priority';
+   treatmentSummary.textContent='We will confirm the evidence and your goals before agreeing which pages, guides or content are appropriate.';
+  }
+ }
+ sync();
+ new MutationObserver(sync).observe(title,{childList:true,subtree:true,characterData:true});
+ new MutationObserver(sync).observe(category,{childList:true,subtree:true,characterData:true});
+ new MutationObserver(sync).observe(intro,{childList:true,subtree:true,characterData:true});
 })();
 </script>
 
