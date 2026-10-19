@@ -1545,7 +1545,12 @@ if(gaps.length){
   {id:'R3',cat:'Retention',name:'Customer Newsletter Starter',why:'Use only if the business has a permission-based audience and a useful reason to keep in touch.',outcome:'Share useful updates with customers who agreed to receive them.'}
  ]
  };
- const chosen=chosenByCategory[primaryCat]||chosenByCategory.conversion;
+ const fallbackOrder={visibility:['V2','V1','V5'],trust:['T1','T2','T3'],conversion:['C1','C2','C3'],retention:['R1','R2','R3']};
+ const inCategory=ranked.filter(p=>p.cat.toLowerCase()===primaryCat);
+ const evidenceMatched=inCategory.filter(p=>p.re.test(primaryText)||p.re.test(allText)).sort((a,b)=>b.score-a.score);
+ const fallback=inCategory.filter(p=>(fallbackOrder[primaryCat]||[]).includes(p.id)).sort((a,b)=>(fallbackOrder[primaryCat]||[]).indexOf(a.id)-(fallbackOrder[primaryCat]||[]).indexOf(b.id));
+ const ordered=[...evidenceMatched,...fallback.filter(p=>!evidenceMatched.some(q=>q.id===p.id)),...inCategory.filter(p=>!evidenceMatched.some(q=>q.id===p.id)&&!fallback.some(q=>q.id===p.id)).sort((a,b)=>b.score-a.score)];
+ const chosen=ordered.slice(0,3);
  const slots=[
  {label:'asset-landing-label',title:'asset-landing-title',desc:'asset-landing-desc',why:'asset-landing-why',out:'asset-landing-outcome'},
  {label:'asset-guide-label',title:'asset-guide-card-title',desc:'asset-guide-desc',why:'asset-guide-why',out:'asset-guide-outcome'},
@@ -1772,7 +1777,7 @@ if(gaps.length){
  set('proposal-gap-title',category+': '+title);set('proposal-treatment',supplied||treatment);
  set('proposal-rationale',primaryCat==='retention'?'The public scan cannot confirm actual repeat-customer behaviour. Validate the current follow-up process first; implement only if a real gap is confirmed.':'The proposed work follows the scan findings. Confirm the live experience and business context before finalising scope.');
  set('proposal-intro','A first-draft treatment plan for '+business+', built around the primary Snapshot finding. Confirm the evidence and scope with the owner before accepting work.');
- const cta=document.getElementById('snapshot-cta');if(cta){cta.href='#treatment-proposal';cta.removeAttribute('target');cta.removeAttribute('rel');cta.textContent='View treatment proposal ↓';}
+ const cta=document.getElementById('snapshot-cta');if(cta){cta.href='#solution-reveal-step2';cta.removeAttribute('target');cta.removeAttribute('rel');cta.textContent='See the matched solution concepts ↓';}
  set('snapshot-cta-kicker','Step 1 · What the scan found');set('snapshot-cta-heading','Here is the potential problem—and why it matters.');
  set('snapshot-cta-copy','Primary finding: '+title+'. '+businessMeaning(primaryCat)+' The scan identifies a signal to investigate; it does not prove customers have already been lost. The three concepts below are ranked against the available findings, not selected as a fixed set.');
 })();;
