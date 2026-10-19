@@ -1414,6 +1414,7 @@ if(gaps.length){
  });
 
  // Industry-specific product previews: the scan category controls the visible mockup art and copy.
+ const industryEsc=v=>String(v??'').replace(/[&<>\"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;'}[c]));
  const industryKey=isDental?'dental':isRoof?'roofing':(/chiropract/.test(allText+' '+business.toLowerCase())?'chiropractic':(/hvac|heating|air conditioning/.test(allText+' '+business.toLowerCase())?'hvac':'general'));
  const industryAssets={
   dental:{accent:'#0e7490',pale:'#cffafe',label:'DENTAL CARE',service:'Dental care designed around you',guide:'Your guide to choosing the right dental treatment',prompt:'Ready to talk about your smile?',cta:'Request an appointment',features:['Treatment options explained','Meet your dental team','Patient-first care'],proof:'PATIENT INFORMATION'},
