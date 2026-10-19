@@ -770,9 +770,9 @@ html,body{overflow-x:hidden}
  </div>
  <div class="mt-5 grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-4 items-center rounded-2xl border border-emerald-400/35 bg-emerald-950/20 p-5">
   <div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">Complimentary concept set</p><h4 class="mt-1 text-xl font-extrabold text-white">Retail value £997 · Your price for the DIY option: £0</h4><p class="mt-2 text-sm leading-relaxed text-zinc-300">Request up to three personalised assets free. We confirm the brief and what can realistically be delivered before production; you implement and maintain them yourself. No instant-download claim and no obligation to buy managed support.</p></div>
-  <button type="button" id="show-free-assets" aria-expanded="false" class="rounded-xl bg-emerald-400 px-5 py-3 text-sm font-extrabold text-zinc-950 hover:bg-emerald-300">Request my free assets ↓</button>
+  <button type="button" id="show-free-assets-legacy" aria-expanded="false" class="rounded-xl bg-emerald-400 px-5 py-3 text-sm font-extrabold text-zinc-950 hover:bg-emerald-300">Request my free assets ↓</button>
  </div>
- <div id="free-assets-panel" class="hidden mt-4 rounded-2xl border border-zinc-700 bg-zinc-900 p-5">
+ <div id="free-assets-panel-legacy" class="hidden mt-4 rounded-2xl border border-zinc-700 bg-zinc-900 p-5">
   <h4 class="text-lg font-extrabold text-white">Request your free asset set</h4><p class="mt-1 text-sm leading-relaxed text-zinc-300">Share the details below so the assets can be tailored properly. Submitting opens an email draft for you to review and send.</p>
   <form id="asset-request-form" class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
    <label class="text-sm text-zinc-300">Business name<input name="business" required class="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-2 text-white" placeholder="Business name"></label>
@@ -818,20 +818,7 @@ html,body{overflow-x:hidden}
     <div><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">What you’ll still need to do</p><ul class="mt-2 list-disc space-y-2 pl-5 text-sm leading-6 text-zinc-300"><li><strong class="text-white">Upload and host the files:</strong> your team will need to place the assets on your website or hosting environment.</li><li><strong class="text-white">Connect the moving parts:</strong> forms, downloads, callback requests and any calendar or email integrations need to be configured.</li><li><strong class="text-white">Test before launch:</strong> check mobile layout, consent, links and enquiry delivery end-to-end.</li><li><strong class="text-white">Maintain the assets:</strong> you will be responsible for ongoing hosting, updates and troubleshooting.</li></ul></div>
    </div>
    <p class="mt-4 rounded-lg border border-amber-400/25 bg-amber-400/5 p-3 text-sm leading-6 text-zinc-300"><strong class="text-amber-300">DIY responsibility:</strong> you arrange publishing, hosting, testing, ongoing maintenance and any required paid tools, email autoresponder, API access or integrations.</p>
-   <div class="mt-4 rounded-xl border border-emerald-400/25 bg-zinc-900 p-4">
-    <h5 class="text-lg font-extrabold text-white">Claim your free assets</h5>
-    <p class="mt-1 text-sm leading-6 text-zinc-300">Complete the request below. We need these details to personalise the assets properly. Once the required information is received, we'll review the request and confirm the agreed assets and delivery timeframe.</p>
-    <form id="asset-request-form" class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
-     <label class="text-xs font-bold text-zinc-300">Business name *<input name="business" required class="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-3 text-sm text-white" placeholder="Your business name"></label>
-     <label class="text-xs font-bold text-zinc-300">Your name *<input name="contact" required class="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-3 text-sm text-white" placeholder="Main contact"></label>
-     <label class="text-xs font-bold text-zinc-300">Business email *<input type="email" name="email" required class="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-3 text-sm text-white" placeholder="you@business.com"></label>
-     <label class="text-xs font-bold text-zinc-300">Website *<input type="url" name="website" required class="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-3 text-sm text-white" placeholder="https://"></label>
-     <label class="text-xs font-bold text-zinc-300 sm:col-span-2">Logo / brand asset link<input type="url" name="brandLink" class="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-3 text-sm text-white" placeholder="Link to your logo or brand folder (if available)"></label>
-     <label class="text-xs font-bold text-zinc-300 sm:col-span-2">Services, target customers and brand notes *<textarea name="brandNotes" required rows="3" class="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-3 text-sm text-white" placeholder="Tell us what you offer, who you serve, your preferred tone and any details we should include."></textarea></label>
-     <label class="text-xs font-bold text-zinc-300 sm:col-span-2">Anything else we should know?<textarea name="extra" rows="2" class="mt-1 w-full rounded-lg border border-zinc-700 bg-zinc-950 px-3 py-3 text-sm text-white" placeholder="Optional"></textarea></label>
-     <label class="sm:col-span-2 flex items-start gap-2 text-xs leading-relaxed text-zinc-400"><input type="checkbox" name="responsibility" required class="mt-1"><span>I understand the free assets are for DIY implementation. Hosting, publishing, maintenance and any paid third-party tools or API costs are my responsibility unless separately agreed.</span></label>
-     <div class="sm:col-span-2"><button type="submit" class="rounded-xl bg-emerald-400 px-5 py-3 text-sm font-extrabold text-zinc-950 hover:bg-emerald-300">Prepare My Asset Request →</button><p class="mt-2 text-xs leading-relaxed text-zinc-500">This preview prepares an email request to Doctor Approach so you can review and send it. It does not submit or deliver assets automatically.</p><p id="asset-request-feedback" class="mt-3 hidden rounded-lg border border-emerald-400/30 bg-emerald-400/10 p-3 text-sm text-emerald-100" aria-live="polite"></p></div>
-    </form>
+   <div class="mt-4 rounded-xl border border-zinc-700 bg-zinc-900 p-4"><p class="text-sm leading-relaxed text-zinc-300">The free asset request form is available in Step 2 above. Use it to send the brief for review; production starts only after the agreed scope and delivery are confirmed.</p><a href="#treatment-assets" class="mt-3 inline-flex rounded-lg border border-emerald-400/40 px-4 py-2 text-sm font-bold text-emerald-200">Go to Step 2 request form ↑</a></div>
    </div>
   </div>
  </article>
@@ -1612,7 +1599,9 @@ assetRequestForm?.addEventListener('submit',event=>{
  feedback.classList.remove('hidden');
  window.location.href=mailto;
 });
-const freeToggle=document.getElementById('show-free-assets'),freePanel=document.getElementById('free-assets-panel');
+const freeToggle=document.getElementById('show-free-assets-legacy'),freePanel=document.getElementById('free-assets-panel-legacy');
+const step2FreeToggle=document.getElementById('show-free-assets'),step2FreePanel=document.getElementById('free-assets-panel');
+step2FreeToggle?.addEventListener('click',()=>{const opening=step2FreePanel.classList.contains('hidden');step2FreePanel.classList.toggle('hidden',!opening);step2FreeToggle.setAttribute('aria-expanded',String(opening));step2FreeToggle.textContent=opening?'Hide free request form ↑':'Request my free assets ↓';if(opening)step2FreePanel.scrollIntoView({behavior:'smooth',block:'nearest'});});
 freeToggle?.addEventListener('click',()=>{
  const opening=freePanel.classList.contains('hidden');
  freePanel.classList.toggle('hidden',!opening);
