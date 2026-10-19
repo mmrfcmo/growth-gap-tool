@@ -1632,10 +1632,10 @@ customToggle?.addEventListener('click',()=>{
 });
 document.querySelectorAll('[data-treatment]').forEach(button=>button.addEventListener('click',()=>{
  const choices={
-  free:'Option A selected: receive the five agreed asset files and implementation notes free. You or your developer will implement, host, test and maintain them. Nothing has been ordered and no payment has been taken.',
-  B1:'Option B1 selected: Essential — £1,500/year (illustrative). Proposed scope: implement the three agreed priority assets, host the agreed assets, complete basic launch checks and include one review round. Confirm exact inclusions and terms before acceptance.',
-  B2:'Option B2 selected: Growth — £2,000/year (illustrative). Proposed scope: everything in B1, plus agreed asset/content refinements and periodic reviews during the year. Confirm exact inclusions and terms before acceptance.',
-  B3:'Option B3 selected: Growth Plus — £3,000/year (illustrative). Proposed scope: everything in B2, plus broader implementation support and a more detailed next-step plan. Confirm exact inclusions and terms before acceptance.',
+  free:'Free asset claim selected. Complete the Asset Request Form above; production starts only after the required business and branding information has been received and the requested scope is confirmed.',
+  B1:'Selected: £995 for up to three agreed assets under a 12-month managed agreement. Hosting, management, maintenance, periodic review and light changes are included within the agreed scope. Renewal is optional after 12 months.',
+  B2:'Selected: £1,250 for up to five agreed assets under a 12-month managed agreement, where all five are justified by the diagnosis. Hosting, management, maintenance, periodic review and light changes are included within the agreed scope. Renewal is optional after 12 months.',
+  B3:'Custom Growth Implementation Programme selected. Scope and pricing will be prepared around the verified requirements. Any third-party subscriptions, API usage or additional development will be agreed separately.',
   programme:'Option C selected: Growth Implementation Programme. The diagnosed gap, business priorities and required deliverables would be used to prepare a custom scope and price.'
  };
  const out=document.getElementById('proposal-selection');out.textContent=choices[button.dataset.treatment]||'Selected option. Confirm the scope and terms before proceeding.';out.classList.remove('hidden');
