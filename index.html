@@ -1902,7 +1902,7 @@ if(gaps.length){
  function visualFor(p){
   const escA=industryEsc, biz=escA(business), name=escA(p.name), photo=richPalette.photo, accent=richPalette.accent, pale=richPalette.pale;
   const vars='--a:'+accent+';--p:'+pale+';--d:'+industryAssets.accent;
-  const chrome='<div class="solution-art-chrome"><i></i><i></i><i></i><span>'+escA(String(business).toLowerCase().replace(/\\s+/g,'')+'.co.uk')+' / '+escA(p.id.toLowerCase())+'</span></div>';
+  const chrome='<div class="solution-art-chrome"><i></i><i></i><i></i><span>'+escA(String(business).toLowerCase().replace(/\s+/g,'')+'.co.uk')+' / '+escA(p.id.toLowerCase())+'</span></div>';
   const nav='<div class="solution-art-nav"><div class="solution-art-brand"><span class="solution-art-mark">'+(industryKey==='dental'?'✦':industryKey==='roofing'?'⌂':'◆')+'</span>'+biz+'</div><span class="solution-art-navlinks">Services　 About　 Advice</span><span class="solution-art-cta">'+escA(industryKey==='dental'?'Request an appointment':industryKey==='roofing'?'Request a quote':'Get in touch')+'</span></div>';
   const footer='<div class="solution-art-footer"><span>'+escA(p.id+' · '+p.cat+' product concept')+'</span><b>Concept preview</b></div>';
   const image='<div class="solution-art-photo" style="background-image:url(\''+photo+'\')"></div>';
@@ -2201,8 +2201,8 @@ document.getElementById('deep-dive-new-scan').addEventListener('click',()=>docum
  function makeUrl(){
   const siteInput=document.getElementById('website');
   const site=(siteInput?.value||document.getElementById('snapshot-website')?.textContent||'').trim();
-  let host=site;try{host=new URL(/^https?:\\/\\//i.test(site)?site:'https://'+site).hostname.replace(/^www\\./,'')}catch(e){}
-  const business=(host||'').split('.')[0].replace(/[-_]+/g,' ').replace(/\\b\\w/g,ch=>ch.toUpperCase());
+  let host=site;try{host=new URL(/^https?:\/\//i.test(site)?site:'https://'+site).hostname.replace(/^www\./,'')}catch(e){}
+  const business=(host||'').split('.')[0].replace(/[-_]+/g,' ').replace(/\b\w/g,ch=>ch.toUpperCase());
   const category=(document.getElementById('primary-gap-category')?.textContent||'').trim().toLowerCase();
   const gap=(document.getElementById('primary-gap-title')?.textContent||category||'Growth opportunity').trim();
   const hay=(host+' '+business).toLowerCase();let industry='roofing';
@@ -2215,7 +2215,7 @@ document.getElementById('deep-dive-new-scan').addEventListener('click',()=>docum
   if(business)u.searchParams.set('business',business);
   if(industry)u.searchParams.set('industry',industry);
   if(category)u.searchParams.set('gap',category.charAt(0).toUpperCase()+category.slice(1));
-  if(site)u.searchParams.set('website',/^https?:\\/\\//i.test(site)?site:'https://'+site);
+  if(site)u.searchParams.set('website',/^https?:\/\//i.test(site)?site:'https://'+site);
   return u.href;
  }
  function sync(){link.href=makeUrl()}
