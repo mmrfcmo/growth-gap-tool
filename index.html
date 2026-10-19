@@ -1556,7 +1556,7 @@ if(gaps.length){
  };
  const fallbackOrder={visibility:['V2','V1','V5'],trust:['T1','T2','T3'],conversion:['C1','C2','C3'],retention:['R1','R2','R3']};
  const inCategory=ranked.filter(p=>p.cat.toLowerCase()===primaryCat);
- const evidenceMatched=inCategory.filter(p=>p.re.test(primaryText)||p.re.test(allText)).sort((a,b)=>b.score-a.score);
+ const evidenceMatched=inCategory.filter(p=>p.re.test(primaryText)).sort((a,b)=>b.score-a.score);
  const fallback=inCategory.filter(p=>(fallbackOrder[primaryCat]||[]).includes(p.id)).sort((a,b)=>(fallbackOrder[primaryCat]||[]).indexOf(a.id)-(fallbackOrder[primaryCat]||[]).indexOf(b.id));
  const ordered=[...evidenceMatched,...fallback.filter(p=>!evidenceMatched.some(q=>q.id===p.id)),...inCategory.filter(p=>!evidenceMatched.some(q=>q.id===p.id)&&!fallback.some(q=>q.id===p.id)).sort((a,b)=>b.score-a.score)];
  const chosen=ordered.slice(0,3);
