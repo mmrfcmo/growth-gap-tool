@@ -1772,6 +1772,37 @@ if(gaps.length){
   return '<div class="solution-dynamic-art" style="'+vars+'">'+chrome+body+footer+'</div>';
  }
  ['solution-preview-1','solution-preview-2','solution-preview-3'].forEach((id,i)=>{const node=document.getElementById(id),p=chosen[i];if(node&&p)node.innerHTML=visualFor(p)});
+
+ const detailMap={
+  V1:['Confirm priority services and service areas.','Prepare a consistent local business-information checklist.','Validate the proposed changes against current search evidence.'],
+  V2:['Build a dedicated page around the priority service.','Explain the service, customer questions and next step.','Use genuine business details and approved proof.'],
+  V3:['Map real customer questions to useful answers.','Prepare clear content outlines and editorial structure.','Review content for accuracy before publishing.'],
+  V4:['Inspect the specific crawl, index or metadata issue.','Create a prioritised technical action checklist.','Re-test the affected pages after approved changes.'],
+  V5:['Standardise the approved business description and facts.','Clarify services, locations and contact information.','Use only verified credentials and profile links.'],
+  T1:['Collect genuine reviews and source links.','Organise feedback so customers can assess relevant services.','Never invent review text, star ratings or testimonials.'],
+  T2:['Choose a real project or case with permission.','Document scope, process and approved photographs.','Include outcomes only where evidence supports them.'],
+  T3:['List credentials and memberships that apply.','Verify current status and authoritative source links.','Publish no unconfirmed claims or badges.'],
+  T4:['Clarify the service and customer expectations.','Integrate relevant, verifiable trust evidence.','Give visitors a clear, appropriate next step.'],
+  T5:['Create a neutral invitation for honest feedback.','Set a consistent post-service timing and owner.','Respect platform rules and customer choice.'],
+  C1:['Focus the page on the priority offer.','Answer key questions and clarify the next step.','Test the enquiry journey before launch.'],
+  C2:['Make the primary contact action easy to find.','Provide a sensible alternative contact route.','Check the action works on mobile and desktop.'],
+  C3:['Review the fields and remove unnecessary friction.','Confirm validation, consent and enquiry routing.','Test successful submissions end-to-end.'],
+  C4:['Create a useful customer guide and matching opt-in page.','Offer a relevant next step after download.','Confirm consent and follow-up before launch.'],
+  C5:['Map how a new enquiry is received and assigned.','Define response ownership and next actions.','Connect tools only after scope and access are agreed.'],
+  R1:['Confirm the existing post-service process with the owner.','Draft a useful, appropriate check-in sequence.','Agree consent, timing and ownership before use.'],
+  R2:['Confirm whether repeat service is appropriate.','Define eligible customers and useful timing.','Track responses and opt-outs responsibly.'],
+  R3:['Confirm there is a permission-based audience.','Plan useful updates rather than promotional noise.','Include preferences and unsubscribe handling.'],
+  R4:['Create a neutral thank-you and feedback request.','Invite referrals without pressure or incentives.','Use only with an appropriate customer follow-up process.'],
+  R5:['Confirm the eligible previous-customer segment.','Draft relevant, respectful re-engagement messages.','Check lawful basis, relevance and opt-out handling.']
+ };
+ const sectorAudience=industryKey==='dental'?'dental patients':industryKey==='roofing'?'homeowners':industryKey==='hvac'?'homeowners':industryKey==='chiropractic'?'patients':'customers';
+ chosen.forEach((p,i)=>{
+  const list=document.getElementById('solution-asset-list-'+(i+1));
+  if(list)list.innerHTML=(detailMap[p.id]||[p.why,p.outcome,'Confirm details and evidence before publishing.']).map(x=>'<li>'+industryEsc(x)+'</li>').join('');
+  const detail=document.getElementById(['solution-detail-landing','solution-detail-guide','solution-detail-blog'][i]);
+  if(detail)detail.innerHTML='<h4>'+industryEsc(p.name)+'</h4><p><b>Why selected:</b> '+industryEsc(p.why)+'</p><p><b>Intended outcome:</b> '+industryEsc(p.outcome)+'</p><h4>How it would be tailored</h4><p>The final asset would be adapted to '+industryEsc(String(business))+' and its '+industryEsc(sectorAudience)+', using the service information, brand materials and genuine evidence the business approves.</p><h4>Before production</h4><p>Confirm the finding, scope, factual details, relevant permissions and implementation responsibilities. This is a visual concept, not a live or published asset.</p>';
+ });
+
  document.querySelectorAll('#asset-request-form input[name="assets"]').forEach((input,i)=>{const p=chosen[i];if(!p)return;input.value=p.id+' · '+p.name;const span=input.parentElement?.querySelector('span');if(span)span.innerHTML='<b>'+industryEsc(p.id+' · '+p.name)+'</b><br>'+industryEsc(p.outcome)});
  const requestBusiness=document.getElementById('solution-request-business'),requestWebsite=document.getElementById('solution-request-website');
  if(requestBusiness&&!requestBusiness.value)requestBusiness.value=String(business||'');
