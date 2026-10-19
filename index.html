@@ -1897,6 +1897,8 @@ if(gaps.length){
     outcome.textContent=' Intended benefit: a clearer customer journey. Any change in enquiry volume or revenue must be measured rather than assumed.';
     const preview=row.querySelector('.solution-preview-shell');
     if(preview)preview.hidden=true;
+    const existingDemoLink=row.querySelector('.solution-asset-copy .solution-demo-link');
+    if(existingDemoLink)existingDemoLink.hidden=true;
     row.style.gridTemplateColumns='minmax(0,1fr)';
     row.insertBefore(compare,row.firstElementChild);
     compare.hidden=false;
