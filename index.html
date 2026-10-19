@@ -1162,6 +1162,14 @@ html,body{overflow-x:hidden}
 <article class="catalogue-card retention"><h4>⟳ Retention (R1–R5)</h4><p>Encourage repeat business and referrals.</p><ol><li>Customer Onboarding &amp; Check-Ins</li><li>Repeat Business &amp; Rebooking</li><li>Customer Newsletter</li><li>Reviews &amp; Referrals</li><li>Customer Reactivation</li></ol><button type="button" data-catalogue="retention">View scope details ↓</button><div class="hidden mt-2 text-xs text-zinc-300" data-catalogue-detail="retention">Free: journey map, copy, templates or campaign plan. Managed: configure agreed workflows using suitable systems and appropriately sourced customer data.</div></article>
 </div><p class="mt-3 text-xs leading-relaxed text-zinc-500">Scope note: concepts and drafts are not represented as live implementations. Hosting, third-party tools, integrations and ongoing support are included only where specified in the selected proposal.</p>
 </section>
+<section id="sales-closer-handoff" class="mt-6 rounded-2xl border border-amber-400/50 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-5 sm:p-7">
+ <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Next step · Growth plan</p>
+ <div class="mt-2 grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
+  <div><h3 class="text-xl sm:text-2xl font-extrabold text-white">Turn these scan findings into a practical growth plan.</h3><p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-300">Continue to the guided review to calculate illustrative revenue opportunities, view relevant asset demos and compare the free, three-asset and five-asset options. Your scan's business, sector and priority gap will be carried across.</p></div>
+  <a id="continue-to-sales-closer" href="sales-closer.html" class="inline-flex items-center justify-center rounded-xl bg-amber-400 px-5 py-3 text-sm font-extrabold text-zinc-950 shadow-md hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300">Continue to Growth Plan →</a>
+ </div>
+ <p class="mt-3 text-xs text-zinc-500">Revenue estimates are illustrative, not guaranteed. Confirm the findings and figures with the business owner.</p>
+</section>
 <div class="mt-5 flex flex-wrap gap-3 no-print"><button id="deep-dive-new-scan" type="button" class="rounded-xl border border-zinc-700 px-4 py-3 text-sm font-bold text-zinc-300 hover:border-amber-400">Start another scan</button><button id="print-treatment-proposal" type="button" class="rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Print / save proposal</button></div>
 </div>
 </div></div>
@@ -2185,6 +2193,34 @@ document.querySelectorAll('[data-treatment]').forEach(button=>button.addEventLis
 }));
 document.getElementById('print-treatment-proposal').addEventListener('click',()=>window.print());
 document.getElementById('deep-dive-new-scan').addEventListener('click',()=>document.getElementById('new-scan-button').click());
+(function(){
+ const link=document.getElementById('continue-to-sales-closer');if(!link)return;
+ function makeUrl(){
+  const siteInput=document.getElementById('website');
+  const site=(siteInput?.value||document.getElementById('snapshot-website')?.textContent||'').trim();
+  let host=site;try{host=new URL(/^https?:\\/\\//i.test(site)?site:'https://'+site).hostname.replace(/^www\\./,'')}catch(e){}
+  const business=(host||'').split('.')[0].replace(/[-_]+/g,' ').replace(/\\b\\w/g,ch=>ch.toUpperCase());
+  const category=(document.getElementById('primary-gap-category')?.textContent||'').trim().toLowerCase();
+  const gap=(document.getElementById('primary-gap-title')?.textContent||category||'Growth opportunity').trim();
+  const hay=(host+' '+business).toLowerCase();let industry='roofing';
+  if(/dent|orthodont|periodont|smile/.test(hay))industry='dental';
+  else if(/hvac|heating|air.?conditioning/.test(hay))industry='hvac';
+  else if(/chiropract/.test(hay))industry='chiropractic';
+  else if(/landscap|garden/.test(hay))industry='landscaping';
+  else if(/roof/.test(hay))industry='roofing';
+  const u=new URL('sales-closer.html',location.href);
+  if(business)u.searchParams.set('business',business);
+  if(industry)u.searchParams.set('industry',industry);
+  if(category)u.searchParams.set('gap',category.charAt(0).toUpperCase()+category.slice(1));
+  if(site)u.searchParams.set('website',/^https?:\\/\\//i.test(site)?site:'https://'+site);
+  return u.href;
+ }
+ function sync(){link.href=makeUrl()}
+ sync();
+ const form=document.getElementById('diagnosis-form');form?.addEventListener('submit',()=>window.setTimeout(sync,900));
+ const result=document.getElementById('snapshot-result');if(result&&window.MutationObserver)new MutationObserver(sync).observe(result,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['class']});
+ link.addEventListener('click',e=>{sync();});
+})();
 result.classList.remove('hidden');show('Your Growth Gap Snapshot is ready.','success');result.scrollIntoView({behavior:'smooth',block:'start'});
 }catch(err){const errorText=String(err&&err.message||'');const errorCode=String(err&&err.code||'');if(errorText.includes('HTTP 403')||errorText.includes('status code 403')||errorCode==='HTTP_403'){showAccessDenied()}else if(['INVALID_URL','BLOCKED_DESTINATION'].includes(errorCode)||/invalid|incorrect|website address format/i.test(errorText)){msg.classList.add('hidden');websiteInput.value='';websiteInput.placeholder='yourbusiness.co.uk';websiteInput.setAttribute('aria-label','Business website');websiteInput.setAttribute('aria-invalid','true');websiteInput.classList.add('border-red-500');websiteIcon.classList.remove('hidden');websiteIcon.classList.add('flex');websiteValidation.textContent='Please enter a valid website address and try again.';websiteValidation.classList.remove('hidden');websiteInput.focus()}else{show(errorText||'Something went wrong. Please try again.','error')}}
 finally{if(typeof progressTimer!=='undefined')clearInterval(progressTimer);progress.classList.add('hidden');btn.disabled=false;document.getElementById('submit-label').classList.remove('hidden');document.getElementById('submit-spinner').classList.add('hidden');document.getElementById('submit-spinner').classList.remove('inline-flex')}
