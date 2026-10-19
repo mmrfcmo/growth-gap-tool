@@ -972,7 +972,20 @@ html,body{overflow-x:hidden}
    </div>
   </div>
  </div>
- <div class="p-5 sm:p-8">
+<section id="revenue-opportunity-snapshot" class="mx-5 mt-6 rounded-2xl border border-sky-400/30 bg-sky-950/20 p-5 sm:mx-8 sm:p-7">
+<p class="text-xs font-extrabold uppercase tracking-[.16em] text-sky-200">Commercial impact · Prospect's own figures</p><h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Revenue Opportunity Snapshot</h3>
+<p class="mt-2 text-sm leading-relaxed text-zinc-300">Enter the business's current numbers to explore two separate scenarios. Figures are illustrative, not forecasts or guarantees.</p>
+<div class="mt-5 grid gap-4 md:grid-cols-3">
+<label class="block text-sm font-semibold text-zinc-200">Enquiries per month<input id="ro-enquiries" type="number" min="0" step="1" placeholder="Monthly enquiries" class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3 py-3 text-white"></label>
+<label class="block text-sm font-semibold text-zinc-200">Current conversion rate (%)<input id="ro-conversion" type="number" min="0" max="100" step="0.1" placeholder="e.g. 25" class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3 py-3 text-white"></label>
+<label class="block text-sm font-semibold text-zinc-200">Average value per new customer (£)<input id="ro-value" type="number" min="0" step="1" placeholder="Average customer value" class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-950 px-3 py-3 text-white"></label></div>
+<div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+<div class="rounded-xl border border-zinc-800 bg-zinc-950/70 p-4"><p class="text-xs text-zinc-400">Estimated wins/month</p><p id="ro-wins" class="mt-2 text-2xl font-extrabold text-white">—</p></div>
+<div class="rounded-xl border border-zinc-800 bg-zinc-950/70 p-4"><p class="text-xs text-zinc-400">Current revenue/month</p><p id="ro-baseline" class="mt-2 text-2xl font-extrabold text-white">—</p></div>
+<div class="rounded-xl border border-zinc-800 bg-zinc-950/70 p-4"><p class="text-xs text-zinc-400">Extra/month: conversion</p><p id="ro-conv-extra" class="mt-2 text-2xl font-extrabold text-emerald-300">—</p><select id="ro-conv-uplift" class="mt-3 w-full rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-white"><option value="5">+5% relative conversion</option><option value="10" selected>+10% relative conversion</option><option value="15">+15% relative conversion</option><option value="20">+20% relative conversion</option></select></div>
+<div class="rounded-xl border border-zinc-800 bg-zinc-950/70 p-4"><p class="text-xs text-zinc-400">Extra/month: enquiries</p><p id="ro-enq-extra" class="mt-2 text-2xl font-extrabold text-emerald-300">—</p><select id="ro-enq-uplift" class="mt-3 w-full rounded-lg border border-zinc-700 bg-zinc-900 px-3 py-2 text-white"><option value="5">+5% enquiries</option><option value="10" selected>+10% enquiries</option><option value="15">+15% enquiries</option><option value="20">+20% enquiries</option></select></div></div>
+<div class="mt-5 grid gap-5 lg:grid-cols-2"><div class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4"><h4 class="font-bold text-white">Scenario A · Conversion improvement</h4><p class="mt-2 text-sm text-zinc-300">Illustrative extra revenue at +5%, +10%, +15% and +20% relative conversion improvement:</p><div id="ro-conv-table" class="mt-2 text-sm text-zinc-300">Enter all three figures.</div></div><div class="rounded-xl border border-zinc-800 bg-zinc-950/50 p-4"><h4 class="font-bold text-white">Scenario B · Enquiry growth</h4><p class="mt-2 text-sm text-zinc-300">Illustrative extra revenue at +5%, +10%, +15% and +20% enquiries, holding conversion constant:</p><div id="ro-enq-table" class="mt-2 text-sm text-zinc-300">Enter all three figures.</div></div></div>
+<p class="mt-4 text-xs leading-relaxed text-zinc-400">Illustrative gross revenue, not profit. Assumes other factors remain constant. No uplift is promised. The scenarios are separate and must not be added together.</p></section> <div class="p-5 sm:p-8">
   <div class="max-w-3xl">
    <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">What we can put in place</p>
    <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Practical assets, not just mockups.</h3>
@@ -2378,5 +2391,15 @@ try{const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.targ
 })();
 </script>
 
-</body>
+<script>
+(function(){const $=id=>document.getElementById(id);const ids=['ro-enquiries','ro-conversion','ro-value','ro-conv-uplift','ro-enq-uplift'];if(!ids.every(id=>$(id)))return;
+const money=n=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:0}).format(n);
+const val=id=>{const s=$(id).value;if(s==='')return null;const n=Number(s);return Number.isFinite(n)&&n>=0?n:null;};
+const row=(label,n)=>'<p class="flex justify-between gap-3 border-b border-zinc-800 py-2"><span>'+label+'</span><strong class="text-white">'+money(n)+'/mo</strong></p>';
+function calc(){const e=val('ro-enquiries'),c=val('ro-conversion'),v=val('ro-value');if(e===null||c===null||v===null||c>100){['ro-wins','ro-baseline','ro-conv-extra','ro-enq-extra'].forEach(id=>$(id).textContent='—');$('ro-conv-table').textContent='Enter valid values for all three fields.';$('ro-enq-table').textContent='Enter valid values for all three fields.';return;}
+const base=e*c/100*v,conv=p=>e*Math.min(100,c*(1+p/100))/100*v-base,enq=p=>e*(1+p/100)*c/100*v-base;
+$('ro-wins').textContent=(e*c/100).toLocaleString('en-GB',{maximumFractionDigits:1});$('ro-baseline').textContent=money(base);$('ro-conv-extra').textContent=money(conv(Number($('ro-conv-uplift').value)));$('ro-enq-extra').textContent=money(enq(Number($('ro-enq-uplift').value)));
+$('ro-conv-table').innerHTML=[5,10,15,20].map(p=>row('+'+p+'% relative conversion',conv(p))).join('');$('ro-enq-table').innerHTML=[5,10,15,20].map(p=>row('+'+p+'% enquiries',enq(p))).join('');}
+ids.forEach(id=>{$(id).addEventListener('input',calc);$(id).addEventListener('change',calc);});calc();})();
+</script></body>
 </html>
