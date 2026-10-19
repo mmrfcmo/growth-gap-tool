@@ -1181,11 +1181,83 @@ html,body{overflow-x:hidden}
 <section id="sales-closer-handoff" class="mt-6 rounded-2xl border border-amber-400/50 bg-gradient-to-br from-amber-400/10 via-zinc-950 to-zinc-950 p-5 sm:p-7">
  <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Next step · Growth plan</p>
  <div class="mt-2 grid gap-5 md:grid-cols-[1fr_auto] md:items-center">
-  <div><h3 class="text-xl sm:text-2xl font-extrabold text-white">Turn these scan findings into a practical growth plan.</h3><p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-300">Continue to the guided review to calculate illustrative revenue opportunities, view relevant asset demos and compare the free, three-asset and five-asset options. Your scan's business, sector and priority gap will be carried across.</p></div>
-  <a id="continue-to-sales-closer" href="sales-closer.html" class="inline-flex items-center justify-center rounded-xl bg-amber-400 px-5 py-3 text-sm font-extrabold text-zinc-950 shadow-md hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300">Continue to Growth Plan →</a>
+  <div><h3 class="text-xl sm:text-2xl font-extrabold text-white">Your scan, revenue snapshot, questionnaire and options are together on this page.</h3><p class="mt-2 max-w-2xl text-sm leading-6 text-zinc-300">Review the findings, complete the short questionnaire and compare the complimentary asset option with the three managed packages below—without leaving the Deep Dive scan.</p></div>
+  <a id="continue-to-sales-closer" href="#deep-dive-questionnaire" class="inline-flex items-center justify-center rounded-xl bg-amber-400 px-5 py-3 text-sm font-extrabold text-zinc-950 shadow-md hover:bg-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-300">Complete questionnaire →</a>
  </div>
- <p class="mt-3 text-xs text-zinc-500">Revenue estimates are illustrative, not guaranteed. Confirm the findings and figures with the business owner.</p>
+ <p class="mt-3 text-xs text-zinc-500">Revenue estimates are illustrative, not guaranteed. Confirm findings and figures with the business owner.</p>
 </section>
+<section id="deep-dive-questionnaire" class="mt-6 rounded-3xl border border-amber-400/40 bg-zinc-950 p-5 sm:p-8">
+ <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Next step · Your growth questionnaire</p>
+ <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Let's shape the right plan for your business.</h3>
+ <p class="mt-3 max-w-3xl text-sm leading-6 text-zinc-300">The scan and revenue snapshot help start the conversation. Answer a few practical questions so we can confirm the priority, understand what you need and recommend a sensible next step. You can complete this on the same page.</p>
+ <form id="deep-dive-qualification-form" action="https://formspree.io/f/mdeayapa" method="POST" class="mt-6">
+  <input type="hidden" name="_subject" value="Doctor Approach — Deep Dive Questionnaire">
+  <input type="hidden" name="source" value="Deep Dive Scan — Growth Questionnaire">
+  <input type="hidden" name="website" id="ddq-website">
+  <input type="hidden" name="priority_gap" id="ddq-gap">
+  <input type="hidden" name="monthly_enquiries" id="ddq-enquiries">
+  <input type="hidden" name="current_conversion" id="ddq-conversion">
+  <input type="hidden" name="average_customer_value" id="ddq-value">
+  <div class="grid gap-4 sm:grid-cols-2">
+   <label class="block text-sm font-semibold text-zinc-200">Business name <span class="text-amber-300">*</span><input name="business_name" id="ddq-business" required class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-3 text-white" placeholder="Business name"></label>
+   <label class="block text-sm font-semibold text-zinc-200">Your name <span class="text-amber-300">*</span><input name="contact_name" required class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-3 text-white" autocomplete="name" placeholder="Your name"></label>
+   <label class="block text-sm font-semibold text-zinc-200">Email address <span class="text-amber-300">*</span><input name="email" type="email" required class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-3 text-white" autocomplete="email" placeholder="you@business.co.uk"></label>
+   <label class="block text-sm font-semibold text-zinc-200">Telephone (optional)<input name="telephone" type="tel" class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-3 text-white" autocomplete="tel" placeholder="Best contact number"></label>
+   <label class="block text-sm font-semibold text-zinc-200">What is your main growth priority? <span class="text-amber-300">*</span><select name="growth_priority" required class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-3 text-white"><option value="">Choose your priority</option><option>Get more suitable enquiries</option><option>Convert more enquiries into customers</option><option>Build trust and confidence</option><option>Improve online visibility and discoverability</option><option>Encourage repeat business and referrals</option><option>Not sure — help me prioritise</option></select></label>
+   <label class="block text-sm font-semibold text-zinc-200">When would you like to address this? <span class="text-amber-300">*</span><select name="timing" required class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-3 text-white"><option value="">Choose timing</option><option>As soon as practical</option><option>Within the next 30 days</option><option>In the next 1–3 months</option><option>Researching options for later</option></select></label>
+  </div>
+  <fieldset class="mt-5"><legend class="text-sm font-bold text-white">What have you tried already?</legend><div class="mt-3 grid gap-2 sm:grid-cols-2">
+   <label class="flex gap-3 rounded-xl border border-zinc-800 p-3 text-sm text-zinc-200"><input type="checkbox" name="current_activity" value="Website changes" class="mt-1 accent-amber-400"> Website changes or redesign</label>
+   <label class="flex gap-3 rounded-xl border border-zinc-800 p-3 text-sm text-zinc-200"><input type="checkbox" name="current_activity" value="SEO or online visibility" class="mt-1 accent-amber-400"> SEO or online visibility</label>
+   <label class="flex gap-3 rounded-xl border border-zinc-800 p-3 text-sm text-zinc-200"><input type="checkbox" name="current_activity" value="Paid advertising" class="mt-1 accent-amber-400"> Paid advertising</label>
+   <label class="flex gap-3 rounded-xl border border-zinc-800 p-3 text-sm text-zinc-200"><input type="checkbox" name="current_activity" value="Reviews and reputation" class="mt-1 accent-amber-400"> Reviews and reputation</label>
+   <label class="flex gap-3 rounded-xl border border-zinc-800 p-3 text-sm text-zinc-200"><input type="checkbox" name="current_activity" value="Nothing consistently yet" class="mt-1 accent-amber-400"> Nothing consistently yet</label>
+   <label class="flex gap-3 rounded-xl border border-zinc-800 p-3 text-sm text-zinc-200"><input type="checkbox" name="current_activity" value="Other marketing" class="mt-1 accent-amber-400"> Other marketing activity</label>
+  </div></fieldset>
+  <label class="mt-5 block text-sm font-semibold text-zinc-200">Anything else we should understand? (optional)<textarea name="context_notes" rows="3" class="mt-2 w-full rounded-xl border border-zinc-700 bg-zinc-900 px-3 py-3 text-white" placeholder="Your main services, ideal customers, current challenge or questions…"></textarea></label>
+  <div class="mt-5 rounded-2xl border border-sky-400/25 bg-sky-950/20 p-4"><p class="text-xs font-extrabold uppercase tracking-wider text-sky-200">Revenue snapshot attached</p><p class="mt-2 text-sm text-zinc-300">The figures you entered above will be included with your questionnaire so the review can use the same assumptions. Revenue estimates are illustrative, not forecasts or guarantees.</p></div>
+  <div class="mt-5 flex flex-wrap items-start gap-3"><button type="submit" class="rounded-xl bg-amber-400 px-5 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Submit questionnaire →</button><p class="max-w-xl text-xs leading-5 text-zinc-500">Submitting sends your answers to Doctor Approach for follow-up. This does not commit you to a package or guarantee a particular outcome. Form delivery should be tested before using this page with live prospects.</p></div>
+ </form>
+</section>
+<section id="deep-dive-packages" class="mt-6 rounded-3xl border border-zinc-800 bg-zinc-950 p-5 sm:p-8">
+ <p class="text-xs font-extrabold uppercase tracking-[.16em] text-amber-300">Your implementation options</p>
+ <h3 class="mt-2 text-2xl sm:text-3xl font-extrabold text-white">Choose how you'd like to put the recommendations into action.</h3>
+ <p class="mt-3 max-w-3xl text-sm leading-6 text-zinc-300">Start with the complimentary self-implementation option, or choose a fully managed 12-month service. Managed package prices cover the full term and are paid upfront.</p>
+ <article class="mt-6 rounded-2xl border-2 border-emerald-500/40 bg-emerald-950/20 p-5 sm:p-6">
+  <div class="flex flex-wrap items-center justify-between gap-3"><div><p class="text-xs font-extrabold uppercase tracking-wider text-emerald-300">Prefer to implement it yourself?</p><h4 class="mt-2 text-xl font-extrabold text-white">Request a complimentary growth asset</h4></div><span class="rounded-full border border-emerald-400/40 px-4 py-2 text-lg font-extrabold text-emerald-200">£0</span></div>
+  <p class="mt-3 max-w-3xl text-sm leading-6 text-zinc-300">Choose one agreed asset from your recommendations and receive the asset files with handover notes. You or your own developer handle implementation, hosting, deployment, integrations and ongoing maintenance.</p>
+  <ul class="mt-4 grid gap-2 text-sm text-zinc-200 sm:grid-cols-3"><li>✓ One selected landing page, practical guide or blog starter</li><li>✓ Asset request submitted through a short online form</li><li>✓ No hosting or managed service included</li></ul>
+  <a href="https://doctor-approach-deep-dive-product-suite.onrender.com/free-request.html" class="mt-5 inline-flex rounded-xl border border-emerald-400/50 px-4 py-3 text-sm font-extrabold text-emerald-100 hover:bg-emerald-400/10">Request your free asset →</a>
+ </article>
+ <h4 class="mt-8 text-xl font-extrabold text-white">Fully managed service</h4><p class="mt-2 text-sm text-zinc-300">We create, deploy and manage the agreed assets for the full 12-month term.</p>
+ <div class="mt-4 grid gap-4 lg:grid-cols-3">
+  <article class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Managed · 12 months</p><h5 class="mt-2 text-lg font-extrabold text-white">Growth Essential</h5><p class="mt-2 text-sm text-zinc-300">One selected asset, tailored to the diagnosis.</p><p class="mt-4 text-3xl font-extrabold text-white">£599</p><p class="text-xs text-zinc-400">Full 12-month term · paid upfront</p><ul class="mt-4 flex-1 space-y-2 text-sm text-zinc-300"><li>• Asset creation and customisation</li><li>• Deployment and hosting</li><li>• Monitoring and agreed maintenance</li></ul><a href="#deep-dive-questionnaire" class="mt-5 inline-flex justify-center rounded-xl border border-zinc-600 px-4 py-3 text-sm font-extrabold text-white hover:border-amber-400">Discuss this option</a></article>
+  <article class="flex flex-col rounded-2xl border-2 border-amber-400/60 bg-amber-400/5 p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Recommended · Managed 12 months</p><h5 class="mt-2 text-lg font-extrabold text-white">Growth Accelerator</h5><p class="mt-2 text-sm text-zinc-300">Three complementary assets.</p><p class="mt-4 text-3xl font-extrabold text-white">£1,299</p><p class="text-xs text-zinc-400">Full 12-month term · paid upfront</p><ul class="mt-4 flex-1 space-y-2 text-sm text-zinc-300"><li>• Landing page, practical guide and blog with two articles</li><li>• Deployment and hosting</li><li>• Monitoring and agreed maintenance</li></ul><a href="#deep-dive-questionnaire" class="mt-5 inline-flex justify-center rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Discuss this option</a></article>
+  <article class="flex flex-col rounded-2xl border border-zinc-800 bg-zinc-900/70 p-5"><p class="text-xs font-extrabold uppercase tracking-wider text-zinc-400">Managed · 12 months</p><h5 class="mt-2 text-lg font-extrabold text-white">Growth System</h5><p class="mt-2 text-sm text-zinc-300">Up to five relevant assets.</p><p class="mt-4 text-3xl font-extrabold text-white">£2,000</p><p class="text-xs text-zinc-400">Full 12-month term · paid upfront</p><ul class="mt-4 flex-1 space-y-2 text-sm text-zinc-300"><li>• Up to five assets matched to the diagnosis</li><li>• Deployment and hosting</li><li>• Monitoring and agreed maintenance</li></ul><a href="#deep-dive-questionnaire" class="mt-5 inline-flex justify-center rounded-xl border border-zinc-600 px-4 py-3 text-sm font-extrabold text-white hover:border-amber-400">Discuss this option</a></article>
+ </div>
+ <p class="mt-5 rounded-xl border border-amber-400/25 bg-amber-400/5 p-4 text-xs leading-5 text-zinc-400">All revenue figures are illustrative gross revenue, not profit or guarantees. Package scope, third-party costs, specialist integrations and any work outside the agreed scope must be confirmed before acceptance. Payment links are not connected on this preview page.</p>
+</section>
+<script>
+(function(){
+ const form=document.getElementById('deep-dive-qualification-form');
+ if(!form)return;
+ const get=id=>document.getElementById(id);
+ const sync=()=>{
+  const site=get('website')?.value||'';
+  get('ddq-website').value=site;
+  const gap=get('offer-gap-title')?.textContent||get('primary-gap-title')?.textContent||'To confirm';
+  get('ddq-gap').value=gap;
+  get('ddq-enquiries').value=get('ro-enquiries')?.value||'';
+  get('ddq-conversion').value=get('ro-conversion')?.value||'';
+  get('ddq-value').value=get('ro-value')?.value||'';
+  const biz=get('ddq-business');
+  if(biz&&!biz.value&&site){try{biz.value=new URL(site.startsWith('http')?site:'https://'+site).hostname.replace(/^www\./,'')}catch(e){}}
+ };
+ ['ro-enquiries','ro-conversion','ro-value','website'].forEach(id=>get(id)?.addEventListener('input',sync));
+ form.addEventListener('submit',sync);
+ sync();
+})();
+</script>
 <div class="mt-5 flex flex-wrap gap-3 no-print"><button id="deep-dive-new-scan" type="button" class="rounded-xl border border-zinc-700 px-4 py-3 text-sm font-bold text-zinc-300 hover:border-amber-400">Start another scan</button><button id="print-treatment-proposal" type="button" class="rounded-xl bg-amber-400 px-4 py-3 text-sm font-extrabold text-zinc-950 hover:bg-amber-300">Print / save proposal</button></div>
 </div>
 </div></div>
