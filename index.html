@@ -327,6 +327,28 @@ html,body{overflow-x:hidden}
 @media(max-width:560px){#product-suite-overview .product-suite-row{grid-template-columns:minmax(0,1fr)}#product-suite-overview .product-suite-driver{grid-column:auto}#product-suite-overview .product-suite-item{display:grid;grid-template-columns:92px minmax(0,1fr);align-items:center;column-gap:10px}#product-suite-overview .product-suite-item img{grid-row:span 2;height:68px}#product-suite-overview .product-suite-item b{align-self:end}#product-suite-overview .product-suite-item span{align-self:start}}
 
 
+
+/* Step 2 redesign: simplify the offer and make the three product previews prominent */
+#treatment-assets{background:linear-gradient(160deg,#111827 0%,#09090b 65%);border-color:#374151}
+#treatment-assets #diagnosed-solution-grid{grid-template-columns:1fr;gap:16px}
+#treatment-assets #diagnosed-gap-card{padding:18px 22px;background:linear-gradient(110deg,#422006,#1c1917 62%,#09090b)}
+#treatment-assets #diagnosed-gap-card ol{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+#treatment-assets #diagnosed-gap-card li{padding:10px 12px;border:1px solid #fb923c35;border-radius:10px;background:#0c0a0980}
+#treatment-assets #diagnosed-gap-card .diagnosed-gap-divider{margin:12px 0}
+#treatment-assets #diagnosed-solution-grid .asset-preview-card{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(220px,.8fr);align-items:stretch;border-color:#374151;background:#111827;box-shadow:0 12px 35px #0003}
+#treatment-assets #diagnosed-solution-grid .asset-preview-card> :first-child{min-width:0;align-self:stretch}
+#treatment-assets #diagnosed-solution-grid .asset-preview-card>.p-5{padding:22px;display:flex;flex-direction:column;justify-content:center}
+#treatment-assets #diagnosed-solution-grid .asset-preview-card .asset-price-panel{margin:14px 0}
+#treatment-assets .asset-page,#treatment-assets .leadmagnet-page,#treatment-assets .conversion-site-page{min-height:270px}
+#treatment-assets .asset-brand,#treatment-assets .leadmagnet-top,#treatment-assets .conversion-site-header{font-size:11px}
+#treatment-assets .asset-hero{min-height:220px}
+#treatment-assets .asset-hero-copy h4{font-size:clamp(20px,2vw,30px);line-height:1.05}
+#treatment-assets .leadmagnet-guide-wrap{min-height:320px}
+#treatment-assets .conversion-tools-stage{min-height:320px}
+#treatment-assets .asset-preview-card .text-xs.font-bold.text-emerald-300{display:inline-flex;align-self:flex-start;border:1px solid #10b98155;border-radius:999px;padding:8px 11px;background:#064e3b40}
+@media(max-width:900px){#treatment-assets #diagnosed-solution-grid .asset-preview-card{grid-template-columns:1fr}#treatment-assets #diagnosed-solution-grid .asset-preview-card>.p-5{padding:18px}}
+@media(max-width:620px){#treatment-assets #diagnosed-gap-card ol{grid-template-columns:1fr}#treatment-assets #diagnosed-solution-grid .asset-preview-card{grid-template-columns:1fr}}
+
 /* Diagnosis-led solution: one diagnosed gap plus its three matched assets */
 #diagnosed-solution-grid{display:grid;grid-template-columns:minmax(155px,.72fr) repeat(3,minmax(0,1fr));gap:12px;align-items:stretch}
 #diagnosed-solution-grid .asset-preview-card{min-width:0}
