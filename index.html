@@ -1262,7 +1262,7 @@ try{
 const responsePromise=fetch('https://doctor-approach-api.onrender.com/api/snapshot',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({website,country:document.getElementById('scan-country')?.value||'AUTO'})}).then(async r=>{const d=await r.json();if(!r.ok||!d.success){const error=new Error(d.error||'The Snapshot could not be completed.');error.code=d.code||'';throw error;}return d;});
 const [d]=await Promise.all([responsePromise,minimumWait]);
 clearInterval(progressTimer);updateScanProgress(5,true);
-const s=d.snapshot||{};window.__snapshotSector=s.sector||'unknown';window.__snapshotCountry=s.country||document.getElementById('scan-country')?.value||'UK';let gaps=Array.isArray(s.keyFindings)?s.keyFindings:[];
+const s=d.snapshot||{};window.__snapshotData=s;window.__snapshotSector=s.sector||'unknown';window.__snapshotCountry=s.country||document.getElementById('scan-country')?.value||'UK';window.__snapshotBusiness=s.businessName||s.business||'';window.__snapshotAssets=s.assetManifest||s.assets||null;let gaps=Array.isArray(s.keyFindings)?s.keyFindings:[];
 // Preserve the primary diagnostic card when the API supplies a primary gap but its short keyFindings list is empty.
 if(!gaps.length&&s.primaryGrowthGap){const p=s.primaryGrowthGap;gaps=[{category:p.driver||p.category||'Growth',name:p.title||p.growthGap||'A potential growth gap to investigate',title:p.title||p.growthGap||'A potential growth gap to investigate',growthGap:p.growthGap,description:p.observation||p.growthGap,observation:p.observation,fact:p.evidenceSummary,diagnosis:p.interpretation,commercialImplication:p.commercialImplication,treatment:p.treatment,priority:p.priority,evidenceStrength:p.evidenceStrength,evidencePageUrl:p.evidencePageUrl||p.pageUrl||s.website,screenshotUrl:p.screenshotUrl||p.imageUrl}];}
 
@@ -2295,6 +2295,47 @@ try{const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.targ
  new MutationObserver(sync).observe(title,{childList:true,subtree:true,characterData:true});
  new MutationObserver(sync).observe(category,{childList:true,subtree:true,characterData:true});
  new MutationObserver(sync).observe(intro,{childList:true,subtree:true,characterData:true});
+})();
+</script>
+
+
+<script>
+/* Scan-aware asset handoff. Agentic AI may supply a manifest in the Snapshot response.
+   Without that manifest, link to clearly labelled working templates, never pretend they are AI-generated/published assets. */
+(function(){
+ const root=document.getElementById('offer-page');if(!root)return;
+ const params=(asset,industry,business,website,gap)=>'working-asset.html?'+new URLSearchParams({asset,industry,business,website,gap}).toString();
+ const ctx=()=>{const s=window.__snapshotData||{};const site=String(s.website||document.getElementById('snapshot-website')?.textContent||document.getElementById('website')?.value||'').toLowerCase();const name=String(s.businessName||s.business||window.__snapshotBusiness||site.replace(/^https?:\/\//,'').replace(/\/$/,'')||'Your business');const sector=String(s.sector||window.__snapshotSector||'').toLowerCase();const all=sector+' '+site+' '+name.toLowerCase();let industry='general';if(/dent|orthodont|endodont|periodont|dental|smile/.test(all))industry='dental';else if(/roof|roofer|roofing/.test(all))industry='roofing';else if(/chiropract/.test(all))industry='chiropractic';else if(/hvac|heating|air.?conditioning/.test(all))industry='hvac';const gap=document.getElementById('primary-gap-title')?.textContent||'growth opportunity';return {s,site,name,industry,gap};};
+ const rows=[{id:'landing',title:'Conversion-focused landing page',asset:'landing'},{id:'guide',title:'Lead magnet and homeowner/patient guide',asset:'guide'},{id:'blog',title:'Blog setup and helpful articles',asset:'blog'}];
+ function sync(){
+  const c=ctx();const names={dental:['Patient-focused service landing page','Patient information guide','Dental advice blog and two article drafts'],roofing:['Homeowner-focused roofing landing page','Homeowner roofing guide','Roofing advice blog and two article drafts'],chiropractic:['Patient-focused service landing page','Patient information guide','Wellness advice blog and two article drafts'],hvac:['Homeowner-focused service landing page','Homeowner maintenance guide','HVAC advice blog and two article drafts'],general:['Conversion-focused service landing page','Customer guide','Business advice blog and two article drafts']}[c.industry];
+  const intro=root.querySelector('h3'); // only used to keep the offer clearly tied to scan context
+  root.querySelectorAll('.offer-product-row').forEach((row,i)=>{
+   const h=row.querySelector('.offer-product-copy h4');if(h)h.textContent=names[i]||rows[i].title;
+   const old=row.querySelector('.asset-live-link');if(old)old.remove();
+   const copy=row.querySelector('.offer-product-copy');if(!copy)return;
+   const manifest=window.__snapshotAssets;
+   const key=rows[i].asset;
+   let assetRecord=null;
+   if(Array.isArray(manifest))assetRecord=manifest.find(a=>String(a.type||a.key||a.asset||'').toLowerCase().includes(key)||String(a.name||'').toLowerCase().includes(key));
+   else if(manifest&&typeof manifest==='object')assetRecord=manifest[key]||manifest[rows[i].id]||null;
+   const realUrl=assetRecord&&(assetRecord.url||assetRecord.publicUrl||assetRecord.previewUrl||assetRecord.href);
+   const link=document.createElement('a');link.className='asset-live-link';link.style.cssText='display:inline-flex;align-self:flex-start;margin-top:18px;padding:11px 15px;border-radius:9px;background:#0891b2;color:#fff;font-size:13px;font-weight:800;text-decoration:none';link.target='_blank';link.rel='noopener noreferrer';
+   if(realUrl&&/^https:\/\//i.test(realUrl)){
+    link.href=realUrl;link.textContent='Open generated asset ↗';
+    const status=String(assetRecord.status||assetRecord.publicationStatus||'').toLowerCase();
+    const note=document.createElement('p');note.style.cssText='font-size:11px;color:#a5f3fc;margin-top:7px';note.textContent=status==='published'?'Agentic AI asset · published link returned by asset manifest':'Agentic AI asset link returned by manifest · confirm status before use';copy.appendChild(link);copy.appendChild(note);
+   }else{
+    link.href=params(key,c.industry,c.name,c.site,c.gap);link.textContent='Open working '+(c.industry==='dental'?'dental':c.industry==='roofing'?'roofing':'business')+' draft ↗';
+    copy.appendChild(link);
+    const note=document.createElement('p');note.style.cssText='font-size:11px;color:#a1a1aa;margin-top:7px';note.textContent='Working, industry-personalised template preview. Agentic AI generation and publication are not yet connected to this scan.';copy.appendChild(note);
+   }
+  });
+ }
+ sync();
+ const target=document.getElementById('snapshot-website');if(target)new MutationObserver(sync).observe(target,{childList:true,subtree:true,characterData:true});
+ const gap=document.getElementById('primary-gap-title');if(gap)new MutationObserver(sync).observe(gap,{childList:true,subtree:true,characterData:true});
+ setInterval(()=>{if(window.__snapshotData)sync()},2500);
 })();
 </script>
 
