@@ -1587,10 +1587,10 @@ if(gaps.length){
  bundleItems.forEach((el,i)=>{el.textContent=String(i+1).padStart(2,'0')+' · '+bundleNames[i]});
 
  chosen.forEach((p,i)=>{
-  const z=slots[i],preview=['landing page','customer guide and opt-in page','smart pop-up and sticky call-to-action'][i];
-  set(z.label,'Asset '+p.id+' · '+p.cat);set(z.title,i===2?'Blog Setup + 2 Articles':p.name);
-  set(z.desc,i===2?'A proposed blog structure with two article starters. The visual is illustrative, not a live or published deliverable.':'Proposed '+p.name.toLowerCase()+'. The visual above is an illustrative '+preview+' layout, not a finished or published deliverable.');
-  set(z.why,i===2?'Two useful article starters give the business a practical content foundation built around customer questions.':p.why);set(z.out,i===2?'Intended outcome: a helpful content foundation, not a promise of rankings or traffic.':p.outcome);
+  const z=slots[i];
+  set(z.label,'Recommended asset '+(i+1)+' · '+p.id+' / '+p.cat);set(z.title,p.name);
+  set(z.desc,'Illustrative '+p.name.toLowerCase()+' concept selected from the '+p.cat+' product set using available scan findings. It is not a live or published deliverable.');
+  set(z.why,p.why);set(z.out,'Intended outcome: '+p.outcome);
  });
 
  // Industry-specific product previews: the scan category controls the visible mockup art and copy.
@@ -1770,7 +1770,7 @@ if(gaps.length){
  const requestBusiness=document.getElementById('solution-request-business'),requestWebsite=document.getElementById('solution-request-website');
  if(requestBusiness&&!requestBusiness.value)requestBusiness.value=String(business||'');
  const requestSite=String(s.website||website||'');
- if(requestWebsite&&!requestWebsite.value&&requestSite)requestWebsite.value=/^https?:\\/\\//i.test(requestSite)?requestSite:'https://'+requestSite.replace(/^\\/+/, '');
+ if(requestWebsite&&!requestWebsite.value&&requestSite)requestWebsite.value=(requestSite.startsWith('http://')||requestSite.startsWith('https://'))?requestSite:'https://'+requestSite.replace(/^\/+/, '');
  const step2Title=document.querySelector('#solution-reveal-step2 .solution-reveal-title');
  if(step2Title)step2Title.textContent='Three tailored concepts for '+business+'.';
  const step2Intro=document.querySelector('#solution-reveal-step2 .solution-reveal-intro');
