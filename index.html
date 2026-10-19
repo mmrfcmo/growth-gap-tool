@@ -580,6 +580,7 @@ html,body{overflow-x:hidden}
 .solution-evidence-difference{padding:1rem 1.2rem;border-top:1px solid #303945;background:rgba(15,23,42,.65);color:#dbe4ee;font-size:.9rem;line-height:1.65}
 .solution-evidence-difference strong{color:#fbbf24}
 .solution-evidence-note{margin:1rem 0;padding:1rem 1.1rem;border:1px solid rgba(251,191,36,.3);border-radius:1rem;background:rgba(120,78,8,.12);color:#dbe4ee;font-size:.88rem;line-height:1.65}
+.solution-demo-link{display:inline-flex;align-items:center;gap:8px;margin:10px 0 2px;padding:10px 13px;border:1px solid #64748b;border-radius:8px;color:#f8fafc;background:#1b2733;font-size:12px;font-weight:850;text-decoration:none}.solution-demo-link:hover{background:#263749;border-color:#fbbf24}.solution-demo-frame{display:block;width:100%;height:520px;border:0;background:#fff}.solution-evidence-proposed .solution-demo-frame{height:470px}.solution-evidence-proposed .solution-demo-link{margin:10px 0 0}
 @media(max-width:700px){.solution-evidence-grid{grid-template-columns:1fr}.solution-evidence-side{border-right:0;border-bottom:1px solid #303945}.solution-evidence-side:last-child{border-bottom:0}.solution-evidence-image{max-height:320px}}
 .solution-reveal-row{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.75fr);gap:clamp(1.25rem,3vw,2.5rem);align-items:center;padding:clamp(1.15rem,3vw,2rem);margin-top:1.5rem;border:1px solid #303640;border-radius:1.5rem;background:linear-gradient(125deg,#111720,#0b0e13 72%);box-shadow:0 18px 55px rgba(0,0,0,.22)}
 .solution-reveal-row:nth-of-type(odd){border-color:#49402c}
@@ -928,7 +929,7 @@ html,body{overflow-x:hidden}
    </div>
    <div class="solution-evidence-difference"><strong>What is different:</strong> <span id="solution-compare-difference">The proposed design will be explained in relation to the finding returned by the scan.</span> <span id="solution-compare-outcome">The intended benefit is described qualitatively; any conversion or revenue impact needs to be tested.</span></div>
   </section>
-  <div id="solution-evidence-fallback" class="solution-evidence-note" hidden><strong>Proposed solution, without an unsupported before-and-after claim.</strong> We couldn’t match a usable screenshot to a specific finding on this scan, so the report shows the proposed asset and its intended benefit below instead of implying we have proved a current-page problem.</div>
+  
 
   <article class="solution-reveal-row" id="solution-asset-landing">
    <div class="solution-preview-shell" id="solution-preview-1" aria-label="Recommended asset visual preview"></div><div class="solution-asset-copy">
@@ -1597,7 +1598,17 @@ if(gaps.length){
  const evidenceMatched=inCategory.filter(p=>p.re.test(primaryText)).sort((a,b)=>b.score-a.score);
  const fallback=inCategory.filter(p=>(fallbackOrder[primaryCat]||[]).includes(p.id)).sort((a,b)=>(fallbackOrder[primaryCat]||[]).indexOf(a.id)-(fallbackOrder[primaryCat]||[]).indexOf(b.id));
  const ordered=[...evidenceMatched,...fallback.filter(p=>!evidenceMatched.some(q=>q.id===p.id)),...inCategory.filter(p=>!evidenceMatched.some(q=>q.id===p.id)&&!fallback.some(q=>q.id===p.id)).sort((a,b)=>b.score-a.score)];
- const chosen=ordered.slice(0,3);
+ let chosen=ordered.slice(0,3);
+ // For a conversion diagnosis, present the three distinct experiences in a clear journey:
+ // landing page first, enquiry form second, contact routes third. Evidence still decides
+ // which products are selected; this only orders the selected concepts for review.
+ if(primaryCat==='conversion'){
+  const displayOrder=['C1','C3','C2'];
+  chosen=chosen.slice().sort((a,b)=>{
+   const ai=displayOrder.indexOf(a.id),bi=displayOrder.indexOf(b.id);
+   return (ai<0?99:ai)-(bi<0?99:bi);
+  });
+ }
  const slots=[
  {label:'asset-landing-label',title:'asset-landing-title',desc:'asset-landing-desc',why:'asset-landing-why',out:'asset-landing-outcome'},
  {label:'asset-guide-label',title:'asset-guide-card-title',desc:'asset-guide-desc',why:'asset-guide-why',out:'asset-guide-outcome'},
@@ -1809,10 +1820,39 @@ if(gaps.length){
   }
   return '<div class="solution-dynamic-art" style="'+vars+'">'+chrome+body+footer+'</div>';
  }
- ['solution-preview-1','solution-preview-2','solution-preview-3'].forEach((id,i)=>{const node=document.getElementById(id),p=chosen[i];if(node&&p)node.innerHTML=visualFor(p)});
+ function conversionDemoUrl(p,standalone=false){
+  const view=p.id==='C1'?'landing':p.id==='C3'?'form':p.id==='C2'?'routes':'landing';
+  return 'asset-conversion-demo.html?view='+encodeURIComponent(view)+'&industry='+encodeURIComponent(industryKey)+'&business='+encodeURIComponent(String(business||'Your Business'));
+ }
+ function renderAssetPreview(node,p){
+  if(!node||!p)return;
+  const demoViews={C1:'landing',C3:'form',C2:'routes'};
+  if(demoViews[p.id]){
+   node.innerHTML='';
+   const frame=document.createElement('iframe');
+   frame.className='solution-demo-frame';
+   frame.title=p.name+' interactive concept preview';
+   frame.src=conversionDemoUrl(p);
+   frame.loading='lazy';
+   frame.setAttribute('scrolling','yes');
+   frame.setAttribute('allow','clipboard-read; clipboard-write');
+   node.appendChild(frame);
+   const copy=node.parentElement?.querySelector('.solution-asset-copy');
+   if(copy&&!copy.querySelector('.solution-demo-link')){
+    const link=document.createElement('a');
+    link.className='solution-demo-link';
+    link.href=conversionDemoUrl(p,true);
+    link.target='_blank';link.rel='noopener noreferrer';
+    link.textContent='Open interactive demo in a new tab ↗';
+    copy.insertBefore(link,copy.querySelector('.solution-expand'));
+   }
+  }else node.innerHTML=visualFor(p);
+ }
+ ['solution-preview-1','solution-preview-2','solution-preview-3'].forEach((id,i)=>{const node=document.getElementById(id),p=chosen[i];renderAssetPreview(node,p)});
 
- // Evidence-backed comparison: show a real captured page only when its source URL matches
- // the finding and the finding text describes a concrete, relevant conversion issue.
+ // Evidence-backed comparison lives inside the matching asset row (not as a fourth asset).
+ // Only compare a current screenshot to a proposal when the capture URL matches the finding
+ // and the finding names a concrete issue relevant to that proposed product.
  const compare=document.getElementById('solution-evidence-compare');
  const fallbackNote=document.getElementById('solution-evidence-fallback');
  const evidenceDetail=getText(first,['observation','evidenceSummary','fact','description']).toLowerCase();
@@ -1821,31 +1861,53 @@ if(gaps.length){
  const concreteIssue=/(form|field|submit|contact|call to action|\bcta\b|enquir|booking|appointment|next step|value proposition|button|missing|unclear|hard to find|difficult|confusing|friction|broken|error|not visible|not prominent|page layout)/i.test(evidenceDetail);
  const screenshotItems=Array.isArray(s.screenshots)?s.screenshots:[];
  const matchedCapture=screenshotItems.map(item=>({imageUrl:getText(item,['imageUrl','screenshotUrl','url']),sourceUrl:getText(item,['sourceUrl']),title:getText(item,['title'])})).find(item=>item.imageUrl&&item.sourceUrl&&evidenceUrl&&normaliseEvidenceUrl(item.sourceUrl)===normaliseEvidenceUrl(evidenceUrl));
- if(compare&&fallbackNote){
-  if(matchedCapture&&concreteIssue&&chosen[0]){
-   const currentImage=document.getElementById('solution-compare-current-image');
-   const currentSource=document.getElementById('solution-compare-current-source');
-   const proposed=document.getElementById('solution-compare-proposed-art');
-   const difference=document.getElementById('solution-compare-difference');
-   const outcome=document.getElementById('solution-compare-outcome');
-   const compareTitle=document.getElementById('solution-compare-title');
-   const compareIntro=document.getElementById('solution-compare-intro');
-   currentImage.src=matchedCapture.imageUrl;
-   currentSource.textContent=(matchedCapture.title||'Captured page')+' · '+matchedCapture.sourceUrl;
-   proposed.innerHTML=visualFor(chosen[0]);
-   compareTitle.textContent='From the current page to a clearer next step';
-   compareIntro.textContent='The left side is a real page capture returned by the scan and matched to the finding’s source URL. The right side is a proposed design concept—not a published change.';
-   difference.textContent=chosen[0].id==='C3'?'The concept focuses on making the enquiry form easier to complete, with clearer fields and a more considered submission step.':chosen[0].id==='C2'?'The concept makes the intended contact or booking route more prominent and easier to identify.':chosen[0].id==='C4'?'The concept gives visitors useful decision-support information before inviting them to take the next step.':'The concept gives the service, customer benefit and next action a clearer visual hierarchy.';
-   outcome.textContent=' The intended benefit is a clearer customer journey; any change in enquiries or revenue must be measured, not assumed.';
-   compare.hidden=false;
-   fallbackNote.hidden=true;
-   currentImage.addEventListener('error',()=>{compare.hidden=true;fallbackNote.hidden=false;},{once:true});
-  }else{
-   compare.hidden=true;
-   fallbackNote.hidden=false;
+ if(compare){
+  compare.hidden=true;
+  if(fallbackNote)fallbackNote.hidden=true;
+  if(matchedCapture&&concreteIssue){
+   const targetId=/form|field|submit|validation|enquir form|booking form/i.test(evidenceDetail)?'C3':/(call to action|\bcta\b|contact route|phone|contact details|hard to find.*contact|booking route)/i.test(evidenceDetail)?'C2':'C1';
+   const targetIndex=chosen.findIndex(p=>p.id===targetId);
+   const target=targetIndex>=0?chosen[targetIndex]:null;
+   const row=target?document.getElementById(['solution-asset-landing','solution-asset-guide','solution-asset-blog'][targetIndex]):null;
+   if(target&&row){
+    const currentImage=document.getElementById('solution-compare-current-image');
+    const currentSource=document.getElementById('solution-compare-current-source');
+    const proposed=document.getElementById('solution-compare-proposed-art');
+    const difference=document.getElementById('solution-compare-difference');
+    const outcome=document.getElementById('solution-compare-outcome');
+    const compareTitle=document.getElementById('solution-compare-title');
+    const compareIntro=document.getElementById('solution-compare-intro');
+    currentImage.src=matchedCapture.imageUrl;
+    currentSource.textContent=(matchedCapture.title||'Captured page')+' · '+matchedCapture.sourceUrl;
+    proposed.innerHTML='';
+    if(['C1','C3','C2'].includes(target.id)){
+     const frame=document.createElement('iframe');
+     frame.className='solution-demo-frame';
+     frame.title=target.name+' proposed interactive concept';
+     frame.src=conversionDemoUrl(target,true);
+     frame.loading='eager';frame.setAttribute('scrolling','yes');
+     proposed.appendChild(frame);
+     const link=document.createElement('a');link.className='solution-demo-link';
+     link.href=conversionDemoUrl(target,true);link.target='_blank';link.rel='noopener noreferrer';
+     link.textContent='Open proposed concept in a new tab ↗';proposed.appendChild(link);
+    }else proposed.innerHTML=visualFor(target);
+    compareTitle.textContent='Current experience → proposed '+target.name.toLowerCase();
+    compareIntro.textContent='The left side is a real screenshot returned by the scan and matched to the finding’s source URL. The right side is an interactive proposed concept, not a published change.';
+    difference.textContent=target.id==='C3'?'The proposed form uses clearer labels, fewer first-step fields and a clear submission state.':target.id==='C2'?'The proposed layout separates phone, enquiry and booking routes so visitors can choose the right next step.':'The proposed page gives the service, customer benefit, supporting information and primary action a stronger visual hierarchy.';
+    outcome.textContent=' Intended benefit: a clearer customer journey. Any change in enquiry volume or revenue must be measured rather than assumed.';
+    const preview=row.querySelector('.solution-preview-shell');
+    if(preview)preview.hidden=true;
+    row.style.gridTemplateColumns='minmax(0,1fr)';
+    row.insertBefore(compare,row.firstElementChild);
+    compare.hidden=false;
+    currentImage.addEventListener('error',()=>{
+     compare.hidden=true;
+     if(preview)preview.hidden=false;
+     row.style.gridTemplateColumns='';
+    },{once:true});
+   }
   }
  }
-
 
  const detailMap={
   V1:['Confirm priority services and service areas.','Prepare a consistent local business-information checklist.','Validate the proposed changes against current search evidence.'],
