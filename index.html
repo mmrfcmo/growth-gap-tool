@@ -1374,22 +1374,22 @@ if(gaps.length){
  visibility:[
   {id:'V1',cat:'Visibility',name:'Local Visibility Page',why:'Give the priority service and location a clear, useful destination when the scan supports a local visibility gap.',outcome:'Help prospective customers understand which services are offered and where.'},
   {id:'V2',cat:'Visibility',name:'Service Page Builder',why:'A dedicated service page is appropriate when an important service lacks enough clear, specific information.',outcome:'Explain the service, who it helps and the next step in plain language.'},
-  {id:'V3',cat:'Visibility',name:'Blog Starter',why:'Useful articles can answer real customer questions where the evidence indicates an information gap.',outcome:'Create helpful, accurate content without promising rankings or traffic.'}
+  {id:'V3',cat:'Visibility',name:'Customer Question Content Pack',why:'Answer real customer questions where the evidence indicates an information gap.',outcome:'Create helpful, accurate content without promising rankings or traffic.'}
  ],
  trust:[
   {id:'T1',cat:'Trust',name:'Reviews Showcase',why:'Make genuine customer feedback easier to find and assess, where verified reviews are available.',outcome:'Present authentic reviews clearly without inventing ratings or testimonials.'},
   {id:'T2',cat:'Trust',name:'Customer Success Story',why:'A real customer story can demonstrate experience when the business has permission and evidence to support it.',outcome:'Show a credible example of the work and its context.'},
-  {id:'T3',cat:'Trust',name:'Credibility Profile',why:'Bring relevant, verifiable credentials and experience into one clear place.',outcome:'Help customers check who the business is and what supports its claims.'}
+  {id:'T3',cat:'Trust',name:'Credentials & Experience Profile',why:'Bring relevant, verifiable credentials and experience into one clear place.',outcome:'Help customers check who the business is and what supports its claims.'}
  ],
  conversion:[
   {id:'C1',cat:'Conversion',name:'Conversion Landing Page',why:'Create a focused destination where the service, customer benefit and next step are easy to understand.',outcome:'Give prospective customers a clear route to enquire or book.'},
-  {id:'C2',cat:'Conversion',name:'Lead Magnet System',why:'A useful guide can support people who need information before they are ready to enquire.',outcome:'Offer a practical resource with a permission-based opt-in and relevant next step.'},
-  {id:'C3',cat:'Conversion',name:'Sticky CTA / Notification Bar',why:'A clear, well-timed next step can make contacting the business easier while people browse.',outcome:'Keep the relevant enquiry or booking route easy to find without obstructing the page.'}
+  {id:'C2',cat:'Conversion',name:'Customer Guide & Lead Magnet',why:'A useful guide can support people who need information before they are ready to enquire.',outcome:'Offer a practical resource with a permission-based opt-in and relevant next step.'},
+  {id:'C3',cat:'Conversion',name:'Calls-to-Action Improvement Pack',why:'Improve the clarity and placement of the next step where the scan identifies an enquiry-route issue.',outcome:'Make the relevant enquiry or booking route easier to spot without obstructing the page.'}
  ],
  retention:[
-  {id:'R1',cat:'Retention',name:'Customer Follow-up Sequence',why:'A structured follow-up may help when the business confirms a genuine post-service communication gap.',outcome:'Plan useful, appropriate follow-up with clear consent and ownership.'},
-  {id:'R2',cat:'Retention',name:'Customer Comeback Campaign',why:'Re-engagement is relevant only when business records identify suitable past customers and a legitimate reason to contact them.',outcome:'Invite eligible customers back with a relevant, respectful message.'},
-  {id:'R3',cat:'Retention',name:'Review & Referral Sequence',why:'A simple follow-up can invite honest feedback or referrals where appropriate.',outcome:'Make it easy for satisfied customers to share genuine feedback without pressure.'}
+  {id:'R1',cat:'Retention',name:'Customer Follow-Up Sequence',why:'A structured follow-up may help when the business confirms a genuine post-service communication gap.',outcome:'Plan useful, appropriate follow-up with clear consent and ownership.'},
+  {id:'R2',cat:'Retention',name:'Repeat-Service Reminder Pack',why:'Only appropriate where the service naturally repeats and the business confirms a rebooking opportunity.',outcome:'Make the next relevant service or rebooking step easy to remember.'},
+  {id:'R3',cat:'Retention',name:'Customer Newsletter Starter',why:'Use only if the business has a permission-based audience and a useful reason to keep in touch.',outcome:'Share useful updates with customers who agreed to receive them.'}
  ]
  };
  const chosen=chosenByCategory[primaryCat]||chosenByCategory.conversion;
@@ -1404,10 +1404,10 @@ if(gaps.length){
  set('diagnosed-gap-title',gapNames[primaryCat]||'Growth gap');
  set('diagnosed-gap-summary',primaryCat==='conversion'?'Turn interest into enquiries.':primaryCat==='visibility'?'Help the right customers find the business.':primaryCat==='trust'?'Give customers stronger reasons to feel confident.':'Encourage repeat visits and ongoing customer relationships.');
  const diagnosedNames={
- visibility:['Local Visibility Page','Service Page Builder','Blog Starter'],
- trust:['Reviews Showcase','Customer Success Story','Credibility Profile'],
- conversion:['Conversion Landing Page','Lead Magnet System','Sticky CTA / Notification Bar'],
- retention:['Customer Follow-up Sequence','Customer Comeback Campaign','Review & Referral Sequence']
+ visibility:['Local Visibility Page','Service Page Builder','Customer Question Content Pack'],
+ trust:['Reviews Showcase','Customer Success Story','Credentials & Experience Profile'],
+ conversion:['Conversion Landing Page','Customer Guide & Lead Magnet','Calls-to-Actions Improvement Pack'],
+ retention:['Customer Follow-Up Sequence','Repeat-Service Reminder Pack','Customer Newsletter Starter']
  }[primaryCat]||['Recommended asset 1','Recommended asset 2','Recommended asset 3'];
  document.querySelectorAll('#diagnosed-gap-card li').forEach((li,i)=>{const span=li.querySelector('span'),b=li.querySelector('b');if(span)span.textContent=diagnosedNames[i];if(b)b.textContent=({visibility:['V1','V2','V3'],trust:['T1','T2','T3'],conversion:['C1','C2','C3'],retention:['R1','R2','R3']}[primaryCat]||['1','2','3'])[i]});
 
@@ -1418,10 +1418,10 @@ if(gaps.length){
  if(bundleCopy)bundleCopy.textContent=(isDental?'For '+business+': three dental-practice concepts tailored to the diagnosed '+(gapNames[primaryCat]||'growth')+' gap.':isRoof?'For '+business+': three roofing concepts tailored to the diagnosed '+(gapNames[primaryCat]||'growth')+' gap.':'For '+business+': three sector-adapted concepts tailored to the diagnosed '+(gapNames[primaryCat]||'growth')+' gap.');
  const bundleItems=document.querySelectorAll('#annual-product-bundle li');
  const bundleNames={
-  visibility:['Local Visibility Page','Service Page Builder','Blog Starter'],
-  trust:['Reviews Showcase','Customer Success Story','Credibility Profile'],
-  conversion:['Conversion Landing Page','Lead Magnet System','Sticky CTA / Notification Bar'],
-  retention:['Customer Follow-up Sequence','Customer Comeback Campaign','Review & Referral Sequence']
+  visibility:['Local Visibility Page','Service Page Builder','Customer Question Content Pack'],
+  trust:['Reviews Showcase','Customer Success Story','Credentials & Experience Profile'],
+  conversion:['Conversion Landing Page','Customer Guide & Lead Magnet','Calls-to-Actions Improvement Pack'],
+  retention:['Customer Follow-Up Sequence','Repeat-Service Reminder Pack','Customer Newsletter Starter']
  }[primaryCat]||['Recommended product 1','Recommended product 2','Recommended product 3'];
  bundleItems.forEach((el,i)=>{el.textContent=String(i+1).padStart(2,'0')+' · '+bundleNames[i]});
 
